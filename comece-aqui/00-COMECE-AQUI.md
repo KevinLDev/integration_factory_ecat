@@ -39,6 +39,18 @@ Abra:
 
 `comece-aqui/integrar-erp/ERPS-INTEGRADOS.md`
 
+### IA DE APOIO — OPCIONAL
+
+Não é uma jornada de integração. É uma ferramenta de acompanhamento e revisão.
+
+Se você quer trabalhar com duas IAs simultaneamente (Codex no VS Code + uma IA externa como revisor), setup a IA de Apoio:
+
+Abra:
+
+`comece-aqui/apoio-ia/00-COMECE-AQUI.md`
+
+A IA de Apoio revisa, valida e diagnostica trabalho do Codex. Ela não executa sozinha, mas orienta quando há problema. Toda a estrutura, regras e autoridades estão documentadas em `documentacao/10-IA-DE-APOIO-DA-FABRICA.md`.
+
 ## Como operar
 
 Você não precisa conhecer a estrutura interna do Harness para começar.
