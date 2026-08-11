@@ -9,16 +9,16 @@
     "execucao": "parceiros/execucoes/ferramentas/forca-de-vendas"
   },
   "resultado": {
-    "status": "CONCLUIDA",
+    "status": "PENDENTE",
     "tipo_auditoria": "PROFUNDA",
     "auditoria_vigente": {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md",
-      "sha256": "4B162B005F47680CC679236EA9E02D10997AE3EE3C45F818D52A4A8DB5542879",
-      "resultado": "APROVADA"
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md",
+      "sha256": "83984A704B78B862C15D4B0EA9F0C36AF2A0ED97EC8C4994D75A90B31246D7CA",
+      "resultado": "REPROVADA"
     },
-    "resultado_tecnico": "APTO_PARA_INTEGRACOES",
-    "prontidao": "HOMOLOGADA_PARA_INTEGRACOES",
-    "avaliacao_na_baseline_atual": "EXECUTADA_E_APROVADA"
+    "resultado_tecnico": "NAO_APTO_PARA_INTEGRACOES",
+    "prontidao": "NAO_HOMOLOGADA",
+    "avaliacao_na_baseline_atual": "NAO_EXECUTADA"
   },
   "fontes": [
     {
@@ -39,11 +39,11 @@
   "saidas": [
     {
       "caminho": "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "sha256": "87B31D5F07743890757CD5A6E364E6AF1BB8FB6D9C06DAD63A7AC343E7A7FD4B"
+      "sha256": "B07C16F927605E6B4D445D0754E8E750D312078A9D2CA10E5F951409F815ED99"
     },
     {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md",
-      "sha256": "4B162B005F47680CC679236EA9E02D10997AE3EE3C45F818D52A4A8DB5542879"
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md",
+      "sha256": "83984A704B78B862C15D4B0EA9F0C36AF2A0ED97EC8C4994D75A90B31246D7CA"
     }
   ],
   "dependencias": [
@@ -53,23 +53,23 @@
       "hashes_esperados": [
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
-          "sha256": "90399B66E0F92172D0B4807C40BD97DD3ABE7DEFBE8DFB0EBBD7E351170C9AD9"
+          "sha256": "B0D78C2A555C9A3B11C632659D8599A0D9F8B150CECB9E92905BCE82F3276014"
         },
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
-          "sha256": "3CEC7DF7C4AF0270CD6986812B59697239429C37964CAEC2EA6C424203AC7F5E"
+          "sha256": "C87D0F345B9D77691E7523355CC06A76812FBC1927DFC45DF7A99DEA8F77C5AB"
         },
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
-          "sha256": "0D0B2C7A833D2A7AB8AF4DD1E4D46C6F04E3F6CF9DC662F33FEF7B0124669324"
+          "sha256": "459C5D31A86ADEE0602842185A2D794E48FC76E30AB962B8917769799CE49870"
         },
         {
           "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
-          "sha256": "1A8CD4E66EAF731CA8A463577DE3EE34F0A2605341DBD359086F30D774919B5D"
+          "sha256": "99D94F20045908E8D5D236474ED307550171F12752455FDE8CECD7394DCBF840"
         },
         {
-          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md",
-          "sha256": "A9500881C798D950337781E1D9EEA54164C9F47E4F636DEF10BB7A0DADE89D0C"
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01.md",
+          "sha256": "B8DC1F19AA65A2D8391317C2074B939DB97BBE34D4E1DED556E4A8C59DD810AA"
         }
       ]
     },
@@ -79,35 +79,35 @@
       "hashes_esperados": [
         {
           "caminho": "ferramentas/forca-de-vendas/README.md",
-          "sha256": "FFF8B40745E26B626124D7137EEE1BAD939AC4B109D5D4E69219C97A42AD0B03"
+          "sha256": "15DA506C8B3CDBE7D4DB757FBE7295C06D86B133A7F1DBA346831AF721F1EAB7"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/CONTRATO-DA-FERRAMENTA.yaml",
-          "sha256": "870FCC6D206010B39CCF734B5012B053E8C69767804C7E048914834F6A2D3062"
+          "sha256": "0E4E9C8A6835CB67D22BE7262477711DBA117A4411A9DBF2E2F39A8DCF64B91F"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/MODULOS.md",
-          "sha256": "2AA31B1BCD845FE1E0DA48904C6345A7D2708D8457AA8D195BBE6FCDC20EE68A"
+          "sha256": "3D719CFC6149B5BD656CF91296C0EEB405B62FC1943E01AEF0F8C305C7A905C0"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/DEPENDENCIAS.md",
-          "sha256": "24DA857807A3D9D862170294A79ACEA969E92D90619A33CC2CCA8EF1E115EFE0"
+          "sha256": "4E7476042220B4B834B4EC73B0F10EE33EB4A4664EDBE8EB2D5B5614E986A712"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
-          "sha256": "82AD52AC8A6E3EF8AC1962BAA7658A25C8803B224F2DECC613B0BB5FE5850848"
+          "sha256": "9BA0335D7E768E7995CEAE47B3F9239FC4B31DD062697672525306CD0B65B049"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/PENDENCIAS.md",
-          "sha256": "D189723EBCB538160CF56EB12D04049F2E495175EBD108F2BF2775D46128BB15"
+          "sha256": "7653891DD21FA4022E6C595A04C8178819678733383EDC3FCFC9CBFDF4B799B0"
         },
         {
           "caminho": "ferramentas/forca-de-vendas/FONTES.md",
-          "sha256": "288D052320320FCC332D26027E9452F87A7FAF69DD25BCF0B0ADE0F7AF42DCF8"
+          "sha256": "F2BDF339BF8400D5C302D05A8327C091D43591EB18210ECF48390AAD81BE2506"
         },
         {
-          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
-          "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E"
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-POS-CORRECOES.md",
+          "sha256": "8A39653D8596078C7294FF0B601300379086512FD46EB45A62DE062A8B18852B"
         }
       ]
     }
@@ -139,21 +139,21 @@
   "validacoes_mecanicas": {
     "arquivos_obrigatorios": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
     ],
     "utf8": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
     ],
     "markdown": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
     ],
     "contagens": [],
     "ids": []
   },
   "vigencia": {
-    "estado": "VALIDO",
-    "motivo": null
+    "estado": "INVALIDADO_POR_MUDANCA_UPSTREAM",
+    "motivo": "O Passo 03 historico consumiu 4/4 artefatos antigos do Passo 01, 7/7 canônicos antigos do Passo 02 e auditorias hoje superadas. As fontes oficiais e as duas saidas historicas permanecem integras, mas esta validacao nao representa a baseline atual."
   }
 }
