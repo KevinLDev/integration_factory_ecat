@@ -14,61 +14,74 @@
     "auditoria_vigente": {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
       "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E",
+      "hash_mode": "TEXT_CANONICAL_V1",
       "resultado": "APROVADA"
     }
   },
   "fontes": [
     {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.pdf",
-      "sha256": "2C8AAB2659BCF8974905912024E86A0B7D1053FB55E2A5FE727785FC1AD01BFB"
+      "sha256": "2C8AAB2659BCF8974905912024E86A0B7D1053FB55E2A5FE727785FC1AD01BFB",
+      "hash_mode": "BYTES_V1"
     },
     {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.extraido.txt",
-      "sha256": "A4B16B88AE820A2B543F72C18FD0908E843C01D948B22BECEB63F8EA9A2B1D5F"
+      "sha256": "A4B16B88AE820A2B543F72C18FD0908E843C01D948B22BECEB63F8EA9A2B1D5F",
+      "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
   "entradas": [
     {
       "caminho": "parceiros/comandos/02-CADASTRAR-FERRAMENTA.md",
-      "sha256": "A57D36D87FDBB81373A3536002C94551AF5D46B665B9A76B82BD444241F2B779"
+      "sha256": "53873A860403F7AE4E4E2A358BA7E875D611F47E6C2AB136F31F612C6E517E8D",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DIAGNOSTICO-CORRECAO-POS-PASSO-03.md",
-      "sha256": "5770C7D5FFD13CCDD014D72AF2C8683C56F3C6ECB88CDF9201E3F84559A651B8"
+      "sha256": "5770C7D5FFD13CCDD014D72AF2C8683C56F3C6ECB88CDF9201E3F84559A651B8",
+      "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
   "saidas": [
     {
       "caminho": "ferramentas/forca-de-vendas/README.md",
-      "sha256": "FFF8B40745E26B626124D7137EEE1BAD939AC4B109D5D4E69219C97A42AD0B03"
+      "sha256": "FFF8B40745E26B626124D7137EEE1BAD939AC4B109D5D4E69219C97A42AD0B03",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/CONTRATO-DA-FERRAMENTA.yaml",
-      "sha256": "870FCC6D206010B39CCF734B5012B053E8C69767804C7E048914834F6A2D3062"
+      "sha256": "DDDE41534986D6228A332C2A214ECBD7C052B3DB0FADED5BE3ACB96D76A79B85",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/MODULOS.md",
-      "sha256": "2AA31B1BCD845FE1E0DA48904C6345A7D2708D8457AA8D195BBE6FCDC20EE68A"
+      "sha256": "2AA31B1BCD845FE1E0DA48904C6345A7D2708D8457AA8D195BBE6FCDC20EE68A",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/DEPENDENCIAS.md",
-      "sha256": "24DA857807A3D9D862170294A79ACEA969E92D90619A33CC2CCA8EF1E115EFE0"
+      "sha256": "24DA857807A3D9D862170294A79ACEA969E92D90619A33CC2CCA8EF1E115EFE0",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
-      "sha256": "82AD52AC8A6E3EF8AC1962BAA7658A25C8803B224F2DECC613B0BB5FE5850848"
+      "sha256": "82AD52AC8A6E3EF8AC1962BAA7658A25C8803B224F2DECC613B0BB5FE5850848",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/PENDENCIAS.md",
-      "sha256": "D189723EBCB538160CF56EB12D04049F2E495175EBD108F2BF2775D46128BB15"
+      "sha256": "D189723EBCB538160CF56EB12D04049F2E495175EBD108F2BF2775D46128BB15",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "ferramentas/forca-de-vendas/FONTES.md",
-      "sha256": "288D052320320FCC332D26027E9452F87A7FAF69DD25BCF0B0ADE0F7AF42DCF8"
+      "sha256": "288D052320320FCC332D26027E9452F87A7FAF69DD25BCF0B0ADE0F7AF42DCF8",
+      "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
-      "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E"
+      "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E",
+      "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
   "dependencias": [
@@ -78,23 +91,28 @@
       "hashes_esperados": [
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
-          "sha256": "90399B66E0F92172D0B4807C40BD97DD3ABE7DEFBE8DFB0EBBD7E351170C9AD9"
+          "sha256": "03DB8C7869ADC97B8175696775A9E313C174CDFB0B5BC400EE24EC02E121F9A9",
+          "hash_mode": "TEXT_CANONICAL_V1"
         },
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
-          "sha256": "3CEC7DF7C4AF0270CD6986812B59697239429C37964CAEC2EA6C424203AC7F5E"
+          "sha256": "3CEC7DF7C4AF0270CD6986812B59697239429C37964CAEC2EA6C424203AC7F5E",
+          "hash_mode": "TEXT_CANONICAL_V1"
         },
         {
           "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
-          "sha256": "0D0B2C7A833D2A7AB8AF4DD1E4D46C6F04E3F6CF9DC662F33FEF7B0124669324"
+          "sha256": "0D0B2C7A833D2A7AB8AF4DD1E4D46C6F04E3F6CF9DC662F33FEF7B0124669324",
+          "hash_mode": "TEXT_CANONICAL_V1"
         },
         {
           "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
-          "sha256": "1A8CD4E66EAF731CA8A463577DE3EE34F0A2605341DBD359086F30D774919B5D"
+          "sha256": "4F3E332B6427D77EA553E75D63828BD8E6C719AAE828D206F403460C201AEF98",
+          "hash_mode": "TEXT_CANONICAL_V1"
         },
         {
           "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md",
-          "sha256": "A9500881C798D950337781E1D9EEA54164C9F47E4F636DEF10BB7A0DADE89D0C"
+          "sha256": "A9500881C798D950337781E1D9EEA54164C9F47E4F636DEF10BB7A0DADE89D0C",
+          "hash_mode": "TEXT_CANONICAL_V1"
         }
       ]
     }

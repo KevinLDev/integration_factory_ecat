@@ -14,6 +14,7 @@
     "auditoria_vigente": {
       "caminho": null,
       "sha256": null,
+      "hash_mode": null,
       "resultado": null
     },
     "resultado_tecnico": null,
@@ -22,19 +23,22 @@
   "fontes": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "entradas": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "saidas": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "dependencias": [
@@ -44,7 +48,8 @@
       "hashes_esperados": [
         {
           "caminho": null,
-          "sha256": null
+          "sha256": null,
+          "hash_mode": null
         }
       ]
     }

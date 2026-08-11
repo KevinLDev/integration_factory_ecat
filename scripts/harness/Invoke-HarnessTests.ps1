@@ -30,6 +30,13 @@ function Write-Utf8Fixture {
     [System.IO.File]::WriteAllText($FullPath, $Content, $encoding)
 }
 
+function Write-BinaryFixture {
+    param([string]$FullPath, [byte[]]$Content)
+    $parent = [System.IO.Path]::GetDirectoryName($FullPath)
+    if (-not [System.IO.Directory]::Exists($parent)) { $null = [System.IO.Directory]::CreateDirectory($parent) }
+    [System.IO.File]::WriteAllBytes($FullPath, $Content)
+}
+
 try {
     $root = Get-HarnessRepositoryRoot -RepoRoot $RepoRoot
     $manifestDirFull = Resolve-HarnessPath -RepoRoot $root -Path $ManifestDirectory
@@ -91,20 +98,27 @@ try {
     Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamAudit) -Content "# Auditoria downstream`n`nAPROVADA`n"
     Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $terminalAudit) -Content "# Auditoria terminal`n`nAPROVADA`n"
 
-    $upHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $upstreamData)
-    $downHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamData)
-    $terminalHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $terminalData)
-    $upAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $upstreamAudit)
-    $downAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamAudit)
-    $terminalAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $terminalAudit)
+    $textMode = 'TEXT_CANONICAL_V1'
+    $binaryMode = 'BYTES_V1'
+
+    $upHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $upstreamData) -HashMode $textMode
+    $downHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamData) -HashMode $textMode
+    $terminalHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $terminalData) -HashMode $textMode
+    $upAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $upstreamAudit) -HashMode $textMode
+    $downAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamAudit) -HashMode $textMode
+    $terminalAuditHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $terminalAudit) -HashMode $textMode
+
+    $binaryFixturePath = "$relativeBase/arquivo.bin"
+    Write-BinaryFixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $binaryFixturePath) -Content ([byte[]](0x00, 0x01, 0x02, 0x03, 0xFF))
+    $binaryHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $binaryFixturePath) -HashMode $binaryMode
 
     $upObject = [ordered]@{
         schema = 'harness.manifesto-etapa.v1'
         identidade = [ordered]@{ tipo_alvo = 'TESTE'; alvo = 'fixture'; slug = 'fixture'; jornada = 'TESTE'; etapa = '01'; execucao = $relativeBase }
-        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'PROFUNDA'; auditoria_vigente = [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash; resultado = 'APROVADA' } }
+        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'PROFUNDA'; auditoria_vigente = [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash; hash_mode = $textMode; resultado = 'APROVADA' } }
         fontes = @()
         entradas = @()
-        saidas = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash }, [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash })
+        saidas = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash; hash_mode = $textMode }, [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash; hash_mode = $textMode })
         dependencias = @()
         gate_reutilizacao = [ordered]@{ requisitos = @([ordered]@{ campo = 'resultado.status'; valor_esperado = 'CONCLUIDA' }, [ordered]@{ campo = 'resultado.auditoria_vigente.resultado'; valor_esperado = 'APROVADA' }) }
         vigencia = [ordered]@{ estado = 'VALIDO'; motivo = $null }
@@ -112,22 +126,22 @@ try {
     $downObject = [ordered]@{
         schema = 'harness.manifesto-etapa.v1'
         identidade = [ordered]@{ tipo_alvo = 'TESTE'; alvo = 'fixture'; slug = 'fixture'; jornada = 'TESTE'; etapa = '02'; execucao = $relativeBase }
-        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash; resultado = 'APROVADA' } }
+        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash; hash_mode = $textMode; resultado = 'APROVADA' } }
         fontes = @()
         entradas = @()
-        saidas = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash }, [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash })
-        dependencias = @([ordered]@{ etapa_upstream = '01'; manifesto_upstream = $upstreamManifest; hashes_esperados = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash }, [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash }) })
+        saidas = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash; hash_mode = $textMode }, [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash; hash_mode = $textMode })
+        dependencias = @([ordered]@{ etapa_upstream = '01'; manifesto_upstream = $upstreamManifest; hashes_esperados = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash; hash_mode = $textMode }, [ordered]@{ caminho = $upstreamAudit; sha256 = $upAuditHash; hash_mode = $textMode }) })
         gate_reutilizacao = [ordered]@{ requisitos = @([ordered]@{ campo = 'resultado.status'; valor_esperado = 'CONCLUIDA' }, [ordered]@{ campo = 'resultado.auditoria_vigente.resultado'; valor_esperado = 'APROVADA' }) }
         vigencia = [ordered]@{ estado = 'VALIDO'; motivo = $null }
     }
     $terminalObject = [ordered]@{
         schema = 'harness.manifesto-etapa.v1'
         identidade = [ordered]@{ tipo_alvo = 'TESTE'; alvo = 'fixture'; slug = 'fixture'; jornada = 'TESTE'; etapa = '03'; execucao = $relativeBase }
-        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $terminalAudit; sha256 = $terminalAuditHash; resultado = 'APROVADA' } }
+        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $terminalAudit; sha256 = $terminalAuditHash; hash_mode = $textMode; resultado = 'APROVADA' } }
         fontes = @()
         entradas = @()
-        saidas = @([ordered]@{ caminho = $terminalData; sha256 = $terminalHash }, [ordered]@{ caminho = $terminalAudit; sha256 = $terminalAuditHash })
-        dependencias = @([ordered]@{ etapa_upstream = '02'; manifesto_upstream = $downstreamManifest; hashes_esperados = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash }, [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash }) })
+        saidas = @([ordered]@{ caminho = $terminalData; sha256 = $terminalHash; hash_mode = $textMode }, [ordered]@{ caminho = $terminalAudit; sha256 = $terminalAuditHash; hash_mode = $textMode }, [ordered]@{ caminho = $binaryFixturePath; sha256 = $binaryHash; hash_mode = $binaryMode })
+        dependencias = @([ordered]@{ etapa_upstream = '02'; manifesto_upstream = $downstreamManifest; hashes_esperados = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash; hash_mode = $textMode }, [ordered]@{ caminho = $downstreamAudit; sha256 = $downAuditHash; hash_mode = $textMode }) })
         gate_reutilizacao = [ordered]@{ requisitos = @([ordered]@{ campo = 'resultado.status'; valor_esperado = 'CONCLUIDA' }, [ordered]@{ campo = 'resultado.auditoria_vigente.resultado'; valor_esperado = 'APROVADA' }) }
         vigencia = [ordered]@{ estado = 'VALIDO'; motivo = $null }
     }
@@ -170,6 +184,7 @@ try {
     $gateObject.identidade.jornada = 'INTEGRAR_NOVA_FERRAMENTA'
     $gateObject.identidade.etapa = '03-VALIDAR-FERRAMENTA-CADASTRADA'
     $gateObject.resultado.tipo_auditoria = 'NORMAL'
+    $gateObject.resultado.auditoria_vigente.hash_mode = $textMode
     $gateObject.resultado | Add-Member -NotePropertyName 'resultado_tecnico' -NotePropertyValue 'NAO_APTO_PARA_INTEGRACOES'
     $gateObject.resultado | Add-Member -NotePropertyName 'prontidao' -NotePropertyValue 'NAO_HOMOLOGADA'
     $gateObject.gate_reutilizacao.requisitos = @(
@@ -190,10 +205,10 @@ try {
     $bypassObject = [ordered]@{
         schema = 'harness.manifesto-etapa.v1'
         identidade = [ordered]@{ tipo_alvo = 'FERRAMENTA'; alvo = 'fixture'; slug = 'fixture'; jornada = 'JORNADA_ADULTERADA'; etapa = '03-VALIDAR-FERRAMENTA-CADASTRADA'; execucao = 'parceiros/execucoes/ferramentas/fixture' }
-        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $bypassAudit; sha256 = $bypassAuditHash; resultado = 'APROVADA' }; resultado_tecnico = 'NAO_APTO_PARA_INTEGRACOES'; prontidao = 'NAO_HOMOLOGADA' }
+        resultado = [ordered]@{ status = 'CONCLUIDA'; tipo_auditoria = 'NORMAL'; auditoria_vigente = [ordered]@{ caminho = $bypassAudit; sha256 = $bypassAuditHash; hash_mode = $textMode; resultado = 'APROVADA' }; resultado_tecnico = 'NAO_APTO_PARA_INTEGRACOES'; prontidao = 'NAO_HOMOLOGADA' }
         fontes = @()
         entradas = @()
-        saidas = @([ordered]@{ caminho = $bypassData; sha256 = $bypassDataHash }, [ordered]@{ caminho = $bypassAudit; sha256 = $bypassAuditHash })
+        saidas = @([ordered]@{ caminho = $bypassData; sha256 = $bypassDataHash; hash_mode = $textMode }, [ordered]@{ caminho = $bypassAudit; sha256 = $bypassAuditHash; hash_mode = $textMode })
         dependencias = @()
         gate_reutilizacao = [ordered]@{ requisitos = @([ordered]@{ campo = 'resultado.status'; valor_esperado = 'CONCLUIDA' }, [ordered]@{ campo = 'resultado.auditoria_vigente.resultado'; valor_esperado = 'APROVADA' }) }
         vigencia = [ordered]@{ estado = 'VALIDO'; motivo = $null }
@@ -221,9 +236,9 @@ try {
         fase_atual = 'VALIDACAO'
         fases_concluidas = @('PREPARACAO')
         proxima_fase = 'AUDITORIA'
-        linha_de_base = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash })
-        arquivos_produzidos = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash })
-        arquivos_protegidos = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash })
+        linha_de_base = @([ordered]@{ caminho = $upstreamData; sha256 = $upHash; hash_mode = $textMode })
+        arquivos_produzidos = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash; hash_mode = $textMode })
+        arquivos_protegidos = @([ordered]@{ caminho = $downstreamData; sha256 = $downHash; hash_mode = $textMode })
         auditoria_iniciada = $false
         ultimo_ponto_seguro = 'baseline e saida persistidas'
         motivo_pausa = 'teste controlado'
@@ -239,6 +254,45 @@ try {
     Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $downstreamData) -Content "resultado-estavel`n"
     $resumeRestored = Invoke-HarnessCheckpointEvaluation -CheckpointPath $checkpointPath -RepoRoot $root
     Add-Check -Name 'checkpoint restaurado' -Passed ($resumeRestored.Resultado -eq 'RETOMADA_SEGURA') -Detail ("{0}; erros={1}; divergencias={2}" -f $resumeRestored.Resultado, ($resumeRestored.Erros -join ' | '), ($resumeRestored.Divergencias -join ' | '))
+
+    $lfTextPath = "$relativeBase/text-lf.txt"
+    $crlfTextPath = "$relativeBase/text-crlf.txt"
+    $bomTextPath = "$relativeBase/text-bom.txt"
+    $binarySamePath = "$relativeBase/text.bin"
+    Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $lfTextPath) -Content "linha 1`nlinha 2`n"
+    Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $crlfTextPath) -Content "linha 1`r`nlinha 2`r`n"
+    $utf8Bom = New-Object System.Text.UTF8Encoding($true)
+    [System.IO.File]::WriteAllText((Resolve-HarnessPath -RepoRoot $root -Path $bomTextPath), "linha 1`nlinha 2`n", $utf8Bom)
+    Write-BinaryFixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $binarySamePath) -Content ([byte[]](0x6C,0x69,0x6E,0x68,0x61,0x20,0x31,0x0A,0x6C,0x69,0x6E,0x68,0x61,0x20,0x32,0x0A))
+    $lfHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $lfTextPath) -HashMode $textMode
+    $crlfHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $crlfTextPath) -HashMode $textMode
+    $bomHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $bomTextPath) -HashMode $textMode
+    $binaryHashSame = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $binarySamePath) -HashMode $binaryMode
+    Add-Check -Name 'hash texto canonicaliza LF e CRLF' -Passed (($lfHash -eq $crlfHash) -and ($lfHash -eq $bomHash)) -Detail ("lf={0}; crlf={1}; bom={2}" -f $lfHash, $crlfHash, $bomHash)
+
+    $lfMutatedPath = "$relativeBase/text-mutado.txt"
+    Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $lfMutatedPath) -Content "linha 1`nlinha X`n"
+    $mutatedHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $lfMutatedPath) -HashMode $textMode
+    Add-Check -Name 'hash texto altera com conteudo' -Passed ($mutatedHash -ne $lfHash) -Detail ("original={0}; mutado={1}" -f $lfHash, $mutatedHash)
+
+    $spaceMutatedPath = "$relativeBase/text-espaco.txt"
+    Write-Utf8Fixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $spaceMutatedPath) -Content "linha 1 `nlinha 2`n"
+    $spaceMutatedHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $spaceMutatedPath) -HashMode $textMode
+    Add-Check -Name 'hash texto altera com espaco' -Passed ($spaceMutatedHash -ne $lfHash) -Detail ("original={0}; espaco={1}" -f $lfHash, $spaceMutatedHash)
+
+    $binaryVariantPath = "$relativeBase/text-variant.bin"
+    Write-BinaryFixture -FullPath (Resolve-HarnessPath -RepoRoot $root -Path $binaryVariantPath) -Content ([byte[]](0x6C,0x69,0x6E,0x68,0x61,0x20,0x31,0x0D,0x0A,0x6C,0x69,0x6E,0x68,0x61,0x20,0x32,0x0D,0x0A))
+    $binaryVariantHash = Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $binaryVariantPath) -HashMode $binaryMode
+    Add-Check -Name 'hash binario nao normaliza texto' -Passed ($binaryVariantHash -ne $binaryHashSame) -Detail ("original={0}; variante={1}" -f $binaryHashSame, $binaryVariantHash)
+
+    $unknownModeThrown = $false
+    try {
+        [void](Get-HarnessSha256 -LiteralPath (Resolve-HarnessPath -RepoRoot $root -Path $lfTextPath) -HashMode 'DESCONHECIDO_V0')
+    }
+    catch {
+        $unknownModeThrown = $true
+    }
+    Add-Check -Name 'hash rejeita modo desconhecido' -Passed $unknownModeThrown -Detail 'modo desconhecido rejeitado'
 
     $invalidCheckpointPath = "$relativeBase/CHECKPOINT-INVALIDO.yaml"
     $invalidCheckpointObject = (($checkpointObject | ConvertTo-Json -Depth 12) | ConvertFrom-Json)

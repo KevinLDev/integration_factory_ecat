@@ -3,6 +3,7 @@ param(
     [Parameter(Mandatory = $true, Position = 0)][string[]]$Path,
     [string]$RepoRoot,
     [string]$ExpectedSha256,
+    [string]$HashMode = 'BYTES_V1',
     [switch]$Json
 )
 
@@ -20,13 +21,16 @@ try {
     if ((-not [string]::IsNullOrWhiteSpace($ExpectedSha256)) -and (-not (Test-HarnessSha256Value -Value $ExpectedSha256))) {
         throw 'SHA-256 esperado invalido.'
     }
+    if (-not (Test-HarnessHashModeValue -Value ([string]$HashMode).ToUpperInvariant())) {
+        throw "Modo de hash invalido: $HashMode"
+    }
 
     $results = @()
     $mismatch = $false
     foreach ($item in $expandedPaths) {
         $full = Resolve-HarnessPath -RepoRoot $root -Path $item
         if (-not [System.IO.File]::Exists($full)) { throw "Arquivo inexistente: $item" }
-        $hash = Get-HarnessSha256 -LiteralPath $full
+        $hash = Get-HarnessSha256 -LiteralPath $full -HashMode $HashMode
         $matches = $null
         if (-not [string]::IsNullOrWhiteSpace($ExpectedSha256)) {
             $matches = ($hash -eq $ExpectedSha256.ToUpperInvariant())

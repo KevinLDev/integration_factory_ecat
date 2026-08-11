@@ -17,19 +17,22 @@
   "linha_de_base": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "arquivos_produzidos": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "arquivos_protegidos": [
     {
       "caminho": null,
-      "sha256": null
+      "sha256": null,
+      "hash_mode": null
     }
   ],
   "auditoria_iniciada": false,

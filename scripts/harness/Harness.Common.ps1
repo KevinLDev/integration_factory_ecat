@@ -84,6 +84,62 @@ function Get-HarnessProperty {
     return $property.Value
 }
 
+function Test-HarnessHashModeValue {
+    param([string]$Value)
+
+    return $Value -in @('BYTES_V1', 'TEXT_CANONICAL_V1')
+}
+
+function Get-HarnessEntryHashMode {
+    param(
+        [Parameter(Mandatory = $true)][object]$Entry,
+        [Parameter(Mandatory = $true)][object]$Errors,
+        [Parameter(Mandatory = $true)][string]$Scope
+    )
+
+    $mode = [string](Get-HarnessProperty -Object $Entry -Name 'hash_mode')
+    if ([string]::IsNullOrWhiteSpace($mode)) {
+        $Errors.Add("$Scope hash_mode ausente")
+        return $null
+    }
+
+    $mode = $mode.ToUpperInvariant()
+    if (-not (Test-HarnessHashModeValue -Value $mode)) {
+        $Errors.Add("$Scope hash_mode invalido: $mode")
+        return $null
+    }
+
+    return $mode
+}
+
+function Get-HarnessCanonicalText {
+    param([Parameter(Mandatory = $true)][string]$LiteralPath)
+
+    if (-not [System.IO.File]::Exists($LiteralPath)) {
+        throw "Arquivo inexistente: $LiteralPath"
+    }
+
+    $bytes = [System.IO.File]::ReadAllBytes($LiteralPath)
+    $offset = 0
+    if (($bytes.Length -ge 3) -and ($bytes[0] -eq 0xEF) -and ($bytes[1] -eq 0xBB) -and ($bytes[2] -eq 0xBF)) {
+        $offset = 3
+    }
+
+    $encoding = New-Object System.Text.UTF8Encoding($false, $true)
+    $text = $encoding.GetString($bytes, $offset, $bytes.Length - $offset)
+    $text = $text -replace "`r`n", "`n"
+    $text = $text -replace "`r", "`n"
+    return $text
+}
+
+function Get-HarnessCanonicalTextBytes {
+    param([Parameter(Mandatory = $true)][string]$LiteralPath)
+
+    $text = Get-HarnessCanonicalText -LiteralPath $LiteralPath
+    $encoding = New-Object System.Text.UTF8Encoding($false)
+    return $encoding.GetBytes($text)
+}
+
 function Get-HarnessNestedProperty {
     param(
         [object]$Object,
@@ -110,23 +166,39 @@ function ConvertTo-HarnessArray {
 }
 
 function Get-HarnessSha256 {
-    param([Parameter(Mandatory = $true)][string]$LiteralPath)
+    param(
+        [Parameter(Mandatory = $true)][string]$LiteralPath,
+        [string]$HashMode = 'BYTES_V1'
+    )
 
     if (-not [System.IO.File]::Exists($LiteralPath)) {
         throw "Arquivo inexistente: $LiteralPath"
     }
 
-    $stream = $null
+    $resolvedMode = [string]$HashMode
+    if ([string]::IsNullOrWhiteSpace($resolvedMode)) {
+        throw 'Modo de hash vazio.'
+    }
+    $resolvedMode = $resolvedMode.ToUpperInvariant()
+    if (-not (Test-HarnessHashModeValue -Value $resolvedMode)) {
+        throw "Modo de hash desconhecido: $HashMode"
+    }
+
     $sha = $null
     try {
-        $stream = [System.IO.File]::Open($LiteralPath, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::Read)
         $sha = [System.Security.Cryptography.SHA256]::Create()
-        $bytes = $sha.ComputeHash($stream)
+        $bytes = switch ($resolvedMode) {
+            'BYTES_V1' { $stream = [System.IO.File]::Open($LiteralPath, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::Read)
+                try { $sha.ComputeHash($stream) }
+                finally { if ($null -ne $stream) { $stream.Dispose() } }
+            }
+            'TEXT_CANONICAL_V1' { $sha.ComputeHash((Get-HarnessCanonicalTextBytes -LiteralPath $LiteralPath)) }
+            default { throw "Modo de hash desconhecido: $HashMode" }
+        }
         return ([System.BitConverter]::ToString($bytes) -replace '-', '').ToUpperInvariant()
     }
     finally {
         if ($null -ne $sha) { $sha.Dispose() }
-        if ($null -ne $stream) { $stream.Dispose() }
     }
 }
 
@@ -573,6 +645,7 @@ function Invoke-HarnessManifestEvaluation {
             foreach ($entry in (ConvertTo-HarnessArray (Get-HarnessProperty -Object $manifest -Name $sectionName))) {
                 $path = [string](Get-HarnessProperty -Object $entry -Name 'caminho')
                 $expected = [string](Get-HarnessProperty -Object $entry -Name 'sha256')
+                $hashMode = Get-HarnessEntryHashMode -Entry $entry -Errors $errors -Scope $sectionName
                 if (-not (Test-HarnessRelativePath -Path $path)) {
                     $errors.Add("$sectionName possui caminho nao relativo: $path")
                     continue
@@ -581,6 +654,7 @@ function Invoke-HarnessManifestEvaluation {
                     $errors.Add("$sectionName possui SHA-256 invalido: $path")
                     continue
                 }
+                if ($null -eq $hashMode) { continue }
                 try {
                     $full = Resolve-HarnessPath -RepoRoot $RepoRoot -Path $path
                     if (-not [System.IO.File]::Exists($full)) {
@@ -590,7 +664,7 @@ function Invoke-HarnessManifestEvaluation {
                         else { $categories.Add('SAIDA') }
                         continue
                     }
-                    $actual = Get-HarnessSha256 -LiteralPath $full
+                    $actual = Get-HarnessSha256 -LiteralPath $full -HashMode $hashMode
                     if ($actual -ne $expected.ToUpperInvariant()) {
                         $reasons.Add("$sectionName alterado: $path; esperado=$expected; atual=$actual")
                         if ($sectionName -eq 'fontes') { $categories.Add('FONTE') }
@@ -606,15 +680,16 @@ function Invoke-HarnessManifestEvaluation {
             $auditPath = [string](Get-HarnessProperty -Object $audit -Name 'caminho')
             $auditHash = [string](Get-HarnessProperty -Object $audit -Name 'sha256')
             $auditResult = [string](Get-HarnessProperty -Object $audit -Name 'resultado')
+            $auditHashMode = Get-HarnessEntryHashMode -Entry $audit -Errors $errors -Scope 'resultado.auditoria_vigente'
             if ((-not (Test-HarnessRelativePath -Path $auditPath)) -or (-not (Test-HarnessSha256Value -Value $auditHash)) -or [string]::IsNullOrWhiteSpace($auditResult)) {
                 $errors.Add('resultado.auditoria_vigente incompleta')
             }
-            else {
+            elseif ($null -ne $auditHashMode) {
                 if ($auditResult -notin @('APROVADA', 'REPROVADA', 'BLOQUEADA')) { $errors.Add('resultado.auditoria_vigente.resultado invalido') }
                 if (($stageStatus -eq 'CONCLUIDA') -and ($auditResult -ne 'APROVADA')) { $errors.Add('etapa CONCLUIDA exige auditoria APROVADA') }
                 try {
                     $auditFull = Resolve-HarnessPath -RepoRoot $RepoRoot -Path $auditPath
-                    if ((-not [System.IO.File]::Exists($auditFull)) -or ((Get-HarnessSha256 -LiteralPath $auditFull) -ne $auditHash.ToUpperInvariant())) {
+                    if ((-not [System.IO.File]::Exists($auditFull)) -or ((Get-HarnessSha256 -LiteralPath $auditFull -HashMode $auditHashMode) -ne $auditHash.ToUpperInvariant())) {
                         $categories.Add('AUDITORIA')
                         $reasons.Add("auditoria vigente ausente ou alterada: $auditPath")
                     }
@@ -660,10 +735,12 @@ function Invoke-HarnessManifestEvaluation {
             foreach ($expectedEntry in $expectedEntries) {
                 $expectedPath = [string](Get-HarnessProperty -Object $expectedEntry -Name 'caminho')
                 $expectedHash = [string](Get-HarnessProperty -Object $expectedEntry -Name 'sha256')
+                $expectedHashMode = Get-HarnessEntryHashMode -Entry $expectedEntry -Errors $errors -Scope "dependencia $upstreamStage"
                 if ((-not (Test-HarnessRelativePath -Path $expectedPath)) -or (-not (Test-HarnessSha256Value -Value $expectedHash))) {
                     $errors.Add("hash esperado invalido na dependencia $upstreamStage")
                     continue
                 }
+                if ($null -eq $expectedHashMode) { continue }
 
                 $declaredMatch = @($upstreamArtifacts | Where-Object {
                     ([string](Get-HarnessProperty -Object $_ -Name 'caminho')) -eq $expectedPath -and
@@ -671,7 +748,7 @@ function Invoke-HarnessManifestEvaluation {
                 }).Count -gt 0
                 try {
                     $expectedFull = Resolve-HarnessPath -RepoRoot $RepoRoot -Path $expectedPath
-                    $currentMatch = [System.IO.File]::Exists($expectedFull) -and ((Get-HarnessSha256 -LiteralPath $expectedFull) -eq $expectedHash.ToUpperInvariant())
+                    $currentMatch = [System.IO.File]::Exists($expectedFull) -and ((Get-HarnessSha256 -LiteralPath $expectedFull -HashMode $expectedHashMode) -eq $expectedHash.ToUpperInvariant())
                 }
                 catch { $currentMatch = $false }
 
@@ -795,16 +872,18 @@ function Invoke-HarnessCheckpointEvaluation {
             foreach ($entry in (ConvertTo-HarnessArray (Get-HarnessProperty -Object $checkpoint -Name $sectionName))) {
                 $path = [string](Get-HarnessProperty -Object $entry -Name 'caminho')
                 $expected = [string](Get-HarnessProperty -Object $entry -Name 'sha256')
+                $hashMode = Get-HarnessEntryHashMode -Entry $entry -Errors $issues -Scope $sectionName
                 if ((-not (Test-HarnessRelativePath -Path $path)) -or (-not (Test-HarnessSha256Value -Value $expected))) {
                     $issues.Add("entrada invalida em $sectionName")
                     continue
                 }
+                if ($null -eq $hashMode) { continue }
                 $entryFull = Resolve-HarnessPath -RepoRoot $RepoRoot -Path $path
                 if (-not [System.IO.File]::Exists($entryFull)) {
                     $differences.Add("$sectionName ausente: $path")
                     continue
                 }
-                $actual = Get-HarnessSha256 -LiteralPath $entryFull
+                $actual = Get-HarnessSha256 -LiteralPath $entryFull -HashMode $hashMode
                 if ($actual -ne $expected.ToUpperInvariant()) {
                     $differences.Add("$sectionName alterado: $path; esperado=$expected; atual=$actual")
                 }
