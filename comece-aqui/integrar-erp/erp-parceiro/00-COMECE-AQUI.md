@@ -18,6 +18,12 @@ Ferramenta E-Catálogos
 
 Essa integração poderá depois ser aproveitada por clientes.
 
+## Passo operacional disponível
+
+O Passo 01 da jornada de ERP parceiro já está disponível para entrada, triagem e resolução de contexto:
+
+`comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -58,6 +64,8 @@ Quando esta jornada vier a ser liberada, a camada central de resolução de cont
 
 ## Disponibilidade
 
-**JORNADA AINDA NÃO LIBERADA PARA EXECUÇÃO.**
+**PASSO 01 LIBERADO PARA EXECUÇÃO.**
 
-Aguarde a criação do primeiro documento operacional homologado.
+Os passos posteriores da jornada de ERP parceiro ainda não estão liberados.
+
+Aguarde o próximo documento operacional quando o Passo 01 estiver concluído.

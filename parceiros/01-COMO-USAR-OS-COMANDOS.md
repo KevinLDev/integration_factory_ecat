@@ -20,6 +20,7 @@ Atualmente existem somente:
 parceiros/comandos/01-APRESENTAR-E-ANALISAR-FERRAMENTA.md
 parceiros/comandos/02-CADASTRAR-FERRAMENTA.md
 parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
+parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md
 ```
 
 Seus documentos operacionais são:
@@ -28,6 +29,7 @@ Seus documentos operacionais são:
 comece-aqui/integrar-nova-ferramenta/01-APRESENTAR-FERRAMENTA.md
 comece-aqui/integrar-nova-ferramenta/02-CADASTRAR-FERRAMENTA.md
 comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
+comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -71,6 +73,14 @@ Durante o fluxo normal, o Codex não deve pedir ao operador para:
 Quando forem criados e homologados, comandos de ERP parceiro deverão ter seus documentos humanos em:
 
 `comece-aqui/integrar-erp/erp-parceiro/`
+
+Comando operacional já disponível para entrada/triagem de ERP parceiro:
+
+`parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md`
+
+Documento humano correspondente:
+
+`comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
 
 Comandos de ERP cliente deverão ter seus documentos humanos em:
 

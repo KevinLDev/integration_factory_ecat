@@ -66,11 +66,15 @@ O Passo 03 só homologa a ferramenta quando o resultado técnico for apto, a aud
 
 Use para estudar, mapear, desenvolver, testar e homologar uma integração reutilizável entre um ERP e uma ferramenta E-Catálogos.
 
+Passo operacional disponível:
+
+`comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
+
 Entrada humana:
 
 `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`
 
-**JORNADA AINDA NÃO LIBERADA PARA EXECUÇÃO.** Não improvise comandos ou integre um ERP antes da criação e homologação dos documentos correspondentes.
+**PASSO 01 LIBERADO PARA EXECUÇÃO.** Não improvise comandos nem integre um ERP além da entrada/triagem prevista no documento operacional correspondente.
 
 ## Jornada 3 — ERP cliente
 
