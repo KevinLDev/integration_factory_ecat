@@ -4,6 +4,8 @@
 
 Use esta jornada quando existe um cliente real que utiliza um ERP e precisa ser integrado a uma ferramenta E-Catálogos.
 
+Antes de seguir esta jornada, consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para confirmar que a combinação ERP x ferramenta já está homologada e que o cenário é realmente de reutilização para cliente.
+
 ## Regra principal
 
 Antes de iniciar uma integração de cliente, a fábrica deve verificar se existe integração homologada para a combinação:
@@ -19,6 +21,8 @@ Consulte `comece-aqui/integrar-erp/ERPS-INTEGRADOS.md`.
 ### Se a integração existir
 
 Reutilize a integração homologada e trate somente as particularidades necessárias do cliente.
+
+Não reconstrua o adaptador, não reanalise profundamente o ERP e não exija uma base comercial completa de desenvolvimento quando a combinação já estiver homologada.
 
 ### Se a integração não existir
 
@@ -48,6 +52,8 @@ Quando for preparada e homologada, esta jornada poderá incluir etapas para:
 - documentar a configuração final.
 
 Esses itens são somente a visão da jornada. Eles não representam passos disponíveis e não autorizam execução.
+
+Quando esta jornada vier a ser liberada, ela deverá usar o adaptador homologado e trabalhar apenas com as credenciais, o ambiente e as particularidades do cliente.
 
 ## Disponibilidade
 

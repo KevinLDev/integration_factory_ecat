@@ -4,6 +4,8 @@
 
 Use esta jornada quando um ERP precisa ser estudado, mapeado, integrado, testado e homologado para entrar no portfólio da E-Catálogos.
 
+Antes de seguir esta jornada, consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para confirmar que o cenário realmente é de ERP parceiro e não de cliente reutilizando uma integração já homologada.
+
 ## Objetivo final
 
 Produzir uma integração reutilizável entre:
@@ -28,6 +30,8 @@ PRONTIDAO: HOMOLOGADA_PARA_INTEGRACOES
 
 Se alguma condição estiver ausente, a jornada de ERP parceiro deverá ser bloqueada para essa ferramenta. Não valide nem corrija silenciosamente o contrato dentro da jornada de ERP.
 
+Se o operador também fornecer documentação da ferramenta já homologada, trate-a como documento de contexto da execução corrente, não como nova verdade contratual.
+
 ## Visão da jornada futura
 
 Quando for preparada e homologada, esta jornada poderá incluir etapas para:
@@ -49,6 +53,8 @@ Quando for preparada e homologada, esta jornada poderá incluir etapas para:
 - registrar o ERP como integrado.
 
 Esses itens são somente a visão da jornada. Eles não representam passos disponíveis e não autorizam execução.
+
+Quando esta jornada vier a ser liberada, a camada central de resolução de contexto deverá ter sido consultada antes de qualquer etapa de análise profunda, para evitar duplicação de contrato ou escolha incorreta de jornada.
 
 ## Disponibilidade
 
