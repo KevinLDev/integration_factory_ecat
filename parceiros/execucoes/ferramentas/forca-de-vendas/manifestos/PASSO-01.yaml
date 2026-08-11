@@ -1,0 +1,136 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": "FERRAMENTA",
+    "alvo": "Força de Vendas",
+    "slug": "forca-de-vendas",
+    "jornada": "INTEGRAR_NOVA_FERRAMENTA",
+    "etapa": "01-APRESENTAR-E-ANALISAR-FERRAMENTA",
+    "execucao": "parceiros/execucoes/ferramentas/forca-de-vendas"
+  },
+  "resultado": {
+    "status": "CONCLUIDA",
+    "tipo_auditoria": "PROFUNDA",
+    "auditoria_vigente": {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md",
+      "sha256": "A9500881C798D950337781E1D9EEA54164C9F47E4F636DEF10BB7A0DADE89D0C",
+      "resultado": "APROVADA"
+    }
+  },
+  "fontes": [
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.pdf",
+      "sha256": "2C8AAB2659BCF8974905912024E86A0B7D1053FB55E2A5FE727785FC1AD01BFB"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.extraido.txt",
+      "sha256": "A4B16B88AE820A2B543F72C18FD0908E843C01D948B22BECEB63F8EA9A2B1D5F"
+    }
+  ],
+  "entradas": [
+    {
+      "caminho": "parceiros/comandos/01-APRESENTAR-E-ANALISAR-FERRAMENTA.md",
+      "sha256": "E29F582E6C448E9F3EF7AFB2016FDBDA786389B38EFA303A2B24105F3140C4F1"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DIAGNOSTICO-CORRECAO-POS-PASSO-03.md",
+      "sha256": "5770C7D5FFD13CCDD014D72AF2C8683C56F3C6ECB88CDF9201E3F84559A651B8"
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
+      "sha256": "90399B66E0F92172D0B4807C40BD97DD3ABE7DEFBE8DFB0EBBD7E351170C9AD9"
+    },
+    {
+      "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+      "sha256": "3CEC7DF7C4AF0270CD6986812B59697239429C37964CAEC2EA6C424203AC7F5E"
+    },
+    {
+      "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+      "sha256": "0D0B2C7A833D2A7AB8AF4DD1E4D46C6F04E3F6CF9DC662F33FEF7B0124669324"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
+      "sha256": "1A8CD4E66EAF731CA8A463577DE3EE34F0A2605341DBD359086F30D774919B5D"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md",
+      "sha256": "A9500881C798D950337781E1D9EEA54164C9F47E4F636DEF10BB7A0DADE89D0C"
+    }
+  ],
+  "dependencias": [],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": "resultado.status",
+        "valor_esperado": "CONCLUIDA"
+      },
+      {
+        "campo": "resultado.auditoria_vigente.resultado",
+        "valor_esperado": "APROVADA"
+      },
+      {
+        "campo": "resultado.tipo_auditoria",
+        "valor_esperado": "PROFUNDA"
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [
+      "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
+      "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+      "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md"
+    ],
+    "utf8": [
+      "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.extraido.txt",
+      "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
+      "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+      "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md"
+    ],
+    "markdown": [
+      "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
+      "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+      "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01-POS-CORRECOES-PASSO-03.md"
+    ],
+    "contagens": [
+      {
+        "nome": "operacoes no inventario",
+        "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+        "padrao_regex": "(?m)^### OP-\\d{3} - ",
+        "esperado": 90
+      },
+      {
+        "nome": "operacoes na matriz",
+        "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+        "padrao_regex": "(?m)^\\| OP-\\d{3} \\|",
+        "esperado": 90
+      }
+    ],
+    "ids": [
+      {
+        "nome": "IDs do inventario",
+        "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+        "padrao_regex": "(?m)^### (?<id>OP-\\d{3}) - ",
+        "grupo": "id",
+        "esperado_unicos": 90
+      },
+      {
+        "nome": "IDs da matriz",
+        "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+        "padrao_regex": "(?m)^\\| (?<id>OP-\\d{3}) \\|",
+        "grupo": "id",
+        "esperado_unicos": 90
+      }
+    ]
+  },
+  "vigencia": {
+    "estado": "VALIDO",
+    "motivo": null
+  }
+}

@@ -1,0 +1,24 @@
+# Glossário
+
+- **Fábrica de Integrações**: modelo operacional da E-Catálogos para construir e homologar integrações com rastreabilidade.
+- **Harness**: conjunto de regras, comandos, estado, validações e auditorias no repositório.
+- **Ferramenta E-Catálogos**: produto da E-Catálogos (ex.: Força de Vendas).
+- **ERP parceiro**: sistema externo que será adaptado ao contrato da ferramenta E-Catálogos.
+- **Cliente**: empresa que usará integração já homologada.
+- **Jornada de nova ferramenta**: sequência que compreende e cadastra o contrato canônico de uma ferramenta E-Catálogos.
+- **Jornada de ERP parceiro**: sequência que produz uma integração de ERP reutilizável e homologada.
+- **Jornada de ERP cliente**: sequência que aplica uma integração suportada a um cliente real e trata suas particularidades.
+- **ERP homologado**: ERP cuja combinação com uma ferramenta E-Catálogos foi validada e aprovada com evidência pela fábrica.
+- **`APTO_PARA_INTEGRACOES`**: resultado técnico que confirma que o contrato canônico é fiel e seguro para orientar futuros mapeamentos com ERP.
+- **`NAO_APTO_PARA_INTEGRACOES`**: resultado técnico que indica achado impeditivo no contrato ou em sua rastreabilidade, sem corrigir o artefato durante a validação.
+- **Prontidão para integrações**: estado independente do status da etapa, com valores `NAO_HOMOLOGADA`, `AGUARDANDO_AUDITORIA` ou `HOMOLOGADA_PARA_INTEGRACOES`.
+- **`erps/`**: local dos artefatos técnicos reais das integrações de ERP.
+- **`erps-integrados/`**: catálogo humano das integrações de ERP já homologadas.
+- **Contrato canônico**: contrato definido pela ferramenta E-Catálogos.
+- **Etapa**: unidade formal da jornada com critérios de aceite.
+- **Estado persistente**: arquivos da execução usados para continuidade entre sessões.
+- **Evidência**: dado verificável na fonte oficial, ambiente autorizado ou teste reproduzível.
+- **`NAO_DOCUMENTADO`**: marcação obrigatória quando a fonte não informa um campo.
+- **`CONCLUIDA` / `PENDENTE` / `BLOQUEADA`**: status oficiais de término de etapa.
+- **Auditoria**: validação independente dos artefatos da etapa.
+- **Quality gate**: regra que só mantém etapa concluída com auditoria aprovada.

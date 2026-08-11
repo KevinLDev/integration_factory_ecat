@@ -1,0 +1,83 @@
+# Como usar os comandos
+
+> Se você é operador, comece por `comece-aqui/00-COMECE-AQUI.md`.
+>
+> Este arquivo descreve o uso dos comandos técnicos internos em `parceiros/comandos/`.
+
+## Conceito
+
+Os documentos em `parceiros/comandos/` são prompts e regras fixas da fábrica.
+
+O operador não edita esses arquivos. Ele usa o texto fornecido pelo documento operacional correspondente em `comece-aqui/`.
+
+Uma etapa só está pronta para operação quando o comando técnico e o documento humano correspondente existem e estão homologados.
+
+## Comandos disponíveis
+
+Atualmente existem somente:
+
+```text
+parceiros/comandos/01-APRESENTAR-E-ANALISAR-FERRAMENTA.md
+parceiros/comandos/02-CADASTRAR-FERRAMENTA.md
+parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
+```
+
+Seus documentos operacionais são:
+
+```text
+comece-aqui/integrar-nova-ferramenta/01-APRESENTAR-FERRAMENTA.md
+comece-aqui/integrar-nova-ferramenta/02-CADASTRAR-FERRAMENTA.md
+comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
+```
+
+O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
+
+## Como executar uma etapa disponível
+
+1. Abra o documento operacional na jornada correta de `comece-aqui/`.
+2. Leia os pré-requisitos e confirme que pode avançar.
+3. Substitua os campos entre colchetes.
+4. Copie somente o conteúdo entre `COPIE A PARTIR DAQUI` e `PARE DE COPIAR AQUI`.
+5. Envie esse conteúdo ao Codex no workspace da fábrica.
+
+O Codex cria ou localiza sozinho a estrutura persistente da execução.
+
+## Quando fornecer arquivos
+
+Você pode:
+
+- anexar o arquivo;
+- apontar um arquivo já existente no repositório;
+- indicar uma pasta contendo documentação;
+- informar uma URL quando o ambiente permitir acesso;
+- fornecer Swagger/OpenAPI, PDF, exemplos, manuais e regras complementares.
+
+## Quando faltar informação
+
+Não tente adivinhar. Se o Codex puder descobrir pela documentação ou pelo ambiente autorizado, ele deverá fazê-lo. Se depender de decisão ou informação humana, a etapa terminará como `PENDENTE` e informará exatamente o que falta.
+
+## O que nunca deve ser pedido ao operador
+
+Durante o fluxo normal, o Codex não deve pedir ao operador para:
+
+- criar uma pasta;
+- copiar ou renomear um modelo;
+- criar arquivos de estado;
+- mover documentação apenas para o comando funcionar;
+- preencher placeholders dentro do arquivo técnico de comando.
+
+## Futuros comandos de ERP
+
+Quando forem criados e homologados, comandos de ERP parceiro deverão ter seus documentos humanos em:
+
+`comece-aqui/integrar-erp/erp-parceiro/`
+
+Comandos de ERP cliente deverão ter seus documentos humanos em:
+
+`comece-aqui/integrar-erp/erp-cliente/`
+
+As duas jornadas ainda não estão liberadas. Não crie nem execute comandos de ERP com base apenas nessa orientação.
+
+## Modelos existentes no repositório
+
+A pasta `parceiros/modelos/` existe como referência ou esquema para o próprio Codex, não como tarefa manual do operador.

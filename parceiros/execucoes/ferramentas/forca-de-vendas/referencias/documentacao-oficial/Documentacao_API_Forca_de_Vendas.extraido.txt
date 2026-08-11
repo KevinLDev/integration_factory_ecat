@@ -1,0 +1,5820 @@
+E-Catálogos | Documentação da API - Força de Vendas
+Documentação da API Força de Vendas
+API oficial de integração da E-Catálogos Versão 1.0.0 | OAS 3.0
+Conteúdo convertido integralmente a partir da documentação fornecida. Base da API: https://forca-de-vendas.api.e-catalogos.net
+Página 1
+
+E-Catálogos | Documentação da API - Força de Vendas
+Índice de módulos identificados
+• Autenticação • Categorias • Campanhas • Clientes • Condições de pagamento • Cores • Companhias • Filiais • Gêneros • Imagens • Linhas • Marcas • Métodos de pagamento • Pedidos • Preços • Prepostos • Produtos • Prazos de entregas • Regiões • Representantes • Skus • Subcategorias • Tabelas de preço • Transportadoras • Variantes • Vendedores
+Página 2
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Documentação completa
+API oficial de integração com o sistema Força de vendas 1.0.0 OAS 3.0 Logo Força de vendas Site: https://e-catalogos.net Telefones: (11) 91495-4713 (11) 4618-2550 E-mail: suporte@e-catalogos.net
+Servers
+https://forca-de-vendas.api.e-catalogos.net
+Authorize
+
+Autenticação
+Endpoint de login e geração de token
+
+POST
+
+/auth
+
+Efetuar login Realiza autenticação do usuário e retorna o token JWT.
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "email": "admin@gmail.com", "password": "12345678", "key": 1001 }
+Responses
+
+Code Description
+
+Links
+
+200 Login realizado com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "status": 200, "message": "Autenticado com sucesso", "resource": { "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." } }
+No links
+
+400 Erro ao tentar realizar login.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Email ou senha inválidos." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Página 3
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Categorias
+
+GET
+
+/categories
+
+Listar categorias com filtro por nome e paginação
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página Default value : 1 1 limit integer (query) Quantidade de registros por Default value : 10 10 name string (query) Filtrar categorias pelo nome name
+
+página
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista paginada de categorias
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "data": [ { "erpId": "ERP-CAT-001", "name": "Moletom", "brandErpId": "ERP-BRD-001" }, { "erpId": "ERP-CAT-002", "name": "Jeans", "brandErpId": "ERP-BRD-001" } ], "total": 50, "page": 1, "limit": 10 }
+No links
+
+404 Categorias não encontradas.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Categorias não encontradas." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/categories
+Criar uma categoria
+
+Página 4
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-CAT-003", "name": "Moletom", "brandErpId": "ERP-BRD-001" }
+Responses
+
+Code Description
+
+Links
+
+201 Categoria criada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-CAT-003", "name": "Moletom", "brandErpId": "ERP-BRD-001" }
+No links
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+409 Categoria já existente.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Categoria já existente." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/categories
+Atualizar categoria Parameters
+Try it out
+No parameters
+Request body application/json Example Value
+Schema { "erpId": "ERP-CAT-001", "name": "Moletom de Algodão", "brandErpId": "ERP-BRD-001" }
+Responses
+
+Página 5
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Code Description
+
+Links
+
+200 Categoria atualizada com sucesso!
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-CAT-001", "name": "Moletom de Algodão", "brandErpId": "ERP-BRD-001" }
+No links
+
+404 Categoria não encontrada.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Categoria não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Campanhas
+
+POST
+
+/campaigns
+
+Criar ou atualizar uma campanha
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "CAMP-001", "description": "Campanha }
+Responses
+
+Black
+
+Friday"
+
+Code Description
+
+Links
+
+201 Campanha criada ou atualizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "id": 1, "erpId": "CAMP-001", "description": "Campanha }
+No links
+
+Black
+
+Friday"
+
+400 Corpo da requisição inválido
+
+Media type
+
+application/json
+
+Example Value { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+
+Página 6
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/campaigns
+
+Remover campanha por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": }
+Responses
+
+"CAMP-001"
+
+Code Description
+
+Links
+
+200 Campanha removida com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "id": 1, "erpId": "CAMP-001", "description": "Campanha }
+No links
+
+Black
+
+Friday"
+
+404 Campanha não encontrada
+
+Media type
+
+application/json
+
+Example Value { "message": "Não foi possível deletar! Campanha não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Clientes
+
+GET
+
+/clients
+Buscar clientes com filtros e paginação Parameters
+Try it out
+Name Description page integer (query) Número da página
+
+Página 7
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Default value : 1 1 limit integer (query) Quantidade de registros por página Default value : 10 10 name string (query) Filtrar pelo nome do cliente name cnpj string (query) Filtrar pelo cnpj cnpj email string (query) Filtrar pelo e-mail email cellphone string (query) Filtrar pelo celular cellphone haveCredit boolean (query) Filtrar clientes que possuem crédito --
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista paginada de clientes
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "data": [ { "erpId": "C-1000", "name": "João da Silva", "cnpj": "30.007.787/0001-84", "email": "joao.silva@email.com", "cellphone": "11998877665", "haveCredit": true, "companyErpId": "1987" } ], "total": 120, "page": 1, "limit": 10 }
+No links
+
+404 Cliente não encontrado.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Cliente não encontrado." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Página 8
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+POST
+
+/clients
+
+Cria um novo cliente
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "C-1000", "name": "João da Silva", "cnpj": "30.007.787/0001-84", "rg": "49.733.826-9", "email": "joao.silva@email.com", "phone": "1133224455", "cellphone": "11998877665", "isShopkeeper": true, "concept": "CLIENTE B2B", "blocktype": "LIBERADO", "expeditionBlock": null, "invoiceBlock": null, "orderBlock": null, "creditLimit": "11.000", "groupCod": "80", "companyErpId": "1987", "businessErpId": "B-1987", "haveCredit": true, "clientGroup": "LOJAS DO REAL", "analist": null, "addresses": { "addressesErpId": "A-1987-C-1000", "street": "Alameda Luxemburgo", "number": "100", "complement": "Prédio ao lado do restaurante "neighborhood": "Alphaville Residencial Um", "city": "Barueri", "uf": "SP", "zipCode": "06474-200" }, "representativesErpIds": [ "ERP-REP-001", "ERP-REP-001", "ERP-REP-003" ] }
+Responses
+
+Code Description
+
+Links
+
+201
+
+Sucesso ao criar novo cliente
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "client": { "erpId": "ERP-1000", "name": "João da Silva", "cnpj": "665.404.650-17", "rg": "49.733.826-9", "email": "joao.silva@email.com", "phone": "(11) 3322-4455", "cellPhone": "(11) 99887-7665" }, "addresses": { "street": "Alameda Luxemburgo", "number": "100", "neighborhood": "Alphaville Residencial "zipCode": "06474-200", "city": "Barueri", "uf": "SP" }, "representativesErpIds": [ "ERP-REP-001", "ERP-REP-001", "ERP-REP-003" ] }
+No links
+400 Erro ao criar novo cliente
+
+Um",
+
+No links
+
+Takimaki",
+
+Página 9
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+PUT
+
+/clients
+
+Atualiza o Cliente pelo erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "C-1000", "name": "João da Silva", "cnpj": "30.007.787/0001-84", "rg": "49.733.826-9", "email": "joao.silva@email.com", "phone": "1133224455", "cellphone": "11998877665", "isShopkeeper": true, "concept": "CLIENTE B2B", "blocktype": "LIBERADO", "expeditionBlock": null, "invoiceBlock": null, "orderBlock": null, "creditLimit": "11.000", "groupCod": "80", "companyErpId": "1987", "businessErpId": "B-1987", "haveCredit": true, "clientGroup": "LOJAS DO REAL", "analist": null, "addresses": { "addressesErpId": "A-1987-C-1000", "street": "Alameda Luxemburgo", "number": "100", "complement": "Prédio ao lado do restaurante "neighborhood": "Alphaville Residencial Um", "city": "Barueri", "uf": "SP", "zipCode": "06474-200" } }
+Responses
+
+Code Description
+200 Sucesso ao Atualizar cliente
+
+Links
+
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Takimaki",
+
+Condições de pagamento
+
+GET
+
+/payment-conditions
+Listar todas as condições de pagamento
+Parameters
+Try it out
+Name Description
+page * number (query) Número da página 1 limit * number (query) Quantidade de registros por página 10 term string (query)
+
+Página 10
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Filtrar pelo prazo da condição de pagamento term installments string (query) Filtrar pela quantidade de parcelas installments priceAdjustment string (query) Filtrar pelo ajuste de preço priceAdjustment erpId string (query) Filtrar pelo ERP ID da condição de pagamento erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de condições de pagamento
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1300", "term": "20 dias", "installments": 2, "priceAdjustment": 1, "minimumValue": "2500", "paymentMethodErpId": "ERP-2000", "companyErpId": "1987" }, { "erpId": "ERP-1301", "term": "À vista", "installments": 1, "priceAdjustment": 1, "minimumValue": "500", "paymentMethodErpId": "ERP-3000", "companyErpId": "1987" } ]
+No links
+
+404 Condições de pagamento não encontradas
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Condições de pagamento não encontradas." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/payment-conditions
+Criar uma nova condição de pagamento Parameters Try it out No parameters Request body application/json Example Value Schema
+
+Página 11
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "erpId": "ERP-1302", "term": "30 dias", "installments": 3, "priceAdjustment": 1, "minimumValue": "1000", "paymentMethodErpId": "ERP-2001", "companyErpId": "1987"
+} Responses
+
+Code Description
+
+Links
+
+201
+
+Condição de pagamento criada com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1302", "term": "30 dias", "installments": 3, "priceAdjustment": 1, "minimumValue": "1000", "paymentMethodErpId": "ERP-2001", "companyErpId": "1987" }
+No links
+400 Corpo da requisição vazio ou inválido
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/payment-conditions
+
+Atualizar condição de pagamento
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "term": "À vista", "installments": 1, "priceAdjustment": 1, "minimumValue": "600", "paymentMethodErpId": "ERP-3000" }
+Responses
+
+Code Description
+
+Links
+
+200 Condição de pagamento atualizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1300", "term": "À vista",
+
+Página 12
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"installments": 1, "priceAdjustment": 1, "minimumValue": "600", "paymentMethodErpId": "ERP-3000" } No links 404 Condição de pagamento não encontrada Media type application/json Example Value
+Schema { "message": "Não foi possível atualizar! Condição de pagamento não encontrada." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/payment-conditions/{erpId}
+
+Remover condição de pagamento por erp_id
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Condição de pagamento deletada
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1300", "term": "À vista", "installments": 1, "priceAdjustment": 1, "minimumValue": "500", "paymentMethodErpId": "ERP-3000" }
+No links
+
+404 Condição de pagamento não encontrada
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível deletar! Condição de pagamento não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+
+Página 13
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+No links
+
+Cores
+
+GET
+
+/colors
+
+Listar todas as cores
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de cores
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-COL-001", "name": "Vermelho", "rgb": "255,0,0", "hexCode": "#FF0000" }, { "erpId": "ERP-COL-002", "name": "Azul", "rgb": "0,0,255", "hexCode": "#0000FF" } ]
+No links
+
+404 Cores não encontradas.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Cores não encontradas." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/colors
+Criar uma cor Parameters Try it out No parameters Request body application/json Example Value
+
+Página 14
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Schema { "erpId": "ERP-COL-003", "name": "Verde", "rgb": "0,255,0", "hexCode": "#00FF00" }
+Responses
+
+Code Description
+
+Links
+
+201 Cor criada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-COL-003", "name": "Verde", "rgb": "0,255,0", "hexCode": "#00FF00" }
+No links
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+409 Cor já existente.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Cor já existente." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/colors
+
+Atualizar cor por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "123/4", "name": "Vermelho Escuro", "rgb": "200,0,0", "hexCode": "#C80000" }
+Responses
+
+Code Description
+
+Links
+
+200 Cor atualizada com sucesso!
+
+Media type
+
+Página 15
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json Controls Accept header.
+Example Value
+Schema { "erpId": "ERP-COL-001", "name": "Vermelho Escuro", "rgb": "200,0,0", "colorsCompanyErpId": "erp-23423", "hexCode": "#C80000" }
+No links 404 Cor não encontrada. Media type application/json Example Value
+Schema { "message": "Não foi possível atualizar! Cor não encontrada." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/colors/products/{productErpId}
+
+Atualizar cores vinculadas com produto do productErpId
+
+Parameters
+
+Try it out
+
+Name Description
+
+productErpId * string (path) ERP ID do produto productErpId
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "colorErpId": }, { "colorErpId": }, { "colorErpId": } ]
+Responses
+
+"053" "054" "055"
+
+Code Description
+
+Links
+
+200 Cores de produto atualizadas com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "productColorsDeleted": { "count": 3 }, "productsColorsCreated": [ { "id": 3906, "product_id": 1, "color_id": 7661 }, {
+
+Página 16
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"id": 3907, "product_id": 1, "color_id": 7662 }, { "id": 3908, "product_id": 1, "color_id": 7660 } ] } No links 404 Recurso não encontrado. Media type application/json Examples Cor não encontrada Example Value
+Schema { "message": "Cor de ERP ID '053' não encontrada." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Companhias
+
+POST
+
+/companies
+
+Criar uma empresa
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "COMP-001", "key": 123456, "apiKey": "api-key-company", "logoImg": "https://empresa.com/logo.png", "deadlineType": "BUSINESS_DAYS", "tools": "B2B", "defaultCarriers": 1, "business": { "businessErpId": "BUS-001", "name": "Empresa Exemplo LTDA", "cnpj": "12345678000199", "municipalRegistration": "123456", "stateRegistration": "987654321", "fantasyName": "Empresa Exemplo", "email": "contato@empresa.com", "phone": "1133334444", "cellPhone": "11999999999", "addressErpId": "ADDR-001", "street": "Rua das Flores", "number": "100", "complement": "Sala 201", "neighborhood": "Centro", "city": "São Paulo", "uf": "SP", "zipCode": "01000000" } }
+Responses
+
+Code Description
+
+Links
+
+201
+
+Empresa criada com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Página 17
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Example Value
+Schema { "erpId": "COMP-001", "key": 123456, "logoImg": "https://empresa.com/logo.png", "deadlineType": "BUSINESS_DAYS", "tools": "B2B", "defaultCarriers": 1, "business": { "businessErpId": "BUS-001", "name": "Empresa Exemplo LTDA", "cnpj": "12345678000199", "municipalRegistration": "123456", "stateRegistration": "987654321", "fantasyName": "Empresa Exemplo", "email": "contato@empresa.com", "phone": "1133334444", "cellPhone": "11999999999", "addressErpId": "ADDR-001", "street": "Rua das Flores", "number": "100", "complement": "Sala 201", "neighborhood": "Centro", "city": "São Paulo", "uf": "SP", "zipCode": "01000000" } }
+No links 400 Corpo inválido ou ERP já existente Media type application/json Example Value
+Schema { "message": "O ERP ID de company já existe, }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+utilize
+
+outro."
+
+PUT
+
+/companies
+Atualizar empresa por erpId Parameters
+Try it out
+Name Description erpId * string (path) erpId do recurso erpId Request body application/json Example Value
+Schema { "key": 654321, "apiKey": "nova-api-key", "logoImg": "https://empresa.com/logo-novo.png", "deadlineType": "CALENDAR_DAYS", "tools": "B2B", "defaultCarriers": 2, "business": { "name": "Empresa Exemplo Atualizada", "cnpj": "12345678000199", "municipalRegistration": "654321", "stateRegistration": "111222333", "fantasyName": "Empresa Exemplo", "email": "novo@empresa.com", "phone": "1144445555", "cellPhone": "11988888888" } }
+Responses
+
+Página 18
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Code Description
+
+Links
+
+200
+
+Empresa atualizada com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "COMP-001", "key": 654321, "apiKey": "nova-api-key", "logoImg": "https://empresa.com/logo-novo.png", "deadlineType": "CALENDAR_DAYS", "tools": "B2B", "defaultCarriers": 2, "business": { "businessErpId": "BUS-001", "businessCompanyErpId": "COMP-001", "name": "Empresa Exemplo Atualizada", "cnpj": "12345678000199", "municipalRegistration": "654321", "stateRegistration": "111222333", "fantasyName": "Empresa Exemplo", "email": "novo@empresa.com", "phone": "1144445555", "cellPhone": "11988888888", "addressErpId": "ADDR-001", "street": "Rua das Flores", "number": "100", "complement": "Sala 201", "neighborhood": "Centro", "city": "São Paulo", "uf": "SP", "zipCode": "01000000" } }
+No links
+404 Empresa não encontrada
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Empresa não encontrada." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Filiais
+
+GET
+
+/branches
+Listar todas as filiais
+Parameters
+Try it out
+Name Description
+page * integer (query) Número da página Default value : 1 1 limit * integer (query) Quantidade de registros por página Default value : 10 10 name string
+
+Página 19
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+(query) Filtrar pelo nome da filial name
+
+Responses
+
+Code Description
+200 Lista de filiais
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-ATT-002", "name": "NACIONAL", "companyErpId": "erp-23423", "business": { "businessErpId": "erp-0983", "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "addressErpId": "addr-001", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }, { "erpId": "ERP-ATT-002", "name": "NACIONAL", "companyErpId": "erp-23423", "business": { "businessErpId": "erp-0983", "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "addressErpId": "addr-001", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } } ]
+No links
+404 Nenhuma filial encontrada
+
+Ltda", Ltda",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Filiais não encontradas." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/branches
+Criar uma filial
+
+Página 20
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "ERP-ATT-002", "name": "NACIONAL", "companyErpId": "erp-23423", "business": { "businessErpId": "erp-0983", "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "addressErpId": "addr-001", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }
+Responses
+
+Ltda",
+
+Code Description
+201 Filial criada com sucesso.
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-ATT-002", "name": "NACIONAL", "companyErpId": "erp-23423", "business": { "businessErpId": "erp-0983", "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "addressErpId": "addr-001", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }
+No links
+400 Corpo da requisição vazio ou inválido.
+
+Ltda",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+409 Filial já existente.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Filial já existente." }
+No links 500
+
+Página 21
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/branches
+
+Atualizar filial por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "B-1987-N", "name": "NACIONAL", "business": { "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }
+Responses
+
+Ltda",
+
+Code Description
+
+Links
+
+200
+
+Filial atualizada com sucesso!
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "name": "NACIONAL", "business": { "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }
+No links
+404 Filial não encontrada.
+
+Ltda",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Filial não encontrada." }
+No links
+500 Erro no servidor
+
+Página 22
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/branches/{erpId}
+
+Remover filial por erpId
+
+Parameters
+
+Try it out
+
+Name Description
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+200 Filial deletada.
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-ATT-002", "name": "NACIONAL", "companyErpId": "erp-23423", "business": { "businessErpId": "erp-0983", "cnpj": "98.765.432/0001-10", "municipalRegistration": "98765-4", "stateRegistration": "123456889", "businessName": "Comércio de Roupas "fantasyName": "Moda Fashion", "email": "vendas@modafashion.com", "phone": "(21) 2222-3333", "cellphone": "(21) 98888-7777", "addressErpId": "addr-001", "street": "Rua das Flores", "number": "123", "complement": "Sala 1", "neighborhood": "Centro", "city": "Rio de Janeiro", "uf": "RJ", "zipCode": "20000-000" } }
+No links
+404 Filial não encontrada.
+
+Ltda",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível deletar! Filial não encontrada." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Página 23
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Gêneros
+
+GET
+
+/genders
+
+Listar todos os gêneros
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de gêneros
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1000", "name": "Masculino", "companyErpId": "erp-23423" }, { "erpId": "ERP-1001", "name": "Feminino", "companyErpId": "erp-23423" } ]
+No links
+
+404 Gêneros não encontrados
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Gêneros não encontrados." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/genders
+Criar um gênero Parameters Try it out No parameters Request body application/json Example Value Schema
+{ "erpId": "ERP-1002",
+
+Página 24
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"name": "Feminino infantil", "companyErpId": "erp-2342" } Responses
+
+Code Description
+
+Links
+
+201 Gênero criado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1002", "name": "Feminino infantil", "companyErpId": "erp-2342" }
+No links
+
+400 Corpo da requisição vazio ou inválido
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/genders
+
+Atualizar gênero por erpId
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Masculino Atualizado" }
+Responses
+
+Code Description
+
+Links
+
+200 Gênero atualizado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Masculino Atualizado", "companyErpId": "erp-23423" }
+No links
+
+404 Gênero não encontrado
+
+Página 25
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Media type application/json Example Value
+Schema { "message": "Não foi possível atualizar! Gênero não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/genders/{erpId}
+
+Remover gênero por erpId
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Gênero deletado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Masculino" }
+No links
+
+404 Gênero não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível deletar! Gênero não encontrado." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Imagens
+
+POST
+
+/images
+Fazer upload de imagens para um produto Envia uma ou mais imagens para associar a um produto. As imagens devem ser enviadas como multipart/form-data. Parameters
+
+Página 26
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Try it out
+
+No parameters
+
+Request body
+
+multipart/form-data images * array<string> Arquivos de imagem enviados
+
+Responses
+
+Code Description
+
+Links
+
+200 Imagens inseridas com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "path": "10.45.652--1.jpg", "order": 1, "productErpId": "ERP-12345" }, { "path": "10.45.652--2.jpg", "order": 2, "productErpId": "ERP-12345" }, { "path": "10.45.652--3.jpg", "order": 3, "productErpId": "ERP-12345" } ]
+No links
+
+400 Nenhuma imagem enviada ou dados inválidos
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "É obrigatório o upload de imagens." }
+No links
+
+404 Produto ou variante não encontrada
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Produto não encontrado" }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Linhas
+
+POST
+
+/lines
+Criar ou atualizar uma linha Parameters Try it out No parameters Request body application/json Example Value
+
+Página 27
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Schema { "erpId": "LIN-001", "description": "Linha }
+Responses
+
+Masculina"
+
+Code Description
+
+Links
+
+201 Linha criada ou atualizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "id": 1, "erpId": "LIN-001", "description": "Linha }
+No links
+
+Masculina"
+
+400 Corpo da requisição inválido
+
+Media type
+
+application/json
+
+Example Value { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/lines
+
+Remover linha por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": }
+Responses
+
+"LIN-001"
+
+Code Description
+
+Links
+
+200 Linha removida com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "id": 1, "erpId": "LIN-001", "description": "Linha }
+No links
+
+Masculina"
+
+404 Linha não encontrada
+
+Media type
+
+application/json
+
+Example Value { "message": "Não foi possível deletar! Linha não encontrada."
+
+Página 28
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+} No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Marcas
+
+GET
+
+/brands
+
+Listar todas as Marcas
+
+Parameters
+
+Try it out
+
+Name Description
+page integer (query) Número da página 1 limit integer (query) Quantidade de registros por página 10
+
+Responses
+
+Code Description
+200 Lista de Marcas
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1000", "name": "Marca Exemplo", "logoImg": "MARCA.png", "minValue": "1000.0", "minInstallmentsValue": "20.0", "companyErpId": "erp-23423", "visible": true, "skuOrder": "P-M-G-GG", "addresses": { "addressesErpId": "erp-23242", "city": "São Paulo", "street": "Rua Ângelo Cutrale", "number": "232", "neighborhood": "Rio Pequeno", "uf": "SP", "zipCode": "05363-130", "complement": "casa" } }, { "erpId": "ERP-1001", "name": "Outra Marca", "logoImg": "MARCA.png", "minValue": "500", "minInstallmentsValue": "10.0", "companyErpId": "erp-23423", "visible": false, "skuOrder": "M-G-GG", "addresses": { "addressesErpId": "erp-23242", "city": "Rio de Janeiro", "street": "Av. Brasil", "number": "1020", "neighborhood": "Centro", "uf": "RJ", "zipCode": "20000-000", "complement": "Sala 4" } } ]
+No links 404
+
+Página 29
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Nenhuma marca encontrada
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"Nenhuma
+
+marca
+
+encontrada."
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/brands
+
+Criar uma marca
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Marca Exemplo", "logoImg": "MARCA.png", "minValue": "1000", "minInstallmentsValue": "20.0", "companyErpId": "erp-23423", "visible": true, "skuOrder": "P-M-G-GG", "addresses": { "addressesErpId": "erp-23242", "city": "São Paulo", "street": "Rua Ângelo Cutrale", "number": "232", "neighborhood": "Rio Pequeno", "uf": "SP", "zipCode": "05363-130", "complement": "casa" } }
+Responses
+
+Code Description
+400 Requisição inválida
+
+Links
+
+Media type application/json
+
+Example Value
+
+Schema { "message": }
+No links
+500 Erro no servidor
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/brands
+Atualizar marca por erpId Parameters
+
+Página 30
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "name": "Marca Atualizada", "logoImg": "MARCA.PNJ", "minValue": "1500", "minInstallmentsValue": 25, "visible": false, "skuOrder": "PP-P-M-G-GG", "addresses": { "addressesErpId": "erp-23242", "city": "Campinas", "street": "Rua das Flores", "number": "55", "neighborhood": "Centro", "uf": "SP", "zipCode": "13000-000", "complement": "Loja 2" } }
+Responses
+
+Code Description
+
+Links
+
+200
+
+Empresa atualizada com sucesso!
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "erp-23423", "name": "Marca Atualizada", "logoImg": "MARCA.PNJ", "minValue": "1500", "minInstallmentsValue": 25, "visible": false, "skuOrder": "PP-P-M-G-GG", "addresses": { "addressesErpId": "erp-23242", "city": "Campinas", "street": "Rua das Flores", "number": "55", "neighborhood": "Centro", "uf": "SP", "zipCode": "13000-000", "complement": "Loja 2" } }
+No links
+401 Requisição inválida
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "400: Parâmetros }
+No links
+404 Recurso não encontrado
+
+inválidos"
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "404: Item não encontrado" }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Página 31
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Métodos de pagamento
+
+GET
+
+/payment-methods
+
+Listar todos os métodos de pagamento
+
+Parameters
+
+Try it out
+
+Name Description
+
+page * integer (query) Número da página 1 limit * integer (query) Quantidade de registros por página 10 description string (query) Filtrar pela descrição do método de pagamento description minValue string (query) Valor mínimo do método de pagamento minValue priceAdjustment string (query) Ajuste de preço aplicado ao método priceAdjustment erpId string (query) ERP ID do método de pagamento erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de métodos de pagamento
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "erpp1234", "description": "Boleto", "minValue": "100", "companyErpId": "erp-23423", "priceAdjustment": "1" }, { "erpId": "erpp1235", "description": "PIX", "minValue": "50", "companyErpId": "erp-23423", "priceAdjustment": "1" } ]
+No links
+
+404 Métodos de pagamento não encontrados
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Métodos de pagamento não encontrados." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+Página 32
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/payment-methods
+
+Criar um novo método de pagamento
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "erpp1236", "description": "Cartão de Crédito", "minValue": "200", "companyErpId": "erp-23423", "priceAdjustment": "1.05" }
+Responses
+
+Code Description
+
+Links
+
+201 Método de pagamento criado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "erpp1236", "description": "Cartão de Crédito", "minValue": "200", "companyErpId": "erp-23423", "priceAdjustment": "1.05" }
+No links
+
+400 Corpo da requisição vazio ou inválido
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/payment-methods
+Atualizar método de pagamento por erp_id Parameters Try it out No parameters Request body application/json Example Value Schema
+
+Página 33
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "erpId": "MP-1987-B", "description": "Boleto Atualizado", "minValue": "120", "priceAdjustment": "1.02"
+} Responses
+
+Code Description
+
+Links
+
+200
+
+Método de pagamento atualizado com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "erpp1234", "description": "Boleto Atualizado", "minValue": "120", "companyErpId": "erp-23423", "priceAdjustment": "1.02" }
+No links
+404 Método de pagamento não encontrado
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Método de pagamento não encontrado." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/payment-methods/{erpId}
+
+Remover método de pagamento por erp_id
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Método de pagamento deletado
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "erpp1234", "description": "Boleto", "minValue": "100", "companyErpId": "erp-23423", "priceAdjustment": "1" }
+No links
+
+404 Método de pagamento não encontrado
+
+Media type
+
+application/json
+
+Página 34
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Example Value
+Schema { "message": "Não foi possível deletar! Método de pagamento não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Pedidos
+
+GET
+
+/orders
+
+Listar pedidos não integrados.
+
+Parameters
+
+Try it out
+
+Name Description
+page integer (query) Página da listagem 1 limit integer (query) Quantidade de registros por página 10 name string (query) Filtrar pedido pelo nome name number string (query) Filtrar pedido pelo nome number
+
+Responses
+
+Code Description
+
+Links
+
+200
+
+Lista de pedidos não integrados
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "ped_data_pagamento": "Cartão de crédito", "ped_data_entrega": "Tue Nov 11 2025 09:32:12 GMT-0300 (Horário Padrão de Brasília) a Tue Nov 11 2025 09:32:12 GMT-0300 (Horário Padrão de Brasília)", "ped_descricao_entrega": "base", "ped_modo_entrega": "data", "ped_forma_pagamento": "Cartão de crédito", "ped_data_pedido": "2025-11-11T12:32:13.000Z", "ped_numero_pedido": "1000006666", "ped_ordem_compra": null, "ped_observacao": "", "ped_nome_comprador": "João Silva", "ped_email_enviado": false, "ped_visualizar": false, "orcamento": false, "ped_ipi": "0", "ped_st": "0", "ped_tabela_precos": 572, "ped_email_xml": null, "ped_transp_nome": "Padrão", "ped_transp_tel": "(11) 98562-8478", "ped_transp_email": "qdede@gmail.com", "ped_enviar_emails": null, "ped_fotos_produtos": null, "ped_aprovado": true,
+
+Página 35
+
+E-Catálogos | Documentação da API - Força de Vendas "ped_data_aprovado": null, "ped_motivo_reprovar": null, "ped_transp_id": 50, "ped_telefone_cliente": "17171717171", "ped_tipo_frete": null, "ped_tipo_venda": "base", "ped_numero_externo": null, "ped_representante_ausente": null, "ped_status": "pending", "uuid": null, "user_jwt": null, "platform": null, "fk_vendedores": null, "fk_vendedores_aux": 0, "created_at": "2025-11-11T12:32:13.000Z", "pedido_cliente": null, "verificacao": null, "fk_prepostos": null, "ped_b2c_exportado": null, "crp_desconto_especial": 1, "integrated": false, "marca": [
+{ "id": 572, "mc_nome": "SUL/SUDESTE", "mc_cnpj": "04.123.456/0001-00", "mc_endereco": "Avenida Brasil", "mc_numero": "456", "mc_complemento": "apartamento", "mc_bairro": "Centro", "mc_cidade": "Rio de Janeiro", "mc_uf": "RJ", "mc_cep": "20040002", "mc_id_erp": "erp-22433", "mc_codigo_tabela": "", "mc_visualizar": false
+} ], "cliente": {
+"cl_nome_comprador": "João Silva", "cl_cargo": "", "cl_razao": "Dixie", "cl_fantasia": "Fantasia A", "cl_unidade": [
+"SP" ], "cl_cnpj": "321.524.123-00", "cl_inscricao_estadual": "654321", "cl_inscricao_suframa": "", "cl_telefone": "17171717171", "cl_email_cadastro": "testeecatalogos@gmail.com", "cl_email_1": "", "cl_email_2": "", "cl_id_erp": "ERP00234", "cl_conceito": null }, "representante": { "rp_nome": "", "rp_rg": "", "rp_cpf": "", "rp_data_nascimento": "", "rp_sexo": "", "rp_data_emissao": "", "rp_orgao_emissor": "", "rp_orgao_uf_emissor": "", "rp_registro_core": "", "rp_email_1": "", "rp_email_2": "", "rp_email_3": "", "rp_razao_social": "", "rp_nome_fantasia": "", "rp_cnpj": "", "rp_inscricao_estadual": "", "rp_inscricao_municipal": "", "rp_id_erp": "", "rp_cep": "", "rp_endereco": "", "rp_numero": "", "rp_complemento": "", "rp_bairro": "", "rp_cidade": "", "rp_uf": "", "rp_lmt_desconto_especial": 0, "rp_comissao_1": 0, "lrp_comissao_2": 0 }, "prazo": { "id": 543, "prz_nome": "3x - (30/60/90)", "prz_desconto": 0, "prz_id_erp": "erp-1003" }, "ped_conceito": "", "tabela_precos": "SUL/SUDESTE", "transportadora": { "id": 50, "etr_nome": "Padrão", "etr_email": "qdede@gmail.com", "etr_telefone": "(11) 98562-8478", "etr_cnpj": "54135655", "etr_tipo_frete": 0, "etr_id_erp": "erp-1200" }, "carrinho_pedido": [
+Página 36
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "crp_quantidade": 32, "crp_quantidade_cancelada": 0, "crp_quantidade_entregue": 0, "crp_quantidade_entregar": 0, "crp_quantidade_embalada": 0, "crp_preco_unitario": "34.7", "crp_valor_original": "0", "crp_valor_entregar": "0", "crp_valor_entregue": "0", "crp_valor_cancelado": "0", "crp_prazo_entrega": "data", "crp_desconto_volume": "0", "crp_desconto_valor": "0", "crp_desconto_parcela": "0", "crp_desconto_especial": "0", "crp_desconto_individual": "0", "crp_desconto_progressivo": "0", "crp_desconto_unitario": "0", "crp_cubagem_total": "0", "crp_peso_total": "0", "crp_ipi_valor": "0", "crp_st_valor": "0", "produto": { "id": 709, "prd_nome": "CAM ESP CARECA MC "prd_referencia": "11.19.5486" }, "tamanho": { "tmh_nome": "P", "tmh_id_erp": 0 }, "cor": [ { "cor_nome": "Color 1", "cor_id_erp": null }, { "cor_nome": "Color 2", "cor_id_erp": null }, { "cor_nome": "Color 3", "cor_id_erp": null }, { "cor_nome": "Color 6", "cor_id_erp": null } ], "crp_sku_erp": "", "crp_comissao_1": 0, "crp_comissao_2": 0
+} ] } ] No links
+404 Pedidos não encontrados.
+
+MASC",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Pedidos não encontrados." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PATCH
+
+/orders/export/{number}
+Exportar pedido Parameters
+Try it out
+Name Description number * string (path) Número do pedido
+
+Página 37
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+number
+
+Responses
+
+Code Description
+
+Links
+
+200
+
+Pedido exportado com sucesso!
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "ped_data_pagamento": "Cartão de Crédito", "ped_data_entrega": "2024-11-25 a 2024-11-30", "ped_descricao_entrega": "Entrega programada", "ped_modo_entrega": "data", "ped_forma_pagamento": "Cartão de Crédito", "ped_data_pedido": "2024-11-24T10:00:00.000Z", "ped_numero_pedido": "1000006758", "ped_ordem_compra": "OC-12345", "ped_observacao": "Pedido 24/11", "ped_nome_comprador": "João Silva", "ped_email_enviado": true, "ped_visualizar": true, "orcamento": 0, "ped_ipi": "5%", "ped_st": "12%", "ped_tabela_precos": 1, "ped_email_xml": "joao@empresa.com", "ped_transp_nome": "Transportadora ABC", "ped_transp_tel": "(11) 9999-9999", "ped_transp_email": "contato@transporteabc.com", "ped_enviar_emails": true, "ped_fotos_produtos": true, "ped_aprovado": 1, "ped_data_aprovado": "2024-11-24T11:00:00.000Z", "ped_motivo_reprovar": "", "ped_transp_id": 1, "ordersPedTelefoneCliente": "(11) 8888-8888", "ped_tipo_frete": "CIF", "ped_tipo_venda": "Venda direta", "ordersped_numero_externo": "ERP-1000", "ped_representante_ausente": false, "ped_status": "approved", "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "user_jwt": "user_jwt_token", "platform": "web", "fk_vendedores": 1, "fk_vendedores_aux": 2, "created_at": "2024-11-24T10:00:00.000Z", "pedido_cliente": "PED-001", "verificacao": true, "fk_prepostos": 1, "ped_b2c_exportado": "2024-11-24T10:24:31.000Z", "crp_desconto_especial": 1, "integrated": true, "marca": [ { "id": 1, "mc_nome": "Marca Exemplo", "mc_cnpj": "12.345.678/0001-90", "mc_endereco": "Rua Exemplo", "mc_numero": "123", "mc_complemento": "Sala 1", "mc_bairro": "Centro", "mc_cidade": "São Paulo", "mc_uf": "SP", "mc_cep": "01234-567", "mc_id_erp": "ERP-MARCA-001", "mc_codigo_tabela": "TAB-001", "mc_visualizar": 1 } ], "cliente": { "cl_nome_comprador": "João Silva", "cl_cargo": "Gerente de Compras", "cl_razao": "Empresa ABC Ltda", "cl_fantasia": "ABC Company", "cl_unidade": [ "SP" ], "cl_cnpj": "123.456.789-00", "cl_inscricao_estadual": "123.456.789.000", "cl_inscricao_suframa": "12345", "cl_telefone": "(11) 8888-8888", "cl_email_cadastro": "joao@empresa.com", "cl_email_1": "joao2@empresa.com", "cl_email_2": "joao3@empresa.com", "cl_id_erp": "ERP-CLIENTE-001", "cl_conceito": "A" }, "representante": { "rp_nome": "Maria Santos", "rp_rg": "12.345.678-9", "rp_cpf": "987.654.321-00", "rp_data_nascimento": "1985-05-15", "rp_sexo": "F", "rp_data_emissao": "2020-01-01", "rp_orgao_emissor": "SSP", "rp_orgao_uf_emissor": "SP",
+
+Página 38
+
+E-Catálogos | Documentação da API - Força de Vendas "rp_registro_core": "COR-12345", "rp_email_1": "maria@empresa.com", "rp_email_2": "maria2@empresa.com", "rp_email_3": "maria3@empresa.com", "rp_razao_social": "Representações XYZ Ltda", "rp_nome_fantasia": "XYZ Repres", "rp_cnpj": "98.765.432/0001-00", "rp_inscricao_estadual": "987.654.321.000", "rp_inscricao_municipal": "123456", "rp_id_erp": "ERP-REP-001", "rpCep": [
+"01234-567" ], "rpEndereco": [
+"Av. Principal" ], "rpNumero": [
+"456" ], "rpComplemento": [
+"Andar 2" ], "rpBairro": [
+"Jardins" ], "rpCidade": [
+"São Paulo" ], "rpUf": [
+"SP" ], "rp_lmt_desconto_especial": 10.5, "rp_comissao_1": 5, "rpComissao2": 2.5 }, "prazo": { "id": 1, "prz_nome": "30 dias", "prz_desconto": 2, "prz_id_erp": "ERP-PRAZO-001" }, "ordersVendedorAuxiliar": [ {
+"id": 1, "nome": "Carlos Oliveira", "cpf": "111.222.333-44", "codigo": "VEND-001" } ], "ped_conceito": "Premium", "tabela_precos": "Tabela Especial", "transportadora": { "id": 1, "etr_nome": "Transportadora ABC", "etr_email": "contato@transporteabc.com", "etr_telefone": "(11) 9999-9999", "etr_cnpj": "11.222.333/0001-44", "etr_tipo_frete": 1, "etr_id_erp": "ERP-TRANS-001" }, "carrinho_pedido": [ { "crp_quantidade": 10, "crp_quantidade_cancelada": 0, "crp_quantidade_entregue": 0, "crp_quantidade_entregar": 10, "crp_quantidade_embalada": 0, "crp_preco_unitario": 1229.88, "crp_valor_original": 12298.8, "crp_valor_entregar": 12298.8, "crp_valor_entregue": 0, "crp_valor_cancelado": 0, "crp_prazo_entrega": "data", "crp_desconto_volume": 5, "crp_desconto_valor": 10, "crp_desconto_parcela": 2, "crp_desconto_especial": 3, "crp_desconto_individual": 1, "crp_desconto_progressivo": 0.5, "crp_desconto_unitario": 2.5, "crp_cubagem_total": 1.5, "crp_peso_total": 8.2, "crp_ipi_valor": 614.94, "crp_st_valor": 1475.86, "produto": {
+"id": 1, "prd_nome": "Produto Exemplo", "prd_referencia": "REF-001" }, "tamanho": { "tmh_nome": "M", "tmh_id_erp": "ERP-TAM-001" }, "cor": [ {
+"cor_nome": "Azul", "cor_id_erp": "ERP-COR-001" } ], "crp_sku_erp": "ERP-SKU-001", "crp_comissao_1": 0, "crp_comissao_2": 0 } ]
+Página 39
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+} No links 404 Pedido não encontrado. Media type application/json Example Value
+Schema { "message": "Não foi possível exportar! Pedido não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PATCH
+
+/orders/{number}
+
+Marcar pedido como integrado e passar numero ERP
+
+Parameters
+
+Try it out
+
+Name Description
+
+number * string (path) Número do pedido number
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "ped_numero_externo": "erp-3425", "crp_desconto_especial": 1, "integrated": true }
+Responses
+
+Code Description
+
+Links
+
+200 Pedido integrado com sucesso!
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "crp_desconto_especial": 1, "integrated": true, "ordersped_numero_externo": }
+No links
+
+"erp-3425"
+
+404 Pedido não encontrado.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Pedido não encontrado." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema
+
+Página 40
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "message": "500: Erro interno no servidor"
+} No links
+
+PUT
+
+/orders/status
+
+Rota para atualizar status e informações de NFE dos pedidos.
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "orderNumber": "1000006666", "orderErpId": "2555655156", "carrierErpId": "erp-1200", "clientErpId": "erp-9987", "clientName": "João Silva LTDA", "clientCnpj": "04.123.456/0001-00", "carrierName": "Transportadora Padrão", "carrierCnpj": "12.987.654/0001-99", "status": "EM_ANALISE", "branchCode": "BR001", "boxCode": "CX-100", "boxQuantity": 10, "packagedQuantity": 8, "packagedValue": 1250.5, "packagedDate": "2025-11-11T12:32:13.000Z", "nfeNumber": "123456", "nfeKey": "35191111111111111111550010000012341000012345", "nfeSerie": "1", "nfeEmissionDate": "2025-11-11T12:30:00.000Z", "nfeAuthorizationDate": "2025-11-11T12:35:00.000Z", "nfeAuthorizationProtocol": "135240000000000" }
+Responses
+
+Code 200
+
+Description
+
+Links
+
+No links 400
+
+No links 404
+
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+GET
+
+/orders/integrated
+
+Listar pedidos integrados.
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Página da listagem 1 limit integer (query) Quantidade de registros 10 erpId string (query) Filtrar pelo número ERP erpId
+
+por página do pedido.
+
+Página 41
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+number string (query) Filtrar pelo número do pedido. number
+
+Responses
+
+Code Description
+200 Lista de pedidos integrados.
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value [ { "erpId": "25776795322", "number": "1000008257", "buyerName": "João Silva", "deadline": "PE", "observation": "Pedido urgente", "status": "pending", "type": "representative", "grossValue": 8260, "finalValue": 7021, "paymentCondition": { "term": "30/60", "installments": 2, "priceAdjustment": 1 }, "paymentMethod": { "description": "Pix", "minimumValue": 0, "priceAdjustment": 1 }, "seller": { "name": "Carlos Oliveira" }, "representative": { "name": "Maria Santos" }, "agent": { "name": "Agente Teste" }, "carrier": { "name": "Transportadora Padrão" }, "details": { "status": "PACKAGED", "orderErpId": "25776795322", "clientName": "Loja Exemplo LTDA", "clientCnpj": "12.345.678/0001-99", "carrierName": "Transportadora Padrão", "carrierCnpj": "98.765.432/0001-10", "branchCode": "FIL01", "boxCode": "CX001", "boxQuantity": 5, "packagedQuantity": 40, "packagedValue": 7021, "packagedDate": "2026-06-17T15:30:00.000Z", "nfe": { "number": "123456", "serie": "1", "key": "35260612345678901234550010000012345678901234", "emissionDate": "2026-06-17T15:20:00.000Z", "authorizationProtocol": "135260000000001", "authorizationDate": "2026-06-17T15:22:00.000Z" } }, "items": [ { "product": { "name": "CAM ESP CARECA MC MASC", "reference": "11.19.5486", "description": "Camiseta masculina", "collection": "Verão 2026" }, "color": "Preto", "quantity": 18, "skuCount": 2, "value": 1532.9, "skus": [ { "code": "11195486-PT-P", "size": "P", "quantity": 5, "unitPrice": 89.9, "total": 449.5 }, { "code": "11195486-PT-M", "size": "M", "quantity": 13, "unitPrice": 83.3, "total": 1083.4 } ] }, {
+
+Página 42
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"product": { "name": "CAM ESP CARECA MC MASC", "reference": "11.19.5486", "description": "Camiseta masculina", "collection": "Verão 2026"
+}, "color": "Azul", "quantity": 10, "skuCount": 2, "value": 980, "skus": [
+{ "code": "11195486-AZ-P", "size": "P", "quantity": 4, "unitPrice": 98, "total": 392
+}, {
+"code": "11195486-AZ-M", "size": "M", "quantity": 6, "unitPrice": 98, "total": 588 } ] } ] } ] No links 404 Pedidos não encontrados. Media type application/json Example Value { "message": "Pedidos não encontrados." } No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Preços
+
+POST
+
+/prices
+
+Criar um novo preço vinculado a uma tabela de preço de um SKU
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "SKU-1000", "price": "150.0", "skuCode": "SKU-CODE-01", "priceTableErpId": "ERP-1000", "skuErpId": "ERP-223423", "companyErpId": "COMP-1000" }
+Responses
+
+Code Description
+
+Links
+
+201 Preço de SKU criado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "SKU-1000",
+
+Página 43
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"price": 150, "skuErpId": "SKU-1000", "priceTableErpId": "ERP-1000", "skuCode": "SKU-CODE-01", "companyErpId": "COMP-1000" } No links 400 Corpo da requisição inválido Media type application/json Example Value
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/prices
+
+Atualizar preço de SKU por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-1212", "price": 175, "skuCode": "SKU-CODE-01", "priceTableErpId": "ERP-1000", "skuErpId": "ERP-223423", "companyErpId": "COMP-1000" }
+Responses
+
+Code Description
+
+Links
+
+200 Preço de SKU atualizado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "SKU-1000", "price": 175, "skuErpId": "SKU-1000", "priceTableErpId": "ERP-1000", "skuCode": "SKU-CODE-01", "companyErpId": "COMP-1000" }
+No links
+
+404 Preço de SKU não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Preço de SKU não encontrado." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+Página 44
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/prices/{erpId}
+
+Remover preço de SKU por erpId
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Preço de SKU deletado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "SKU-1000", "price": 150, "skuErpId": "SKU-1000", "priceTableErpId": "ERP-1000", "skuCode": "SKU-CODE-01", "companyErpId": "COMP-1000" }
+No links
+
+404 Preço de SKU não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível deletar! Preço de SKU não encontrado." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Prepostos
+
+GET
+
+/agents
+Lista os vendedores
+Parameters
+Try it out
+Name Description page * integer (query) Página da consulta Default value : 1 1 limit *
+
+Página 45
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+integer (query) Quantidade de registros por página Default value : 10 10 name string (query) Filtrar por nome do vendedor name cpf string (query) Filtrar por CPF cpf email string (query) Filtrar por e-mail email
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de vendedores retornada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value [ { "erpId": "AGE-1987-001", "name": "João da Silva Santos", "email": "joao.silva@email.com", "cellPhone": "11987654321", "phone": "1133334444", "codigo": "12345", "cpf": "331.384.850-81", "rg": "14.645.326-8", "representatives": [ { "erpId": "REP-1987-001", "name": "Maria Oliveira" } ] } ]
+No links
+
+401 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Recurso não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "404: Item não encontrado" }
+No links
+
+POST
+
+/agents
+Cria um novo vendedor Parameters Try it out No parameters Request body application/json Example Value
+
+Página 46
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Schema { "erpId": "AGE-1987-001", "name": "João da Silva Santos", "cpf": "331.384.850-81", "rg": "14.645.326-8", "email": "joao.silva@email.com", "cellPhone": "11987654321", "street": "Avenida Paulista", "number": "1000", "complement": "Casa 1", "neighborhood": "Bela Vista", "city": "São Paulo", "uf": "SP", "zipCode": "01310000", "companyErpId": "1987", "representativesErpId": "REP-1987-001" }
+Responses
+
+Code Description
+
+Links
+
+200
+
+Operação realizada com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+401 Requisição inválida
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "400: Parâmetros }
+No links
+404 Recurso não encontrado
+
+inválidos"
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "404: Item não encontrado" }
+No links
+
+PUT
+
+/agents
+
+Atualiza um vendedor existente
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "AGE-1987-001", "name": "João da Silva Santos", "cpf": "331.384.850-81", "rg": "14.645.326-8", "email": "joao.silva@email.com", "cellPhone": "11987654321", "street": "Avenida Paulista", "number": "1000", "complement": "Casa 1", "neighborhood": "Bela Vista", "city": "São Paulo", "uf": "SP", "zipCode": "01310000", "companyErpId": "1987", "representativesErpId": "REP-1987-001" }
+Responses
+
+Code Description
+
+Links
+
+Página 47
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+200 Operação realizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+
+401 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Recurso não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "404: Item não encontrado" }
+No links
+
+DELETE
+
+/agents
+
+Exclui um vendedor existente
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * integer (path) ID do vendedor no sistema ERP erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Operação realizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+
+401 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Recurso não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema
+
+Página 48
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "message": "404: Item não encontrado"
+} No links
+
+Produtos
+
+GET
+
+/products
+
+Listar todos os produtos
+
+Parameters
+
+Try it out
+
+Name
+page number (query) 1 limit number (query) 10 name (query) name reference (query) reference
+
+Description
+
+Responses
+
+Code Description
+200 Lista de produtos
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1231", "companyErpId": "erp-23223", "name": "Jaqueta Masc F.U", "reference": "16.07.0303", "branchErpId": "lx-001", "promptDelivery": true, "description": "", "brandErpId": "erp-234", "deadlineErpId": "erp-2342", "genderErpId": "erp-3431", "categoryErpId": null, "createdAt": "2025-07-14T12:46:26.000Z", "updatedAt": "2025-07-14T15:45:02.000Z", "deletedAt": null, "compositionData": "", "technicalInformation": "", "openGrid": true, "ipi": "0", "isDiscontinued": false, "isLaunch": false, "isVisibleB2B": true, "isVisibleForca": false, "colection": "", "st": "0", "productColors": [ { "colorErpId": "ERP-23432" }, { "colorErpId": "ERP-23342" }, { "colorErpId": "ERP-23442" }, { "colorErpId": "ERP-23542" } ] } ]
+No links
+404 Produtos não encontrados
+
+Media type application/json
+
+Example Value
+
+Página 49
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Schema { "message": "Produtos não encontrados." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/products
+
+Criar um produto
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "PRD-00999", "companyErpId": "erp-23223", "name": "Camiseta Premium Algodão", "reference": "REF-CAM-ALG-01", "branchErpId": "ERP-12132", "brandErpId": "erp-22433", "deadlineErpId": "erp-1231", "genderErpId": "erp-9812", "categoryErpId": "erp-2323", "productSubcategoryErpId": "erp-3243", "promptDelivery": true, "description": "Camiseta 100% algodão penteado, toque macio e acabamento premium.", "compositionData": "100% algodão", "technicalInformation": "Gramatura: 180g/m²", "openGrid": false, "ipi": 5, "isDiscontinued": false, "isLaunch": true, "isVisibleB2B": true, "isVisibleForca": false, "colection": "Verão 2025", "st": "0", "campaignErpId": "CAM-001", "lineErpId": "LIN-001", "productColors": [ { "colorErpId": "erp-1313" }, { "colorErpId": "erp-232" }, { "colorErpId": "erp-2341" } ] }
+Responses
+
+Code Description
+201 Produto criado com sucesso
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "PRD-00999", "companyErpId": "erp-23223", "name": "Camiseta Premium Algodão", "reference": "REF-CAM-ALG-01", "branchErpId": "ERP-12132", "brandErpId": "erp-22433", "deadlineErpId": "erp-1231", "genderErpId": "erp-9812", "categoryErpId": "erp-2323", "productSubcategoryErpId": "erp-3243", "promptDelivery": true, "description": "Camiseta 100% algodão penteado, toque macio e acabamento premium.", "compositionData": "100% algodão",
+
+Página 50
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"technicalInformation": "Gramatura: "openGrid": false, "ipi": 5, "isDiscontinued": false, "isLaunch": true, "isVisibleB2B": true, "isVisibleForca": false, "colection": "Verão 2025", "st": "0", "campaignErpId": "CAM-001", "lineErpId": "LIN-001", "productColors": [
+{ "colorErpId": "erp-1313"
+}, {
+"colorErpId": "erp-232" }, {
+"colorErpId": "erp-2341" } ] } No links
+400 Corpo da requisição vazio ou inválido
+
+180g/m²",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/products
+Atualizar produto por erpId Parameters Try it out No parameters Request body application/json Example Value Schema
+{ "erpId": "P-123", "name": "Camiseta Premium Algodão", "reference": "REF-CAM-ALG-01", "branchErpId": "ERP-12132", "brandErpId": "erp-22433", "deadlineErpId": "erp-1231", "genderErpId": "erp-9812", "categoryErpId": "erp-2323", "productSubcategoryErpId": "erp-3243", "promptDelivery": true, "description": "Camiseta 100% algodão penteado, toque macio e acabamento premium.", "compositionData": "100% algodão", "technicalInformation": "Gramatura: 180g/m²", "openGrid": false, "ipi": "5", "isDiscontinued": false, "isLaunch": true, "isVisible": true, "colection": null, "campaignErpId": "CAM-001", "lineErpId": "LIN-001", "st": "0", "productColors": [ { "colorErpId": "erp-1313" }, { "colorErpId": "erp-232" }, { "colorErpId": "erp-2341" }
+
+Página 51
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+] } Responses
+
+Code Description
+
+Links
+
+200
+
+Produto atualizado com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value { "erpId": "PRD-00999", "companyErpId": "erp-23223", "name": "Camiseta Premium Algodão", "reference": "REF-CAM-ALG-01", "branchErpId": "ERP-12132", "brandErpId": "erp-22433", "deadlineErpId": "erp-1231", "genderErpId": "erp-9812", "categoryErpId": "erp-2323", "productSubcategoryErpId": "erp-3243", "promptDelivery": true, "description": "Camiseta 100% algodão penteado, "compositionData": "100% algodão", "technicalInformation": "Gramatura: 180g/m²", "openGrid": false, "ipi": 5, "isDiscontinued": false, "isLaunch": true, "isVisible": true, "colection": "Verão 2025", "st": "0", "productColors": [ { "colorErpId": "erp-1313" }, { "colorErpId": "erp-232" }, { "colorErpId": "erp-2341" } ] }
+No links
+404 Produto não encontrado
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Produto }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+toque macio e acabamento não encontrado."
+
+premium.",
+
+GET
+
+/products/{erpId}
+Buscar produto por erpId Parameters
+Try it out
+Name Description erpId * string (path) erpId do recurso erpId Responses
+Code Description 200 Produto encontrado Media type
+
+Links
+
+Página 52
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json Controls Accept header.
+Example Value
+Schema { "erpId": "PRD-00999", "name": "Camiseta Premium Algodão", "reference": "REF-CAM-ALG-01", "branchErpId": "ERP-12132", "productPromptDelivery": true, "description": "Camiseta 100% algodão penteado", "compositionData": "100% algodão", "technicalInformation": "Gramatura: 180g/m²", "productOpenGrid": false, "ipi": "5", "productIsDiscontinued": false, "productIsLaunch": true, "productIsVisibleB2B": true, "productIsVisibleForca": false, "colection": "Verão 2025", "st": "0", "genderErpId": "erp-9812", "categoryErpId": "erp-2323", "subcategoryErpId": "erp-3243", "campaignErpId": "CAM-001", "lineErpId": "LIN-001", "companyErpId": "erp-23223", "productColors": [ { "colorErpId": "erp-1313" } ] }
+No links 404 Produto não encontrado Media type application/json Example Value
+Schema { "message": "Produto não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PATCH
+
+/products/visible
+
+Atualizar visibilidade de produtos no B2B e no Força de vendas
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "productErpId": "PROD-123", "isVisibleB2B": true, "isVisibleForca": false }, { "productErpId": "PROD-100", "isVisibleB2B": false, "isVisibleForca": false } ]
+Responses
+
+Code Description
+
+Links
+
+200 Produto atualizado com sucesso
+
+No links
+
+404
+
+Página 53
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Produto não encontrado Media type application/json Example Value
+Schema { "message": "Não foi possível atualizar! Produto não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Prazos de entregas
+
+GET
+
+/deadlines
+
+Listar todos os prazos de entrega
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de registros por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de prazos de entrega
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1000", "name": "Prazo de Entrega "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "MENSAL" }, { "erpId": "ERP-2000", "name": "Prazo de Entrega "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "DEFINIDO" } ]
+No links
+
+Padrão", Extra",
+
+404 Prazos de entrega não encontrados
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Prazos de entrega não encontrados." }
+No links
+
+500
+
+Página 54
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/deadlines
+
+Criar um prazo de entrega
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-3000", "name": "Prazo Especial", "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "DEFINIDO" }
+Responses
+
+Code Description
+
+Links
+
+201 Prazo de entrega criado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-3000", "name": "Prazo Especial", "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "DEFINIDO" }
+No links
+
+400 Corpo da requisição vazio ou inválido
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/deadlines
+Atualizar prazo de entrega por erpId Parameters Try it out No parameters Request body
+
+Página 55
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Prazo Atualizado", "initial": "01/09/2025", "final": "01/10/2025", "type": "DEFINIDO" }
+Responses
+
+Code Description
+
+Links
+
+200
+
+Prazo de entrega atualizado com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Prazo Atualizado", "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "DEFINIDO" }
+No links
+404 Prazo de entrega não encontrado
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Prazo de entrega não encontrado." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/deadlines/{erpId}
+
+Remover prazo de entrega por erp_id
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Prazo de entrega deletado com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Prazo Atualizado", "initial": "01/09/2025", "final": "01/10/2025", "companyErpId": "1987", "type": "DEFINIDO" }
+
+Página 56
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+No links 404 Prazo de entrega não encontrado Media type application/json Example Value
+Schema { "message": "Não foi possível deletar! Prazo de entrega não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Regiões
+
+GET
+
+/regions
+
+Listar todas as regiões
+
+Parameters
+
+Try it out
+
+Name Description
+
+page number (query) 1 limit number (query) 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de regiões
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "REG-001", "name": "Sudeste", "color": "#2563EB", "statesCodes": "SP,RJ,MG,ES", "cityNames": "São Paulo,Campinas,Santos", "companyErpId": "COMP-001", "priceTableErpId": "PT-001" } ]
+No links
+
+404 Regiões não encontradas
+
+Media type
+
+application/json
+
+Example Value { "message": "Regiões não encontradas." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema {
+
+Página 57
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"message": "500: Erro interno no servidor" } No links
+
+POST
+
+/regions
+
+Criar uma região
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "REG-001", "name": "Sudeste", "color": "#2563EB", "statesCodes": "SP,RJ,MG,ES", "cityNames": "São Paulo,Campinas,Santos", "companyErpId": "COMP-001", "priceTablesErpId": "PT-001" }
+Responses
+
+Code Description
+201 Região criada com sucesso
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "REG-001", "name": "Sudeste", "color": "#2563EB", "statesCodes": "SP,RJ,MG,ES", "cityNames": "São Paulo,Campinas,Santos", "companyErpId": "COMP-001", "priceTableErpId": "PT-001" }
+No links
+400 Corpo da requisição inválido
+
+Media type application/json
+
+Example Value { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+404 Tabela de preço não encontrada
+
+Media type application/json
+
+Example Value { "message": "ERP ID 'PT-001' de tabela de preço não foi encontrado." }
+No links
+409 ERP ID já cadastrado
+
+Media type application/json
+
+Example Value { "message": "ERP ID 'REG-001' de erpId já existente." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor"
+
+Página 58
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+} No links
+
+PUT
+
+/regions
+
+Atualizar uma região
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "name": "Sul", "color": "#16A34A", "statesCodes": "PR,SC,RS", "cityNames": "Curitiba,Florianópolis,Porto }
+Responses
+
+Alegre"
+
+Code Description
+
+Links
+
+200 Região atualizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "REG-001", "name": "Sul", "color": "#16A34A", "statesCodes": "PR,SC,RS", "cityNames": "Curitiba,Florianópolis,Porto "companyErpId": "COMP-001", "priceTableErpId": "PT-001" }
+No links
+
+Alegre",
+
+404 Região não encontrada
+
+Media type
+
+application/json
+
+Example Value { "message": "Não foi possível atualizar! Região não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+GET
+
+/regions/{erpId}
+Buscar região por ERP ID Parameters
+Try it out
+Name Description erpId * string (path) erpId do recurso erpId
+
+Página 59
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Responses
+
+Code Description
+200 Região encontrada
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "REG-001", "name": "Sudeste", "color": "#2563EB", "statesCodes": "SP,RJ,MG,ES", "cityNames": "São Paulo,Campinas,Santos", "companyErpId": "COMP-001", "priceTableErpId": "PT-001" }
+No links
+404 Região não encontrada
+
+Media type application/json
+
+Example Value { "message": "Não existe região de ERP_ID: REG-001" }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/regions/{erpId}
+
+Excluir uma região permanentemente
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Região excluída com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "REG-001", "name": "Sudeste", "color": "#2563EB", "statesCodes": "SP,RJ,MG,ES", "cityNames": "São Paulo,Campinas,Santos" }
+No links
+
+404 Região não encontrada
+
+Media type
+
+application/json
+
+Example Value { "message": "Região não encontrada." }
+No links
+
+Página 60
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Representantes
+
+GET
+
+/representatives
+
+Lista todos os representantes com paginação e filtros.
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página. 1 limit integer (query) Quantidade de registros por página. 10 cpf string (query) Filtro por CPF. 123.456.789-00 cnpj string (query) Filtro por CNPJ. 12.345.678/0001-99 name string (query) Filtro por nome. João Silva
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de representantes retornada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "REP001", "name": "João Silva", "cpf": "123.456.789-00", "cnpj": "12.345.678/0001-99", "corporateName": "João Silva Representações "stateRegistration": "21342112312", "active": true, "cellPhone": "(11) 98765-4321", "phone": "(11) 1234-5678", "email": "joao.silva@email.com", "rg": "12.345.678-9", "type": "REPRESENTATIVE", "representativesClients": [ "CLI001", "CLI002" ] } ]
+No links
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+LTDA",
+
+Página 61
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Example Value
+Schema { "message": }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": }
+No links
+
+"400: "500:
+
+Parâmetros inválidos" Erro interno no servidor"
+
+POST
+
+/representatives
+
+Cria um representante.
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body application/json
+
+Example Value
+
+Schema { "name": "João Silva", "cpf": "123.456.789-00", "rg": "12.345.678-9", "email": "joao.silva@email.com", "phone": "(11) 1234-5678", "cellPhone": "(11) 98765-4321", "erpId": "REP001", "companyErpId": "EMP123", "type": "REPRESENTATIVE", "cnpj": "12.345.678/0001-99", "stateRegistration": "123456789", "corporateName": "João Silva Representações "internal": true, "address": { "street": "Rua das Flores", "number": "123", "complement": "Apto 45", "neighborhood": "Centro", "city": "São Paulo", "zipCode": "01001-000", "uf": "SP" } }
+Responses
+
+LTDA",
+
+Code Description
+
+Links
+
+201
+
+Operação realizada com sucesso
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+400 Requisição inválida
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "400: Parâmetros inválidos" }
+No links
+409 Representante ou usuário já cadastrado.
+
+No links
+500 Erro no servidor
+
+Página 62
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/representatives
+
+Atualiza um representante pelo ERP ID.
+
+Parameters
+
+Try it out
+
+Name Description
+erpId * string (path) erpId do recurso erpId
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "REP001", "name": "João Silva", "rg": "12.345.678-9", "email": "joao.silva@email.com", "phone": "(11) 1234-5678", "cellPhone": "(11) 98765-4321", "cnpj": "12.345.678/0001-99", "stateRegistration": "123456789", "corporateName": "João Silva Representações "type": "REPRESENTATIVE", "internal": true, "address": { "street": "Rua das Flores", "number": "123", "complement": "Apto 45", "neighborhood": "Centro", "city": "São Paulo", "zipCode": "01001-000", "uf": "SP" } }
+Responses
+
+Code Description
+
+Links
+
+200
+
+Representante atualizado com sucesso.
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "id": 1, "erpId": "REP001", "name": "João Silva", "rg": "12.345.678-9", "email": "joao.silva@email.com", "phone": "(11) 1234-5678", "cellPhone": "(11) 98765-4321", "type": "REPRESENTATIVE", "stateRegistration": "123456789", "internal": true }
+No links
+400 Requisição inválida
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "400: Parâmetros }
+No links
+404 Representante não encontrado
+
+inválidos"
+
+Media type
+
+LTDA",
+
+Página 63
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json Example Value
+Schema { "message": "Representante não encontrado.", "statusCode": 404 }
+No links 409 Já existe um representante com o CNPJ informado. Media type application/json Example Value
+Schema { "message": "Já existe um representante cadastrado com este CNPJ.", "statusCode": 409 }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/representatives
+
+Exclui um representante pelo ERP ID.
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Operação realizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+
+401 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Recurso não encontrado
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "404: Item não encontrado" }
+No links
+
+Página 64
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+PATCH
+
+/representatives/clients
+
+Vincula clientes a representantes.
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "clientErpId": "CLI001", "representativeErpId": "REP001" }, { "clientErpId": "CLI002", "representativeErpId": "REP001" }, { "clientErpId": "CLI003", "representativeErpId": "REP002" } ]
+Responses
+
+Code Description
+
+Links
+
+201 Clientes vinculados com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "created": 3, "ignored": 1 }
+No links
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Cliente ou representante não encontrado.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Cliente de ERP ID CLI001 não encontrado.", "statusCode": 404 }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Skus
+
+GET
+
+/skus
+Listar todos os SKUs
+
+Página 65
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de SKUs
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-SKU-001", "size": "M", "stockB2B": 120, "stockForca": 80, "price": 94.9, "code": "SKU12345", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-001", "cest": "1234567", "height": 10.5, "length": 15, "ncm": "1234.56.78", "weight": 0.5, "width": 8, "companyErpId": "erp-243234" } ]
+No links
+
+404 SKUs não encontrados
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "SKUs não encontrados." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/skus
+Criar um Sku Parameters Try it out No parameters Request body application/json Example Value Schema
+{ "erpId": "ERP-SKU-003", "size": "G", "stockB2B": 150,
+
+Página 66
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"stockForca": 1340, "price": "109", "code": "SKU12347", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-003", "cest": "1234569", "height": 11, "length": 16, "ncm": "1234.56.80", "weight": 0.6, "companyErpId": "erp-243234", "width": 8.5 } Responses
+
+Code Description
+200 Sku criado com sucesso.
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Sku criado com sucesso!", "created": { "erpId": "ERP-SKU-003", "size": "G", "stockB2B": 1550, "stockForca": 200, "price": "109", "code": "SKU12347", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-003", "cest": "1234569", "height": 11, "length": 16, "ncm": "1234.56.80", "weight": 0.6, "companyErpId": "erp-243234", "width": 8.5 } }
+No links
+400 Corpo da requisição vazio ou inválido.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+409 Sku já existente.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Sku já existente." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/skus
+Atualizar Sku por erpId Parameters Try it out Name Description
+
+Página 67
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+erpId * string (path) erpId do recurso erpId
+
+Request body application/json
+
+Example Value
+
+Schema { "erpId": "ERP-SKU-001", "size": "M", "stockB2B": 120, "stockForca": 2357, "price": "94.9", "code": "SKU12345", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-001", "cest": "1234567", "height": 10.5, "length": 15, "ncm": "1234.56.78", "weight": 0.5, "width": 8 }
+Responses
+
+Code Description
+
+Links
+
+200
+
+Sku atualizado com sucesso!
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Sku atualizado com sucesso!", "updated": { "erpId": "ERP-SKU-001", "size": "M", "stock": 120, "price": "94.9", "code": "SKU12345", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-001", "cest": "1234567", "height": 10.5, "length": 15, "ncm": "1234.56.78", "weight": 0.5, "companyErpId": "erp-243234", "width": 8 } }
+No links
+404 Sku não encontrado.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Sku não encontrado." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+GET
+
+/skus/{erpId}
+Buscar sku por erpId Parameters Try it out
+
+Página 68
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Name Description
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+200 Sku retornado com sucesso
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-SKU-001", "size": "M", "stockB2B": 120, "stockForca": 80, "price": 94.9, "code": "SKU12345", "minQuantity": 1, "multipleQuantity": 1, "variantErpId": "ERP-VAR-001", "cest": "1234567", "height": 10.5, "length": 15, "ncm": "1234.56.78", "weight": 0.5, "width": 8, "companyErpId": "erp-243234" }
+No links
+404 Sku não encontrado.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Sku não encontrado." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no }
+No links
+
+servidor"
+
+PATCH
+
+/skus/stock
+
+Atualizar estoque de sku (peça)
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "erpId": "erp-31243", "stockB2B": 2500, "stockForca": 780 }, { "erpId": "erp-23423", "stockB2B": 2400, "stockForca": 600 } ]
+Responses
+
+Code Description
+
+Links
+
+Página 69
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+200 Estoque atualizado com sucesso! Media type application/json Controls Accept header.
+Example Value
+Schema { "message": "Estoque atualizado com sucesso!" }
+No links 404 ERP_ID não encontrado. Media type application/json Example Value
+Schema { "message": "ERP_ID erp-23243 não encontrado." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PATCH
+
+/skus/grid
+
+Atualizar grade de múltiplas quantidades por SKU Atualiza a quantidade múltipla de SKUs com base em referência do produto e tamanho.
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "reference": "REF-123", "grid": [ { "value": "P", "quantity": 10 }, { "value": "M", "quantity": 5 }, { "value": "G", "quantity": 2 } ] }, { "reference": "REF-999", "grid": [ { "value": "36", "quantity": 3 }, { "value": "38", "quantity": 8 } ] } ]
+Responses
+
+Code Description
+
+Links
+
+200 Grades atualizadas com sucesso.
+
+Media type
+
+application/json
+
+Página 70
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Controls Accept header.
+Example Value
+Schema [ { "skuErpId": "ERP-3321", "newValue": "P", "newQuantity": 10 }, { "skuErpId": "ERP-5521", "newValue": "M", "newQuantity": 5 }, { "reference": "REF-999", "size": "36", "message": "SKU NÃO ENCONTRADO } ]
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no }
+No links
+
+PARA ESSA servidor"
+
+GRADE"
+
+Subcategorias
+
+GET
+
+/subcategories
+
+Listar todas as subcategorias
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de subcategorias
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-SUB-001", "name": "Camisetas Estampadas", "categoryErpId": "erp-453" }, { "erpId": "ERP-SUB-002", "name": "Blusas de Moletom", "categoryErpId": "erp-453" } ]
+No links
+
+404 Subcategorias não encontradas
+
+Media type
+
+application/json
+
+Example Value
+
+Schema {
+
+Página 71
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"message": } No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": }
+No links
+
+"Subcategorias não "500: Erro interno
+
+encontradas." no servidor"
+
+POST
+
+/subcategories
+
+Criar uma subcategoria
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-SUB-003", "name": "Camisetas Lisas", "categoryErpId": "erp-453" }
+Responses
+
+Code Description
+
+Links
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+409 Subcategoria já existente.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Subcategoria já existente." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/subcategories
+Atualizar subcategoria por erpId Parameters Try it out No parameters Request body application/json Example Value Schema
+
+Página 72
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "name": "Camisetas Estampadas "categoryErpId": "erp-453"
+} Responses
+
+Premium",
+
+Code Description
+
+Links
+
+200
+
+Subcategoria atualizada com sucesso!
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Subcategoria atualizada com sucesso!", "updated": { "erpId": "ERP-SUB-001", "name": "Camisetas Estampadas", "categoryErpId": "erp-453" } }
+No links
+404 Subcategoria não encontrada.
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Subcategoria não encontrada." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Tabelas de preço
+
+GET
+
+/price-tables
+
+Listar todas as tabelas de preço
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de registros por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de tabelas de preço
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1000", "description": "Tabela de Preço "priceAdjustment": "1.05", "minimumValue": "100.0",
+
+Padrão",
+
+Página 73
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+"companyErpId": "erp-23423", "visible": true }, { "erpId": "ERP-1001", "description": "Tabela Regional "priceAdjustment": "1.15", "minimumValue": "200.0", "companyErpId": "erp-23423", "visible": true } ] No links
+404 Tabelas de preço não encontradas
+
+Norte",
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Tabelas de preço não encontradas." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/price-tables
+
+Criar uma nova tabela de preços
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "description": "Tabela de Preço "priceAdjustment": "1.05", "minimumValue": "100.0", "companyErpId": "erp-23423", "visible": true }
+Responses
+
+Padrão",
+
+Code Description
+
+Links
+
+201 Tabela de preços criada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "description": "Tabela de Preço "priceAdjustment": "1.05", "minimumValue": "100.0", "companyErpId": "erp-23423", "visible": true }
+No links
+
+Padrão",
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+
+Página 74
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/price-tables
+
+Atualizar tabela de preços por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-P-001", "description": "Tabela Atualizada", "priceAdjustment": "1.10", "minimumValue": "120.0", "visible": false }
+Responses
+
+Code Description
+
+Links
+
+200 Tabela de preços atualizada com sucesso!
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "description": "Tabela Atualizada", "priceAdjustment": "1.10", "minimumValue": "120.0", "companyErpId": "erp-23423", "visible": false }
+No links
+
+404 Tabela de preços não encontrada.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível atualizar! Tabela de preços não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Transportadoras
+
+GET
+
+/carriers
+Listar todas as transportadoras Parameters
+
+Página 75
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Try it out
+
+Name Description
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por 10
+
+página
+
+Responses
+
+Code Description
+200 Lista de transportadoras
+
+Links
+
+Media type application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-1000", "name": "Transportadora XYZ", "cnpj": "12.345.678/0001-90", "phone": "(11) 3333-4444", "companyErpId": "ERP-21342", "email": "contato@transportadoraxyz.com" }, { "erpId": "ERP-2000", "name": "Transportadora ABC", "cnpj": "98.765.432/0001-11", "phone": "(21) 2222-3333", "companyErpId": "ERP-21342", "email": "contato@transportadoraabc.com" } ]
+No links
+404 Transportadoras não encontradas
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "Transportadoras não encontradas." }
+No links
+500 Erro no servidor
+
+Media type application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/carriers
+Criar uma transportadora Parameters Try it out No parameters Request body application/json Example Value Schema
+{ "erpId": "ERP-3000", "name": "Transportadora Nova", "cnpj": "23.456.789/0001-55", "phone": "(31) 9999-8888", "companyErpId": "ERP-21342", "email": "contato@transportadoranova.com"
+
+Página 76
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+} Responses
+
+Code Description
+
+Links
+
+201 Transportadora criada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-3000", "name": "Transportadora Nova", "cnpj": "23.456.789/0001-55", "phone": "(31) 9999-8888", "companyErpId": "ERP-21342", "email": "contato@transportadoranova.com" }
+No links
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+409 Transportadora já existente.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Transportadora já existente." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/carriers
+
+Atualizar transportadora por erpId
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "name": "Transportadora XYZ Atualizada", "cnpj": "12.345.678/0001-90", "phone": "(11) 3333-5555", "email": "atendimento@transportadoraxyz.com" }
+Responses
+
+Code Description
+
+Links
+
+200 Transportadora atualizada com sucesso!
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Página 77
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Schema { "erpId": "ERP-1000", "name": "Transportadora XYZ Atualizada", "cnpj": "12.345.678/0001-90", "phone": "(11) 3333-5555", "companyErpId": "ERP-21342", "email": "atendimento@transportadoraxyz.com" }
+No links 404 Transportadora não encontrada. Media type application/json Example Value
+Schema { "message": "Não foi possível atualizar! Transportadora não encontrada." }
+No links 500 Erro no servidor Media type application/json Example Value
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+DELETE
+
+/carriers/{erpId}
+
+Remover transportadora por erpId
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) erpId do recurso erpId
+
+Responses
+
+Code Description
+
+Links
+
+200 Transportadora deletada.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-1000", "name": "Transportadora XYZ", "cnpj": "12.345.678/0001-90", "companyErpId": "ERP-21342", "email": "contato@transportadoraxyz.com" }
+No links
+
+404 Transportadora não encontrada.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Não foi possível deletar! Transportadora não encontrada." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema
+
+Página 78
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+{ "message": "500: Erro interno no servidor"
+} No links
+
+Variantes
+
+GET
+
+/variants
+
+Listar todas as variantes
+
+Parameters
+
+Try it out
+
+Name Description
+
+page integer (query) Número da página 1 limit integer (query) Quantidade de itens por página 10
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de variantes
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "ERP-VAR-001", "name": "Variante Azul", "hexCode": "#0000FF", "product": { "erpId": "PROD-001", "name": "JAQUETA MASC", "isVisibleForca": true, "isVisibleB2B": false } } ]
+No links
+
+404 Variantes não encontradas
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Variantes não encontradas." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/variants
+Criar uma variante Parameters Try it out No parameters Request body
+
+Página 79
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json
+
+Example Value
+
+Schema { "erpId": "ERP-VAR-003", "name": "Variante Verde", "hexCode": "#00FF00", "productErpId": "ERP-1000", "companyErpId": "ERP-234234" }
+Responses
+
+Code Description
+
+Links
+
+201 Variante criada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "erpId": "ERP-VAR-001", "name": "Variante Azul", "hexCode": "#0000FF", "productErpId": "ERP-1000", "companyErpId": "ERP-234234" }
+No links
+
+400 Corpo da requisição vazio ou inválido.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "O corpo da requisição é obrigatório e não pode estar vazio." }
+No links
+
+409 Variante já existente.
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "Variante já existente." }
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+Vendedores
+
+GET
+
+/sellers
+Lista todos os vendedores/showrooms com paginação e filtros.
+Parameters
+Try it out
+Name Description
+page integer (query) Número da página. 1 limit integer (query) Quantidade de registros por página.
+
+Página 80
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+10 name string (query) Filtro por nome. name cpf string (query) Filtro por CPF. cpf type string (query) Filtro por tipo (enum) - SHOWROOM ou COORDINATOR type erpId string (query) Filtro por erpId. erpId code string (query) Filtro por código de vendedor. code
+
+Responses
+
+Code Description
+
+Links
+
+200 Lista de vendedores retornada com sucesso.
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "erpId": "SLR001", "name": "Carlos Vendedor", "cpf": "123.456.789-00", "email": "carlos.vendedor@email.com", "cellphone": "(11) 91234-5678", "type": "SHOWROOM", "code": "2134" } ]
+No links
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+POST
+
+/sellers
+Cria um vendedor/showroom. Parameters Try it out No parameters Request body application/json
+
+Página 81
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Example Value
+
+Schema { "name": "Carlos Vendedor", "cpf": "123.456.789-00", "email": "carlos.vendedor@email.com", "cellphone": "(11) 91234-5678", "type": "SHOWROOM", "companyErpId": "EMP123", "code": "2134" }
+Responses
+
+Code Description
+
+Links
+
+201 Operação realizada com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+409 Vendedor já cadastrado.
+
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PUT
+
+/sellers/{erpId}
+
+Atualiza um vendedor/showroom por erpId.
+
+Parameters
+
+Try it out
+
+Name Description
+
+erpId * string (path) ERP identifier do vendedor. SLR001
+
+Request body
+
+application/json
+
+Example Value
+
+Schema { "name": "Carlos Vendedor Atualizado", "cpf": "123.456.789-00", "email": "carlos.vendedor@newmail.com", "cellphone": "(11) 91234-5678", "type": "SHOWROOM", "code": "2134" }
+Responses
+
+Code Description
+
+Links
+
+200 Operação realizada com sucesso
+
+Media type
+
+Página 82
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema { "message": "Operação realizada com Sucesso!" }
+No links
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+404 Vendedor não encontrado.
+
+No links
+
+500 Erro no servidor
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": "500: Erro interno no servidor" }
+No links
+
+PATCH
+
+/sellers/clients
+
+Vincula múltiplos vendedores a clientes
+
+Parameters
+
+Try it out
+
+No parameters
+
+Request body
+
+application/json
+
+Example Value
+
+Schema [ { "sellerErpId": "SLR001", "clientErpId": "CLI001", "companyErpId": "EMP123" } ]
+Responses
+
+Code Description
+
+Links
+
+200 Vinculações realizadas com sucesso
+
+Media type
+
+application/json
+
+Controls Accept header.
+
+Example Value
+
+Schema [ { "sellerErpId": "clientErpId": } ]
+No links
+
+"SLR001", "CLI001"
+
+400 Requisição inválida
+
+Media type
+
+application/json
+
+Example Value
+
+Schema { "message": }
+No links
+
+"400:
+
+Parâmetros
+
+inválidos"
+
+Página 83
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+404 Recurso não encontrado
+
+Media type application/json
+
+Example Value
+
+Schema { "message": }
+No links
+500 Erro no servidor
+
+"404:
+
+Item
+
+Media type application/json
+
+Example Value
+
+Schema
+
+{ "message": "500: Erro
+}
+
+No links
+
+Schemas
+
+Representatives{
+
+name* [...]
+
+cpf* [...]
+
+rg
+
+[...]
+
+type [...]
+
+email* [...]
+
+birthDate
+
+[...]
+
+phone [...]
+
+cellPhone*
+
+[...]
+
+erpId* [...]
+
+companyErpId* [...]
+
+address*
+
+{...}
+
+}
+
+Agents{
+
+name* [...]
+
+erpId* [...]
+
+cpf* [...]
+
+rg
+
+[...]
+
+email* [...]
+
+birthDate
+
+[...]
+
+phone [...]
+
+cellPhone*
+
+[...]
+
+street* [...]
+
+number* [...]
+
+complement*
+
+[...]
+
+neighborhood* [...]
+
+city* [...]
+
+uf*
+
+[...]
+
+zipCode*
+
+[...]
+
+companyErpId* [...]
+
+representativesErpId*
+
+password*
+
+[...]
+
+}
+
+Campaign{
+
+erpId* [...]
+
+description* [...]
+
+}
+
+Line{
+
+erpId* [...]
+
+description* [...]
+
+}
+
+Client{
+
+name* [...]
+
+cpf* [...]
+
+email* [...]
+
+phone [...]
+
+cellphone*
+
+[...]
+
+erpId* [...]
+
+rg
+
+[...]
+
+isShopkeeper* [...]
+
+concept [...]
+
+blocktype
+
+[...]
+
+expeditionBlock [...]
+
+invoiceBlock [...]
+
+orderBlock
+
+[...]
+
+creditLimit
+
+[...]
+
+groupCod
+
+[...]
+
+companyErpId* [...]
+
+businessErpId [...]
+
+haveCredit*
+
+[...]
+
+clientGroup
+
+[...]
+
+analist [...]
+
+addresses*
+
+{...}
+
+}
+
+Companies{
+
+erpId [...]
+
+key* [...]
+
+apiKey [...]
+
+logoImg [...]
+
+deadlineType* [...]
+
+tools* [...]
+
+defaultCarriers [...]
+
+business*
+
+{...}
+
+}
+
+Brands{
+
+não encontrado" interno no servidor"
+[...]
+
+Página 84
+
+erpId* [...]
+
+name* [...]
+
+logoImg [...]
+
+minValue*
+
+[...]
+
+minInstallmentsValue* [...]
+
+visible [...]
+
+skuOrder
+
+[...]
+
+addressErpId* [...]
+
+businessErpId* [...]
+
+addresses*
+
+{...}
+
+}
+
+Carriers{
+
+name* [...]
+
+cnpj* [...]
+
+phone* [...]
+
+erpId [...]
+
+companyErpId* [...]
+
+email* [...]
+
+}
+
+Categories{
+
+erpId* [...]
+
+name* [...]
+
+brandErpId*
+
+[...]
+
+}
+
+PaymentConditions{
+
+erpId* [...]
+
+term* [...]
+
+installments* [...]
+
+priceAdjustment*
+
+[...]
+
+minimumValue* [...]
+
+paymentMethodErpId*
+
+[...]
+
+companyErpId* [...]
+
+}
+
+Colors{
+
+erpId* [...]
+
+name* [...]
+
+rgb* [...]
+
+hexCode*
+
+[...]
+
+companyErpId [...]
+
+}
+
+Branches{
+
+erpId [...]
+
+name* [...]
+
+companyErpId* [...]
+
+business*
+
+{...}
+
+}
+
+Gender{
+
+erpId* [...]
+
+name* [...]
+
+companyErpId* [...]
+
+}
+
+PaymentMethods{
+
+description* [...]
+
+minValue*
+
+[...]
+
+priceAdjustment*
+
+[...]
+
+companyErpId* [...]
+
+erpId [...]
+
+}
+
+Orders{
+
+ped_data_pagamento*
+
+[...]
+
+ped_data_entrega*
+
+[...]
+
+ped_descricao_entrega* [...]
+
+ped_modo_entrega*
+
+[...]
+
+ped_forma_pagamento*
+
+[...]
+
+ped_data_pedido*
+
+[...]
+
+ped_numero_pedido*
+
+[...]
+
+ped_ordem_compra*
+
+[...]
+
+ped_observacao* [...]
+
+ped_nome_comprador*
+
+[...]
+
+ped_email_enviado*
+
+[...]
+
+ped_visualizar* [...]
+
+orcamento*
+
+[...]
+
+ped_ipi*
+
+[...]
+
+ped_st* [...]
+
+ped_tabela_precos*
+
+[...]
+
+ped_email_xml* [...]
+
+ped_transp_nome*
+
+[...]
+
+ped_transp_tel* [...]
+
+ped_transp_email*
+
+[...]
+
+ped_enviar_emails*
+
+[...]
+
+ped_fotos_produtos*
+
+[...]
+
+ped_aprovado* [...]
+
+ped_data_aprovado*
+
+[...]
+
+ped_motivo_reprovar*
+
+[...]
+
+ped_transp_id* [...]
+
+ped_telefone_cliente* [...]
+
+ped_tipo_frete* [...]
+
+ped_tipo_venda* [...]
+
+ped_numero_externo*
+
+[...]
+
+ped_representante_ausente*
+
+ped_status*
+
+[...]
+
+uuid* [...]
+
+user_jwt*
+
+[...]
+
+platform*
+
+[...]
+
+fk_vendedores* [...]
+
+fk_vendedores_aux*
+
+[...]
+
+created_at*
+
+[...]
+
+pedido_cliente* [...]
+
+verificacao* [...]
+
+fk_prepostos* [...]
+
+ped_b2c_exportado*
+
+[...]
+
+crp_desconto_especial* [...]
+
+integrated*
+
+[...]
+
+ped_conceito* [...]
+
+E-Catálogos | Documentação da API - Força de Vendas [...]
+
+Página 85
+
+tabela_precos* [...]
+
+marca* {...}
+
+cliente*
+
+{...}
+
+representante* {...}
+
+prazo* {...}
+
+transportadora* {...}
+
+carrinho_pedido*
+
+}
+
+Deadlines{
+
+erpId* [...]
+
+name* [...]
+
+initial*
+
+[...]
+
+final* [...]
+
+type* [...]
+
+companyErpId* [...]
+
+}
+
+Sellers{
+
+erpId [...]
+
+name* [...]
+
+cellphone
+
+[...]
+
+email [...]
+
+cpf* [...]
+
+type* [...]
+
+companyErpId* [...]
+
+code [...]
+
+password*
+
+[...]
+
+}
+
+Prices{
+
+erpId* [...]
+
+price* [...]
+
+skuErpId*
+
+[...]
+
+priceTableErpId*
+
+skuCode*
+
+[...]
+
+companyErpId* [...]
+
+}
+
+Product{
+
+erpId* [...]
+
+name* [...]
+
+reference*
+
+[...]
+
+branchErpId* [...]
+
+promptDelivery* [...]
+
+description
+
+[...]
+
+brandErpId*
+
+[...]
+
+deadlineErpId [...]
+
+compositionData [...]
+
+technicalInformation
+
+openGrid*
+
+[...]
+
+ipi* [...]
+
+isDiscontinued* [...]
+
+isLaunch*
+
+[...]
+
+isVisibleB2B [...]
+
+isVisibleForca [...]
+
+colection
+
+[...]
+
+st
+
+[...]
+
+genderErpId* [...]
+
+categoryErpId* [...]
+
+subcategoryErpId
+
+productColors* [...]
+
+}
+
+Sku{
+
+size* [...]
+
+stockB2B*
+
+[...]
+
+stockForca*
+
+[...]
+
+price* [...]
+
+code* [...]
+
+minQuantity
+
+[...]
+
+multipleQuantity*
+
+erpId* [...]
+
+variantErpId* [...]
+
+cest [...]
+
+height [...]
+
+length [...]
+
+ncm
+
+[...]
+
+weight [...]
+
+width [...]
+
+companyErpId* [...]
+
+}
+
+Subcategories{
+
+erpId* [...]
+
+name* [...]
+
+companyErpId [...]
+
+categoryErpId* [...]
+
+}
+
+PriceTables{
+
+erpId* [...]
+
+description* [...]
+
+priceAdjustment [...]
+
+minimumValue [...]
+
+visible*
+
+[...]
+
+companyErpId* [...]
+
+}
+
+Variants{
+
+erpId* [...]
+
+name* [...]
+
+hexCode [...]
+
+productErpId* [...]
+
+companyErpId* [...]
+
+}
+
+VinculateSellersClients{
+
+sellerErpId* [...]
+
+clientErpId* [...]
+
+companyErpId* [...]
+
+}
+
+VinculatedResponse{
+
+[...]
+[...] [...] [...] [...]
+
+E-Catálogos | Documentação da API - Força de Vendas Página 86
+
+sellerErpId* [...]
+
+clientErpId* [...]
+
+}
+
+Regions{
+
+erpId [...]
+
+name [...]
+
+color [...]
+
+statesCodes
+
+[...]
+
+cityNames
+
+[...]
+
+companyErpId [...]
+
+priceTablesErpId
+
+}
+
+ProductsVisibility{
+
+productErpId* [...]
+
+isVisibleB2B* [...]
+
+isVisibleForca* [...]
+
+}
+
+[...]
+
+E-Catálogos | Documentação da API - Força de Vendas
+
+Página 87
+
+

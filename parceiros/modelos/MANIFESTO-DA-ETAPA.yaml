@@ -1,0 +1,86 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": null,
+    "alvo": null,
+    "slug": null,
+    "jornada": null,
+    "etapa": null,
+    "execucao": null
+  },
+  "resultado": {
+    "status": null,
+    "tipo_auditoria": null,
+    "auditoria_vigente": {
+      "caminho": null,
+      "sha256": null,
+      "resultado": null
+    },
+    "resultado_tecnico": null,
+    "prontidao": null
+  },
+  "fontes": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "entradas": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "dependencias": [
+    {
+      "etapa_upstream": null,
+      "manifesto_upstream": null,
+      "hashes_esperados": [
+        {
+          "caminho": null,
+          "sha256": null
+        }
+      ]
+    }
+  ],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": null,
+        "valor_esperado": null
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [],
+    "utf8": [],
+    "markdown": [],
+    "contagens": [
+      {
+        "nome": null,
+        "caminho": null,
+        "padrao_regex": null,
+        "esperado": null
+      }
+    ],
+    "ids": [
+      {
+        "nome": null,
+        "caminho": null,
+        "padrao_regex": null,
+        "grupo": "id",
+        "esperado_unicos": null
+      }
+    ]
+  },
+  "vigencia": {
+    "estado": null,
+    "motivo": null
+  }
+}

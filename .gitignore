@@ -1,0 +1,43 @@
+# Dependências
+node_modules/
+
+# Builds / caches
+build/
+dist/
+coverage/
+.cache/
+.tmp/
+tmp/
+*.tmp
+
+# Ambientes e segredos
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+credenciais-erp.env
+credenciais-ferramenta.env
+**/credenciais-erp.env
+**/credenciais-ferramenta.env
+
+# Chaves/certificados privados
+*.pem
+*.key
+*.p12
+*.pfx
+
+# IDE / sistema
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Ferramentas locais do operador
+.codex/
+.serena/
+.graphify/
+
+# Logs
+*.log
+logs/

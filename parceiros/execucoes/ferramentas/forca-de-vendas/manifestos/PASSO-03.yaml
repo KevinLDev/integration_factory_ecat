@@ -1,0 +1,159 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": "FERRAMENTA",
+    "alvo": "Força de Vendas",
+    "slug": "forca-de-vendas",
+    "jornada": "INTEGRAR_NOVA_FERRAMENTA",
+    "etapa": "03-VALIDAR-FERRAMENTA-CADASTRADA",
+    "execucao": "parceiros/execucoes/ferramentas/forca-de-vendas"
+  },
+  "resultado": {
+    "status": "PENDENTE",
+    "tipo_auditoria": "PROFUNDA",
+    "auditoria_vigente": {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md",
+      "sha256": "83984A704B78B862C15D4B0EA9F0C36AF2A0ED97EC8C4994D75A90B31246D7CA",
+      "resultado": "REPROVADA"
+    },
+    "resultado_tecnico": "NAO_APTO_PARA_INTEGRACOES",
+    "prontidao": "NAO_HOMOLOGADA",
+    "avaliacao_na_baseline_atual": "NAO_EXECUTADA"
+  },
+  "fontes": [
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.pdf",
+      "sha256": "2C8AAB2659BCF8974905912024E86A0B7D1053FB55E2A5FE727785FC1AD01BFB"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/referencias/documentacao-oficial/Documentacao_API_Forca_de_Vendas.extraido.txt",
+      "sha256": "A4B16B88AE820A2B543F72C18FD0908E843C01D948B22BECEB63F8EA9A2B1D5F"
+    }
+  ],
+  "entradas": [
+    {
+      "caminho": "parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md",
+      "sha256": "C94D72C3E3FC266834C8EF39BE3BE710E01A7A8DD6E21D4B055C378133C79F94"
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+      "sha256": "B07C16F927605E6B4D445D0754E8E750D312078A9D2CA10E5F951409F815ED99"
+    },
+    {
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md",
+      "sha256": "83984A704B78B862C15D4B0EA9F0C36AF2A0ED97EC8C4994D75A90B31246D7CA"
+    }
+  ],
+  "dependencias": [
+    {
+      "etapa_upstream": "01-APRESENTAR-E-ANALISAR-FERRAMENTA",
+      "manifesto_upstream": "parceiros/execucoes/ferramentas/forca-de-vendas/manifestos/PASSO-01.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "analises/ferramentas/forca-de-vendas/01-analise-documentacao.md",
+          "sha256": "B0D78C2A555C9A3B11C632659D8599A0D9F8B150CECB9E92905BCE82F3276014"
+        },
+        {
+          "caminho": "analises/ferramentas/forca-de-vendas/01-inventario-operacoes.md",
+          "sha256": "C87D0F345B9D77691E7523355CC06A76812FBC1927DFC45DF7A99DEA8F77C5AB"
+        },
+        {
+          "caminho": "analises/ferramentas/forca-de-vendas/01-matriz-bidirecionalidade-modulos.md",
+          "sha256": "459C5D31A86ADEE0602842185A2D794E48FC76E30AB962B8917769799CE49870"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DADOS-DA-EXECUCAO.md",
+          "sha256": "99D94F20045908E8D5D236474ED307550171F12752455FDE8CECD7394DCBF840"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-01.md",
+          "sha256": "B8DC1F19AA65A2D8391317C2074B939DB97BBE34D4E1DED556E4A8C59DD810AA"
+        }
+      ]
+    },
+    {
+      "etapa_upstream": "02-CADASTRAR-FERRAMENTA",
+      "manifesto_upstream": "parceiros/execucoes/ferramentas/forca-de-vendas/manifestos/PASSO-02.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "ferramentas/forca-de-vendas/README.md",
+          "sha256": "15DA506C8B3CDBE7D4DB757FBE7295C06D86B133A7F1DBA346831AF721F1EAB7"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/CONTRATO-DA-FERRAMENTA.yaml",
+          "sha256": "0E4E9C8A6835CB67D22BE7262477711DBA117A4411A9DBF2E2F39A8DCF64B91F"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/MODULOS.md",
+          "sha256": "3D719CFC6149B5BD656CF91296C0EEB405B62FC1943E01AEF0F8C305C7A905C0"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/DEPENDENCIAS.md",
+          "sha256": "4E7476042220B4B834B4EC73B0F10EE33EB4A4664EDBE8EB2D5B5614E986A712"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
+          "sha256": "9BA0335D7E768E7995CEAE47B3F9239FC4B31DD062697672525306CD0B65B049"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/PENDENCIAS.md",
+          "sha256": "7653891DD21FA4022E6C595A04C8178819678733383EDC3FCFC9CBFDF4B799B0"
+        },
+        {
+          "caminho": "ferramentas/forca-de-vendas/FONTES.md",
+          "sha256": "F2BDF339BF8400D5C302D05A8327C091D43591EB18210ECF48390AAD81BE2506"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-POS-CORRECOES.md",
+          "sha256": "8A39653D8596078C7294FF0B601300379086512FD46EB45A62DE062A8B18852B"
+        }
+      ]
+    }
+  ],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": "resultado.resultado_tecnico",
+        "valor_esperado": "APTO_PARA_INTEGRACOES"
+      },
+      {
+        "campo": "resultado.auditoria_vigente.resultado",
+        "valor_esperado": "APROVADA"
+      },
+      {
+        "campo": "resultado.status",
+        "valor_esperado": "CONCLUIDA"
+      },
+      {
+        "campo": "resultado.prontidao",
+        "valor_esperado": "HOMOLOGADA_PARA_INTEGRACOES"
+      },
+      {
+        "campo": "resultado.tipo_auditoria",
+        "valor_esperado": "PROFUNDA"
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [
+      "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
+    ],
+    "utf8": [
+      "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
+    ],
+    "markdown": [
+      "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03.md"
+    ],
+    "contagens": [],
+    "ids": []
+  },
+  "vigencia": {
+    "estado": "INVALIDADO_POR_MUDANCA_UPSTREAM",
+    "motivo": "O Passo 03 historico consumiu 4/4 artefatos antigos do Passo 01, 7/7 canônicos antigos do Passo 02 e auditorias hoje superadas. As fontes oficiais e as duas saidas historicas permanecem integras, mas esta validacao nao representa a baseline atual."
+  }
+}

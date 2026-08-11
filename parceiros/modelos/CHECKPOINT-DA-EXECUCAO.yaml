@@ -1,0 +1,38 @@
+{
+  "schema": "harness.checkpoint-execucao.v1",
+  "identidade": {
+    "tipo_alvo": null,
+    "alvo": null,
+    "slug": null,
+    "execucao": null
+  },
+  "tarefa_atual": null,
+  "etapa": null,
+  "inicio": null,
+  "ultima_atualizacao": null,
+  "orcamento_minutos": null,
+  "fase_atual": null,
+  "fases_concluidas": [],
+  "proxima_fase": null,
+  "linha_de_base": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "arquivos_produzidos": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "arquivos_protegidos": [
+    {
+      "caminho": null,
+      "sha256": null
+    }
+  ],
+  "auditoria_iniciada": false,
+  "ultimo_ponto_seguro": null,
+  "motivo_pausa": null
+}

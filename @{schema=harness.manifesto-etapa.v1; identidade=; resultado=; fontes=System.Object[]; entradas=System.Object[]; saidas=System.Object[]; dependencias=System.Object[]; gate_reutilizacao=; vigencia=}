@@ -1,0 +1,53 @@
+{
+    "schema":  "harness.manifesto-etapa.v1",
+    "identidade":  {
+                       "tipo_alvo":  "TESTE",
+                       "alvo":  "x",
+                       "slug":  "x",
+                       "jornada":  "INTEGRAR_NOVA_FERRAMENTA",
+                       "etapa":  "03-VALIDAR-FERRAMENTA-CADASTRADA",
+                       "execucao":  ".tmp/harness-independent/d455365e6f974fdfaf4b0a00b64cedf2"
+                   },
+    "resultado":  {
+                      "status":  "CONCLUIDA",
+                      "tipo_auditoria":  "NORMAL",
+                      "auditoria_vigente":  {
+                                                "caminho":  ".tmp/harness-independent/d455365e6f974fdfaf4b0a00b64cedf2/audit-a.md",
+                                                "sha256":  "69870A588E9AC43D447B66E20C2BD80EF1BA98476E08D6A24BF9AFEF87E4E8F5",
+                                                "resultado":  "APROVADA"
+                                            },
+                      "resultado_tecnico":  "NAO_APTO_PARA_INTEGRACOES",
+                      "prontidao":  "NAO_HOMOLOGADA"
+                  },
+    "fontes":  [
+
+               ],
+    "entradas":  [
+
+                 ],
+    "saidas":  [
+                   {
+                       "caminho":  ".tmp/harness-independent/d455365e6f974fdfaf4b0a00b64cedf2/a.txt",
+                       "sha256":  "4FC93A7E3B47E4212E938E7565C56B87FEA6951468F59B1FD19CC4C1D8343F22"
+                   }
+               ],
+    "dependencias":  [
+
+                     ],
+    "gate_reutilizacao":  {
+                              "requisitos":  [
+                                                 {
+                                                     "campo":  "resultado.status",
+                                                     "valor_esperado":  "CONCLUIDA"
+                                                 },
+                                                 {
+                                                     "campo":  "resultado.auditoria_vigente.resultado",
+                                                     "valor_esperado":  "APROVADA"
+                                                 }
+                                             ]
+                          },
+    "vigencia":  {
+                     "estado":  "VALIDO",
+                     "motivo":  null
+                 }
+}
