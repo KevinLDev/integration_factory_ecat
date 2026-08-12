@@ -21,6 +21,7 @@ parceiros/comandos/01-APRESENTAR-E-ANALISAR-FERRAMENTA.md
 parceiros/comandos/02-CADASTRAR-FERRAMENTA.md
 parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md
+parceiros/comandos/ERP-PARCEIRO-02-ANALISAR-ERP.md
 ```
 
 Seus documentos operacionais são:
@@ -30,6 +31,7 @@ comece-aqui/integrar-nova-ferramenta/01-APRESENTAR-FERRAMENTA.md
 comece-aqui/integrar-nova-ferramenta/02-CADASTRAR-FERRAMENTA.md
 comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md
+comece-aqui/integrar-erp/erp-parceiro/02-ANALISAR-ERP.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -74,19 +76,21 @@ Quando forem criados e homologados, comandos de ERP parceiro deverão ter seus d
 
 `comece-aqui/integrar-erp/erp-parceiro/`
 
-Comando operacional já disponível para entrada/triagem de ERP parceiro:
+Comandos operacionais disponiveis para ERP parceiro:
 
-`parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md`
+- `parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md`
+- `parceiros/comandos/ERP-PARCEIRO-02-ANALISAR-ERP.md`
 
-Documento humano correspondente:
+Documentos humanos correspondentes:
 
-`comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
+- `comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
+- `comece-aqui/integrar-erp/erp-parceiro/02-ANALISAR-ERP.md`
 
 Comandos de ERP cliente deverão ter seus documentos humanos em:
 
 `comece-aqui/integrar-erp/erp-cliente/`
 
-As duas jornadas ainda não estão liberadas. Não crie nem execute comandos de ERP com base apenas nessa orientação.
+A jornada ERP cliente ainda nao esta liberada. Na jornada ERP parceiro, somente os passos 01 e 02 estao liberados.
 
 ## Modelos existentes no repositório
 
