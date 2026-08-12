@@ -40,6 +40,43 @@ Antes de pedir novos dados ao operador, descobrir automaticamente na estrutura d
 
 Solicitar ao operador somente dados realmente faltantes apos essa leitura.
 
+Ordem obrigatoria de resolucao antes de criar/complementar/alterar memoria:
+
+1. identificar e normalizar ERP;
+2. verificar se ERP ja e conhecido;
+3. identificar e normalizar ferramenta E-Catalogos;
+4. verificar se ferramenta ja e conhecida;
+5. verificar se ferramenta esta HOMOLOGADA_PARA_INTEGRACOES;
+6. verificar se combinacao ERP x ferramenta ja existe;
+7. somente entao decidir criacao, reutilizacao, complementacao, retomada ou bloqueio.
+
+Estados minimos a registrar:
+
+- ERP_CONHECIDO: SIM | NAO | IDENTIDADE_AMBIGUA
+- FERRAMENTA_CONHECIDA: SIM | NAO | IDENTIDADE_AMBIGUA
+- FERRAMENTA_HOMOLOGADA: SIM | NAO
+- COMBINACAO_ERP_FERRAMENTA_EXISTE: SIM | NAO
+
+Normalizacao deve impedir duplicidades por grafia/capitalizacao/prefixo quando houver evidencia suficiente.
+
+Se a identidade nao puder ser determinada com seguranca, registrar IDENTIDADE_AMBIGUA e solicitar ao operador somente o dado minimo para desambiguar.
+
+## Resolucao de identidade e destino de memoria
+
+Antes de escrever artefatos, resolver automaticamente:
+
+1. `erp-slug`
+2. `ferramenta-slug`
+3. tipo do artefato (geral do ERP ou especifico da combinacao)
+
+Arquitetura oficial da memoria:
+
+- conhecimento reutilizavel do ERP: `erps/<erp-slug>/`
+- conhecimento da combinacao ERP x ferramenta: `erps/<erp-slug>/integracoes/<ferramenta-slug>/`
+- evidencia operacional da execucao (Harness): `parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/`
+
+Nao exigir que o operador informe caminhos de escrita.
+
 ## Como o operador chama a etapa
 
 ```text
@@ -73,6 +110,28 @@ Nao inicie Passo 03.
 4. Regras adicionais fornecidas pelo operador.
 
 Regra: o ERP se adapta ao contrato da ferramenta. Nunca alterar contrato homologado para facilitar o ERP.
+
+## Reutilizacao obrigatoria antes da analise profunda
+
+Verificar primeiro:
+
+- ERP ja conhecido?
+	- SIM: validar/reutilizar conhecimento existente e complementar com evidencia quando necessario.
+	- NAO: criar novo contexto de memoria do ERP sem alterar outros ERPs.
+- Combinacao ERP x ferramenta ja existente?
+	- SIM: nao sobrescrever automaticamente; classificar como retomada, complementacao, atualizacao ou reanalise.
+	- NAO: criar contexto especifico da combinacao.
+
+Proibido regenerar cegamente artefato existente sem diagnostico de necessidade.
+
+Decisao automatica obrigatoria:
+
+- ferramenta desconhecida -> direcionar para jornada Nova Ferramenta;
+- ferramenta conhecida e nao homologada -> bloquear ERP Parceiro ate homologacao;
+- ferramenta homologada + ERP desconhecido -> novo conhecimento de ERP + nova combinacao ERP x ferramenta;
+- ferramenta homologada + ERP conhecido + combinacao inexistente -> reutilizar ERP valido e criar somente nova combinacao;
+- combinacao ja existente -> nao regenerar/sobrescrever cegamente; resolver retomada, complementacao, atualizacao ou reutilizacao;
+- combinacao ja homologada em contexto de cliente -> resolver para ERP Cliente/reutilizacao.
 
 ## Camadas da etapa
 
@@ -261,15 +320,35 @@ Se houver suporte a refresh, registrar conceitualmente:
 
 O Passo 02 nao implementa servico permanente de renovacao de token; isso pertence a futura camada de runtime/servidor.
 
+## Mudanca de fontes upstream
+
+Se Swagger/documentacao oficial mudar, aplicar fluxo controlado:
+
+1. detectar mudanca upstream;
+2. identificar conhecimento afetado;
+3. invalidar/reavaliar dependencias necessarias;
+4. atualizar conscientemente com evidencia;
+5. preservar historico via Git/Harness.
+
+Nao sobrescrever silenciosamente conhecimento derivado.
+
+Documentacao nova nao significa ERP novo:
+
+- se ERP ja conhecido, registrar ERP_CONHECIDO: SIM e FONTE_DIFERENTE: SIM;
+- avaliar se e fonte complementar, nova versao, possivel mudanca upstream ou redundante;
+- mudanca de fonte nao autoriza sobrescrita silenciosa.
+
 ## Saidas minimas esperadas de uma execucao real
 
-Como conjunto minimo da etapa, a execucao real deve produzir artefatos equivalentes a:
+Como conjunto minimo da etapa, a execucao real deve produzir:
 
-- ANALISE-DO-ERP.md
-- CAPACIDADES-DO-ERP.md
-- MATRIZ-ERP-FERRAMENTA.md
-- PENDENCIAS.md
-- FONTES.md
+- ERP (`erps/<erp-slug>/`):
+	- `ANALISE-DO-ERP.md`
+	- `CAPACIDADES-DO-ERP.md`
+	- `FONTES.md`
+- Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
+	- `MATRIZ-ERP-FERRAMENTA.md`
+	- `PENDENCIAS.md`
 
 Esses artefatos devem separar claramente fato, fonte, inferencia e pendencia.
 
@@ -314,7 +393,7 @@ Esta etapa deve nascer auditavel, com previsao de:
 - auditoria semantica baseada em evidencia;
 - timebox seguro.
 
-Nesta tarefa estrutural, nao criar execucao real nem manifesto real de ERP.
+Em execucao real, artefatos operacionais (manifesto/checkpoint/auditoria/evidencias/estado) pertencem ao contexto de execucao em `parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/`.
 
 ## Retorno obrigatorio do Codex
 

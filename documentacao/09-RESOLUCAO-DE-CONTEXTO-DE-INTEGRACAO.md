@@ -19,6 +19,15 @@ Se um documento recebido repetir algo que já está homologado, ele não vira no
 
 ## Decisões que a Fábrica deve resolver
 
+Antes da decisao de jornada, a Fabrica deve determinar os estados minimos de identidade e elegibilidade:
+
+- `ERP_CONHECIDO` (`SIM` | `NAO` | `IDENTIDADE_AMBIGUA`)
+- `FERRAMENTA_CONHECIDA` (`SIM` | `NAO` | `IDENTIDADE_AMBIGUA`)
+- `FERRAMENTA_HOMOLOGADA` (`SIM` | `NAO`)
+- `COMBINACAO_ERP_FERRAMENTA_EXISTE` (`SIM` | `NAO`)
+
+A normalizacao de identidade, tratamento de `IDENTIDADE_AMBIGUA`, reutilizacao de memoria, tratamento de fonte diferente/mudanca upstream e protecao contra sobrescrita cega seguem a regra oficial em `documentacao/11-MEMORIA-DE-ERPS-E-COMBINACOES.md`.
+
 Ao receber um pedido simples de integração, a Fábrica deve responder, nesta ordem:
 
 1. A ferramenta E-Catálogos existe na estrutura?

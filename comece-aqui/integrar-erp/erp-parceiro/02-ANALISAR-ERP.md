@@ -33,6 +33,43 @@ Antes de solicitar novos dados, o executor deve descobrir automaticamente:
 
 Solicitar ao operador somente o que estiver realmente ausente.
 
+Ordem obrigatoria de resolucao antes de criar/complementar/alterar memoria:
+
+1. identificar e normalizar ERP;
+2. verificar se ERP ja e conhecido;
+3. identificar e normalizar ferramenta;
+4. verificar se ferramenta ja e conhecida;
+5. verificar se ferramenta esta HOMOLOGADA_PARA_INTEGRACOES;
+6. verificar se a combinacao ERP x ferramenta ja existe;
+7. somente entao decidir criacao, reutilizacao, complementacao, retomada ou bloqueio.
+
+Estados minimos:
+
+- ERP_CONHECIDO: SIM | NAO | IDENTIDADE_AMBIGUA
+- FERRAMENTA_CONHECIDA: SIM | NAO | IDENTIDADE_AMBIGUA
+- FERRAMENTA_HOMOLOGADA: SIM | NAO
+- COMBINACAO_ERP_FERRAMENTA_EXISTE: SIM | NAO
+
+Normalizacao deve evitar duplicidade por grafia/capitalizacao/prefixo quando houver evidencia suficiente.
+
+Se houver ambiguidade de identidade, registrar IDENTIDADE_AMBIGUA e pedir ao operador apenas a informacao minima para desambiguar.
+
+## Memoria tecnica da etapa
+
+Antes de escrever artefatos, o executor deve resolver automaticamente identidade e destino:
+
+- ERP (`erp-slug`)
+- ferramenta (`ferramenta-slug`)
+- artefato geral do ERP ou artefato especifico da combinacao
+
+Arquitetura oficial:
+
+- conhecimento reutilizavel do ERP: `erps/<erp-slug>/`
+- conhecimento da combinacao ERP x ferramenta: `erps/<erp-slug>/integracoes/<ferramenta-slug>/`
+- evidencia operacional temporal (Harness): `parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/`
+
+O operador nao precisa informar caminho de salvamento.
+
 ## O que esta etapa faz
 
 - valida gate de entrada da etapa;
@@ -44,6 +81,22 @@ Solicitar ao operador somente o que estiver realmente ausente.
 - registra gaps e necessidades de adaptacao sem alterar contrato homologado;
 - registra pendencias explicitas para lacunas sem evidencia;
 - produz artefatos tecnicos da etapa para auditoria futura.
+
+Tambem deve verificar reutilizacao antes da analise profunda:
+
+- ERP ja conhecido: reutilizar conhecimento valido e complementar quando necessario.
+- ERP novo: criar contexto proprio sem sobrescrever outro ERP.
+- Combinacao ERP x ferramenta ja existente: nao sobrescrever cegamente; decidir retomada, complementacao, atualizacao ou reanalise.
+- Combinacao nova: criar contexto especifico da combinacao.
+
+Decisao automatica:
+
+- ferramenta desconhecida -> direcionar para jornada Nova Ferramenta;
+- ferramenta conhecida e nao homologada -> bloquear ERP Parceiro ate homologacao;
+- ferramenta homologada + ERP desconhecido -> novo conhecimento de ERP + nova combinacao;
+- ferramenta homologada + ERP conhecido + combinacao inexistente -> reutilizar ERP valido e criar somente combinacao;
+- combinacao ja existente -> nao regenerar cegamente; resolver retomada/complementacao/atualizacao/reutilizacao;
+- combinacao homologada em contexto de cliente -> resolver para ERP Cliente/reutilizacao.
 
 Camada 1 (obrigatoria): leitura documental de Swagger/OpenAPI, documentacao oficial e arquivos fornecidos.
 
@@ -175,15 +228,21 @@ Automacao permanente de renovacao de token pertence a camada futura de runtime/s
 
 ## Fronteira dos artefatos da execucao real
 
-- `ANALISE-DO-ERP.md`: visao geral tecnica (auth, ambientes, arquitetura API, limites e comportamentos gerais);
-- `CAPACIDADES-DO-ERP.md`: catalogo de capacidades por modulo/operacao/rota com estado de evidencia e fonte;
-- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap;
-- `PENDENCIAS.md`: lacunas, divergencias, duvidas e bloqueios com impacto e evidencia;
-- `FONTES.md`: inventario de fontes documentais e testes autorizados (versao/data/hash/caminho quando disponivel).
+- ERP (`erps/<erp-slug>/`):
+	- `ANALISE-DO-ERP.md`: visao geral tecnica (auth, ambientes, arquitetura API, limites e comportamentos gerais);
+	- `CAPACIDADES-DO-ERP.md`: catalogo de capacidades por modulo/operacao/rota com estado de evidencia e fonte;
+	- `FONTES.md`: inventario de fontes documentais e testes autorizados (versao/data/hash/caminho quando disponivel).
+- Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
+	- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap;
+	- `PENDENCIAS.md`: lacunas, divergencias, duvidas e bloqueios com impacto e evidencia da combinacao.
 
 Evitar duplicar a mesma analise nos cinco arquivos.
 
 Falhas pontuais de rota nao impedem produzir os artefatos; devem ser registradas com estado e pendencia correspondente.
+
+Se fontes oficiais aparentarem mudanca de versao/conteudo, tratar como mudanca upstream: registrar a nova fonte, identificar impacto e atualizar conscientemente sem sobrescrita silenciosa.
+
+Documentacao nova nao significa ERP novo: se ERP ja conhecido, tratar como ERP_CONHECIDO: SIM e FONTE_DIFERENTE: SIM e avaliar se e fonte complementar, nova versao, possivel mudanca upstream ou redundante.
 
 ## O que devo receber
 
