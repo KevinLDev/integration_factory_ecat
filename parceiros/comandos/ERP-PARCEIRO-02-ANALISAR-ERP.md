@@ -106,10 +106,13 @@ Nao inicie Passo 03.
 
 1. Contrato homologado interno da ferramenta alvo (autoridade canonica).
 2. Documentacao oficial do ERP (Swagger/OpenAPI/arquivos oficiais).
-3. Evidencias da execucao existente do Passo 01.
-4. Regras adicionais fornecidas pelo operador.
+3. Memoria funcional da ferramenta, quando existir (`ferramentas/<ferramenta-slug>/CENARIOS-FUNCIONAIS.md`).
+4. Evidencias da execucao existente do Passo 01.
+5. Regras adicionais fornecidas pelo operador.
 
 Regra: o ERP se adapta ao contrato da ferramenta. Nunca alterar contrato homologado para facilitar o ERP.
+
+Regra complementar: funcionalidade da ferramenta nao equivale automaticamente a endpoint de mesmo nome no ERP. Modo funcional orienta dados/capacidades necessarias e nao autoriza inventar endpoint por nome.
 
 ## Reutilizacao obrigatoria antes da analise profunda
 
@@ -139,6 +142,8 @@ Esta etapa possui duas camadas:
 
 1. Analise documental (obrigatoria): Swagger/OpenAPI, documentacao oficial e arquivos fornecidos.
 2. Validacao tecnica controlada (quando houver credenciais e autorizacao): confirmar comportamento real da API sem escrita comercial.
+
+Quando houver `CENARIOS-FUNCIONAIS.md` da ferramenta, incluir leitura obrigatoria para cobertura funcional por modo/cenario, preservando classificacao entre FONTE_TECNICA, FONTE_FUNCIONAL, EVIDENCIA_RUNTIME e INFERENCIA.
 
 ## Escopo tecnico da analise
 
@@ -244,6 +249,24 @@ Produzir comparacao explicita com colunas equivalentes a:
 - GAP
 - EVIDENCIA_FONTE
 
+Quando houver memoria funcional da ferramenta, incluir cobertura funcional por modo/cenario com colunas equivalentes a:
+
+- MODO
+- DADOS_NECESSARIOS
+- CAPACIDADES_DISPONIVEIS_NO_ERP
+- CAPACIDADES_FALTANTES
+- IMPACTO
+- EVIDENCIA
+
+Estados conceituais de impacto por modo:
+
+- BLOQUEIA_MODO
+- DEGRADA_MODO
+- NAO_IMPACTA_MODO
+- PENDENTE_DE_EVIDENCIA
+
+Ausencia de capacidade em um modo especifico nao bloqueia automaticamente toda a integracao.
+
 Status recomendados de compatibilidade:
 
 - COMPATIVEL
@@ -347,7 +370,7 @@ Como conjunto minimo da etapa, a execucao real deve produzir:
 	- `CAPACIDADES-DO-ERP.md`
 	- `FONTES.md`
 - Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
-	- `MATRIZ-ERP-FERRAMENTA.md`
+	- `MATRIZ-ERP-FERRAMENTA.md` (incluindo cobertura funcional por modo/cenario quando existir `CENARIOS-FUNCIONAIS.md` da ferramenta)
 	- `PENDENCIAS.md`
 
 Esses artefatos devem separar claramente fato, fonte, inferencia e pendencia.

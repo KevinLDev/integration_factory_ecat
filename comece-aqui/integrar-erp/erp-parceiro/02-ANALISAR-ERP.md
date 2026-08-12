@@ -66,6 +66,7 @@ Arquitetura oficial:
 
 - conhecimento reutilizavel do ERP: `erps/<erp-slug>/`
 - conhecimento da combinacao ERP x ferramenta: `erps/<erp-slug>/integracoes/<ferramenta-slug>/`
+- memoria funcional da ferramenta (quando existir): `ferramentas/<ferramenta-slug>/CENARIOS-FUNCIONAIS.md`
 - evidencia operacional temporal (Harness): `parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/`
 
 O operador nao precisa informar caminho de salvamento.
@@ -77,6 +78,7 @@ O operador nao precisa informar caminho de salvamento.
 - analisa autenticacao, ambientes, modulos, endpoints, schemas, limites e eventos do ERP;
 - identifica operacoes reais por modulo (ler, criar, atualizar, excluir, evento/webhook quando houver);
 - compara o ERP com o contrato homologado da ferramenta;
+- consulta memoria funcional da ferramenta quando existir para medir cobertura funcional por modo/cenario;
 - classifica direcoes possiveis por capacidade (ERP -> ferramenta, ferramenta -> ERP, bidirecional, somente leitura, nao suportado, pendente de evidencia);
 - registra gaps e necessidades de adaptacao sem alterar contrato homologado;
 - registra pendencias explicitas para lacunas sem evidencia;
@@ -233,7 +235,7 @@ Automacao permanente de renovacao de token pertence a camada futura de runtime/s
 	- `CAPACIDADES-DO-ERP.md`: catalogo de capacidades por modulo/operacao/rota com estado de evidencia e fonte;
 	- `FONTES.md`: inventario de fontes documentais e testes autorizados (versao/data/hash/caminho quando disponivel).
 - Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
-	- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap;
+	- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap; quando houver `CENARIOS-FUNCIONAIS.md`, incluir cobertura funcional por modo/cenario sem tratar modo como endpoint de ERP;
 	- `PENDENCIAS.md`: lacunas, divergencias, duvidas e bloqueios com impacto e evidencia da combinacao.
 
 Evitar duplicar a mesma analise nos cinco arquivos.
