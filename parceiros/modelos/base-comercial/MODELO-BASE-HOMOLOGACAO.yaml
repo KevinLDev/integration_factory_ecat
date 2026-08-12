@@ -1,0 +1,160 @@
+schema: fabrica.base-homologacao.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Modelo conceitual para planejamento de massa comercial de homologacao
+  versao: "1.0"
+  data_referencia: null
+  observacoes:
+    - Nao representa execucao real
+    - Nao contem dados de ERP concreto
+
+ferramenta:
+  nome: null
+  slug: null
+  contrato_referencia: null
+  cenarios_funcionais_referencia: null
+
+erp:
+  nome: null
+  slug: null
+  capacidades_referencia: null
+
+combinacao:
+  id: null
+  ferramenta_slug: null
+  erp_slug: null
+  contexto: ERP_PARCEIRO
+
+perfil: HOMOLOGACAO
+
+constraints:
+  limites_erp:
+    sku_max_length: null
+    referencia_max_length: null
+    suporta_ean_por_sku: null
+    suporta_imagem_por_variacao: null
+    suporta_estoque_por_filial: null
+  restricoes_operacionais: []
+
+coverage_requirements:
+  cenarios_obrigatorios: []
+  repeticao_minima_por_cenario: []
+  cenarios_criticos_sem_singleton: []
+
+familias:
+  - familia_id: null
+    nome: null
+    objetivo: null
+    cenario_tags: []
+    cobertura_esperada: []
+    dependencias: []
+
+produtos:
+  - id_logico: null
+    codigo_fisico: null
+    nome: null
+    familia_id: null
+    referencia: null
+    marca_id: null
+    categoria_id: null
+    atributos: {}
+    cenario_tags: []
+    dependencias: []
+
+variacoes:
+  - id_logico: null
+    produto_id_logico: null
+    sku_logico: null
+    sku_fisico: null
+    cor: null
+    tamanho: null
+    grade: null
+    ean: null
+    codigo_barras: null
+    cenario_tags: []
+    dependencias: []
+
+imagens:
+  biblioteca:
+    - image_id_logico: null
+      origem: null
+      arquivo: null
+      checksum: null
+      formato: null
+      cenario_tags: []
+  associacoes:
+    - alvo_tipo: null
+      alvo_id_logico: null
+      image_id_logico: null
+      ordem: null
+      tipo: null
+
+clientes:
+  - id_logico: null
+    codigo_fisico: null
+    tipo_pessoa: null
+    cpf_cnpj: null
+    regiao: null
+    vendedor_id: null
+    tabela_preco_id: null
+    condicao_id: null
+    cenario_tags: []
+
+filiais:
+  - id_logico: null
+    codigo_fisico: null
+    nome: null
+    cenario_tags: []
+
+precos:
+  - preco_id_logico: null
+    produto_ou_sku_id_logico: null
+    tabela_preco_id: null
+    valor: null
+    moeda: BRL
+    cenario_tags: []
+
+estoques:
+  - estoque_id_logico: null
+    produto_ou_sku_id_logico: null
+    filial_id_logico: null
+    quantidade: null
+    unidade: null
+    cenario_tags: []
+
+condicoes:
+  pagamento: []
+  comerciais: []
+
+pedidos:
+  - pedido_id_logico: null
+    cliente_id_logico: null
+    filial_id_logico: null
+    itens: []
+    condicao_pagamento_id: null
+    origem: null
+    cenario_tags: []
+
+dependencias:
+  - entidade: null
+    depende_de: []
+    evidencia: null
+
+gaps:
+  - gap_id: null
+    cenario: null
+    descricao: null
+    impacto: null
+    status: null
+    evidencia: null
+
+status_de_cobertura:
+  total_cenarios_planejados: null
+  total_cenarios_criados_no_erp: null
+  total_cenarios_sincronizados: null
+  total_cenarios_validados_na_ferramenta: null
+  estados:
+    COBERTURA_PLANEJADA: []
+    COBERTURA_CRIADA_NO_ERP: []
+    COBERTURA_SINCRONIZADA: []
+    COBERTURA_VALIDADA_NA_FERRAMENTA: []
