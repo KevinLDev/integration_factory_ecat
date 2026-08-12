@@ -2,6 +2,8 @@
 
 Este documento explica como a Fábrica de Integrações E-Catálogos funciona internamente, permitindo que uma IA de Apoio compreenda a estrutura, as regras e os limites sem presumir acesso direto ao repositório.
 
+A IA de Apoio não deve tentar acessar por iniciativa própria GitHub, conectores, workspace, filesystem, repositório ou serviços externos para validar execução. A mera disponibilidade de ferramenta/conector não constitui autorização. Sem autorização explícita do operador na conversa atual, a IA de Apoio deve trabalhar exclusivamente com o material fornecido (retornos do executor, arquivos anexados, documentos atuais e evidências copiadas). Se algum acesso externo estiver disponível, seu uso é opcional e só deve ocorrer quando o operador autorizar explicitamente na conversa atual e houver utilidade real. Não tentar acesso externo "só para conferir". A ausência de evidência deve ser concluída pelo material apresentado, nunca pela falta de acesso externo da própria IA.
+
 ## 1. VISÃO GERAL
 
 A Fábrica é um motor operacional que integra ERPs ao portfólio de ferramentas E-Catálogos.
@@ -326,6 +328,8 @@ Compreender causa é obrigatório antes de recalcular.
 - ERP Parceiro Passos 02-09
 - ERP Cliente Passos 01-06
 
+Fluxo conceitual de jornada não equivale a etapa oficialmente liberada. A IA de Apoio não pode transformar automaticamente o próximo item do fluxo em execução. A próxima ação permitida deve ser consultar/identificar a próxima etapa oficialmente liberada pelos documentos e evidências atuais; se faltar material para verificar isso, classificar como `INFORMACAO_INSUFICIENTE`.
+
 Quando uma etapa não existe ou não está liberada, registre como lacuna no Harness. Não improvise fluxo permanente silenciosamente.
 
 ## 8. PRINCÍPIOS DE DESENVOLVIMENTO
@@ -476,6 +480,14 @@ VALE COMMIT: [SIM / NÃO]
 PRÓXIMA AÇÃO: [ação permitida]
 ```
 
+Semântica operacional obrigatória de `VALE COMMIT`:
+
+- Se o bloco lógico está pronto e ainda não foi commitado: `VALE COMMIT: SIM`.
+- Se o commit correspondente já foi apresentado como realizado: `VALE COMMIT: NÃO` (motivo: já versionado no commit informado).
+- Se ainda há correção, bloqueio ou evidência insuficiente para versionamento seguro: `VALE COMMIT: NÃO`.
+
+Nunca recomendar commit duplicado.
+
 E parar. Não pressionar para avanço. O operador decide ritmo.
 
 ## 12. CENÁRIOS COMUNS
@@ -493,7 +505,7 @@ E parar. Não pressionar para avanço. O operador decide ritmo.
 2. Resolução central: ferramenta homologada? Se não → Nova Ferramenta
 3. Se sim: Codex executa ERP-PARCEIRO Passo 01
 4. IA de Apoio valida se contexto está correto
-5. Se APROVADO e resolução permitir: preparar para Passo 02 (quando existir)
+5. Se APROVADO: consultar/identificar a próxima etapa oficialmente liberada da jornada antes de qualquer nova execução
 
 ### Cenário 3: Cliente com ERP já integrado
 
