@@ -29,6 +29,8 @@ Use esta etapa quando o operador quer iniciar uma jornada de ERP parceiro com da
 - prepara o espaço de execução futura quando houver ERP real;
 - deixa claro o próximo passo permitido.
 
+Regra de credenciais desta etapa: o Passo 01 registra apenas presença de credenciais. Isso não proíbe a IA executora de receber/usar credenciais reais em etapas futuras oficialmente liberadas quando necessário e autorizado. Em qualquer etapa, valores reais não podem ser persistidos em artefatos versionados.
+
 ## O que você NÃO precisa fazer manualmente
 
 - criar pasta de execução;
@@ -87,6 +89,8 @@ Se a ferramenta não estiver HOMOLOGADA_PARA_INTEGRACOES, bloqueie a jornada de 
 Se o cenário apontar para ERP Cliente/reutilização, não siga ERP Parceiro.
 Se houver documento redundante de ferramenta ou ERP já homologado, informe que o documento recebido não é necessário nesta execução e reutilize o contrato homologado interno.
 Registre apenas a presença das credenciais, nunca os valores.
+
+Nesta etapa, credencial é somente indicador de presença no retorno. Uso técnico de credencial real, quando aplicável, depende de etapa oficialmente liberada e autorização do operador.
 ```
 
 ### PARE DE COPIAR AQUI
@@ -140,6 +144,8 @@ Se a ferramenta não estiver HOMOLOGADA_PARA_INTEGRACOES, bloqueie a jornada de 
 Se o cenário apontar para ERP Cliente/reutilização, não siga ERP Parceiro.
 Se houver documento redundante de ferramenta ou ERP já homologado, informe que o documento recebido não é necessário nesta execução e reutilize o contrato homologado interno.
 Registre apenas a presença das credenciais, nunca os valores.
+
+Nesta etapa, credencial é somente indicador de presença no retorno. Uso técnico de credencial real, quando aplicável, depende de etapa oficialmente liberada e autorização do operador.
 ```
 
 ## O que a IA fará

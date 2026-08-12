@@ -73,12 +73,18 @@ Se o operador não explicitar a intenção, a Fábrica deve usar o estado encont
 
 Credenciais fornecidas pelo operador são dados de runtime ou homologação.
 
+Quando necessário e autorizado, a IA executora no workspace pode receber e usar credenciais reais para autenticação e chamadas de API. Isso não conflita com esta camada de resolução.
+
 Devem ser tratadas apenas como conceito de execução:
 
 - credenciais ERP: fornecidas;
 - credenciais ferramenta: fornecidas.
 
-Não versionar segredos, não copiar tokens ou senhas para documentos versionados e não salvá-los em manifesto oficial.
+Nesta camada, registre somente presença, nunca valores reais.
+
+Usar credencial não é persistir credencial: não versionar segredos, não copiar tokens ou senhas para documentos versionados e não salvá-los em manifesto oficial.
+
+Se o operador colar credencial diretamente na sessão da IA executora, o uso transitório para o objetivo autorizado é permitido, mas o valor não pode ser reproduzido nem persistido.
 
 ## Regra futura da base comercial
 

@@ -155,6 +155,15 @@ Credenciais reais podem ser fornecidas ao agente quando forem necessárias para 
 
 O agente pode utilizar usuário, senha, token, API key, client id, client secret, refresh token e outros segredos necessários à execução.
 
+Política de papéis:
+
+- IA executora (Codex/GitHub Copilot no workspace autorizado) pode receber e usar credenciais reais para autenticação, obtenção/renovação de token, chamadas de API, testes, desenvolvimento e homologação, quando isso estiver dentro da jornada/etapa liberada.
+- IA de Apoio externa não deve depender de valores reais de secrets e deve operar com indicadores de presença quando aplicável.
+
+Regra fundamental:
+
+- usar credencial durante execução não autoriza persistir credencial em artefatos versionados.
+
 Quando precisar persistir localmente, deve criar automaticamente arquivo apropriado, como:
 
 ```text
@@ -167,8 +176,12 @@ Regras:
 - o operador não precisa criar esses arquivos manualmente;
 - nunca mover segredos para arquivos versionados;
 - nunca copiar valores secretos para código-fonte;
+- nunca registrar valores reais de secrets em markdown/yaml/json versionados, manifestos, checkpoints, auditorias, relatórios, evidências, commits, mensagens de commit ou histórico Git;
 - não reproduzir valores completos em relatórios, documentação final, exemplos ou logs persistentes;
-- não repetir valores completos na resposta ao operador sem necessidade explícita;
+- evitar imprimir secrets em terminal/logs e redigir qualquer exposição acidental antes de persistir evidência (ex.: `Authorization: Bearer [REDACTED]`);
+- não repetir valores reais de secrets nas respostas ao operador; quando for necessário confirmar uso/autenticação, retornar apenas indicador de estado ou valor redigido;
+- receber credencial não amplia autorização de processo: jornada, etapa, gates e escopo continuam soberanos;
+- se secret for exposto em artefato persistente, registrar incidente sem reproduzir valor e orientar rotação/tratamento sem reescrever histórico automaticamente;
 - respeitar o `.gitignore`.
 
 ## 10. Operação orientada por comandos
