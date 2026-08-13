@@ -40,27 +40,21 @@ documentar integração reutilizável
 
 A jornada deve ser executada por etapas e cada etapa funciona como portão de qualidade.
 
-Visão planejada da sequência técnica:
+Etapas operacionais atualmente disponíveis na jornada de ERP parceiro:
 
 ```text
-01 APRESENTAR E ANALISAR FERRAMENTA
-02 CADASTRAR FERRAMENTA
-03 VALIDAR FERRAMENTA CADASTRADA
-04 GERAR CONHECIMENTO/COMANDOS ESPECÍFICOS DA FERRAMENTA
-05 APRESENTAR E ANALISAR ERP PARCEIRO
-06 MAPEAR ERP X FERRAMENTA
-07 CRIAR BASE COMERCIAL DO ERP
-08 GERAR INTEGRAÇÃO BIDIRECIONAL
-09 TESTAR INTEGRAÇÃO POR MÓDULO
-10 HOMOLOGAR INTEGRAÇÃO COMPLETA
-11 GERAR DOCUMENTAÇÃO FINAL
+01 APRESENTAR ERP
+02 ANALISAR ERP
+03 PROJETAR HOMOLOGAÇÃO
+04 MATERIALIZAR BASE DE HOMOLOGAÇÃO
+05 PROJETAR INTEGRAÇÃO E MAPEAMENTO SEMÂNTICO
 ```
 
 Não pule etapa concluindo implicitamente trabalho que pertence a um comando posterior.
 
 Enquanto um comando ainda não existir ou não estiver validado, registre isso como lacuna do Harness; não improvise um fluxo permanente silenciosamente.
 
-Esta visão planejada não significa disponibilidade automática de toda a sequência. Atualmente, somente os comandos 01, 02 e 03 existem e possuem documentos humanos correspondentes. As etapas posteriores e as jornadas de ERP ainda não estão liberadas para operação.
+A jornada de nova ferramenta possui os Passos 01 a 03 disponíveis. A jornada de ERP parceiro possui os Passos 01 a 05 disponíveis, com a relação vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. Ainda não existe Passo 06 oficial ou executável de ERP parceiro, e a jornada de ERP cliente ainda não está liberada para operação.
 
 ## 3. Interface com o operador
 
@@ -113,7 +107,7 @@ O cadastro não é considerado confiável para integrações até ser comparado 
 
 O Passo 03 é a homologação técnica do contrato canônico para uso em integrações com ERP. Durante essa homologação, os sete artefatos canônicos produzidos no Passo 02 são entradas somente leitura: o Passo 03 não pode alterá-los nem corrigir silenciosamente seus achados; qualquer correção deve retornar ao Passo 02 e passar por nova auditoria válida dessa etapa.
 
-Uma ferramenta só pode ser usada em futura jornada de ERP parceiro quando possuir conjuntamente:
+Uma ferramenta só pode ser usada na jornada de ERP parceiro quando possuir conjuntamente:
 
 ```text
 RESULTADO TECNICO: APTO_PARA_INTEGRACOES
@@ -300,14 +294,16 @@ Paridade atual:
 - `parceiros/comandos/02-CADASTRAR-FERRAMENTA.md` → `comece-aqui/integrar-nova-ferramenta/02-CADASTRAR-FERRAMENTA.md`;
 - `parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md` → `comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md`.
 
-Para futuros comandos de ERP, o documento operacional correspondente deve ficar em:
+Para comandos de ERP, o documento operacional correspondente deve ficar em:
 
 - `comece-aqui/integrar-erp/erp-parceiro/`, quando homologar uma integração reutilizável de ERP;
 - `comece-aqui/integrar-erp/erp-cliente/`, quando configurar um cliente sobre uma integração já suportada.
 
+A paridade operacional vigente dos Passos 01 a 05 de ERP parceiro é publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+
 Uma etapa não deve ser considerada pronta para uso operacional enquanto o documento correspondente não existir, não estiver homologado e não estiver na jornada correta.
 
-Todo documento operacional futuro de ERP parceiro ou ERP cliente deve seguir integralmente o padrão definido em `AGENTS.md`, incluindo, quando aplicável, pré-requisitos, insumos, prompt exato, exemplo preenchido, artefatos esperados, testes, tratamento de falhas, status, auditoria, critério de avanço e próximo documento.
+Todo documento operacional de ERP parceiro ou ERP cliente deve seguir integralmente o padrão definido em `AGENTS.md`, incluindo, quando aplicável, pré-requisitos, insumos, prompt exato, exemplo preenchido, artefatos esperados, testes, tratamento de falhas, status, auditoria, critério de avanço e próximo documento.
 
 Se o documento possuir prompt para IA, deve obrigatoriamente usar a sinalização:
 

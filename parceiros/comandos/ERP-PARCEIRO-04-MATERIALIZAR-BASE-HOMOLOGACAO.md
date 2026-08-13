@@ -271,4 +271,5 @@ ARTEFATOS:
 - RELATORIO-DE-MATERIALIZACAO.md
 
 PROXIMA ACAO PERMITIDA:
-- aguardar etapa futura oficial de validacao na ferramenta (sem autoexecucao).
+- executar somente o Passo 05 - Projetar Integracao e Mapeamento Semantico, conforme `parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md` (sem autoexecucao).
+- desenvolvimento e execucao da integracao dependem de etapa posterior futura ainda nao publicada.

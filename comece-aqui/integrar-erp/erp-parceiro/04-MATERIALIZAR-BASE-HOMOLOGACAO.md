@@ -327,6 +327,10 @@ Retornar gate final da etapa.
 
 ## Proximo documento
 
-Apos concluir, aguarde etapa futura oficial para validacao na ferramenta E-Catalogos.
+O proximo documento oficial e:
+
+`comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
+
+O Passo 05 projeta a integracao e o mapeamento semantico. Ele nao executa sincronizacao nem validacao na ferramenta; essas atividades dependem de etapa futura de desenvolvimento ainda nao publicada.
 
 Nao iniciar automaticamente proxima etapa.

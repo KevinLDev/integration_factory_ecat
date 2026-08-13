@@ -59,7 +59,7 @@ As jornadas reutilizam contratos, adaptadores e conhecimento compartilhado, mas 
 - a jornada de ERP parceiro produz uma integração reutilizável e homologada;
 - a jornada de ERP cliente aplica uma integração homologada e trata somente as particularidades do cliente.
 
-Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis para operação. As jornadas de ERP parceiro e ERP cliente possuem apenas portas de entrada conceituais e **ainda não estão liberadas para execução**.
+Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta e os Passos 01, 02, 03, 04 e 05 da jornada de ERP parceiro estão disponíveis para operação. A jornada de ERP cliente possui apenas porta de entrada conceitual e **ainda não está liberada para execução**. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## 4. Conceitos que nunca podem ser confundidos
 
@@ -136,7 +136,7 @@ O Passo 03 é a homologação técnica do contrato canônico para uso em integra
 
 Cadastro canônico aprovado no Passo 02 não significa automaticamente que a ferramenta está pronta para uma jornada de ERP.
 
-Uma ferramenta só pode ser usada como origem ou destino em uma futura jornada de ERP parceiro quando possuir conjuntamente:
+Uma ferramenta só pode ser usada como origem ou destino na jornada de ERP parceiro quando possuir conjuntamente:
 
 ```text
 RESULTADO TECNICO: APTO_PARA_INTEGRACOES
@@ -224,12 +224,14 @@ parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 -> comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 ```
 
-Documentos operacionais futuros de ERP devem ficar em uma destas jornadas:
+Documentos operacionais de ERP devem ficar em uma destas jornadas:
 
 ```text
 comece-aqui/integrar-erp/erp-parceiro/
 comece-aqui/integrar-erp/erp-cliente/
 ```
+
+Na jornada de ERP parceiro, os Passos 01 a 05 disponíveis e suas rotas operacionais vigentes são publicados em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 Uma etapa não está pronta para operação sem seu documento humano correspondente, homologado e localizado na jornada correta.
 

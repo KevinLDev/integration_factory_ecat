@@ -20,23 +20,23 @@ Essa integração poderá depois ser aproveitada por clientes.
 
 ## Passos operacionais disponiveis
 
-Passo 01 (entrada, triagem e resolucao de contexto):
+Passo 01 — Apresentar ERP:
 
 `comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`
 
-Passo 02 (analise tecnica profunda do ERP contra o contrato homologado da ferramenta):
+Passo 02 — Analisar ERP:
 
 `comece-aqui/integrar-erp/erp-parceiro/02-ANALISAR-ERP.md`
 
-Passo 03 (projetar homologacao da combinacao ERP x ferramenta e base comercial planejada):
+Passo 03 — Projetar Homologação:
 
 `comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md`
 
-Passo 04 (materializar base planejada no ERP de homologacao/teste e confirmar o observado):
+Passo 04 — Materializar Base de Homologação:
 
 `comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 
-Passo 05 (projetar a integracao e o mapeamento semantico da combinacao ERP x ferramenta):
+Passo 05 — Projetar Integração e Mapeamento Semântico:
 
 `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 
@@ -54,16 +54,10 @@ Se alguma condição estiver ausente, a jornada de ERP parceiro deverá ser bloq
 
 Se o operador também fornecer documentação da ferramenta já homologada, trate-a como documento de contexto da execução corrente, não como nova verdade contratual.
 
-## Visão da jornada futura
+## Visão posterior ao Passo 05
 
-Quando for preparada e homologada, esta jornada poderá incluir etapas para:
+Os Passos 01 a 05 acima estão disponíveis. A visão conceitual posterior, ainda não publicada como etapa executável, poderá incluir atividades para:
 
-- apresentar a documentação do ERP;
-- analisar o ERP;
-- escolher ou confirmar a ferramenta E-Catálogos alvo;
-- mapear o ERP contra o contrato canônico;
-- configurar o ambiente de homologação;
-- criar ou preparar base comercial quando necessário;
 - desenvolver a integração;
 - testar módulo por módulo;
 - testar ida e volta quando suportado;
@@ -74,9 +68,9 @@ Quando for preparada e homologada, esta jornada poderá incluir etapas para:
 - gerar documentação final;
 - registrar o ERP como integrado.
 
-Esses itens são somente a visão da jornada. Eles não representam passos disponíveis e não autorizam execução.
+Esses itens são somente a visão posterior ao Passo 05. Eles não representam passos disponíveis e não autorizam criar ou executar um Passo 06.
 
-Quando esta jornada vier a ser liberada, a camada central de resolução de contexto deverá ter sido consultada antes de qualquer etapa de análise profunda, para evitar duplicação de contrato ou escolha incorreta de jornada.
+Em toda a jornada, a camada central de resolução de contexto deve ser consultada antes de qualquer etapa de análise profunda, para evitar duplicação de contrato ou escolha incorreta de jornada.
 
 ## Disponibilidade
 
@@ -92,4 +86,4 @@ Quando esta jornada vier a ser liberada, a camada central de resolução de cont
 
 Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir o Passo 05, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.
+Apos concluir o Passo 05, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.
