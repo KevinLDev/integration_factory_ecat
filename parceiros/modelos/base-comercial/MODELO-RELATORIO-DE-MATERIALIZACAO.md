@@ -1,0 +1,141 @@
+# Modelo - Relatorio de materializacao da Base de homologacao
+
+## Identificacao
+
+- ERP: <NOME_DO_ERP>
+- ERP_SLUG: <erp-slug>
+- FERRAMENTA: <NOME_DA_FERRAMENTA>
+- FERRAMENTA_SLUG: <ferramenta-slug>
+- COMBINACAO: <erp-slug> x <ferramenta-slug>
+- ETAPA_ORIGEM: ERP_PARCEIRO_PASSO_04
+- DATA_INICIO: <AAAA-MM-DD hh:mm:ss>
+- DATA_FIM: <AAAA-MM-DD hh:mm:ss>
+
+## Ambiente
+
+- AMBIENTE_TIPO: <HML|HOMOLOGACAO|SANDBOX|TESTE|DEV_AUTORIZADO>
+- AMBIENTE_AUTORIZADO: <SIM|NAO>
+- VALIDACAO_DE_AMBIENTE: <evidencia>
+- AUTORIZADO_MATERIALIZAR_BASE: <SIM|NAO>
+
+## Plano de origem
+
+- PLANO_DE_HOMOLOGACAO: <caminho>
+- BASE_COMERCIAL_PLANEJADA: <caminho>
+- HASH_DO_PLANO: <sha256 ou NA>
+- VERSAO_DO_PLANO: <quando aplicavel>
+
+## Resumo executivo
+
+- STATUS_DA_ETAPA: <CONCLUIDA|PENDENTE|BLOQUEADA>
+- MATERIALIZACAO: <COMPLETA|PARCIAL_JUSTIFICADA|INSUFICIENTE|BLOQUEADA>
+- RECONSULTA: <APROVADA|PARCIAL|INSUFICIENTE>
+- CORRELACOES: <VALIDAS|PARCIAIS|INVALIDAS>
+- COBERTURA_CRIADA_NO_ERP: <COMPLETA|PARCIAL_JUSTIFICADA|INSUFICIENTE>
+- FALHAS_BLOQUEANTES: <quantidade>
+
+## Base Mestra anterior
+
+- BASE_MESTRA_EXISTENTE: <SIM|NAO>
+- CAMINHO_BASE_MESTRA: <caminho>
+- RESUMO_ESTADO_ANTERIOR: <resumo>
+
+## Reutilizacoes
+
+Listar registros reutilizados da Base Mestra:
+
+- ENTIDADE
+- ID_LOGICO
+- ERP_ID
+- CRITERIO_DE_REUSO
+- EVIDENCIA
+
+## Materializacoes
+
+Listar criacoes/atualizacoes controladas:
+
+- ENTIDADE
+- ID_LOGICO
+- ACAO (CRIADO|ATUALIZADO_CONTROLADAMENTE)
+- ERP_ID
+- RESULTADO
+
+## Correlacoes
+
+Listar correlacoes persistidas:
+
+- ENTIDADE
+- ID_LOGICO
+- ERP_ID
+- STATUS
+
+## Verificacoes
+
+Comparacao planejado x observado apos reconsulta:
+
+- ENTIDADE
+- ID_LOGICO
+- CAMPOS_COMPARADOS
+- RESULTADO (OK|DIVERGENTE|INCONCLUSIVO)
+
+## Falhas
+
+- ENTIDADE
+- ID_LOGICO
+- TIPO
+- ERRO_SANITIZADO
+- BLOQUEIA_DEPENDENTES
+- RETRY_APLICADO
+
+## Divergencias
+
+- ENTIDADE
+- ID_LOGICO
+- DIFERENCA
+- IMPACTO
+- ACAO_PROPOSTA
+
+## Pendencias
+
+- ID
+- DESCRICAO
+- IMPACTO
+- STATUS
+
+## Cobertura criada no ERP
+
+- CENARIO
+- STATUS (COBERTURA_CRIADA_NO_ERP|PARCIAL|INSUFICIENTE)
+- EVIDENCIA
+
+## Itens ainda nao materializados
+
+- ENTIDADE
+- ID_LOGICO
+- MOTIVO
+- BLOQUEIA_PROXIMA_ETAPA (SIM|NAO)
+
+## Gate final da etapa
+
+- AMBIENTE_AUTORIZADO: <SIM|NAO>
+- PLANO_VALIDO: <SIM|NAO>
+- BASE_MESTRA: <CRIADA|ATUALIZADA|REUTILIZADA|BLOQUEADA>
+- MATERIALIZACAO: <COMPLETA|PARCIAL_JUSTIFICADA|INSUFICIENTE|BLOQUEADA>
+- RECONSULTA: <APROVADA|PARCIAL|INSUFICIENTE>
+- CORRELACOES: <VALIDAS|PARCIAIS|INVALIDAS>
+- DEPENDENCIAS: <VALIDAS|PROBLEMA>
+- COBERTURA_CRIADA_NO_ERP: <COMPLETA|PARCIAL_JUSTIFICADA|INSUFICIENTE>
+- FALHAS_BLOQUEANTES: <quantidade>
+- PRONTO_PARA_VALIDACAO_NA_FERRAMENTA: <SIM|NAO>
+
+## Criterios para proxima etapa
+
+Informar criterios minimos para uma etapa futura de validacao na ferramenta E-Catalogos.
+
+Nao iniciar automaticamente a proxima etapa.
+
+## Seguranca
+
+- Segredos nao reproduzidos
+- Segredos nao persistidos em artefatos versionados
+- Tokens/keys/senhas omitidos/redigidos

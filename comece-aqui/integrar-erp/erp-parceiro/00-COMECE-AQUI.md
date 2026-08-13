@@ -32,6 +32,10 @@ Passo 03 (projetar homologacao da combinacao ERP x ferramenta e base comercial p
 
 `comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md`
 
+Passo 04 (materializar base planejada no ERP de homologacao/teste e confirmar o observado):
+
+`comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -78,6 +82,8 @@ Quando esta jornada vier a ser liberada, a camada central de resolução de cont
 
 **PASSO 03 LIBERADO PARA EXECUCAO.**
 
+**PASSO 04 LIBERADO PARA EXECUCAO.**
+
 Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir o Passo 03, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.
+Apos concluir o Passo 04, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.

@@ -1,0 +1,98 @@
+schema: fabrica.base-mestra-materializada.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Estado materializado conhecido da Base Mestra de homologacao do ERP
+  versao: "1.0"
+  inicio_da_execucao: null
+  fim_da_execucao: null
+  observacoes:
+    - Nao contem segredos
+    - Nao substitui plano da combinacao
+
+erp:
+  nome: null
+  slug: null
+
+ambiente:
+  tipo: null
+  descricao: null
+  autorizado: null
+  origem_validacao: null
+
+origem_do_plano:
+  combinacao_id: null
+  caminho_plano: null
+  caminho_base_planejada: null
+  plano_sha256: null
+  plano_hash_mode: null
+  plano_versao: null
+
+resumo_execucao:
+  status_etapa: null
+  materializacao: null
+  reconsulta: null
+  correlacoes: null
+  cobertura_criada_no_erp: null
+  falhas_bloqueantes: null
+
+entidades:
+  marcas: []
+  categorias: []
+  subcategorias: []
+  campanhas: []
+  produtos: []
+  variacoes: []
+  skus: []
+  imagens: []
+  clientes: []
+  vendedores: []
+  representantes: []
+  prepostos: []
+  transportadoras: []
+  filiais: []
+  tabelas: []
+  precos: []
+  estoques: []
+  condicoes: []
+  pedidos: []
+  outras_entidades: []
+
+registro_modelo:
+  id_logico: null
+  codigo_fisico_planejado: null
+  erp_id: null
+  status: null
+  acao: null
+  tentativas: null
+  confirmacao: null
+  dependencias: []
+  cenario_tags: []
+  erro_sanitizado: null
+  ultima_reconsulta: null
+
+correlacoes:
+  - entidade: null
+    id_logico: null
+    erp_id: null
+    origem: null
+    status: null
+
+falhas:
+  - entidade: null
+    id_logico: null
+    tipo: null
+    bloqueia_dependentes: null
+    erro_sanitizado: null
+    acao_recomendada: null
+
+pendencias:
+  - id: null
+    descricao: null
+    impacto: null
+    status: null
+
+desvios_do_plano:
+  - entidade: null
+    planejado: null
+    materializado: null
+    motivo: null
