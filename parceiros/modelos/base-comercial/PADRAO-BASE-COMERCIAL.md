@@ -42,12 +42,60 @@ Regra da jornada ERP parceiro:
 MINIMA nao substitui homologacao completa.
 ESTRESSE e opcional para volume/carga adicional.
 
+### 3.1 Baseline operacional do perfil HOMOLOGACAO (ERP Parceiro)
+
+Para ERP Parceiro com perfil HOMOLOGACAO, baseline recomendado:
+
+- PRODUTOS: 200
+- CLIENTES: 20
+- MARCAS: 10
+- CATEGORIAS: 10
+- SUBCATEGORIAS: 25
+- LINHAS: 8 (quando aplicavel)
+- TIPOS: 5 (quando aplicavel)
+- GENEROS: ate 5 valores relevantes suportados
+- CAMPANHAS: 4 (quando aplicavel)
+- FILIAIS: 3 (quando suportado/relevante)
+- TABELAS_DE_PRECO: 3 (quando suportado/relevante)
+- CONDICOES_DE_PAGAMENTO: 5 (quando suportado/relevante)
+- VENDEDORES: 10 (quando suportado/relevante)
+- REPRESENTANTES: 5 (quando suportado/relevante)
+- PREPOSTOS: 5 (quando suportado/relevante)
+- TRANSPORTADORAS: 5 (quando suportado/relevante)
+- PEDIDOS: 100 (quando aplicavel)
+
+Campanhas baseline (quando aplicavel) podem usar massa sintetica equivalente a:
+
+- HML-CAMP-001 (Verao)
+- HML-CAMP-002 (Inverno)
+- HML-CAMP-003 (Dia das Maes)
+- HML-CAMP-004 (Dia dos Pais)
+
+Outras campanhas podem substituir/complementar conforme dominio funcional.
+
+Regra central:
+
+- TARGET_PRODUTOS_PADRAO = 200 para HOMOLOGACAO de ERP Parceiro;
+- pode aumentar acima de 200 para atender cobertura;
+- reduzir abaixo de 200 somente com justificativa concreta e registrada.
+
 ## 4. Estrategia de cobertura
 
 - cobertura e prioridade maior que contagem fixa de registros;
 - usar repeticao adequada de cenarios criticos;
 - evitar cenarios chave representados por registro unico;
 - combinar cenarios no mesmo registro quando isso aumentar eficiencia sem perder repeticao minima.
+
+Cobertura para HOMOLOGACAO deve considerar tambem experiencia funcional (app/filtros/listagem/paginacao/busca) e painel/backoffice, nao apenas resposta de endpoint.
+
+Quando aplicavel, considerar diversidade planejada de:
+
+- cores (sem cor, 1 cor, 2-3, 4-5, alta variacao suportada);
+- grades/tamanhos (sem grade e multiplos padroes relevantes);
+- estoque (zero, muito baixo, baixo, medio, alto; por filial quando suportado);
+- precos (faixas, tabelas, diferencas por tabela, por SKU quando aplicavel);
+- clientes (variacao de relacoes comerciais, nao apenas nome);
+- pedidos (diversidade de itens, clientes e condicoes em baseline de 100 quando aplicavel).
 
 ## 5. Estruturacao por familias
 
@@ -60,6 +108,8 @@ Montar familias com objetivo funcional explicito, por exemplo:
 - familias de clientes e condicoes comerciais.
 
 Nomes e quantidades de familias sao derivados da combinacao, nao fixos globalmente.
+
+Para baseline forte de 200 produtos, evitar 200 registros equivalentes. Distribuir diversidade entre dimensoes aplicaveis (marca, categoria, subcategoria, linha, tipo, genero, campanha, cor, grade, estoque e preco).
 
 ## 6. Cobertura declarada
 
@@ -96,6 +146,21 @@ A ordem real deve ser derivada de:
 - contrato da ferramenta.
 
 Este padrao so define como representar dependencias no plano.
+
+## 8.1 Desvios do baseline
+
+Quando o plano final divergir do baseline, registrar no PLANO-DE-HOMOLOGACAO.md:
+
+- entidade;
+- baseline;
+- planejado;
+- motivo.
+
+Exemplos:
+
+- produtos: baseline 200, planejado 250, motivo cobertura/paginacao;
+- produtos: baseline 200, planejado 100, motivo limite real do ambiente;
+- campanhas: baseline 4, planejado 0, motivo NAO_APLICAVEL para a ferramenta.
 
 ## 9. Guardrails
 

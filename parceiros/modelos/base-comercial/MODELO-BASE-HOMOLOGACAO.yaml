@@ -27,6 +27,50 @@ combinacao:
 
 perfil: HOMOLOGACAO
 
+baseline:
+  produtos: 200
+  clientes: 20
+  marcas: 10
+  categorias: 10
+  subcategorias: 25
+  linhas: 8
+  tipos: 5
+  generos: 5
+  campanhas: 4
+  filiais: 3
+  tabelas_preco: 3
+  condicoes_pagamento: 5
+  vendedores: 10
+  representantes: 5
+  prepostos: 5
+  transportadoras: 5
+  pedidos: 100
+
+planejado:
+  produtos: null
+  clientes: null
+  marcas: null
+  categorias: null
+  subcategorias: null
+  linhas: null
+  tipos: null
+  generos: null
+  campanhas: null
+  filiais: null
+  tabelas_preco: null
+  condicoes_pagamento: null
+  vendedores: null
+  representantes: null
+  prepostos: null
+  transportadoras: null
+  pedidos: null
+
+desvios_do_baseline:
+  - entidade: null
+    baseline: null
+    planejado: null
+    motivo: null
+
 constraints:
   limites_erp:
     sku_max_length: null
@@ -75,6 +119,14 @@ variacoes:
     dependencias: []
 
 imagens:
+  distribuicao_baseline_quando_aplicavel:
+    produtos_com_1_imagem: 45
+    produtos_com_2_imagens: 45
+    produtos_com_3_imagens: 45
+    produtos_com_4_imagens: 45
+    produtos_sem_imagem: 10
+    produtos_com_placeholder: 10
+    reuso_permitido: true
   biblioteca:
     - image_id_logico: null
       origem: null

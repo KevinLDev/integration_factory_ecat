@@ -27,6 +27,32 @@ Cenario explicito adicional:
 - placeholder e diferente de ausencia de imagem;
 - imagem por cor/variacao so quando ferramenta e ERP suportarem.
 
+### 3.1 Cardinalidade baseline para HOMOLOGACAO (quando imagem for aplicavel)
+
+Para base de 200 produtos e quando imagem for relevante na combinacao:
+
+- 45 produtos com 1 imagem;
+- 45 produtos com 2 imagens;
+- 45 produtos com 3 imagens;
+- 45 produtos com 4 imagens;
+- 10 produtos com SEM_IMAGEM;
+- 10 produtos com IMG-PLACEHOLDER-001.
+
+Objetivo de teste:
+
+- cobertura de galeria 1/2/3/4;
+- ausencia real de imagem;
+- placeholder distinto de ausencia.
+
+Regra:
+
+- este baseline e condicional e nao universal;
+- se a ferramenta nao usa imagem, a distribuicao nao e obrigatoria;
+- se ERP nao suporta imagem e ferramenta nao exige, nao e gap;
+- se ferramenta exige imagem e ERP nao suporta, registrar gap/impacto.
+
+Reuso continua permitido dentro da distribuicao (ex.: IMG-STD-001 e IMG-STD-002 reutilizadas em multiplos produtos).
+
 ## 4. Metadados minimos
 
 Cada referencia logica de imagem deve permitir registrar:

@@ -28,6 +28,10 @@ Passo 02 (analise tecnica profunda do ERP contra o contrato homologado da ferram
 
 `comece-aqui/integrar-erp/erp-parceiro/02-ANALISAR-ERP.md`
 
+Passo 03 (projetar homologacao da combinacao ERP x ferramenta e base comercial planejada):
+
+`comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -72,6 +76,8 @@ Quando esta jornada vier a ser liberada, a camada central de resolução de cont
 
 **PASSO 02 LIBERADO PARA EXECUCAO.**
 
+**PASSO 03 LIBERADO PARA EXECUCAO.**
+
 Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir o Passo 02, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.
+Apos concluir o Passo 03, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.

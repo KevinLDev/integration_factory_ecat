@@ -31,6 +31,20 @@ CAPACIDADES DO ERP
 ->
 PLANO DE HOMOLOGACAO DA COMBINACAO
 
+Para ERP Parceiro no perfil HOMOLOGACAO, aplicar leitura operacional complementar:
+
+BASELINE_HOMOLOGACAO_ERP_PARCEIRO
++
+CONTRATO_TECNICO_DA_FERRAMENTA
++
+CENARIOS_FUNCIONAIS
++
+CAPACIDADES_DO_ERP
++
+GAPS_E_RESTRICOES
+->
+BASE_COMERCIAL_FINAL_PLANEJADA
+
 Regras:
 
 - nao gerar dado que o ERP comprovadamente nao consegue representar;
@@ -47,6 +61,37 @@ Exemplos validos:
 - base com menos registros, quando a mesma cobertura e repeticao forem comprovadas.
 
 A metrica principal e cobertura com repeticao adequada, nao volume fixo predefinido.
+
+### 4.1 Baseline operacional da jornada ERP Parceiro (perfil HOMOLOGACAO)
+
+Para a jornada ERP Parceiro no perfil HOMOLOGACAO, a Fabrica adota baseline operacional recomendado para massa forte de homologacao.
+
+Baseline recomendado:
+
+- PRODUTOS: 200
+- CLIENTES: 20
+- MARCAS: 10
+- CATEGORIAS: 10
+- SUBCATEGORIAS: 25
+- LINHAS: 8 (quando aplicavel)
+- TIPOS: 5 (quando aplicavel)
+- GENEROS: ate 5 valores relevantes suportados
+- CAMPANHAS: 4 (quando aplicavel)
+- FILIAIS: 3 (quando suportado/relevante)
+- TABELAS_DE_PRECO: 3 (quando suportado/relevante)
+- CONDICOES_DE_PAGAMENTO: 5 (quando suportado/relevante)
+- VENDEDORES: 10 (quando suportado/relevante)
+- REPRESENTANTES: 5 (quando suportado/relevante)
+- PREPOSTOS: 5 (quando suportado/relevante)
+- TRANSPORTADORAS: 5 (quando suportado/relevante)
+- PEDIDOS: 100 (quando pedido fizer parte da combinacao)
+
+Regras:
+
+- 200 produtos e o ponto de partida operacional para HOMOLOGACAO em ERP Parceiro;
+- o plano pode aumentar acima de 200 quando cobertura, paginacao, diversidade ou cenarios exigirem;
+- reduzir abaixo de 200 exige justificativa concreta e registrada (limite real de ambiente/API/ERP, dominio extremamente simples, impossibilidade comprovada ou decisao humana registrada);
+- MINIMA continua disponivel para smoke/debug e nao substitui HOMOLOGACAO.
 
 ## 5. Repeticao obrigatoria de cenarios relevantes
 
@@ -78,6 +123,24 @@ Exemplos conceituais (nao rigidos):
 - FAMILIA-MULTI-FILIAL.
 
 Os nomes e quantidades de familias devem ser derivados da cobertura necessaria de cada combinacao.
+
+## 6.1 Base Mestra de homologacao do ERP Parceiro
+
+Conceito complementar:
+
+ERP PARCEIRO
+-> BASE MESTRA DE HOMOLOGACAO DO ERP
+-> reutilizavel para homologar uma ou mais ferramentas
+-> combinacoes ERP x ferramenta selecionam/filtram esse universo.
+
+A Base Mestra representa densidade e diversidade comercial ampla do ERP e nao precisa ser recriada do zero para cada ferramenta quando o mesmo conjunto puder ser reutilizado.
+
+Cada combinacao ERP x ferramenta continua exigindo:
+
+- PLANO-DE-HOMOLOGACAO.md
+- BASE-COMERCIAL-PLANEJADA.yaml
+
+Esses artefatos devem declarar quais partes da Base Mestra sao utilizadas e quais extensoes/desvios sao necessarios para aquela combinacao.
 
 ## 7. Catalogo global de dimensoes comerciais
 
@@ -160,6 +223,8 @@ Objetivo:
 
 Nao otimizar a ponto de eliminar repeticao de caracteristicas criticas.
 
+Evitar produto cartesiano. Um mesmo registro pode cobrir multiplas dimensoes simultaneamente.
+
 ## 9. Cobertura declarada e rastreavel
 
 Cada entidade/familia deve declarar por que existe.
@@ -168,6 +233,11 @@ Rastreabilidade obrigatoria:
 
 - CENARIO -> REGISTROS QUE O COBREM;
 - REGISTRO -> CENARIOS QUE ELE COBRE.
+
+Cobertura forte de homologacao tambem deve observar experiencia funcional e administrativa quando aplicavel:
+
+- app: filtros, listagem, busca e paginacao;
+- painel/backoffice: clientes, vendedores, representantes, prepostos, transportadoras, filiais, tabelas, condicoes, pedidos, estoque e precos.
 
 Exemplo de declaracao conceitual:
 
@@ -212,6 +282,21 @@ Significado correto:
 A ferramenta seleciona o que importa.
 O ERP determina o que consegue fornecer.
 A combinacao registra gaps.
+
+Baseline forte nao converte dimensoes em obrigacao universal. Dimensao nao aplicavel deve ficar como nao aplicavel/zero sem virar gap quando nao for requisito da ferramenta.
+
+## 12.1 Nacional x importado (condicional)
+
+Quando ERP e ferramenta possuirem e utilizarem origem nacional/importado, a distribuicao desejada para baseline de 200 produtos e:
+
+- 100 NACIONAIS
+- 100 IMPORTADOS
+
+Essa distribuicao e condicional:
+
+- se a ferramenta nao utiliza origem, nao obrigar;
+- se ERP nao possui e ferramenta nao exige, nao e gap;
+- se ferramenta exige e ERP nao representa, registrar gap/impacto.
 
 ## 13. Exemplo de consumo (Forca) sem obrigacao global
 
@@ -277,3 +362,12 @@ K) Caracteristica critica aparecendo em um unico produto sem justificativa:
 L) Uso de perfil MINIMA para substituir homologacao de ERP parceiro:
 - invalido;
 - padrao default da jornada ERP parceiro e HOMOLOGACAO.
+
+M) Reduzir de 200 para 50 apenas por otimizacao matematica:
+- invalido para perfil HOMOLOGACAO sem justificativa concreta.
+
+N) Ferramenta nao usa campanha:
+- campanhas podem ficar 0/NAO_APLICAVEL, sem gap automatico.
+
+O) Produto com combinacao inteligente de multiplas dimensoes:
+- valido e desejavel.
