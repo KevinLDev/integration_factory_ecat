@@ -12,8 +12,8 @@
     "status": "CONCLUIDA",
     "tipo_auditoria": "PROFUNDA",
     "auditoria_vigente": {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
-      "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E",
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md",
+      "sha256": "8BA94739027EFA26DB610BFBD011CB5CD140EA9BF83AC611765264A4887B2BC0",
       "hash_mode": "TEXT_CANONICAL_V1",
       "resultado": "APROVADA"
     }
@@ -39,6 +39,11 @@
     {
       "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/DIAGNOSTICO-CORRECAO-POS-PASSO-03.md",
       "sha256": "5770C7D5FFD13CCDD014D72AF2C8683C56F3C6ECB88CDF9201E3F84559A651B8",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "sha256": "6B34D6E2CDD4D1672766635D1A8F263D5C66FDD6E93A1C549C3DC391A3A7A9CD",
       "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
@@ -75,12 +80,12 @@
     },
     {
       "caminho": "ferramentas/forca-de-vendas/FONTES.md",
-      "sha256": "288D052320320FCC332D26027E9452F87A7FAF69DD25BCF0B0ADE0F7AF42DCF8",
+      "sha256": "D193FA427A8C597BD0349F40A8816C4B57763806A7BF14FEF7471DF5BCDA4E89",
       "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
-      "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E",
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md",
+      "sha256": "8BA94739027EFA26DB610BFBD011CB5CD140EA9BF83AC611765264A4887B2BC0",
       "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
@@ -137,7 +142,8 @@
       "ferramentas/forca-de-vendas/DEPENDENCIAS.md",
       "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
       "ferramentas/forca-de-vendas/PENDENCIAS.md",
-      "ferramentas/forca-de-vendas/FONTES.md"
+      "ferramentas/forca-de-vendas/FONTES.md",
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md"
     ],
     "utf8": [
       "ferramentas/forca-de-vendas/README.md",
@@ -147,7 +153,8 @@
       "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
       "ferramentas/forca-de-vendas/PENDENCIAS.md",
       "ferramentas/forca-de-vendas/FONTES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md"
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md"
     ],
     "markdown": [
       "ferramentas/forca-de-vendas/README.md",
@@ -156,7 +163,8 @@
       "ferramentas/forca-de-vendas/BIDIRECIONALIDADE.md",
       "ferramentas/forca-de-vendas/PENDENCIAS.md",
       "ferramentas/forca-de-vendas/FONTES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md"
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md"
     ],
     "contagens": [
       {

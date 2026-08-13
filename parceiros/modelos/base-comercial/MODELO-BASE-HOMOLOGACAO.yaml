@@ -13,6 +13,14 @@ ferramenta:
   slug: null
   contrato_referencia: null
   cenarios_funcionais_referencia: null
+  regras_de_negocio_referencia: null
+
+fontes_snapshot:
+  - tipo_fonte: null
+    caminho: null
+    versao: null
+    sha256: null
+    hash_mode: null
 
 erp:
   nome: null
@@ -82,6 +90,8 @@ constraints:
 
 coverage_requirements:
   cenarios_obrigatorios: []
+  regras_de_negocio_consideradas: []
+  relacoes_comerciais_obrigatorias: []
   repeticao_minima_por_cenario: []
   cenarios_criticos_sem_singleton: []
 
@@ -90,7 +100,9 @@ familias:
     nome: null
     objetivo: null
     cenario_tags: []
+    regra_tags: []
     cobertura_esperada: []
+    relacoes_comerciais_cobertas: []
     dependencias: []
 
 produtos:
@@ -101,8 +113,15 @@ produtos:
     referencia: null
     marca_id: null
     categoria_id: null
+    origem: null
+    pronta_entrega: null
+    disponibilidade: null
+    grade_tipo: null
+    tabela_preco_ids: []
+    prazo_entrega_ids: []
     atributos: {}
     cenario_tags: []
+    regra_tags: []
     dependencias: []
 
 variacoes:
@@ -116,7 +135,44 @@ variacoes:
     ean: null
     codigo_barras: null
     cenario_tags: []
+    regra_tags: []
     dependencias: []
+
+marcas:
+  - id_logico: null
+    nome: null
+    prazo_entrega_ids: []
+    tabela_preco_ids: []
+    regiao_ids: []
+    cenario_tags: []
+    regra_tags: []
+
+regioes:
+  - id_logico: null
+    nome: null
+    estados: []
+    cidades: []
+    tabela_preco_ids: []
+    cenario_tags: []
+    regra_tags: []
+
+tabelas_preco:
+  - id_logico: null
+    nome: null
+    regiao_ids: []
+    produtos_incluidos: []
+    produtos_ausentes: []
+    cenario_tags: []
+    regra_tags: []
+
+prazos_entrega:
+  - id_logico: null
+    nome: null
+    data_inicial: null
+    data_final: null
+    marca_ids: []
+    cenario_tags: []
+    regra_tags: []
 
 imagens:
   distribuicao_baseline_quando_aplicavel:
@@ -147,10 +203,28 @@ clientes:
     tipo_pessoa: null
     cpf_cnpj: null
     regiao: null
+    ativo: null
     vendedor_id: null
+    representante_id: null
+    preposto_id: null
     tabela_preco_id: null
     condicao_id: null
     cenario_tags: []
+    regra_tags: []
+
+representantes:
+  - id_logico: null
+    cliente_ids: []
+    preposto_ids: []
+    cenario_tags: []
+    regra_tags: []
+
+prepostos:
+  - id_logico: null
+    representante_id: null
+    cliente_ids: []
+    cenario_tags: []
+    regra_tags: []
 
 filiais:
   - id_logico: null
@@ -165,6 +239,7 @@ precos:
     valor: null
     moeda: BRL
     cenario_tags: []
+    regra_tags: []
 
 estoques:
   - estoque_id_logico: null
@@ -173,6 +248,7 @@ estoques:
     quantidade: null
     unidade: null
     cenario_tags: []
+    regra_tags: []
 
 condicoes:
   pagamento: []
@@ -185,7 +261,20 @@ pedidos:
     itens: []
     condicao_pagamento_id: null
     origem: null
+    origem_vendedor_tipo: null
+    estado_comercial: null
+    exportacao_esperada: null
     cenario_tags: []
+    regra_tags: []
+
+orcamentos:
+  - orcamento_id_logico: null
+    cliente_id_logico: null
+    itens: []
+    estado_comercial: ORCAMENTO
+    convertido_em_pedido_id_logico: null
+    cenario_tags: []
+    regra_tags: []
 
 dependencias:
   - entidade: null

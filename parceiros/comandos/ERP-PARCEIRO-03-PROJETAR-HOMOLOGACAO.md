@@ -40,6 +40,7 @@ Resolver automaticamente, antes de planejar:
 - memoria da combinacao;
 - contrato tecnico da ferramenta;
 - cenarios funcionais da ferramenta;
+- regras de negocio da ferramenta, quando existir;
 - matriz ERP x ferramenta;
 - pendencias/gaps;
 - padrao global de massa comercial;
@@ -53,6 +54,7 @@ Seguir resolucao central e arquitetura de memoria oficial do repositorio.
 
 - ferramentas/<ferramenta-slug>/CONTRATO-DA-FERRAMENTA.yaml
 - ferramentas/<ferramenta-slug>/CENARIOS-FUNCIONAIS.md (quando existir)
+- ferramentas/<ferramenta-slug>/REGRAS-DE-NEGOCIO.md (quando existir)
 - ferramentas/<ferramenta-slug>/HOMOLOGACAO-PARA-INTEGRACOES.md
 - erps/<erp-slug>/ANALISE-DO-ERP.md
 - erps/<erp-slug>/CAPACIDADES-DO-ERP.md
@@ -71,9 +73,20 @@ Se algum item nao existir, registrar PENDENTE_DE_EVIDENCIA ou GAP aplicavel.
 
 - Quem manda e a ferramenta E-Catalogos.
 - Funcionalidade da ferramenta nao equivale a endpoint de mesmo nome no ERP.
+- Regra de negocio nao equivale a capacidade tecnica nem a comportamento confirmado em runtime.
 - Nao remover necessidade da ferramenta para acomodar ERP.
 - Incompatibilidade vira gap com impacto rastreavel.
 - Nao transformar catalogo global em checklist universal.
+
+Cobertura obrigatoria do planejamento:
+
+CAMPOS
++
+CENARIOS_FUNCIONAIS
++
+REGRAS_COMERCIAIS
++
+RELACOES_ENTRE_ENTIDADES
 
 ## Perfil
 
@@ -118,24 +131,26 @@ Regra:
 3. Carregar baseline HOMOLOGACAO da Fabrica.
 4. Carregar contrato tecnico da ferramenta.
 5. Carregar cenarios funcionais da ferramenta quando existir.
-6. Carregar memoria tecnica do ERP.
-7. Carregar matriz da combinacao e pendencias.
-8. Determinar dimensoes do baseline aplicaveis na combinacao.
-9. Identificar gaps e impactos por modo/cenario.
-10. Selecionar cenarios de homologacao necessarios para a combinacao.
-11. Preservar baseline forte sempre que possivel e remover apenas dimensoes realmente irrelevantes.
-12. Definir familias, repeticao e volume derivados de cobertura.
-13. Definir entidades comerciais necessarias (somente aplicaveis).
-14. Definir estrategia de identificadores logicos estaveis.
-15. Definir estrategia de EAN/codigo quando aplicavel.
-16. Definir estrategia de imagens quando aplicavel.
-17. Definir dependencias (DAG) de materializacao futura.
-18. Registrar desvios de baseline com justificativa obrigatoria.
-19. Gerar PLANO-DE-HOMOLOGACAO.md da combinacao.
-20. Gerar BASE-COMERCIAL-PLANEJADA.yaml da combinacao.
-21. Validar cobertura planejada e impossibilidades declaradas.
-22. Executar Harness aplicavel aos artefatos gerados.
-23. Retornar gate final da etapa.
+6. Carregar regras de negocio da ferramenta quando existir.
+7. Carregar memoria tecnica do ERP.
+8. Carregar matriz da combinacao e pendencias.
+9. Determinar dimensoes do baseline aplicaveis na combinacao.
+10. Identificar gaps e impactos por modo/cenario/regra.
+11. Selecionar cenarios e regras de negocio necessarios para a combinacao.
+12. Preservar baseline forte sempre que possivel e remover apenas dimensoes realmente irrelevantes.
+13. Definir familias, repeticao, relacoes e volume derivados de cobertura.
+14. Definir entidades comerciais necessarias (somente aplicaveis).
+15. Definir estrategia de identificadores logicos estaveis.
+16. Definir estrategia de EAN/codigo quando aplicavel.
+17. Definir estrategia de imagens quando aplicavel.
+18. Definir dependencias (DAG) de materializacao futura.
+19. Registrar desvios de baseline com justificativa obrigatoria.
+20. Registrar snapshot das fontes efetivamente usadas, com hash/versao somente quando disponivel.
+21. Gerar PLANO-DE-HOMOLOGACAO.md da combinacao.
+22. Gerar BASE-COMERCIAL-PLANEJADA.yaml da combinacao.
+23. Validar cobertura planejada e impossibilidades declaradas.
+24. Executar Harness aplicavel aos artefatos gerados.
+25. Retornar gate final da etapa.
 
 ## Regras de cobertura e volume
 
@@ -148,6 +163,50 @@ Regra:
 Para HOMOLOGACAO de ERP Parceiro, evitar reducao agressiva de volume abaixo do baseline sem limitacao comprovada.
 
 Aprovacao sem diversidade e invalida (ex.: 200 produtos equivalentes sem variacao comercial relevante).
+
+Para produtos, considerar quando aplicavel: nacional/importado, pronta entrega/nao pronta entrega, grade aberta/fechada, marcas, categorias, tabelas, disponibilidades e atributos opcionais.
+
+Para clientes, considerar quando aplicavel: regioes, tabelas, representantes, prepostos, condicoes comerciais, ativos e cenarios controlados de inatividade para listagem/visibilidade.
+
+## Cenarios comerciais orientados a regra
+
+Quando aplicaveis e sustentados pelas fontes, o plano deve conseguir representar:
+
+1. mesmo produto com precos distintos por tabela/regiao;
+2. produto presente em uma tabela e ausente em outra;
+3. grade aberta com quantidades por tamanho;
+4. grade fechada com pack/composicao fixa;
+5. pronta entrega compativel com prazo;
+6. nao pronta entrega com disponibilidade futura restringindo prazo anterior;
+7. prazos diferentes por marca;
+8. separacao nacional/importado;
+9. origens representante/preposto preservando aprovacao/exportacao;
+10. orcamento convertido em pedido, quando aplicavel.
+
+ERP sem capacidade suficiente gera gap ou pendencia; nao gera cobertura ficticia.
+
+## Rastreabilidade de regras
+
+`PLANO-DE-HOMOLOGACAO.md` deve registrar `REGRAS_DE_NEGOCIO_CONSIDERADAS`.
+
+Cada cenario/familia relevante deve possuir:
+
+- `cenario_tags`
+- `regra_tags`
+
+Usar IDs estaveis publicados em `REGRAS-DE-NEGOCIO.md`, sem copiar a memoria inteira nem criar IDs aleatorios.
+
+## Diversidade para relatorios
+
+Quando pedidos fizerem parte da combinacao, os 100 pedidos do baseline devem variar suficientemente produtos, marcas, categorias, subcategorias, clientes, representantes, prepostos, referencias, variantes, quantidades e valores.
+
+Nao exigir dados perfeitos de Curva ABC e nao exigir endpoint `Curva ABC` no ERP.
+
+## Snapshot das fontes
+
+O plano deve registrar as fontes efetivamente usadas para contrato tecnico, cenarios funcionais, regras de negocio, analise/capacidades do ERP, matriz e padrao de massa.
+
+Para cada fonte, registrar caminho e, quando disponivel no repositorio, versao, SHA-256 e modo de hash. Nao inventar valores ausentes. O snapshot sera usado pelo Passo 04 para verificar se o plano continua vigente.
 
 ## EAN/codigo
 
@@ -204,6 +263,7 @@ Retornar explicitamente:
 - BASE_COMERCIAL_PLANEJADA: GERADA | BLOQUEADA
 - COBERTURA_PLANEJADA: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE
 - PENDENCIAS_BLOQUEANTES: <quantidade>
+- SNAPSHOT_DAS_FONTES: REGISTRADO | INSUFICIENTE
 - PRONTO_PARA_CRIAR_BASE_REAL: SIM | NAO
 
 Nao marcar PRONTO_PARA_CRIAR_BASE_REAL como SIM quando houver pendencia bloqueante.
@@ -245,6 +305,8 @@ Nao alterar contrato homologado da ferramenta.
 Nao alterar Harness.
 Nao alterar manifestos existentes.
 
+Registrar no plano o snapshot das fontes efetivamente usadas, incluindo regras de negocio, sem inventar hashes ou versoes.
+
 Gerar obrigatoriamente:
 - PLANO-DE-HOMOLOGACAO.md
 - BASE-COMERCIAL-PLANEJADA.yaml
@@ -276,6 +338,7 @@ ARTEFATOS GERADOS:
 COBERTURA:
 - COBERTURA_PLANEJADA: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE
 - MODOS_AFETADOS: <resumo>
+- REGRAS_DE_NEGOCIO_CONSIDERADAS: <IDs ou NAO_APLICAVEL>
 
 GAPS E PENDENCIAS:
 - <lista resumida>
@@ -283,6 +346,7 @@ GAPS E PENDENCIAS:
 GATE FINAL:
 - PRONTO_PARA_CRIAR_BASE_REAL: SIM/NAO
 - PENDENCIAS_BLOQUEANTES: <quantidade>
+- SNAPSHOT_DAS_FONTES: REGISTRADO/INSUFICIENTE
 
 PROXIMA ACAO PERMITIDA:
 - aguardar proxima etapa oficialmente publicada na jornada ERP parceiro (sem autoexecucao).

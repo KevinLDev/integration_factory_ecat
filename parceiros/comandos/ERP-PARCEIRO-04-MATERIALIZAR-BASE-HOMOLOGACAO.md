@@ -10,6 +10,8 @@ Passo 04 materializa e confirma.
 
 Passo 04 nao reprojeta base.
 
+Passo 04 nao reanalisa nem reinterpreta regras de negocio; apenas verifica a vigencia do plano aprovado antes de materializar.
+
 Passo 04 nao implementa Passo 05.
 
 ## Gate de entrada obrigatorio
@@ -22,10 +24,29 @@ Antes da primeira escrita comercial:
 - PLANO_DE_HOMOLOGACAO = GERADO
 - BASE_COMERCIAL_PLANEJADA = GERADA
 - PRONTO_PARA_CRIAR_BASE_REAL = SIM
+- snapshot das fontes do Passo 03 suficiente para verificar vigencia
 - ambiente autorizado
 - autorizacao explicita do operador para materializar
 
 Sem isso: BLOQUEADA ou PENDENTE com evidencia.
+
+## Verificacao obrigatoria de vigencia do plano
+
+Antes de qualquer escrita comercial:
+
+1. ler o snapshot das fontes registrado no Passo 03;
+2. comparar contrato tecnico, cenarios funcionais, regras de negocio, analise/capacidades do ERP, matriz e padrao de massa efetivamente usados;
+3. usar hash/versao existente quando disponivel, sem inventar valor;
+4. aceitar mudanca textual irrelevante somente quando houver evidencia segura de que a fonte efetiva usada nao mudou.
+
+Se houver divergencia relevante ou evidencia insuficiente:
+
+- `VIGENCIA_DO_PLANO: PLANO_POTENCIALMENTE_OBSOLETO`;
+- `PLANO_VALIDO: NAO`;
+- bloquear todas as escritas;
+- retornar para revalidacao minima do Passo 03.
+
+Nao atualizar o plano, reinterpretar regras, recalcular massa ou corrigir familias dentro do Passo 04.
 
 ## Ambiente permitido por padrao
 
@@ -120,22 +141,23 @@ Nao usar sucesso generico sem acao declarada.
 
 1. Resolver contexto
 2. Validar Passo 03
-3. Validar ambiente
-4. Validar autorizacao
-5. Carregar Base planejada
-6. Carregar Base Mestra atual
-7. Carregar DAG
-8. Carregar capacidades/rotas
-9. Autenticar
-10. Descobrir/reutilizar existentes
-11. Materializar faltantes por dependencia
-12. Persistir correlacoes/checkpoints progressivamente
-13. Reconsultar
-14. Comparar planejado x observado
-15. Aplicar retries controlados
-16. Atualizar Base Mestra
-17. Gerar relatorio
-18. Retornar gate final
+3. Verificar vigencia do plano contra o snapshot das fontes
+4. Validar ambiente
+5. Validar autorizacao
+6. Carregar Base planejada
+7. Carregar Base Mestra atual
+8. Carregar DAG
+9. Carregar capacidades/rotas
+10. Autenticar
+11. Descobrir/reutilizar existentes
+12. Materializar faltantes por dependencia
+13. Persistir correlacoes/checkpoints progressivamente
+14. Reconsultar
+15. Comparar planejado x observado
+16. Aplicar retries controlados
+17. Atualizar Base Mestra
+18. Gerar relatorio
+19. Retornar gate final
 
 ## Regras de escrita
 
@@ -178,6 +200,7 @@ Retornar explicitamente:
 
 - AMBIENTE_AUTORIZADO: SIM | NAO
 - PLANO_VALIDO: SIM | NAO
+- VIGENCIA_DO_PLANO: VIGENTE | PLANO_POTENCIALMENTE_OBSOLETO | EVIDENCIA_INSUFICIENTE
 - BASE_MESTRA: CRIADA | ATUALIZADA | REUTILIZADA | BLOQUEADA
 - MATERIALIZACAO: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE | BLOQUEADA
 - RECONSULTA: APROVADA | PARCIAL | INSUFICIENTE
@@ -200,6 +223,8 @@ Materialize a Base planejada da combinacao ERP x ferramenta no ambiente autoriza
 Nao reprojete base.
 
 Use BASE-COMERCIAL-PLANEJADA.yaml como fonte de verdade.
+
+Antes da primeira escrita, verifique se o plano continua vigente contra o snapshot das fontes do Passo 03. Se houver divergencia relevante ou evidencia insuficiente, classifique PLANO_POTENCIALMENTE_OBSOLETO, bloqueie e retorne ao Passo 03 para revalidacao minima.
 
 Valide ambiente e autorizacao explicita antes da primeira escrita comercial.
 
@@ -231,6 +256,7 @@ GATE DE ENTRADA:
 GATE FINAL:
 - AMBIENTE_AUTORIZADO
 - PLANO_VALIDO
+- VIGENCIA_DO_PLANO
 - BASE_MESTRA
 - MATERIALIZACAO
 - RECONSULTA

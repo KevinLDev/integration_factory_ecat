@@ -12,8 +12,8 @@
     "status": "CONCLUIDA",
     "tipo_auditoria": "PROFUNDA",
     "auditoria_vigente": {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md",
-      "sha256": "B1AB5E9CE9100CCF4C30FCC208E664FA190D5110BDC7EF49B10A9612187F1B06",
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md",
+      "sha256": "D8CE01266DE7A8A32D70E42D68333D1AE63F09208195A6944F46A9BD6EF7505F",
       "hash_mode": "TEXT_CANONICAL_V1",
       "resultado": "APROVADA"
     },
@@ -38,17 +38,22 @@
       "caminho": "parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md",
       "sha256": "C94D72C3E3FC266834C8EF39BE3BE710E01A7A8DD6E21D4B055C378133C79F94",
       "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "sha256": "6B34D6E2CDD4D1672766635D1A8F263D5C66FDD6E93A1C549C3DC391A3A7A9CD",
+      "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
   "saidas": [
     {
       "caminho": "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "sha256": "16E36AE7E40AB49CF179795311C9D5BFD0D032FBD70B2BC6EFE5B31BBA7F3FB7",
+      "sha256": "62505ADC813E7334A6464DD88CA2FB13AFC9288FCC2ECF7A3CECEB000B94DE77",
       "hash_mode": "TEXT_CANONICAL_V1"
     },
     {
-      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md",
-      "sha256": "B1AB5E9CE9100CCF4C30FCC208E664FA190D5110BDC7EF49B10A9612187F1B06",
+      "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md",
+      "sha256": "D8CE01266DE7A8A32D70E42D68333D1AE63F09208195A6944F46A9BD6EF7505F",
       "hash_mode": "TEXT_CANONICAL_V1"
     }
   ],
@@ -120,12 +125,17 @@
         },
         {
           "caminho": "ferramentas/forca-de-vendas/FONTES.md",
-          "sha256": "288D052320320FCC332D26027E9452F87A7FAF69DD25BCF0B0ADE0F7AF42DCF8",
+          "sha256": "D193FA427A8C597BD0349F40A8816C4B57763806A7BF14FEF7471DF5BCDA4E89",
           "hash_mode": "TEXT_CANONICAL_V1"
         },
         {
-          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REEXECUCAO-POS-PASSO-03.md",
-          "sha256": "98DEAE9E734F83F0D49AE1D6E95D760B3677726B1595EA652DCC881548C8886E",
+          "caminho": "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+          "sha256": "6B34D6E2CDD4D1672766635D1A8F263D5C66FDD6E93A1C549C3DC391A3A7A9CD",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md",
+          "sha256": "8BA94739027EFA26DB610BFBD011CB5CD140EA9BF83AC611765264A4887B2BC0",
           "hash_mode": "TEXT_CANONICAL_V1"
         }
       ]
@@ -158,15 +168,18 @@
   "validacoes_mecanicas": {
     "arquivos_obrigatorios": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md"
     ],
     "utf8": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md"
     ],
     "markdown": [
       "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
-      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REEXECUCAO-20260811.md"
+      "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md",
+      "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md"
     ],
     "contagens": [],
     "ids": []

@@ -107,8 +107,9 @@ Nao inicie Passo 03.
 1. Contrato homologado interno da ferramenta alvo (autoridade canonica).
 2. Documentacao oficial do ERP (Swagger/OpenAPI/arquivos oficiais).
 3. Memoria funcional da ferramenta, quando existir (`ferramentas/<ferramenta-slug>/CENARIOS-FUNCIONAIS.md`).
-4. Evidencias da execucao existente do Passo 01.
-5. Regras adicionais fornecidas pelo operador.
+4. Memoria de regras de negocio da ferramenta, quando existir (`ferramentas/<ferramenta-slug>/REGRAS-DE-NEGOCIO.md`).
+5. Evidencias runtime autorizadas e evidencias da execucao existente do Passo 01.
+6. Regras adicionais fornecidas pelo operador.
 
 Regra: o ERP se adapta ao contrato da ferramenta. Nunca alterar contrato homologado para facilitar o ERP.
 
@@ -144,6 +145,20 @@ Esta etapa possui duas camadas:
 2. Validacao tecnica controlada (quando houver credenciais e autorizacao): confirmar comportamento real da API sem escrita comercial.
 
 Quando houver `CENARIOS-FUNCIONAIS.md` da ferramenta, incluir leitura obrigatoria para cobertura funcional por modo/cenario, preservando classificacao entre FONTE_TECNICA, FONTE_FUNCIONAL, EVIDENCIA_RUNTIME e INFERENCIA.
+
+Quando houver `REGRAS-DE-NEGOCIO.md`, a analise deve combinar:
+
+CONTRATO_TECNICO
++
+CENARIOS_FUNCIONAIS
++
+REGRAS_DE_NEGOCIO
++
+EVIDENCIA_RUNTIME
+->
+CAPACIDADES_DO_ERP
+
+Nao basta concluir que o ERP possui campo parecido. Para cada regra relevante, responder se o ERP consegue fornecer ou receber os dados necessarios para sustentar a regra comercial da ferramenta.
 
 ## Escopo tecnico da analise
 
@@ -206,6 +221,18 @@ Quando aplicavel: webhook, callback, eventos e necessidade de polling.
 
 Registrar dependencias sustentadas pelas fontes (ex.: marca antes de produto), sem inventar ordem nao comprovada.
 
+### 9) Regras de negocio
+
+Para cada regra comercial relevante, registrar o ID da regra, dados necessarios, capacidade comprovada do ERP, evidencia, impacto e status.
+
+Exemplos obrigatorios de raciocinio:
+
+- regra de preco por tabela/regiao + ERP com apenas preco unico: cobertura nao completa, ainda que exista campo preco;
+- regra de grade fechada com pack/composicao + ERP com apenas tamanho: `PENDENTE_DE_EVIDENCIA` ou gap, conforme a evidencia;
+- regra de integracao no momento de exportacao: investigar evento/rota/estado da ferramenta e dados recebidos pelo ERP, sem inferir que pedido criado equivale a pedido exportado.
+
+Esta etapa nao produz o mapeamento final de implementacao.
+
 ## Politica de validacao tecnica controlada
 
 Quando houver credenciais e autorizacao:
@@ -266,6 +293,17 @@ Estados conceituais de impacto por modo:
 - PENDENTE_DE_EVIDENCIA
 
 Ausencia de capacidade em um modo especifico nao bloqueia automaticamente toda a integracao.
+
+Quando houver memoria de regras de negocio, a mesma matriz deve conseguir expressar, sem estrutura paralela desnecessaria:
+
+- REGRA_DE_NEGOCIO (preferencialmente por ID `RN-*`)
+- DADOS_NECESSARIOS
+- CAPACIDADE_ERP
+- EVIDENCIA
+- IMPACTO
+- STATUS
+
+Nao copiar textos inteiros de `REGRAS-DE-NEGOCIO.md` para a matriz.
 
 Status recomendados de compatibilidade:
 
@@ -370,7 +408,7 @@ Como conjunto minimo da etapa, a execucao real deve produzir:
 	- `CAPACIDADES-DO-ERP.md`
 	- `FONTES.md`
 - Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
-	- `MATRIZ-ERP-FERRAMENTA.md` (incluindo cobertura funcional por modo/cenario quando existir `CENARIOS-FUNCIONAIS.md` da ferramenta)
+	- `MATRIZ-ERP-FERRAMENTA.md` (incluindo cobertura funcional por modo/cenario quando existir `CENARIOS-FUNCIONAIS.md` e cobertura por regra comercial quando existir `REGRAS-DE-NEGOCIO.md`, por referencia de ID e sem duplicacao integral)
 	- `PENDENCIAS.md`
 
 Esses artefatos devem separar claramente fato, fonte, inferencia e pendencia.

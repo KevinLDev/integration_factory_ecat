@@ -17,6 +17,25 @@ A documentação oficial da ferramenta E-Catálogos é a fonte técnica primári
    - bytes: 113.964;
    - SHA-256 vigente: `A4B16B88AE820A2B543F72C18FD0908E843C01D948B22BECEB63F8EA9A2B1D5F`.
 
+## Fonte externa complementar de regra de negocio
+
+1. `FDV - Regras de Negocio` (pacote externo fornecido pelo operador)
+   - classificacao: `FONTE_REGRA_DE_NEGOCIO`;
+   - natureza: documentacao funcional/comercial complementar;
+   - forma de recebimento: pacote ZIP externo com ZIP interno;
+   - SHA-256 do ZIP externo informado: `8816f5836a39619e8acc67baf321af3a33bddab4b25d321ae6ec22c19ba479d3`;
+   - SHA-256 do ZIP interno informado: `cd07f127927b35f8d307331c88aeb5df2100e3f2f8e3c785ccc11c08a1f553ec`;
+   - quantidade de arquivos: 23 documentos HTML;
+   - hashes individuais dos HTMLs: nao informados e nao inventados;
+   - politica de repositorio: binario nao versionado no Git nesta etapa;
+   - consolidacao derivada: `ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md`.
+
+Regra de autoridade:
+
+- esta fonte nao substitui o contrato tecnico homologado;
+- conflitos entre regra documentada e capacidade tecnica viram pendencia/divergencia rastreavel;
+- nenhuma regra de negocio autoriza inventar endpoint, schema ou operacao de API.
+
 ## Passo 01 corrigido e aprovado — baseline vigente
 
 1. `analises/ferramentas/forca-de-vendas/01-analise-documentacao.md`

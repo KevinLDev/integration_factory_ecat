@@ -27,8 +27,19 @@ origem_do_plano:
   plano_hash_mode: null
   plano_versao: null
 
+vigencia_do_plano:
+  status: null
+  verificada_em: null
+  snapshot_das_fontes_presente: null
+  fontes_comparadas: []
+  divergencias_relevantes: []
+  evidencia: []
+  encaminhamento: null
+
 resumo_execucao:
   status_etapa: null
+  plano_valido: null
+  vigencia_do_plano: null
   materializacao: null
   reconsulta: null
   correlacoes: null

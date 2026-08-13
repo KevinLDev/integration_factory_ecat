@@ -39,6 +39,8 @@ CONTRATO_TECNICO_DA_FERRAMENTA
 +
 CENARIOS_FUNCIONAIS
 +
+REGRAS_DE_NEGOCIO_DA_FERRAMENTA
++
 CAPACIDADES_DO_ERP
 +
 GAPS_E_RESTRICOES
@@ -50,6 +52,10 @@ Regras:
 - nao gerar dado que o ERP comprovadamente nao consegue representar;
 - nao remover necessidade da ferramenta silenciosamente;
 - quando houver incompatibilidade, registrar gap, adaptacao ou cobertura impossivel.
+
+Regra adicional:
+
+- volume por si so nao prova cobertura comercial; a massa deve sustentar regras de visibilidade, preco, aprovacao/exportacao e relacoes entre entidades quando aplicavel.
 
 ## 4. Cobertura em vez de quantidade fixa
 
@@ -123,6 +129,17 @@ Exemplos conceituais (nao rigidos):
 - FAMILIA-MULTI-FILIAL.
 
 Os nomes e quantidades de familias devem ser derivados da cobertura necessaria de cada combinacao.
+
+Familias de homologacao tambem devem considerar regra comercial, por exemplo:
+
+- preco por tabela/regiao;
+- produto presente em uma tabela e ausente em outra;
+- grade aberta versus grade fechada;
+- pronta entrega versus nao pronta entrega;
+- prazo por marca;
+- separacao nacional/importado;
+- fluxo representante versus preposto;
+- orcamento e conversao para pedido quando aplicavel.
 
 ## 6.1 Base Mestra de homologacao do ERP Parceiro
 
@@ -225,6 +242,11 @@ Nao otimizar a ponto de eliminar repeticao de caracteristicas criticas.
 
 Evitar produto cartesiano. Um mesmo registro pode cobrir multiplas dimensoes simultaneamente.
 
+Nao confundir cobertura numerica com cobertura comercial:
+
+- 200 produtos na mesma tabela/regiao nao cobrem regra de preco por tabela/regiao;
+- 20 clientes com perfil comercial identico nao cobrem variacao de visibilidade/condicao.
+
 ## 9. Cobertura declarada e rastreavel
 
 Cada entidade/familia deve declarar por que existe.
@@ -233,6 +255,11 @@ Rastreabilidade obrigatoria:
 
 - CENARIO -> REGISTROS QUE O COBREM;
 - REGISTRO -> CENARIOS QUE ELE COBRE.
+
+Quando houver regra comercial relevante na combinacao, declarar tambem:
+
+- CENARIO/FAMILIA -> REGRAS_DE_NEGOCIO_COBERTAS;
+- REGISTRO -> REGRA_TAGS.
 
 Cobertura forte de homologacao tambem deve observar experiencia funcional e administrativa quando aplicavel:
 
@@ -243,6 +270,29 @@ Exemplo de declaracao conceitual:
 
 - id_logico: HML-PROD-027
 - cenario_tags: EAN_POR_SKU, GRADE_P_M_G_GG, CINCO_CORES, ESTOQUE_MULTI_FILIAL, MULTIPLAS_IMAGENS.
+
+### 9.1 Cenarios comerciais orientados a regra
+
+Quando sustentados pelas fontes e aplicaveis a combinacao, o Passo 03 deve conseguir planejar explicitamente:
+
+1. mesmo produto com precos distintos por tabela/regiao;
+2. produto presente em uma tabela e ausente em outra, para validar visibilidade;
+3. grade aberta com quantidades selecionaveis por tamanho;
+4. grade fechada com pack/composicao fixa;
+5. pronta entrega compativel com prazo disponivel;
+6. nao pronta entrega com disponibilidade futura restringindo prazo anterior;
+7. prazos diferentes por marca;
+8. produtos nacionais e importados para validar separacao comercial;
+9. pedidos originados por representante e por preposto, preservando aprovacao/exportacao;
+10. orcamento convertido em pedido, quando aplicavel.
+
+Esses cenarios nao sao obrigacao universal e nao podem ser declarados executaveis quando o ERP nao sustentar os dados necessarios. A limitacao deve virar gap ou pendencia com evidencia.
+
+### 9.2 Diversidade para relatorios
+
+Quando pedidos fizerem parte da combinacao, a massa deve manter diversidade suficiente de produtos, marcas, categorias, subcategorias, clientes, representantes, prepostos, referencias, variantes, quantidades e valores para que relatorios como Curva ABC nao sejam inutilizados por dados identicos.
+
+Isso nao cria obrigacao de dados perfeitos para Curva ABC nem exige endpoint de mesmo nome no ERP.
 
 ## 10. Estados de cobertura
 

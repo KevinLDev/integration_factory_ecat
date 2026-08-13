@@ -41,6 +41,7 @@ Baseline recomendado para ERP Parceiro em HOMOLOGACAO:
 
 - Contrato tecnico da ferramenta: <caminho>
 - Cenarios funcionais da ferramenta: <caminho ou NAO_APLICAVEL>
+- Regras de negocio da ferramenta: <caminho ou NAO_APLICAVEL>
 - Homologacao da ferramenta para integracoes: <caminho>
 - Analise do ERP: <caminho>
 - Capacidades do ERP: <caminho>
@@ -50,6 +51,18 @@ Baseline recomendado para ERP Parceiro em HOMOLOGACAO:
 - Padrao de base comercial: <caminho>
 - Convencao de identificadores: <caminho>
 - Padrao de imagens: <caminho>
+
+## Snapshot das fontes usadas
+
+Registrar somente valores efetivamente disponiveis. Nao inventar versao ou hash.
+
+Para cada fonte efetivamente usada:
+
+- TIPO_FONTE: CONTRATO_TECNICO | CENARIOS_FUNCIONAIS | REGRAS_DE_NEGOCIO | ANALISE_ERP | CAPACIDADES_ERP | MATRIZ | PADRAO_DE_MASSA
+- CAMINHO:
+- VERSAO: <valor ou NAO_DISPONIVEL>
+- SHA256: <valor ou NAO_DISPONIVEL>
+- HASH_MODE: <valor ou NAO_DISPONIVEL>
 
 ## Objetivo da homologacao
 
@@ -63,11 +76,31 @@ Listar capacidades tecnicas exigidas e capacidades confirmadas do ERP usadas no 
 
 Listar modos/cenarios funcionais da ferramenta considerados e sua relacao com dados necessarios.
 
+## Regras de negocio consideradas
+
+Listar `REGRAS_DE_NEGOCIO_CONSIDERADAS` por ID estavel `RN-*`, com fonte, dados necessarios e relacoes comerciais afetadas. Nao copiar integralmente a memoria de regras.
+
+## Relacoes entre entidades
+
+Registrar relacoes funcionais/comerciais necessarias a cobertura, sem declara-las como cardinalidade ou relacao de banco de dados.
+
+Para cada relacao:
+
+- RELACAO_ID:
+- ENTIDADES:
+- REGRA_TAGS:
+- DADOS_NECESSARIOS:
+- CAPACIDADE_ERP:
+- EVIDENCIA:
+- STATUS:
+
 ## Cenarios de homologacao
 
 Para cada cenario selecionado, registrar:
 
 - CENARIO_ID:
+- CENARIO_TAGS:
+- REGRA_TAGS:
 - DESCRICAO:
 - ORIGEM_DO_REQUISITO:
 - CAPACIDADE_FERRAMENTA_RELACIONADA:
@@ -110,6 +143,8 @@ Classificar por modo/cenario:
 ## Familias planejadas
 
 Descrever familias com objetivo, cobertura e repeticao.
+
+Cada familia relevante deve registrar `cenario_tags`, `regra_tags` e as relacoes comerciais que cobre.
 
 ## Quantidades derivadas
 
@@ -194,6 +229,8 @@ Mapear:
 
 - CENARIO -> familias/registros planejados
 - REGISTRO/FAMILIA -> cenarios cobertos
+- CENARIO/FAMILIA -> regras de negocio cobertas
+- REGISTRO/FAMILIA -> regra_tags
 
 ## Coberturas impossiveis
 
@@ -212,10 +249,13 @@ Listar pendencias que impedem materializacao segura da base real.
 - BASE_COMERCIAL_PLANEJADA: GERADA | BLOQUEADA
 - COBERTURA_PLANEJADA: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE
 - PENDENCIAS_BLOQUEANTES: <quantidade>
+- SNAPSHOT_DAS_FONTES: REGISTRADO | INSUFICIENTE
 - PRONTO_PARA_CRIAR_BASE_REAL: SIM | NAO
 
 ## Criterios para proxima etapa
 
 Declarar condicoes minimas para uma etapa futura de materializacao da base planejada.
+
+Se uma fonte efetivamente usada mudar e a vigencia nao puder ser comprovada, a materializacao futura deve classificar `PLANO_POTENCIALMENTE_OBSOLETO` e devolver o plano para revalidacao minima deste Passo 03, sem reprojeta-lo dentro do Passo 04.
 
 Esta secao nao publica nem inicia etapa futura automaticamente.

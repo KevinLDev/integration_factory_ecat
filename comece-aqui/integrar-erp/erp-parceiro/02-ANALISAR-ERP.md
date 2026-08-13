@@ -6,6 +6,30 @@ Use esta etapa quando o Passo 01 da jornada de ERP parceiro já foi concluido e 
 
 Esta etapa faz analise tecnica profunda do ERP contra o contrato homologado interno da ferramenta E-Catalogos.
 
+A analise deve combinar quatro camadas:
+
+CONTRATO_TECNICO
++
+CENARIOS_FUNCIONAIS
++
+REGRAS_DE_NEGOCIO
++
+EVIDENCIA_RUNTIME
+->
+CAPACIDADES_DO_ERP
+
+Nao basta localizar no ERP um campo de nome parecido. A pergunta obrigatoria e:
+
+> O ERP consegue fornecer ou receber os dados necessarios para sustentar a regra comercial da ferramenta?
+
+Exemplos de classificacao:
+
+- se a regra exige preco por tabela/regiao e o ERP prova apenas preco unico, nao declarar cobertura completa;
+- se a regra exige grade fechada com pack/composicao e o ERP prova apenas tamanhos, registrar `PENDENTE_DE_EVIDENCIA` ou gap conforme a evidencia;
+- se a regra integra pedido no momento de exportacao, investigar evento/rota/estado adequado da ferramenta e os dados que o ERP precisa receber, sem colapsar pedido criado e pedido exportado.
+
+Esta analise mede capacidade e impacto. O Passo 02 ainda nao projeta o mapeamento final de implementacao.
+
 ## Antes de comecar
 
 Confirme na execucao ativa:
@@ -79,6 +103,7 @@ O operador nao precisa informar caminho de salvamento.
 - identifica operacoes reais por modulo (ler, criar, atualizar, excluir, evento/webhook quando houver);
 - compara o ERP com o contrato homologado da ferramenta;
 - consulta memoria funcional da ferramenta quando existir para medir cobertura funcional por modo/cenario;
+- consulta memoria de regras de negocio da ferramenta quando existir para avaliar se as capacidades do ERP sustentam os dados e relacoes comerciais necessarios;
 - classifica direcoes possiveis por capacidade (ERP -> ferramenta, ferramenta -> ERP, bidirecional, somente leitura, nao suportado, pendente de evidencia);
 - registra gaps e necessidades de adaptacao sem alterar contrato homologado;
 - registra pendencias explicitas para lacunas sem evidencia;
@@ -235,7 +260,7 @@ Automacao permanente de renovacao de token pertence a camada futura de runtime/s
 	- `CAPACIDADES-DO-ERP.md`: catalogo de capacidades por modulo/operacao/rota com estado de evidencia e fonte;
 	- `FONTES.md`: inventario de fontes documentais e testes autorizados (versao/data/hash/caminho quando disponivel).
 - Combinacao (`erps/<erp-slug>/integracoes/<ferramenta-slug>/`):
-	- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap; quando houver `CENARIOS-FUNCIONAIS.md`, incluir cobertura funcional por modo/cenario sem tratar modo como endpoint de ERP;
+	- `MATRIZ-ERP-FERRAMENTA.md`: comparacao requisito da ferramenta x capacidade do ERP, direcao, compatibilidade e gap; quando houver `CENARIOS-FUNCIONAIS.md`, incluir cobertura funcional por modo/cenario sem tratar modo como endpoint de ERP; quando houver `REGRAS-DE-NEGOCIO.md`, expressar `regra_de_negocio`, `dados_necessarios`, `capacidade_erp`, `evidencia`, `impacto` e `status`, referenciando IDs de regra sem duplicar a memoria integral;
 	- `PENDENCIAS.md`: lacunas, divergencias, duvidas e bloqueios com impacto e evidencia da combinacao.
 
 Evitar duplicar a mesma analise nos cinco arquivos.

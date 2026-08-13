@@ -16,6 +16,7 @@ Transformar:
 
 - contrato tecnico da ferramenta;
 - cenarios funcionais da ferramenta;
+- regras de negocio da ferramenta;
 - capacidades confirmadas do ERP;
 - matriz ERP x ferramenta;
 - pendencias/gaps;
@@ -25,6 +26,18 @@ em:
 
 - PLANO-DE-HOMOLOGACAO.md;
 - BASE-COMERCIAL-PLANEJADA.yaml.
+
+O planejamento deve cobrir conjuntamente:
+
+CAMPOS
++
+CENARIOS_FUNCIONAIS
++
+REGRAS_COMERCIAIS
++
+RELACOES_ENTRE_ENTIDADES
+
+Quantidade isolada nao prova cobertura: 200 produtos ou 20 clientes comercialmente identicos continuam insuficientes para regras que dependem de tabela, regiao, visibilidade, origem, papel comercial ou aprovacao/exportacao.
 
 ## Baseline forte de homologacao (ERP Parceiro)
 
@@ -92,6 +105,7 @@ Antes de planejar, o executor deve descobrir automaticamente no repositorio:
 - slugs;
 - memoria tecnica do ERP;
 - memoria da ferramenta;
+- memoria de regras de negocio da ferramenta, quando existir;
 - combinacao ERP x ferramenta;
 - resultado do Passo 02;
 - matriz;
@@ -105,6 +119,7 @@ Solicitar ao operador somente dado realmente bloqueante que nao exista no worksp
 
 - valida contexto e gate de entrada;
 - seleciona cenarios de homologacao realmente necessarios para a combinacao;
+- seleciona regras comerciais e relacoes entre entidades que exigem cobertura de massa;
 - calcula cobertura por cenario, com repeticao adequada;
 - define familias de dados com combinacao inteligente (sem explosao cartesiana);
 - define entidades comerciais necessarias (somente as aplicaveis);
@@ -187,6 +202,36 @@ Organizar por familias quando isso melhora cobertura e clareza.
 
 Combinar cenarios no mesmo registro e permitido e desejavel, desde que nao elimine repeticao critica.
 
+Familias de produtos devem considerar, quando aplicavel: nacional/importado, pronta entrega/nao pronta entrega, grade aberta/fechada, marcas, categorias, tabelas, disponibilidades e presenca/ausencia de atributos opcionais.
+
+Familias de clientes devem considerar, quando aplicavel: regioes, tabelas, representantes, prepostos, condicoes comerciais, clientes ativos e cenarios controlados de inatividade para validar listagem/visibilidade.
+
+### Cenarios comerciais explicitos
+
+Quando sustentados pela regra e pela capacidade da combinacao, planejar:
+
+1. cliente SP -> Regiao Sudeste -> Tabela A -> Produto X com preco A e cliente CE -> Regiao Nordeste -> Tabela B -> mesmo Produto X com preco B;
+2. Produto Y presente na Tabela A e ausente na Tabela B;
+3. grade aberta com P/M/G/GG e quantidades individualmente selecionaveis;
+4. grade fechada com pack/composicao fixa;
+5. pronta entrega compativel com prazo disponivel;
+6. nao pronta entrega com disponibilidade futura que restrinja prazos anteriores;
+7. Marca A vinculada ao Prazo A e Marca B ao Prazo B;
+8. produtos nacionais e importados para validar separacao comercial;
+9. pedidos originados por representante e por preposto para validar aprovacao/exportacao;
+10. orcamento convertido em pedido, quando aplicavel.
+
+Se o ERP nao suportar os dados necessarios, registrar gap. Nao declarar o cenario executavel por obrigacao do catalogo.
+
+### Rastreabilidade por regra
+
+O plano deve listar `REGRAS_DE_NEGOCIO_CONSIDERADAS`. Cada cenario/familia relevante deve registrar `cenario_tags` e `regra_tags`, usando os IDs estaveis definidos em `REGRAS-DE-NEGOCIO.md` e sem criar IDs aleatorios.
+
+Mapeamento minimo:
+
+- CENARIO/FAMILIA -> REGRAS_DE_NEGOCIO_COBERTAS;
+- REGISTRO -> REGRA_TAGS.
+
 ### Identificadores
 
 Aplicar parceiros/modelos/base-comercial/CONVENCAO-DE-IDENTIFICADORES.md.
@@ -218,6 +263,18 @@ Quando imagens forem aplicaveis em base de 200 produtos, baseline recomendado de
 
 Reuso de imagem continua permitido.
 
+### Diversidade para relatorios
+
+Quando os 100 pedidos do baseline forem aplicaveis, distribuir diversidade suficiente entre produtos, marcas, categorias, subcategorias, clientes, representantes, prepostos, referencias, variantes, quantidades e valores. Nao e obrigatorio fabricar uma Curva ABC perfeita; a massa apenas nao pode tornar os relatorios inuteis por uniformidade.
+
+Curva ABC continua sendo resultado funcional e nao exige endpoint de mesmo nome no ERP.
+
+### Snapshot e vigencia das fontes
+
+`PLANO-DE-HOMOLOGACAO.md` deve registrar o snapshot das fontes efetivamente usadas: contrato tecnico, cenarios funcionais, regras de negocio, analise do ERP, capacidades do ERP, matriz e padrao de massa.
+
+Registrar caminho e, quando ja disponivel, versao, SHA-256 e modo de hash. Nao inventar hash nem versao ausente. Esse snapshot permite ao Passo 04 detectar plano potencialmente obsoleto antes de escrever.
+
 ## Outputs da execucao real desta etapa
 
 Na combinacao:
@@ -241,6 +298,7 @@ Registrar explicitamente:
 - BASE_COMERCIAL_PLANEJADA: GERADA | BLOQUEADA
 - COBERTURA_PLANEJADA: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE
 - PENDENCIAS_BLOQUEANTES: <quantidade>
+- SNAPSHOT_DAS_FONTES: REGISTRADO | INSUFICIENTE
 - PRONTO_PARA_CRIAR_BASE_REAL: SIM | NAO
 
 Se houver cobertura parcial valida, justificar tecnicamente por modo/cenario.
@@ -282,6 +340,8 @@ Nao criar Passo 04.
 Nao alterar contrato homologado da ferramenta.
 Nao alterar Harness.
 Nao alterar manifestos existentes.
+
+Registrar no plano o snapshot das fontes efetivamente usadas, incluindo regras de negocio, com hash/versao somente quando disponivel.
 ```
 
 ### PARE DE COPIAR AQUI
@@ -296,6 +356,7 @@ Substitua apenas o que for realmente necessario; o restante deve ser auto-descob
 - resumo de cobertura planejada
 - gaps e impactos por modo/cenario
 - pendencias bloqueantes
+- snapshot das fontes usadas no planejamento
 - proxima acao permitida (sem iniciar etapa futura automaticamente)
 
 ## Cenarios de validacao semantica desta etapa

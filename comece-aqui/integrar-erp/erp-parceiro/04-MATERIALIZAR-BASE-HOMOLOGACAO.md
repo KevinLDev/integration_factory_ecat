@@ -26,6 +26,8 @@ Esta etapa materializa e confirma no ERP de homologacao/teste o que foi planejad
 
 Esta etapa nao reprojeta base, nao redefine familias e nao recalcula volume.
 
+Tambem nao reanalisa nem reinterpreta regras de negocio. A unica leitura das fontes do Passo 03 nesta etapa e a verificacao de vigencia do plano antes da escrita.
+
 ## O que esta etapa NAO faz
 
 - nao cria Passo 05;
@@ -44,10 +46,33 @@ So iniciar escrita comercial quando:
 - PLANO_DE_HOMOLOGACAO = GERADO
 - BASE_COMERCIAL_PLANEJADA = GERADA
 - PRONTO_PARA_CRIAR_BASE_REAL = SIM
+- snapshot das fontes do Passo 03 suficiente para verificar vigencia
 - ambiente autorizado valido
 - autorizacao explicita do operador para materializar
 
 Se o Passo 03 estiver BLOQUEADO ou sem gate apto, nao iniciar escrita.
+
+## Vigencia do plano antes da escrita
+
+Antes de qualquer operacao comercial, comparar o snapshot registrado no plano com as fontes efetivamente usadas no Passo 03, incluindo quando aplicavel:
+
+- contrato tecnico;
+- cenarios funcionais;
+- regras de negocio;
+- analise e capacidades do ERP;
+- matriz ERP x ferramenta;
+- padrao global de massa.
+
+Usar hash/versao ja registrado e mecanismos seguros existentes no Harness/repositorio. Nao inventar mecanismo sofisticado de diff nem bloquear por mudanca textual irrelevante quando houver evidencia segura de que a fonte efetiva usada nao mudou.
+
+Se houver divergencia relevante ou faltar evidencia suficiente para comprovar a vigencia:
+
+- classificar `PLANO_POTENCIALMENTE_OBSOLETO`;
+- definir `PLANO_VALIDO: NAO`;
+- bloquear toda escrita;
+- devolver para revalidacao minima do Passo 03.
+
+O Passo 04 nao atualiza snapshot, nao corrige massa e nao refaz o plano automaticamente.
 
 ## Politica de ambiente
 
@@ -253,6 +278,7 @@ Ainda nao pode existir:
 
 - AMBIENTE_AUTORIZADO: SIM | NAO
 - PLANO_VALIDO: SIM | NAO
+- VIGENCIA_DO_PLANO: VIGENTE | PLANO_POTENCIALMENTE_OBSOLETO | EVIDENCIA_INSUFICIENTE
 - BASE_MESTRA: CRIADA | ATUALIZADA | REUTILIZADA | BLOQUEADA
 - MATERIALIZACAO: COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE | BLOQUEADA
 - RECONSULTA: APROVADA | PARCIAL | INSUFICIENTE
@@ -282,6 +308,7 @@ Passo 04 materializa o que esta em BASE-COMERCIAL-PLANEJADA.yaml.
 
 Nao reprojetar base.
 Nao recalcular familias ou quantidades.
+Antes da primeira escrita, verificar a vigencia do plano contra o snapshot das fontes do Passo 03. Se houver divergencia relevante ou evidencia insuficiente, classificar PLANO_POTENCIALMENTE_OBSOLETO, bloquear e devolver para revalidacao minima do Passo 03.
 Nao criar Passo 05.
 Nao alterar contrato homologado da ferramenta.
 Nao alterar Harness.
