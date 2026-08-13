@@ -1,0 +1,290 @@
+schema: fabrica.regras-transformacao.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Modelo deterministico de regras de transformacao de uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_05
+  data_referencia: null
+  observacoes:
+    - Nao representa uma combinacao real
+    - Nao contem codigo executavel
+    - Cada regra real deve ser implementavel sem decisao semantica adicional
+    - Preencher somente o bloco parametros_por_tipo aplicavel a regra concreta
+    - Campos nao aplicaveis podem permanecer null ou ser removidos sem inventar valores
+
+combinacao:
+  id: null
+  erp_slug: null
+  ferramenta_slug: null
+  escopo_conhecimento: COMBINACAO_ERP_FERRAMENTA
+  mapeamento_semantico_referencia: null
+
+versoes_fontes:
+  - tipo_fonte: null
+    caminho: null
+    versao: null
+    sha256: null
+    hash_mode: null
+    vigencia: null
+    finalidade: null
+
+valores_permitidos:
+  tipo:
+    - NORMALIZACAO
+    - DERIVACAO
+    - COMPOSICAO
+    - DECOMPOSICAO
+    - DE_PARA
+    - LOOKUP
+    - CONCATENACAO
+    - SPLIT
+    - MERGE
+    - CONVERSAO_TIPO
+    - CONVERSAO_UNIDADE
+    - FORMATO_DATA
+    - PRECISAO_DECIMAL
+    - ENUM_MAP
+    - VALOR_CONSTANTE_JUSTIFICADO
+    - CONDICIONAL
+  politica_valor_desconhecido:
+    - BLOQUEAR_REGISTRO
+    - USAR_FALLBACK_AUTORIZADO
+    - PENDENTE_DE_MAPEAMENTO
+  direcao:
+    - ERP_PARA_FERRAMENTA
+    - FERRAMENTA_PARA_ERP
+    - BIDIRECIONAL_CONTROLADO
+    - SEM_SINCRONIZACAO
+  estado_evidencia:
+    - CONFIRMADO_POR_CONTRATO
+    - CONFIRMADO_POR_DOCUMENTACAO
+    - CONFIRMADO_EM_RUNTIME
+    - DERIVADO_COM_EVIDENCIA
+    - PENDENTE_DE_EVIDENCIA
+    - DIVERGENTE
+    - SEM_CAPACIDADE_CONFIRMADA
+  status_regra:
+    - DEFINIDA
+    - PARCIAL
+    - INSUFICIENTE
+
+semantica_dos_campos:
+  status: Estado de completude da regra ou do resumo; usar somente valores_permitidos.status_regra
+  estado_evidencia: Sustentacao factual; registrar em evidencias.estado e nunca misturar com status
+
+evidencias:
+  - evidencia_id: null
+    estado: null
+    tipo_fonte: null
+    caminho: null
+    localizador: null
+    sha256: null
+    hash_mode: null
+    conclusao_sustentada: null
+
+regras:
+  - regra_id: null
+    nome: null
+    objetivo: null
+    tipo: null
+    versao: null
+    status: null
+    direcao: null
+    modulo: null
+    objeto_ids: []
+    fluxo_ids: []
+    mapeamento_ids: []
+    regra_tags: []
+    cenario_tags: []
+
+    entradas:
+      - entrada_id: null
+        sistema: null
+        objeto: null
+        caminho: null
+        tipo: null
+        obrigatoria: null
+        nullable: null
+        semantica:
+          "null": null
+          vazio: null
+          zero: null
+          "false": null
+          campo_ausente: null
+
+    saidas:
+      - saida_id: null
+        sistema: null
+        objeto: null
+        caminho: null
+        tipo: null
+        obrigatoria: null
+        nullable: null
+
+    precondicoes: []
+    dependencias_de_regras: []
+    configuracao_ids: []
+
+    regra_deterministica:
+      descricao: null
+      passos_ordenados:
+        - ordem: null
+          operacao: null
+          entradas: []
+          parametros: {}
+          saida: null
+      agrupamento_por: []
+      ordenacao:
+        chaves: []
+        sentido: null
+        regra_ou_configuracao: null
+      unicidade:
+        aplicavel: null
+        chaves: []
+      precisao:
+        escala: null
+        arredondamento: null
+      observacao: null
+
+    parametros_por_tipo:
+      normalizacao:
+        aplicavel: null
+        operacoes_ordenadas: []
+        locale: null
+        sensivel_a_caixa: null
+      derivacao:
+        aplicavel: null
+        formula_conceitual: null
+        agrupamento_por: []
+        agregacao: null
+        remover_duplicados: null
+        ordenacao: null
+      composicao:
+        aplicavel: null
+        partes_ordenadas: []
+        separador: null
+        omitir_partes_ausentes: null
+      decomposicao:
+        aplicavel: null
+        delimitador_ou_padrao: null
+        grupos_ou_indices: []
+        quantidade_esperada: null
+      de_para:
+        aplicavel: null
+        mapa:
+          - origem: null
+            destino: null
+            evidencia: []
+      lookup:
+        aplicavel: null
+        fonte: null
+        chave_entrada: null
+        chave_consulta: null
+        campo_retorno: null
+        politica_sem_resultado: null
+        politica_multiplos_resultados: null
+      concatenacao:
+        aplicavel: null
+        campos_ordenados: []
+        separador: null
+        trim: null
+      split:
+        aplicavel: null
+        natureza: null
+        criterio: null
+        ramos:
+          - ramo_id: null
+            condicao: null
+            destino: null
+      merge:
+        aplicavel: null
+        fontes: []
+        chave_de_uniao: null
+        precedencia: []
+        politica_de_conflito: null
+      conversao_tipo:
+        aplicavel: null
+        tipo_origem: null
+        tipo_destino: null
+        formato_origem: null
+        formato_destino: null
+        locale: null
+      conversao_unidade:
+        aplicavel: null
+        unidade_origem: null
+        unidade_destino: null
+        fator_ou_formula: null
+        arredondamento: null
+      formato_data:
+        aplicavel: null
+        formato_origem: null
+        formato_destino: null
+        timezone_origem: null
+        timezone_destino: null
+        politica_data_invalida: null
+      precisao_decimal:
+        aplicavel: null
+        escala_origem: null
+        escala_destino: null
+        modo_arredondamento: null
+      enum_map:
+        aplicavel: null
+        mapa:
+          - origem: null
+            destino: null
+            evidencia: []
+      valor_constante_justificado:
+        aplicavel: null
+        valor: null
+        justificativa: null
+        evidencia: []
+      condicional:
+        aplicavel: null
+        ramos:
+          - ordem: null
+            condicao: null
+            resultado: null
+        resultado_senao: null
+
+    politica_valor_desconhecido:
+      acao: null
+      fallback: null
+      fallback_autorizado_por: null
+      evidencia: []
+
+    politica_valores_especiais:
+      "null": null
+      vazio: null
+      zero: null
+      "false": null
+      campo_ausente: null
+
+    validacoes:
+      entrada: []
+      saida: []
+      invariantes: []
+
+    erros:
+      condicoes_bloqueantes: []
+      resultado_quando_bloqueado: null
+      pendencia_id: null
+
+    evidencia: []
+    gap_ids: []
+    pendencia_ids: []
+
+    casos_de_teste_conceituais:
+      - caso_id: null
+        descricao: null
+        entradas: {}
+        saidas_esperadas: {}
+        politica_exercitada: null
+        evidencia: null
+
+resumo:
+  total_regras: null
+  regras_definidas: null
+  regras_parciais: null
+  regras_insuficientes: null
+  pendencias_bloqueantes: null
+  status: null

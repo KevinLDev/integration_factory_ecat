@@ -36,6 +36,10 @@ Passo 04 (materializar base planejada no ERP de homologacao/teste e confirmar o 
 
 `comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 
+Passo 05 (projetar a integracao e o mapeamento semantico da combinacao ERP x ferramenta):
+
+`comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -84,6 +88,8 @@ Quando esta jornada vier a ser liberada, a camada central de resolução de cont
 
 **PASSO 04 LIBERADO PARA EXECUCAO.**
 
+**PASSO 05 LIBERADO PARA EXECUCAO.**
+
 Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir o Passo 04, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.
+Apos concluir o Passo 05, consulte a proxima etapa oficialmente liberada nos documentos atuais da jornada.

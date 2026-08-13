@@ -1,0 +1,527 @@
+schema: fabrica.mapeamento-semantico.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Modelo reutilizavel do mapeamento semantico de uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_05
+  data_referencia: null
+  observacoes:
+    - Nao representa uma combinacao real
+    - Nao contem IDs fisicos, valores de cliente ou segredos
+    - Nao altera o contrato homologado da ferramenta
+
+regras_de_preenchimento:
+  - Registrar somente itens aplicaveis ao escopo comprovado
+  - Campos nao aplicaveis podem permanecer null ou ser removidos no artefato concreto
+  - Nunca preencher lacuna com equivalencia, rota, cardinalidade ou operacao inventada
+  - Classificacao de mapeamento e estado de evidencia permanecem separados
+  - Evidencias devem referenciar fontes efetivamente consultadas
+  - O campo status indica somente completude do item e usa valores_permitidos.status_item
+  - Estado de evidencia pertence exclusivamente a evidencias.estado ou a referencias de evidencia
+
+combinacao:
+  id: null
+  erp_slug: null
+  ferramenta_slug: null
+  contexto: ERP_PARCEIRO
+  escopo_conhecimento: COMBINACAO_ERP_FERRAMENTA
+
+erp:
+  nome: null
+  slug: null
+  versao: null
+  analise_referencia: null
+  capacidades_referencia: null
+  fontes_referencia: null
+
+ferramenta:
+  nome: null
+  slug: null
+  versao_contrato: null
+  contrato_referencia: null
+  cenarios_funcionais_referencia: null
+  regras_de_negocio_referencia: null
+  homologacao_referencia: null
+
+versoes_fontes:
+  - tipo_fonte: null
+    caminho: null
+    versao: null
+    sha256: null
+    hash_mode: null
+    vigencia: null
+    finalidade: null
+
+valores_permitidos:
+  classificacao:
+    - DIRETO
+    - DERIVADO
+    - DE_PARA
+    - CUSTOM_ERP
+    - ENRIQUECIMENTO
+    - SEM_CAPACIDADE
+    - PENDENTE_DE_DECISAO
+  fonte_da_verdade:
+    - ERP
+    - FERRAMENTA
+    - INTEGRACAO_CONFIG
+    - DERIVADO
+  direcao:
+    - ERP_PARA_FERRAMENTA
+    - FERRAMENTA_PARA_ERP
+    - BIDIRECIONAL_CONTROLADO
+    - SEM_SINCRONIZACAO
+  mecanismo_evento:
+    - POLLING
+    - WEBHOOK
+    - EVENTO_FUNCIONAL
+    - EXPORTACAO_MANUAL
+    - BATCH
+    - SCHEDULE
+    - PENDENTE_DE_EVIDENCIA
+  estado_evidencia:
+    - CONFIRMADO_POR_CONTRATO
+    - CONFIRMADO_POR_DOCUMENTACAO
+    - CONFIRMADO_EM_RUNTIME
+    - DERIVADO_COM_EVIDENCIA
+    - PENDENTE_DE_EVIDENCIA
+    - DIVERGENTE
+    - SEM_CAPACIDADE_CONFIRMADA
+  operacao:
+    - READ
+    - CREATE
+    - UPDATE
+    - UPSERT
+    - DELETE
+    - DEACTIVATE
+  comportamento_exclusao:
+    - DELETE
+    - DEACTIVATE
+    - HIDE
+    - IGNORE
+    - PENDENTE
+  modo_carga:
+    - CARGA_INICIAL
+    - INCREMENTAL
+  escopo_configuracao:
+    - INTEGRACAO_REUTILIZAVEL
+    - CONFIGURACAO_DO_CLIENTE
+  cobertura:
+    - COMPLETA
+    - PARCIAL_JUSTIFICADA
+    - INSUFICIENTE
+  status_item:
+    - DEFINIDO
+    - PARCIAL
+    - INSUFICIENTE
+    - NAO_APLICAVEL
+  status_gap:
+    - ABERTO
+    - MITIGADO
+    - RESOLVIDO
+    - ACEITO_JUSTIFICADO
+  gate:
+    ERP_IDENTIFICADO:
+      - SIM
+      - NAO
+    FERRAMENTA_HOMOLOGADA:
+      - SIM
+      - NAO
+    PASSO_04_APTO:
+      - SIM
+      - NAO
+    MAPEAMENTO_SEMANTICO:
+      - GERADO
+      - PARCIAL
+      - BLOQUEADO
+    FLUXOS:
+      - DEFINIDOS
+      - PARCIAIS
+      - INSUFICIENTES
+    TRANSFORMACOES:
+      - DEFINIDAS
+      - PARCIAIS
+      - INSUFICIENTES
+    IDENTIDADES:
+      - DEFINIDAS
+      - PARCIAIS
+      - INVALIDAS
+    DIRECOES:
+      - DEFINIDAS
+      - PARCIAIS
+    EVENTOS:
+      - DEFINIDOS
+      - PARCIAIS
+      - PENDENTES
+    CONFIGURACOES_REQUERIDAS:
+      - DEFINIDAS
+      - PARCIAIS
+    PENDENCIAS_BLOQUEANTES:
+      tipo: INTEGER
+      minimo: 0
+    COBERTURA_DE_MAPEAMENTO:
+      - COMPLETA
+      - PARCIAL_JUSTIFICADA
+      - INSUFICIENTE
+    PRONTO_PARA_DESENVOLVIMENTO:
+      - SIM
+      - NAO
+
+evidencias:
+  - evidencia_id: null
+    estado: null
+    tipo_fonte: null
+    caminho: null
+    localizador: null
+    sha256: null
+    hash_mode: null
+    conclusao_sustentada: null
+
+direcoes:
+  - id_direcao: null
+    modulo: null
+    objeto_ids: []
+    tipo: null
+    fonte_da_verdade: null
+    proprietario_do_dado: null
+    prioridade: null
+    regra_de_conflito: null
+    origem_do_evento: null
+    prevencao_conceitual_de_loop: null
+    evidencia: []
+    status: null
+
+fluxos:
+  - fluxo_id: null
+    nome: null
+    modulo: null
+    objeto_ids: []
+    direcao: null
+    fonte_da_verdade: null
+    proprietario_do_dado: null
+    evento_ids: []
+    operacao_origem_ids: []
+    operacao_destino_ids: []
+    identidade_ids: []
+    relacao_ids: []
+    mapeamento_campo_ids: []
+    regra_transformacao_ids: []
+    modos_carga: []
+    paginacao:
+      aplicavel: null
+      estrategia_documentada: null
+      cursor_ou_parametros: []
+      percorrer_todas_as_paginas: null
+    processamento:
+      batch: null
+      limite: null
+      ordem: []
+    confirmacao_destino: null
+    idempotencia_requerida: null
+    prevencao_conceitual_de_loop: null
+    regra_de_conflito: null
+    comportamento_exclusao: null
+    dependencias: []
+    configuracoes_requeridas: []
+    evidencia: []
+    gap_ids: []
+    pendencia_ids: []
+    status: null
+
+objetos:
+  - id_mapeamento: null
+    modulo: null
+    conceito: null
+    significado: null
+    origem:
+      sistema: null
+      objeto: null
+      representacao: null
+      capacidade_referencia: null
+    destino:
+      sistema: null
+      objeto: null
+      representacao: null
+      contrato_referencia: null
+    direcao: null
+    fonte_da_verdade: null
+    proprietario_do_dado: null
+    classificacao: null
+    evidencia: []
+    obrigatoriedade: null
+    condicao_de_obrigatoriedade: null
+    regra_tags: []
+    cenario_tags: []
+    campo_ids: []
+    relacao_ids: []
+    evento_ids: []
+    identidade_ids: []
+    dependencias: []
+    configuracoes_requeridas: []
+    gap_ids: []
+    pendencia_ids: []
+    status: null
+
+campos:
+  - id_mapeamento: null
+    objeto_id: null
+    conceito: null
+    campo_origem:
+      sistema: null
+      objeto: null
+      caminhos: []
+    campo_destino:
+      sistema: null
+      objeto: null
+      caminhos: []
+    tipo_origem: []
+    tipo_destino: []
+    nullable:
+      origem: null
+      destino: null
+    obrigatorio:
+      origem: null
+      destino: null
+    classificacao: null
+    direcao: null
+    fonte_da_verdade: null
+    transformacao:
+      necessaria: null
+      regra_ids: []
+    default:
+      aplicavel: null
+      valor: null
+      justificativa: null
+      evidencia: []
+    de_para:
+      aplicavel: null
+      regra_id: null
+    semantica_de_valores:
+      "null": null
+      vazio: null
+      zero: null
+      "false": null
+      campo_ausente: null
+    validacao:
+      antes_da_transformacao: []
+      depois_da_transformacao: []
+    observacao: null
+    evidencia: []
+    regra_tags: []
+    cenario_tags: []
+    gap_ids: []
+    pendencia_ids: []
+    status: null
+
+relacoes:
+  - relacao_id: null
+    modulo: null
+    conceito: null
+    objeto_origem_id: null
+    objeto_destino_id: null
+    significado: null
+    direcao: null
+    cardinalidade:
+      origem: null
+      destino: null
+      evidencia: []
+    chaves_origem: []
+    chaves_destino: []
+    identidade_ou_correlacao_ids: []
+    regra_transformacao_ids: []
+    operacao_ids: []
+    ordem_ou_consistencia: null
+    fonte_da_verdade: null
+    evidencia: []
+    regra_tags: []
+    cenario_tags: []
+    status: null
+
+eventos:
+  - evento_id: null
+    fluxo_id: null
+    modulo: null
+    objeto_id: null
+    evento_comercial: null
+    momento_do_fluxo: null
+    mecanismo: null
+    sistema_emissor: null
+    operacao_de_deteccao: null
+    filtro_de_elegibilidade: null
+    cursor_ou_chave_incremental: null
+    deduplicacao_conceitual: null
+    confirmacao_necessaria: null
+    evento_distinto_de: []
+    evidencia: []
+    pendencia_ids: []
+    status: null
+
+identidades:
+  - identidade_id: null
+    objeto_id: null
+    id_logico_fabrica: null
+    erp_id:
+      campo: null
+      escopo: null
+    ferramenta_id:
+      campo: null
+      escopo: null
+    external_id_erp_id: null
+    referencia: null
+    sku: null
+    chave_de_negocio: []
+    chave_primaria_de_correlacao: null
+    chaves_alternativas: []
+    nome_pode_identificar: false
+    normalizacao: null
+    persistencia_de_correlacao_requerida: null
+    estrategia_create_update: null
+    operacao_de_lookup: null
+    evidencia: []
+    status: null
+
+correlacoes:
+  - correlacao_id: null
+    objeto_id: null
+    identidade_id: null
+    id_logico_fabrica: null
+    erp_id_campo: null
+    ferramenta_id_campo: null
+    external_id_ou_erp_id_campo: null
+    chave_primaria: null
+    chaves_alternativas: []
+    estrategia_de_lookup: null
+    estrategia_create_update: null
+    persistencia_no_runtime_requerida: null
+    ids_fisicos_no_modelo_reutilizavel: false
+    evidencia: []
+    status: null
+
+operacoes:
+  - operacao_id: null
+    fluxo_id: null
+    sistema: null
+    objetivo: null
+    acao: null
+    capacidade_ou_contrato_referencia: null
+    metodo: null
+    rota_ou_operacao: null
+    precondicoes: []
+    campos_de_identidade: []
+    confirmacao_de_sucesso: null
+    upsert_confirmado: null
+    comportamento_ausencia: null
+    comportamento_exclusao: null
+    evidencia: []
+    status: null
+
+dependencias:
+  - dependencia_id: null
+    item_origem_tipo: null
+    item_origem_id: null
+    depende_de_tipo: null
+    depende_de_id: null
+    natureza: null
+    motivo: null
+    ordem: null
+    evidencia: []
+    status: null
+
+configuracoes_requeridas:
+  - configuracao_id: null
+    nome: null
+    escopo: null
+    finalidade: null
+    tipo: null
+    obrigatoria: null
+    sensivel: null
+    valor_no_modelo: null
+    persistir_valor_no_artefato: false
+    origem_do_valor: null
+    validacao: []
+    default_autorizado: null
+    evidencia: []
+    pendencia_ids: []
+
+customizacoes_requeridas:
+  - customizacao_id: null
+    objeto_id: null
+    necessidade: null
+    tipo_do_campo: null
+    finalidade: null
+    erp_suporta_customizacao: null
+    custom_existente_identificado: null
+    referencia_custom_existente: null
+    criacao_futura_requerida: null
+    autorizacao_futura_requerida: null
+    executar_no_passo_05: false
+    alternativa_segura: null
+    evidencia: []
+    status: null
+
+enriquecimentos:
+  - enriquecimento_id: null
+    objeto_id: null
+    conceito: null
+    fonte_controlada: null
+    chave_de_lookup: null
+    dado_fornecido: null
+    justificativa: null
+    estabilidade: null
+    transacional: null
+    configuracao_ids: []
+    evidencia: []
+    status: null
+
+gaps:
+  - gap_id: null
+    requisito: null
+    objeto_ou_fluxo_id: null
+    classificacao: null
+    descricao: null
+    evidencia: []
+    impacto: null
+    modo_ou_cenario_afetado: []
+    alternativa_segura: null
+    bloqueia_desenvolvimento: null
+    pendencia_id: null
+    status_gap: null
+
+pendencias:
+  arquivo_canonico_combinacao: null
+  referencias:
+    - pendencia_id: null
+      objeto_ou_fluxo_ids: []
+      impacto_no_mapeamento: null
+      bloqueia_desenvolvimento: null
+      status_no_arquivo_canonico: null
+
+cobertura:
+  modulos_no_escopo: []
+  fluxos_completos: []
+  fluxos_parciais: []
+  fluxos_insuficientes: []
+  cenarios_cobertos: []
+  cenarios_parciais: []
+  cenarios_sem_cobertura: []
+  classificacao_final: null
+  justificativa: null
+
+gate_final:
+  ERP_IDENTIFICADO: null
+  FERRAMENTA_HOMOLOGADA: null
+  PASSO_04_APTO: null
+  MAPEAMENTO_SEMANTICO: null
+  FLUXOS: null
+  TRANSFORMACOES: null
+  IDENTIDADES: null
+  DIRECOES: null
+  EVENTOS: null
+  CONFIGURACOES_REQUERIDAS: null
+  PENDENCIAS_BLOQUEANTES: null
+  COBERTURA_DE_MAPEAMENTO: null
+  PRONTO_PARA_DESENVOLVIMENTO: null
+
+avaliacao_do_gate:
+  justificativa: null
+  evidencias: []
