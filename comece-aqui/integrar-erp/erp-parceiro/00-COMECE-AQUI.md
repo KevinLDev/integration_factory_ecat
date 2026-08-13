@@ -40,6 +40,10 @@ Passo 05 — Projetar Integração e Mapeamento Semântico:
 
 `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 
+Passo 06 — Desenvolver Integração:
+
+`comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -54,13 +58,12 @@ Se alguma condição estiver ausente, a jornada de ERP parceiro deverá ser bloq
 
 Se o operador também fornecer documentação da ferramenta já homologada, trate-a como documento de contexto da execução corrente, não como nova verdade contratual.
 
-## Visão posterior ao Passo 05
+## Visão posterior ao Passo 06
 
-Os Passos 01 a 05 acima estão disponíveis. A visão conceitual posterior, ainda não publicada como etapa executável, poderá incluir atividades para:
+Os Passos 01 a 06 acima estão disponíveis. A visão conceitual posterior, ainda não publicada como etapa executável, poderá incluir atividades para:
 
-- desenvolver a integração;
-- testar módulo por módulo;
-- testar ida e volta quando suportado;
+- executar e validar a implementação em HML;
+- testar ida e volta em HML quando suportado;
 - validar correlação;
 - validar idempotência;
 - validar prevenção de loops;
@@ -68,7 +71,7 @@ Os Passos 01 a 05 acima estão disponíveis. A visão conceitual posterior, aind
 - gerar documentação final;
 - registrar o ERP como integrado.
 
-Esses itens são somente a visão posterior ao Passo 05. Eles não representam passos disponíveis e não autorizam criar ou executar um Passo 06.
+Esses itens são somente a visão posterior ao Passo 06. Eles não representam passos disponíveis e não autorizam criar ou executar um Passo 07.
 
 Em toda a jornada, a camada central de resolução de contexto deve ser consultada antes de qualquer etapa de análise profunda, para evitar duplicação de contrato ou escolha incorreta de jornada.
 
@@ -84,6 +87,8 @@ Em toda a jornada, a camada central de resolução de contexto deve ser consulta
 
 **PASSO 05 LIBERADO PARA EXECUCAO.**
 
+**PASSO 06 LIBERADO PARA EXECUCAO.**
+
 Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir o Passo 05, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.
+Apos concluir o Passo 06, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.

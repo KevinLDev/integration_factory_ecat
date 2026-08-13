@@ -619,10 +619,12 @@ COBERTURA_DE_MAPEAMENTO: COMPLETA OU PARCIAL_JUSTIFICADA
 PRONTO_PARA_DESENVOLVIMENTO: SIM
 ```
 
-Mesmo com esse gate, nenhuma etapa seguinte deve ser iniciada enquanto seu comando tecnico e documento operacional nao estiverem oficialmente publicados e liberados.
+Com esse gate atendido, o Passo 06 oficialmente publicado pode ser iniciado somente por decisão do operador; nunca por autoexecução do Passo 05.
 
 ## Proximo documento
 
-O Passo 06 nao faz parte desta etapa e nao deve ser criado ou executado.
+O proximo documento oficial e:
 
-Apos concluir o Passo 05, consulte `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md` e aguarde a proxima etapa oficialmente liberada.
+`comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
+
+O Passo 06 implementa e testa localmente as decisoes aprovadas do Passo 05. Nao executar automaticamente.

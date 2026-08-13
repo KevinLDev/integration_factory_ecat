@@ -563,5 +563,5 @@ VIGENCIA DA AUDITORIA:
 <resultado e evidencia>
 
 PROXIMA ACAO PERMITIDA:
-<consultar somente a próxima etapa oficialmente liberada; não autoexecutar>
+executar somente o Passo 06 - Desenvolver Integração, conforme `parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md`, quando o gate do Passo 05 estiver atendido e por decisão do operador; não autoexecutar.
 ```

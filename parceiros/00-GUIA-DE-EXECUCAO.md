@@ -73,6 +73,7 @@ Passos operacionais disponíveis:
 - `comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
+- `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
 
 Entrada humana:
 
@@ -88,7 +89,9 @@ Entrada humana:
 
 **PASSO 05 LIBERADO PARA EXECUCAO.**
 
-Ainda não existe Passo 06 oficial ou executável. Não improvise comandos nem avance para etapas não liberadas.
+**PASSO 06 LIBERADO PARA EXECUCAO.**
+
+Ainda não existe Passo 07 oficial ou executável. Não improvise comandos nem avance para etapas não liberadas.
 
 ## Jornada 3 — ERP cliente
 

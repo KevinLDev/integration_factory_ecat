@@ -1,0 +1,440 @@
+schema: fabrica.manifesto-implementacao.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Modelo machine-readable da implementacao de uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_06
+  data_referencia: null
+  observacoes:
+    - Nao representa uma integracao real
+    - Nao contem codigo executavel, IDs fisicos de cliente ou segredos
+    - Nao substitui manifesto de etapa, estado, auditoria ou fontes originais
+    - O Passo 06 desenvolve e testa localmente, mas nao executa HML nem homologa a integracao
+
+regras_de_preenchimento:
+  - Registrar somente fatos comprovados na execucao real
+  - Usar caminhos relativos a raiz do repositorio
+  - Preservar decisoes do Passo 05 e registrar divergencias sem corrigi-las silenciosamente
+  - Nao persistir valores de credenciais ou configuracoes concretas de cliente
+  - Nao declarar comando de validacao que nao exista no projeto
+  - Nao declarar PRONTO_PARA_EXECUCAO_HML como SIM sem atender todo o gate
+
+valores_permitidos:
+  arquitetura_executavel:
+    - DEFINIDA
+    - INSUFICIENTE
+  responsabilidade:
+    - SHARED_CORE
+    - ERP_REUSABLE
+    - TOOL_REUSABLE
+    - COMBINATION_SPECIFIC
+  origem_arquivo:
+    - CRIADO
+    - REUTILIZADO
+    - ALTERADO_CONTROLADAMENTE
+  status_componente:
+    - IMPLEMENTADO
+    - PARCIAL
+    - REUTILIZADO
+    - NAO_APLICAVEL
+    - INSUFICIENTE
+  status_flow:
+    - COMPLETO
+    - PARCIAL
+    - INSUFICIENTE
+    - NAO_APLICAVEL
+  tipo_teste:
+    - UNITARIO
+    - TRANSFORMACAO
+    - MAPPER
+    - CONTRATO_DTO
+    - FLOW_MOCKADO
+    - AUTH
+    - PAGINACAO
+    - RETRY
+    - ERRO
+    - CONFIGURACAO
+  resultado_validacao:
+    - APROVADO
+    - REPROVADO
+    - NAO_APLICAVEL
+    - NAO_EXECUTADO
+  status_pendencia:
+    - ABERTA
+    - RESOLVIDA
+    - ACEITA_JUSTIFICADA
+  tipo_divergencia:
+    - BUG_DE_IMPLEMENTACAO
+    - DIVERGENCIA_DE_PROJETO
+    - DIVERGENCIA_DE_CONTRATO
+    - DIVERGENCIA_DE_ARQUITETURA
+  impacto_divergencia:
+    - BLOQUEANTE
+    - NAO_BLOQUEANTE
+  vigencia_implementacao:
+    - VIGENTE
+    - IMPLEMENTACAO_POTENCIALMENTE_OBSOLETA
+    - EVIDENCIA_INSUFICIENTE
+  gate:
+    ERP_IDENTIFICADO:
+      - SIM
+      - NAO
+    FERRAMENTA_HOMOLOGADA:
+      - SIM
+      - NAO
+    PASSO_05_APTO:
+      - SIM
+      - NAO
+    PROJETO_VIGENTE:
+      - SIM
+      - NAO
+    ARQUITETURA_EXECUTAVEL:
+      - DEFINIDA
+      - INSUFICIENTE
+    ESCOPO_DE_DESENVOLVIMENTO:
+      - DEFINIDO
+      - PARCIAL
+      - INSUFICIENTE
+    CODIGO:
+      - GERADO
+      - PARCIAL
+      - NAO_GERADO
+    FLUXOS_IMPLEMENTADOS:
+      - COMPLETOS
+      - PARCIAIS
+      - INSUFICIENTES
+    BUILD:
+      - APROVADO
+      - REPROVADO
+      - NAO_APLICAVEL
+    TYPECHECK:
+      - APROVADO
+      - REPROVADO
+      - NAO_APLICAVEL
+    LINT:
+      - APROVADO
+      - REPROVADO
+      - NAO_APLICAVEL
+    TESTES_UNITARIOS:
+      - APROVADOS
+      - REPROVADOS
+      - INSUFICIENTES
+    TESTES_TRANSFORMACAO:
+      - APROVADOS
+      - REPROVADOS
+      - INSUFICIENTES
+    TESTES_FLUXO:
+      - APROVADOS
+      - REPROVADOS
+      - INSUFICIENTES
+    AUTH:
+      - IMPLEMENTADA
+      - PARCIAL
+      - NAO_APLICAVEL
+      - INSUFICIENTE
+    PAGINACAO:
+      - IMPLEMENTADA
+      - NAO_APLICAVEL
+      - INSUFICIENTE
+    RETRY_RATE_LIMIT:
+      - IMPLEMENTADO
+      - NAO_APLICAVEL
+      - INSUFICIENTE
+    CONFIGURACAO:
+      - DEFINIDA
+      - PARCIAL
+      - INSUFICIENTE
+    SEGREDOS_NO_REPOSITORIO:
+      - NAO
+      - SIM
+    DIVERGENCIAS_DE_PROJETO:
+      tipo: INTEGER
+      minimo: 0
+    PENDENCIAS_BLOQUEANTES:
+      tipo: INTEGER
+      minimo: 0
+    ESCRITA_HML_EXECUTADA:
+      - NAO
+    PRONTO_PARA_EXECUCAO_HML:
+      - SIM
+      - NAO
+
+erp:
+  nome: null
+  slug: null
+  versao: null
+  analise_referencia: null
+  capacidades_referencia: null
+  fontes_referencia: null
+
+ferramenta:
+  nome: null
+  slug: null
+  versao_contrato: null
+  contrato_referencia: null
+  cenarios_funcionais_referencia: null
+  regras_de_negocio_referencia: null
+  homologacao_referencia: null
+
+combinacao:
+  id: null
+  erp_slug: null
+  ferramenta_slug: null
+  contexto: ERP_PARCEIRO
+  escopo_conhecimento: COMBINACAO_ERP_FERRAMENTA
+
+versoes:
+  implementacao: null
+  runtime_alvo: null
+  linguagem: null
+  linguagem_versao: null
+  package_manager: null
+  package_manager_versao: null
+  framework: null
+  commit_base: null
+
+fontes_e_snapshots:
+  vigencia_da_implementacao: null
+  calculado_em: null
+  itens:
+    - tipo: null
+      caminho: null
+      versao: null
+      sha256: null
+      hash_mode: null
+      vigencia: null
+      finalidade: null
+
+passo_05:
+  status_da_etapa: null
+  auditoria: null
+  manifesto: null
+  gate_reutilizavel: null
+  pronto_para_desenvolvimento: null
+  cobertura_de_mapeamento: null
+  mapeamento_semantico:
+    caminho: null
+    sha256: null
+    hash_mode: null
+  regras_de_transformacao:
+    caminho: null
+    sha256: null
+    hash_mode: null
+  plano_da_integracao:
+    caminho: null
+    sha256: null
+    hash_mode: null
+  pendencias:
+    caminho: null
+    bloqueantes: null
+
+escopo:
+  modulos_incluidos: []
+  flows_incluidos: []
+  cenarios_incluidos: []
+  cobertura_parcial_justificada: null
+  itens_nao_implementados:
+    - item: null
+      motivo: null
+      impacto: null
+      referencia_passo_05: null
+
+arquitetura_executavel:
+  estado: null
+  evidencia_encontrada: []
+  raiz_do_codigo: null
+  estrutura_fisica_utilizada: []
+  package_manager: null
+  workspace: null
+  tsconfig_referencia: null
+  convencoes_de_codigo: []
+  convencoes_de_teste: []
+  decisao_fisica_registrada: null
+  justificativa: null
+
+componentes:
+  shared_core:
+    - componente_id: null
+      responsabilidade: SHARED_CORE
+      nome: null
+      caminho: null
+      origem: null
+      status: null
+      justificativa_de_reuso_ou_criacao: null
+      dependencias: []
+      testes: []
+  erp_reusable:
+    - componente_id: null
+      responsabilidade: ERP_REUSABLE
+      nome: null
+      caminho: null
+      origem: null
+      status: null
+      capacidades: []
+      nao_contem_regra_de_ferramenta: null
+      dependencias: []
+      testes: []
+  tool_reusable:
+    - componente_id: null
+      responsabilidade: TOOL_REUSABLE
+      nome: null
+      caminho: null
+      origem: null
+      status: null
+      capacidades: []
+      nao_conhece_erp_especifico: null
+      dependencias: []
+      testes: []
+  combination_specific:
+    - componente_id: null
+      responsabilidade: COMBINATION_SPECIFIC
+      nome: null
+      caminho: null
+      origem: null
+      status: null
+      fluxo_ids: []
+      mapeamento_ids: []
+      regra_transformacao_ids: []
+      dependencias: []
+      testes: []
+
+arquivos_gerados:
+  - caminho: null
+    responsabilidade: null
+    finalidade: null
+    sha256: null
+    hash_mode: null
+    teste_ids: []
+
+arquivos_reutilizados:
+  - caminho: null
+    responsabilidade: null
+    versao_ou_sha256: null
+    motivo_do_reuso: null
+    alterado: false
+
+dependencias_adicionadas:
+  - nome: null
+    versao: null
+    tipo: null
+    justificativa: null
+    alternativa_existente_avaliada: null
+    compatibilidade_validada: null
+
+flows:
+  - fluxo_id: null
+    nome: null
+    modulo: null
+    direcao: null
+    evento_id: null
+    modos_de_carga: []
+    origem: null
+    destino: null
+    identidade_ids: []
+    correlacao: null
+    mapper_ids: []
+    transformacao_ids: []
+    dependencia_flow_ids: []
+    idempotencia: null
+    prevencao_de_loop: null
+    politica_de_erro: null
+    paginacao: null
+    batch: null
+    confirmacao_destino: null
+    status: null
+    evidencia: []
+
+testes:
+  - teste_id: null
+    tipo: null
+    caminho: null
+    alvo: null
+    regra_ou_fluxo_ids: []
+    usa_rede_externa: false
+    usa_fixture_sintetica: null
+    contem_secret_ou_pii_real: false
+    comando_id: null
+    resultado: null
+    evidencia: null
+
+comandos_validacao:
+  - comando_id: null
+    categoria: null
+    comando: null
+    origem_no_projeto: null
+    executado: null
+    exit_code: null
+    resultado: null
+    evidencia: null
+
+configuracoes_requeridas:
+  - configuracao_id: null
+    nome: null
+    tipo: null
+    escopo: null
+    obrigatoria: null
+    sensivel: null
+    valor_persistido_no_manifesto: false
+    origem_do_valor: null
+    validacao: []
+    impacto_se_ausente: null
+
+seguranca:
+  escrita_hml_executada: false
+  api_externa_executada: false
+  secrets_persistidos: false
+  fixtures_com_secrets: false
+  logs_com_secrets: false
+  valores_redigidos: true
+  verificacoes: []
+
+pendencias:
+  arquivo_canonico_combinacao: null
+  itens:
+    - pendencia_id: null
+      resumo: null
+      impacto: null
+      bloqueante: null
+      status: null
+      proxima_acao: null
+
+divergencias:
+  - divergencia_id: null
+    tipo: null
+    descricao: null
+    evidencia: []
+    item_passo_05: null
+    item_implementacao: null
+    impacto: null
+    menor_passo_responsavel: null
+    acao: null
+    status: null
+
+gate:
+  ERP_IDENTIFICADO: null
+  FERRAMENTA_HOMOLOGADA: null
+  PASSO_05_APTO: null
+  PROJETO_VIGENTE: null
+  ARQUITETURA_EXECUTAVEL: null
+  ESCOPO_DE_DESENVOLVIMENTO: null
+  CODIGO: null
+  FLUXOS_IMPLEMENTADOS: null
+  BUILD: null
+  TYPECHECK: null
+  LINT: null
+  TESTES_UNITARIOS: null
+  TESTES_TRANSFORMACAO: null
+  TESTES_FLUXO: null
+  AUTH: null
+  PAGINACAO: null
+  RETRY_RATE_LIMIT: null
+  CONFIGURACAO: null
+  SEGREDOS_NO_REPOSITORIO: null
+  DIVERGENCIAS_DE_PROJETO: null
+  PENDENCIAS_BLOQUEANTES: null
+  ESCRITA_HML_EXECUTADA: NAO
+  PRONTO_PARA_EXECUCAO_HML: null
+
+avaliacao_do_gate:
+  justificativa: null
+  evidencias: []
