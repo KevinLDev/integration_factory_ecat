@@ -257,7 +257,7 @@ Antes da análise semântica, executar os validadores aplicáveis de `scripts/ha
 
 Os scripts são somente leitura dos artefatos de negócio por padrão, não contêm análise semântica e não substituem a auditoria. Validadores temporários recorrentes devem ser promovidos a scripts reutilizáveis quando generalizáveis.
 
-Na V1, implementar somente o necessário para auditorias confiáveis das etapas 01, 02 e 03 em uso. Não antecipar validadores de comandos de ERP ainda inexistentes.
+Na V1, os Passos 01 a 06 da jornada ERP parceiro estão oficialmente disponíveis. Implementar somente validadores necessários, objetivos e generalizáveis para as etapas em uso; a publicação de um comando não torna obrigatório antecipar um validador específico nem permite substituir a auditoria semântica.
 
 ## Timebox e pausa segura
 
@@ -272,9 +272,9 @@ Ao se aproximar do limite:
 
 A pausa não é `AUDITORIA: BLOQUEADA`, não é reprovação e não publica status final. Na retomada, conferir novamente toda a linha de base antes de continuar.
 
-## Preparação para etapas futuras de ERP
+## Cobertura de auditoria para ERP parceiro
 
-A arquitetura da auditoria deve permitir evolução para validar também:
+A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável dos Passos 01 a 06:
 
 - mapeamentos;
 - campos obrigatórios;
@@ -289,4 +289,4 @@ A arquitetura da auditoria deve permitir evolução para validar também:
 - evidências;
 - homologação.
 
-Nesta V1, não implementar ainda validadores específicos dessas etapas futuras.
+Implementar validadores determinísticos específicos somente quando forem necessários e generalizáveis, preservando a análise semântica independente. Execução e validação em HML, homologação funcional, publicação, runtime e monitoramento permanecem visão futura não numerada; esta regra não cria nem autoriza um Passo 07.

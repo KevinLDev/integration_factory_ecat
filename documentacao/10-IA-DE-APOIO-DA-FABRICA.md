@@ -71,59 +71,32 @@ Fluxo:
 
 **Pré-requisito**: Ferramenta alvo já deve ser `HOMOLOGADA_PARA_INTEGRACOES`.
 
-Fluxo planejado:
+Fluxo oficial atualmente disponível:
 
 ```
-01. Apresentar/analisar ERP
-    - Entender nome, versão, ambiente
-    - Localizar documentação
-    - Validar acesso (se houver)
-    
-02. Analisar ERP x Contrato
-    - Comparar capacidades do ERP com contrato homologado
-    - Identificar módulos sobrepostos
-    - Definir direções (ida, volta, bidirecional)
-    
-03. Base Comercial de Homologação
-    - Definir clientes/empresas de teste
-    - SKUs, variantes, packs
-    - Estoque, movimentação, preço
-    - Criar base DENTRO DO ERP de homologação
-    
-04. Validação da Base
-    - Confirmar dados importados
-    - Confirmar visibilidade na ferramenta
-    
-05. Mapeamento
-    - Definir campo por campo ERP → ferramenta
-    - Definir transformações (se houver)
-    - Documentar exceções
-    
-06. Desenvolvimento
-    - Criar adaptador código
-    - Implementar sincronização
-    - Implementar tratamento de erro
-    - Implementar retry/rate limit
-    
-07. Testes por Módulo
-    - Testar cada fluxo isolado
-    - Estoque, pedido, cliente, etc
-    
-08. Testes Ponta a Ponta
-    - Testar ida e volta (se bidirecional)
-    - Validar idempotência
-    - Validar prevenção de loops
-    
-09. Homologação
-    - Auditoria final
-    - Aprovação para reutilização
-    
-10. Documentação
-    - Registrar integração como reutilizável
-    - Preparar para clientes
+01. Apresentar ERP
+    - Identificar ERP, contexto e fontes
+
+02. Analisar ERP
+    - Descobrir capacidades com evidência
+
+03. Projetar Homologação
+    - Planejar a Base Comercial necessária
+
+04. Materializar Base de Homologação
+    - Criar ou importar no ERP a base aprovada
+
+05. Projetar Integração e Mapeamento Semântico
+    - Definir campos, identidades, direções e transformações
+
+06. Desenvolver Integração
+    - Transformar o projeto vigente em código executável e testado
+    - Terminar, no máximo, em PRONTO_PARA_EXECUCAO_HML
 ```
 
-**Saída**: Integração reutilizável entre ERP e ferramenta, homologada e documentada.
+**Saída atual do fluxo disponível**: implementação local executável e testada, pronta para futura execução em HML. O Passo 06 não executa HML e não declara a integração homologada.
+
+Execução e validação em HML, homologação funcional, publicação, runtime e monitoramento continuam como visão futura. Ainda não existe Passo 07 oficial ou executável.
 
 **IMPORTANTE**: Nunca pule para desenvolvimento sem Base Comercial estar criada e validada NO ERP real. Base é pré-requisito de desenvolvimento.
 
@@ -133,30 +106,14 @@ Fluxo planejado:
 
 **Pré-requisito**: Combinação ERP x ferramenta já deve estar homologada em ERP Parceiro.
 
-Fluxo:
+Atividades conceituais futuras, ainda sem etapas oficiais liberadas:
 
-```
-01. Validar homologação
-    - Confirmar que a combinação ERP x ferramenta já existe
-    
-02. Reutilizar adaptador
-    - Usar código/configuração já testada
-    - NÃO reconstruir
-    - NÃO fazer novo adaptador por "sugestão"
-    
-03. Credenciais do cliente
-    - Conectar ao ambiente real do cliente
-    
-04. Sincronização inicial
-    - Importar dados reais do cliente
-    
-05. Validação de correlação
-    - Confirmar que IDs/chaves batem
-    - Confirmar que dados chegam corretamente
-    
-06. Ativação
-    - Ligar integração em produção
-```
+- validar que a combinação ERP x ferramenta está homologada;
+- reutilizar adaptador e configuração já testados, sem reconstrução;
+- conectar credenciais do cliente em ambiente autorizado;
+- executar sincronização inicial;
+- validar correlações e dados;
+- ativar a integração conforme uma jornada futura oficialmente publicada.
 
 **IMPORTANTE**: Não criar Base Comercial de desenvolvimento para cliente se já existe integração homologada. Base de homologação foi para a Fábrica, não para cada cliente.
 
@@ -313,7 +270,7 @@ Compreender causa é obrigatório antes de recalcular.
 
 ## 7. ETAPAS LIBERADAS vs FUTURAS
 
-### Atualmente Liberadas
+### Atualmente liberadas
 
 **Nova Ferramenta**:
 - Passo 01: Apresentar e Analisar Ferramenta
@@ -321,12 +278,24 @@ Compreender causa é obrigatório antes de recalcular.
 - Passo 03: Validar Ferramenta
 
 **ERP Parceiro**:
-- Passo 01: Apresentar e Analisar ERP (entrada/triagem apenas)
+- Passo 01: Apresentar ERP
+- Passo 02: Analisar ERP
+- Passo 03: Projetar Homologação
+- Passo 04: Materializar Base de Homologação
+- Passo 05: Projetar Integração e Mapeamento Semântico
+- Passo 06: Desenvolver Integração
 
-### Futuras (não executáveis agora)
+O Passo 06 é a última etapa oficial disponível. Ele termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML e sem homologar funcionalmente a integração.
 
-- ERP Parceiro Passos 02-09
-- ERP Cliente Passos 01-06
+### Visão futura, ainda não executável
+
+- execução e validação da implementação em HML;
+- homologação funcional;
+- publicação da integração;
+- runtime e monitoramento;
+- jornada operacional de ERP Cliente.
+
+Não existe Passo 07 oficial. A IA de Apoio não deve numerar, criar ou sugerir um comando executável para essa visão futura.
 
 Fluxo conceitual de jornada não equivale a etapa oficialmente liberada. A IA de Apoio não pode transformar automaticamente o próximo item do fluxo em execução. A próxima ação permitida deve ser consultar/identificar a próxima etapa oficialmente liberada pelos documentos e evidências atuais; se faltar material para verificar isso, classificar como `INFORMACAO_INSUFICIENTE`.
 
@@ -334,7 +303,7 @@ Quando uma etapa não existe ou não está liberada, registre como lacuna no Har
 
 ## 8. PRINCÍPIOS DE DESENVOLVIMENTO
 
-Se o executor criar integração (em ERP Parceiro passo 06 no futuro), deve respeitar:
+Quando o executor executar o ERP Parceiro Passo 06 oficialmente disponível, deve respeitar:
 
 - **TypeScript estrito**: tipagem completa, sem `any`
 - **Componentes compartilhados**:
@@ -505,7 +474,7 @@ E parar. Não pressionar para avanço. O operador decide ritmo.
 2. Resolução central: ferramenta homologada? Se não → Nova Ferramenta
 3. Se sim: Codex executa ERP-PARCEIRO Passo 01
 4. IA de Apoio valida se contexto está correto
-5. Se APROVADO: consultar/identificar a próxima etapa oficialmente liberada da jornada antes de qualquer nova execução
+5. Se APROVADO: consultar o gate e o documento operacional do próximo passo oficialmente liberado, sem autoexecutá-lo
 
 ### Cenário 3: Cliente com ERP já integrado
 
@@ -516,11 +485,11 @@ E parar. Não pressionar para avanço. O operador decide ritmo.
 
 ### Cenário 4: Executor tentou pular etapa
 
-1. Codex inicia desenvolvimento em ERP Parceiro Passo 02 (futuro)
-2. Mas Base Comercial ainda não foi criada
+1. Codex tenta iniciar o Passo 06 sem Passo 05 apto ou sem a Base de Homologação exigida
+2. A cadeia de pré-condições não está atendida
 3. IA de Apoio: BLOQUEADO
-4. Motivo: "Base Comercial de Homologação é pré-requisito antes de desenvolvimento"
-5. Encaminhar para Passo anterior
+4. Motivo: "Passo 06 depende do projeto vigente e da Base de Homologação aprovada"
+5. Encaminhar ao menor passo responsável, sem mudar o projeto silenciosamente
 
 ### Cenário 5: Documentação redundante
 

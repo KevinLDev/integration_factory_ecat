@@ -34,7 +34,7 @@ O projeto usa princípios de Harness Engineering: contexto, regras, comandos, do
 
 `AGENTS.md` é a porta de entrada do Harness, mas o Harness completo inclui os guias, comandos, fontes, testes, estado e validações.
 
-## Escopo atual
+## Escopo no estágio inicial
 
 A experiência operacional está separada em três jornadas:
 
@@ -42,7 +42,9 @@ A experiência operacional está separada em três jornadas:
 2. integrar um ERP parceiro ao portfólio;
 3. integrar um cliente utilizando um ERP já suportado.
 
-Os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis. As portas de ERP parceiro e ERP cliente são conceituais e ainda não liberam execução.
+Naquele estágio do projeto, os Passos 01, 02 e 03 da jornada de nova ferramenta estavam disponíveis, enquanto as portas de ERP parceiro e ERP cliente ainda eram apenas conceituais.
+
+O estado operacional evoluiu desde então. Atualmente, a jornada de ERP parceiro possui os Passos 01 a 06 disponíveis; o Passo 06 é a última etapa oficial e termina em `PRONTO_PARA_EXECUCAO_HML`. A jornada de ERP cliente continua não liberada. Para o estado vigente, consulte `AGENTS.md` e `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## Regras essenciais
 
@@ -55,11 +57,13 @@ Os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis. As port
 - A memória oficial é o repositório, não o chat.
 - Implementações antigas do Pipedream são referência histórica, não arquitetura oficial.
 
-## Estado operacional da V1
+## Estado operacional no início da V1
 
 O Força de Vendas é o primeiro caso real da jornada de ferramenta. Seus artefatos homologados e suas execuções existentes são evidência da V1 e não devem ser alterados durante reorganizações documentais.
 
-O Passo 03 homologa tecnicamente o contrato para integrações sem corrigi-lo. Nenhuma etapa posterior ao Passo 03 está liberada enquanto não existir comando técnico e documento operacional humano homologado.
+Naquele estágio, o Passo 03 homologava tecnicamente o contrato para integrações sem corrigi-lo, e nenhuma etapa posterior estava liberada sem comando técnico e documento operacional humano homologado.
+
+Posteriormente, os Passos 01 a 06 de ERP parceiro foram publicados. Essa evolução não muda o princípio histórico: uma etapa só se torna operacional quando seu comando técnico e seu documento humano correspondente estão oficialmente disponíveis.
 
 ## Ao iniciar um novo chat
 

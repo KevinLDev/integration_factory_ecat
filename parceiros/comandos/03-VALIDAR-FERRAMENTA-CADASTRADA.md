@@ -564,7 +564,7 @@ PENDENCIAS:
 <pendências não impeditivas preservadas, se houver>
 
 PROXIMA ACAO:
-Não existe próxima etapa operacional liberada. Aguarde a criação e homologação do próximo documento.
+Registre a ferramenta homologada como disponível ao resolvedor central em `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md`. A necessidade seguinte deve ser resolvida para a jornada e o menor passo responsável, sem autoexecutar ERP parceiro nem saltar diretamente para o Passo 06.
 ```
 
 ### Se o contrato não estiver apto ou a auditoria reprovar
@@ -612,4 +612,4 @@ Não avance para outra jornada até resolver o bloqueio.
 
 ## Próxima ação
 
-A conclusão do Passo 03 torna a ferramenta elegível para futuras jornadas de ERP, mas não cria nem libera automaticamente uma etapa posterior. O operador deve aguardar a criação e homologação do próximo documento operacional.
+A conclusão do Passo 03 registra a ferramenta homologada como disponível ao resolvedor central de contexto. Isso não cria uma integração ERP, não inicia outra jornada automaticamente e não autoriza saltar gates; a necessidade seguinte determina a jornada e o menor passo responsável.

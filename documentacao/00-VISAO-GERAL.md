@@ -22,7 +22,11 @@ Integrar um ERP ao portfólio não é o mesmo que configurar o ERP de um cliente
 
 ## Disponibilidade atual
 
-Os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis. O Passo 03 homologa tecnicamente o contrato para integrações. As jornadas de ERP parceiro e ERP cliente ainda não estão liberadas para execução.
+Os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis. O Passo 03 homologa tecnicamente o contrato para integrações.
+
+A jornada de ERP parceiro possui os Passos 01 a 06 disponíveis, em ordem: apresentar o ERP, analisar suas capacidades, projetar a homologação, materializar a Base de Homologação, projetar a integração e o mapeamento semântico e desenvolver a integração. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; não executa HML nem homologa funcionalmente a integração. Ainda não existe Passo 07 oficial.
+
+A jornada de ERP cliente ainda não está liberada para execução.
 
 ## Memória oficial
 

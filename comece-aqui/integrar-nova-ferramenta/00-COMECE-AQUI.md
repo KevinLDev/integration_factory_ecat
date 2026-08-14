@@ -28,10 +28,12 @@ Siga os documentos em ordem:
 
 Só avance quando o documento atual e o retorno da etapa permitirem.
 
-## Próximo passo após o Passo 03
+## Depois do Passo 03
 
 **PRÓXIMO PASSO:**
 
-Ainda não disponibilizado para operação.
+Quando o Passo 03 concluir com o gate completo de homologação, a ferramenta passa a estar disponível para a resolução de contexto de integrações com ERP.
 
-Aguarde a criação e homologação do próximo documento.
+Consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md`. Se o contexto resolver um ERP novo ou uma combinação ainda não homologada, use a jornada ERP parceiro desde o menor passo responsável, começando normalmente em `comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md`.
+
+O Passo 03 não inicia outra jornada automaticamente e não encaminha diretamente ao desenvolvimento.

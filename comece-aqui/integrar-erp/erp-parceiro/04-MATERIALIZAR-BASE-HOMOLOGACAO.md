@@ -331,6 +331,6 @@ O proximo documento oficial e:
 
 `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 
-O Passo 05 projeta a integracao e o mapeamento semantico. Ele nao executa sincronizacao nem validacao na ferramenta; essas atividades dependem de etapa futura de desenvolvimento ainda nao publicada.
+O Passo 05 projeta a integracao e o mapeamento semantico. Quando seu gate permitir, o Passo 06 oficialmente publicado desenvolve e testa localmente a implementacao; execucao e validacao em HML continuam futuras. O Passo 04 nao pula o Passo 05.
 
 Nao iniciar automaticamente proxima etapa.

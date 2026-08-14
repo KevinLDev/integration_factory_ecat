@@ -60,7 +60,7 @@ parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 -> comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 ```
 
-O Passo 03 só homologa a ferramenta quando o resultado técnico for apto, a auditoria estiver aprovada e a prontidão for `HOMOLOGADA_PARA_INTEGRACOES`. O próximo passo após essa homologação ainda não está disponível para operação.
+O Passo 03 só homologa a ferramenta quando o resultado técnico for apto, a auditoria estiver aprovada e a prontidão for `HOMOLOGADA_PARA_INTEGRACOES`. Depois dessa homologação, a ferramenta passa a estar disponível ao resolvedor central de contexto em `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md`; uma necessidade de ERP segue então a jornada e o menor passo responsável, sem autoexecução.
 
 ## Jornada 2 — ERP parceiro
 

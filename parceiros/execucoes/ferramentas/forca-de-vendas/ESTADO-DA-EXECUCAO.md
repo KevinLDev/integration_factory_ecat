@@ -23,12 +23,13 @@
 - ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md
 - ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md
 - parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md
+- parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RECONCILIACAO-DOCUMENTAL-20260813.md
 
 ## Vigência determinística final
 
 - PASSO-01.yaml: VALIDO e reutilizável como gate.
 - PASSO-02.yaml: VALIDO e reutilizável como gate após auditoria profunda da nova fonte complementar.
-- PASSO-03.yaml: VALIDO e reutilizável como gate após reexecução e auditoria profunda.
+- PASSO-03.yaml: VALIDO e reutilizável como gate após revalidação profunda independente do comando reconciliado.
 
 ## Execução atual do Passo 03
 
@@ -41,7 +42,7 @@
 
 - Auditoria vigente do Passo 02: parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-02-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md
 - Homologação vigente do Passo 03: ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md
-- Auditoria vigente do Passo 03: parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md
+- Auditoria vigente do Passo 03: parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RECONCILIACAO-DOCUMENTAL-20260813.md
 
 ### Preservação histórica
 
@@ -50,6 +51,7 @@
   - parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/historico/HOMOLOGACAO-PARA-INTEGRACOES-20260811-103240.md
   - parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/historico/AUDITORIA-ETAPA-03-20260811-103240.md
   - parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/historico/PASSO-03-20260811-103240.yaml
+  - parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-REGRAS-DE-NEGOCIO-20260813.md (auditoria vigente anterior, preservada como histórica)
 
 ## Integridade das revalidações dos Passos 02 e 03
 

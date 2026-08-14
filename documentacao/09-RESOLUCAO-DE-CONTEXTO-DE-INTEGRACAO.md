@@ -4,7 +4,7 @@
 
 Esta regra central define como a Fábrica resolve, antes de qualquer análise profunda de documentos fornecidos pelo operador, qual jornada deve ser usada para um cenário de integração.
 
-Ela serve como camada normativa comum para as jornadas futuras de:
+Ela serve como camada normativa comum para as jornadas de:
 
 - ERP parceiro;
 - ERP cliente.
@@ -95,17 +95,20 @@ Usar credencial não é persistir credencial: não versionar segredos, não copi
 
 Se o operador colar credencial diretamente na sessão da IA executora, o uso transitório para o objetivo autorizado é permitido, mas o valor não pode ser reproduzido nem persistido.
 
-## Regra futura da base comercial
+## Sequência vigente da jornada ERP parceiro
 
-A jornada de ERP parceiro, quando liberada futuramente, deverá preparar a base comercial de homologação antes do desenvolvimento da integração.
+A jornada de ERP parceiro está disponível nos Passos 01 a 06 e prepara a base comercial de homologação antes do desenvolvimento da integração.
 
-Essa camada central não implementa a base comercial agora. Ela apenas registra que a sequência futura será:
+Essa camada central não executa os passos. Ela apenas resolve o contexto e preserva a sequência oficial:
 
-1. analisar ERP x contrato homologado da ferramenta;
-2. gerar base comercial de homologação;
-3. criar ou importar a base no ERP;
-4. validar a base;
-5. só então mapear e desenvolver.
+1. apresentar e identificar o ERP;
+2. analisar as capacidades do ERP contra o contrato homologado da ferramenta;
+3. projetar a homologação e a base necessária;
+4. materializar a Base de Homologação no ERP;
+5. projetar a integração e o mapeamento semântico;
+6. desenvolver e testar localmente a implementação até `PRONTO_PARA_EXECUCAO_HML`.
+
+O Passo 06 não executa HML nem homologa funcionalmente a integração. Ainda não existe Passo 07 oficial; execução e validação em HML permanecem visão futura sem etapa numerada nesta resolução.
 
 ## Fluxo de decisão resumido
 

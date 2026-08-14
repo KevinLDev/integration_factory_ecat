@@ -19,15 +19,15 @@ O Passo 03 mantém separados:
 - status da etapa;
 - prontidão para integrações.
 
-Somente `APTO_PARA_INTEGRACOES` com auditoria aprovada permite `HOMOLOGADA_PARA_INTEGRACOES`. O próximo passo após o Passo 03 ainda não está disponível para operação.
+Somente `APTO_PARA_INTEGRACOES` com auditoria aprovada permite `HOMOLOGADA_PARA_INTEGRACOES`. A ferramenta homologada fica disponível ao resolvedor central de contexto; isso não inicia automaticamente outra jornada.
 
 ### 2. ERP parceiro
 
-Terá etapas próprias para analisar um ERP, mapear suas capacidades contra o contrato da ferramenta, desenvolver, testar e homologar uma integração reutilizável.
+Possui etapas próprias para identificar e analisar um ERP, projetar e materializar a Base de Homologação, mapear a integração e desenvolver uma implementação reutilizável.
 
-Essa jornada ainda não possui passos operacionais liberados.
+Os Passos 01 a 06 estão disponíveis em ordem. O Passo 06 é a última etapa oficial, termina em `PRONTO_PARA_EXECUCAO_HML` e não executa HML nem homologa funcionalmente a integração.
 
-Quando for liberada, deverá bloquear o uso de qualquer ferramenta que não possua Passo 03 concluído, auditoria 03 aprovada e prontidão `HOMOLOGADA_PARA_INTEGRACOES`.
+A jornada deve bloquear o uso de qualquer ferramenta que não possua Passo 03 concluído, auditoria 03 aprovada e prontidão `HOMOLOGADA_PARA_INTEGRACOES`. Ainda não existe Passo 07 oficial.
 
 ### 3. ERP cliente
 
@@ -43,7 +43,7 @@ Uma etapa só libera a próxima quando:
 - `STATUS DA ETAPA: CONCLUIDA`;
 - a auditoria obrigatória estiver aprovada.
 
-## Papel das três etapas disponíveis
+## Papel das três etapas de Nova Ferramenta
 
 - Passo 01: analisar e compreender tecnicamente a ferramenta.
 - Passo 02: cadastrar oficialmente o contrato canônico da ferramenta para reuso na fábrica.
