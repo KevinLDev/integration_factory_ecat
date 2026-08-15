@@ -142,4 +142,4 @@ Pendências não impeditivas podem permanecer, desde que estejam explícitas, ra
 
 A ferramenta homologada fica elegível para a resolução de contexto de integrações com ERP. Consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para escolher a jornada e o menor passo responsável.
 
-O Passo 03 não executa outra jornada automaticamente. Se o contexto resolver um ERP novo ou uma combinação ainda não homologada, a jornada ERP parceiro possui os Passos 01 a 06 disponíveis e deve começar pelo menor passo aplicável; nunca pule diretamente para o Passo 06.
+O Passo 03 não executa outra jornada automaticamente. Se o contexto resolver um ERP novo ou uma combinação ainda não homologada, a jornada ERP parceiro possui os Passos 01 a 07 disponíveis e deve começar pelo menor passo aplicável; nunca pule diretamente para o Passo 06.

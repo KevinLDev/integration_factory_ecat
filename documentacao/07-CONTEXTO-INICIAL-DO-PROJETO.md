@@ -44,7 +44,7 @@ A experiência operacional está separada em três jornadas:
 
 Naquele estágio do projeto, os Passos 01, 02 e 03 da jornada de nova ferramenta estavam disponíveis, enquanto as portas de ERP parceiro e ERP cliente ainda eram apenas conceituais.
 
-O estado operacional evoluiu desde então. Atualmente, a jornada de ERP parceiro possui os Passos 01 a 06 disponíveis; o Passo 06 é a última etapa oficial e termina em `PRONTO_PARA_EXECUCAO_HML`. A jornada de ERP cliente continua não liberada. Para o estado vigente, consulte `AGENTS.md` e `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+O estado operacional evoluiu desde então. Atualmente, a jornada de ERP parceiro possui os Passos 01 a 07 disponíveis; o Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML` e o Passo 07 executa e valida tecnicamente em HML sem homologar funcionalmente. A jornada de ERP cliente continua não liberada. Para o estado vigente, consulte `AGENTS.md` e `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## Regras essenciais
 
@@ -63,7 +63,7 @@ O Força de Vendas é o primeiro caso real da jornada de ferramenta. Seus artefa
 
 Naquele estágio, o Passo 03 homologava tecnicamente o contrato para integrações sem corrigi-lo, e nenhuma etapa posterior estava liberada sem comando técnico e documento operacional humano homologado.
 
-Posteriormente, os Passos 01 a 06 de ERP parceiro foram publicados. Essa evolução não muda o princípio histórico: uma etapa só se torna operacional quando seu comando técnico e seu documento humano correspondente estão oficialmente disponíveis.
+Posteriormente, os Passos 01 a 07 de ERP parceiro foram publicados. Essa evolução não muda o princípio histórico: uma etapa só se torna operacional quando seu comando técnico e seu documento humano correspondente estão oficialmente disponíveis.
 
 ## Ao iniciar um novo chat
 

@@ -97,7 +97,7 @@ Se o operador colar credencial diretamente na sessão da IA executora, o uso tra
 
 ## Sequência vigente da jornada ERP parceiro
 
-A jornada de ERP parceiro está disponível nos Passos 01 a 06 e prepara a base comercial de homologação antes do desenvolvimento da integração.
+A jornada de ERP parceiro está disponível nos Passos 01 a 07 e prepara a base comercial de homologação antes do desenvolvimento da integração.
 
 Essa camada central não executa os passos. Ela apenas resolve o contexto e preserva a sequência oficial:
 
@@ -106,9 +106,10 @@ Essa camada central não executa os passos. Ela apenas resolve o contexto e pres
 3. projetar a homologação e a base necessária;
 4. materializar a Base de Homologação no ERP;
 5. projetar a integração e o mapeamento semântico;
-6. desenvolver e testar localmente a implementação até `PRONTO_PARA_EXECUCAO_HML`.
+6. desenvolver e testar localmente a implementação até `PRONTO_PARA_EXECUCAO_HML`;
+7. executar e validar tecnicamente a implementação em HML, sem homologação funcional.
 
-O Passo 06 não executa HML nem homologa funcionalmente a integração. Ainda não existe Passo 07 oficial; execução e validação em HML permanecem visão futura sem etapa numerada nesta resolução.
+O Passo 06 não executa HML nem homologa funcionalmente a integração. O Passo 07 executa HML controlada e pode liberar somente `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` depois de auditoria independente. Homologação funcional, publicação, runtime e produção permanecem fora da sequência vigente.
 
 ## Fluxo de decisão resumido
 
@@ -145,14 +146,14 @@ Essa camada não executa jornada, não reinterpreta contratos homologados e não
 
 ## Cenários validados
 
-| Cenário | Situação | Resolução |
-|---|---|---|
-| A | Ferramenta nova + ERP novo | Nova ferramenta primeiro |
-| B | Ferramenta homologada + ERP novo | ERP parceiro |
-| C | Ferramenta homologada + ERP conhecido, combinação ainda não homologada | ERP parceiro para nova combinação |
-| D | Ferramenta homologada + ERP homologado para ela + cliente | ERP cliente / reutilização |
-| E | Operador envia Swagger de ativo já homologado | Documento redundante para a execução corrente, sem sobrescrever a homologação |
-| F | Operador envia nova documentação dizendo que a API mudou, mas não pediu atualização | Não alterar o contrato homologado automaticamente |
+| Cenário | Situação                                                                            | Resolução                                                                     |
+| ------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| A       | Ferramenta nova + ERP novo                                                          | Nova ferramenta primeiro                                                      |
+| B       | Ferramenta homologada + ERP novo                                                    | ERP parceiro                                                                  |
+| C       | Ferramenta homologada + ERP conhecido, combinação ainda não homologada              | ERP parceiro para nova combinação                                             |
+| D       | Ferramenta homologada + ERP homologado para ela + cliente                           | ERP cliente / reutilização                                                    |
+| E       | Operador envia Swagger de ativo já homologado                                       | Documento redundante para a execução corrente, sem sobrescrever a homologação |
+| F       | Operador envia nova documentação dizendo que a API mudou, mas não pediu atualização | Não alterar o contrato homologado automaticamente                             |
 
 ## Leitura operacional dos cenários
 

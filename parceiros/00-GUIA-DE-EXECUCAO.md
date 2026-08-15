@@ -74,6 +74,7 @@ Passos operacionais disponíveis:
 - `comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
+- `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 
 Entrada humana:
 
@@ -91,7 +92,9 @@ Entrada humana:
 
 **PASSO 06 LIBERADO PARA EXECUCAO.**
 
-Ainda não existe Passo 07 oficial ou executável. Não improvise comandos nem avance para etapas não liberadas.
+**PASSO 07 LIBERADO PARA EXECUCAO.**
+
+O Passo 07 executa e valida tecnicamente em HML, mas não homologa funcionalmente, não publica e não executa produção. Não improvise etapas posteriores.
 
 ## Jornada 3 — ERP cliente
 

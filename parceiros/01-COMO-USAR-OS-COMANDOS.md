@@ -26,6 +26,7 @@ parceiros/comandos/ERP-PARCEIRO-03-PROJETAR-HOMOLOGACAO.md
 parceiros/comandos/ERP-PARCEIRO-04-MATERIALIZAR-BASE-HOMOLOGACAO.md
 parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
 parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md
+parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 ```
 
 Seus documentos operacionais são:
@@ -40,6 +41,7 @@ comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md
 comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md
 comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
 comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md
+comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -92,6 +94,7 @@ Comandos operacionais disponiveis para ERP parceiro:
 - `parceiros/comandos/ERP-PARCEIRO-04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 - `parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 - `parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md`
+- `parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 
 Documentos humanos correspondentes:
 
@@ -101,8 +104,9 @@ Documentos humanos correspondentes:
 - `comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
+- `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 
-Execute os Passos 01 a 06 em ordem e respeite os gates e handoffs de cada etapa. O Passo 06 é a última etapa oficial disponível, termina em `PRONTO_PARA_EXECUCAO_HML` e não executa HML nem homologa funcionalmente a integração. Não existe Passo 07 oficial.
+Execute os Passos 01 a 07 em ordem e respeite os gates e handoffs de cada etapa. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente em HML e só pode liberar prontidão para homologação funcional depois de auditoria independente. Ele não homologa funcionalmente, não publica e não executa produção.
 
 Comandos de ERP cliente deverão ter seus documentos humanos em:
 

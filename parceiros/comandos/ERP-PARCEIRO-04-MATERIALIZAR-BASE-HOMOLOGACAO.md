@@ -246,6 +246,7 @@ Retornar gate final completo.
 STATUS DA ETAPA: CONCLUIDA | PENDENTE | BLOQUEADA
 
 GATE DE ENTRADA:
+
 - ERP_IDENTIFICADO
 - FERRAMENTA_HOMOLOGADA
 - PASSO_02_APTO
@@ -254,6 +255,7 @@ GATE DE ENTRADA:
 - PRONTO_PARA_CRIAR_BASE_REAL
 
 GATE FINAL:
+
 - AMBIENTE_AUTORIZADO
 - PLANO_VALIDO
 - VIGENCIA_DO_PLANO
@@ -267,9 +269,11 @@ GATE FINAL:
 - PRONTO_PARA_VALIDACAO_NA_FERRAMENTA
 
 ARTEFATOS:
+
 - BASE-MESTRA-MATERIALIZADA.yaml
 - RELATORIO-DE-MATERIALIZACAO.md
 
 PROXIMA ACAO PERMITIDA:
+
 - executar somente o Passo 05 - Projetar Integracao e Mapeamento Semantico, conforme `parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md` (sem autoexecucao).
-- depois do Passo 05 apto, o Passo 06 oficialmente publicado desenvolve e testa localmente a integracao; execucao e validacao em HML permanecem futuras. O Passo 04 nao pula o Passo 05.
+- depois do Passo 05 apto, o Passo 06 desenvolve e testa localmente a integracao e o Passo 07 executa e valida tecnicamente em HML. O Passo 04 nao pula o Passo 05 nem autoexecuta etapas posteriores.

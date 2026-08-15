@@ -23,7 +23,7 @@ O resultado máximo desta etapa é:
 PRONTO_PARA_EXECUCAO_HML: SIM
 ```
 
-O Passo 06 nunca declara `INTEGRACAO_HOMOLOGADA`. Uma etapa posterior, ainda não publicada, poderá executar e validar a implementação em HML.
+O Passo 06 nunca declara `INTEGRACAO_HOMOLOGADA`. O Passo 07 publicado executa e valida tecnicamente em HML a implementacao que terminou em `PRONTO_PARA_EXECUCAO_HML: SIM`; o Passo 06 nao o inicia automaticamente. A homologacao funcional continua posterior ao Passo 07.
 
 ## 2. Regra central: decisão versus implementação
 
@@ -369,6 +369,6 @@ Cobertura `PARCIAL_JUSTIFICADA` do Passo 05 permite implementar somente o núcle
 
 ## 23. Próxima etapa
 
-O Passo 06 é a última etapa oficial disponível da jornada ERP parceiro. Não existe Passo 07 oficial ou executável.
+O próximo passo oficial é o Passo 07 - Executar e Validar Tecnicamente em HML. Ele usa a implementação `PRONTO_PARA_EXECUCAO_HML` em ambientes HML autorizados, produz evidência técnica e não homologa funcionalmente a integração.
 
-Uma etapa posterior poderá executar e validar a implementação em HML, mas esta referência não cria nome, comando, runtime ou autorização de execução externa.
+O Passo 06 não executa nem inicia automaticamente o Passo 07. Homologação funcional, publicação, runtime e produção permanecem capacidades posteriores.

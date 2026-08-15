@@ -10,7 +10,7 @@ O Passo 06 termina, no máximo, com:
 PRONTO_PARA_EXECUCAO_HML: SIM
 ```
 
-Ele não declara `INTEGRACAO_HOMOLOGADA` e não executa ERP ou ferramenta em HML. A execução e validação externas pertencem a uma etapa posterior ainda não publicada.
+Ele não declara `INTEGRACAO_HOMOLOGADA` e não executa ERP ou ferramenta em HML. A execução e validação técnicas externas pertencem ao Passo 07 oficialmente publicado, iniciado somente por decisão do operador.
 
 ## Regra central
 
@@ -320,44 +320,44 @@ Commit e push nunca são automáticos.
 
 ## Cenários de validação A-AJ
 
-| Cenário | Resultado obrigatório |
-|---|---|
-| A. Passo 05 diz `M -> MASCULINO` e o código implementa isso | Válido |
-| B. Código escolhe campo diferente sem alterar Passo 05 | Inválido; `DIVERGENCIA_DE_PROJETO` |
-| C. Client do ERP é reutilizável entre ferramentas | Válido |
-| D. Client da ferramenta é reutilizável entre ERPs | Válido |
-| E. Um client mistura auth dos dois sistemas e toda a integração | Suspeito/inválido sem justificativa |
-| F. Mapper ERP -> ferramenta fica na combinação | Válido |
-| G. Toda integração em classe/arquivo monolítico | Inválido |
-| H. Paginação lê somente a primeira página | Inválido |
-| I. `401` causa loop infinito | Inválido |
-| J. `401` usa refresh e retry controlados | Válido |
-| K. `429` respeita política documentada | Válido |
-| L. `404` funcional recebe retries cegos | Inválido |
-| M. `null` vira zero sem regra | Inválido |
-| N. Enum desconhecido recebe fallback inventado | Inválido |
-| O. Filial real de cliente fica hardcoded | Inválido |
-| P. `branchId` é parâmetro requerido sem valor real | Válido |
-| Q. Secret entra em fixture | Inválido |
-| R. Log imprime bearer token | Inválido |
-| S. Testes usam mocks/fixtures, sem HML | Válido |
-| T. Passo 06 sincroniza produtos reais | Inválido |
-| U. Teste prova campo upstream inexistente | Retornar ao menor passo responsável |
-| V. Teste prova somente bug no mapper | Corrigir no Passo 06 |
-| W. Outra ferramenta reutiliza `ERP_REUSABLE` do mesmo ERP | Válido |
-| X. Outro ERP reutiliza `TOOL_REUSABLE` da mesma ferramenta | Válido |
-| Y. Código e testes passam sem divergência bloqueante | Candidato a `PRONTO_PARA_EXECUCAO_HML: SIM` |
-| Z. Passo 06 declara integração homologada | Inválido |
-| AA. Nome de produto é usado como correlação | Inválido |
-| AB. Correlação usa ERP ID, ID lógico e Tool ID | Válido |
-| AC. Grade aberta e Pack usam mesma transformação sem prova | Inválido |
-| AD. Mapper monetário perde casas decimais | Inválido |
-| AE. `false` recebe default `true` por lógica falsy | Inválido |
-| AF. Contrato muda e o código ignora vigência | Inválido |
-| AG. Cobertura parcial válida é implementada e o restante registrado | Válido |
-| AH. Dependência pesada é adicionada para operação trivial | Inválido sem forte justificativa |
-| AI. Implementação cria modelo universal especulativo | Inválido |
-| AJ. Arquitetura real do repositório é reutilizada | Válido |
+| Cenário                                                             | Resultado obrigatório                       |
+| ------------------------------------------------------------------- | ------------------------------------------- |
+| A. Passo 05 diz `M -> MASCULINO` e o código implementa isso         | Válido                                      |
+| B. Código escolhe campo diferente sem alterar Passo 05              | Inválido; `DIVERGENCIA_DE_PROJETO`          |
+| C. Client do ERP é reutilizável entre ferramentas                   | Válido                                      |
+| D. Client da ferramenta é reutilizável entre ERPs                   | Válido                                      |
+| E. Um client mistura auth dos dois sistemas e toda a integração     | Suspeito/inválido sem justificativa         |
+| F. Mapper ERP -> ferramenta fica na combinação                      | Válido                                      |
+| G. Toda integração em classe/arquivo monolítico                     | Inválido                                    |
+| H. Paginação lê somente a primeira página                           | Inválido                                    |
+| I. `401` causa loop infinito                                        | Inválido                                    |
+| J. `401` usa refresh e retry controlados                            | Válido                                      |
+| K. `429` respeita política documentada                              | Válido                                      |
+| L. `404` funcional recebe retries cegos                             | Inválido                                    |
+| M. `null` vira zero sem regra                                       | Inválido                                    |
+| N. Enum desconhecido recebe fallback inventado                      | Inválido                                    |
+| O. Filial real de cliente fica hardcoded                            | Inválido                                    |
+| P. `branchId` é parâmetro requerido sem valor real                  | Válido                                      |
+| Q. Secret entra em fixture                                          | Inválido                                    |
+| R. Log imprime bearer token                                         | Inválido                                    |
+| S. Testes usam mocks/fixtures, sem HML                              | Válido                                      |
+| T. Passo 06 sincroniza produtos reais                               | Inválido                                    |
+| U. Teste prova campo upstream inexistente                           | Retornar ao menor passo responsável         |
+| V. Teste prova somente bug no mapper                                | Corrigir no Passo 06                        |
+| W. Outra ferramenta reutiliza `ERP_REUSABLE` do mesmo ERP           | Válido                                      |
+| X. Outro ERP reutiliza `TOOL_REUSABLE` da mesma ferramenta          | Válido                                      |
+| Y. Código e testes passam sem divergência bloqueante                | Candidato a `PRONTO_PARA_EXECUCAO_HML: SIM` |
+| Z. Passo 06 declara integração homologada                           | Inválido                                    |
+| AA. Nome de produto é usado como correlação                         | Inválido                                    |
+| AB. Correlação usa ERP ID, ID lógico e Tool ID                      | Válido                                      |
+| AC. Grade aberta e Pack usam mesma transformação sem prova          | Inválido                                    |
+| AD. Mapper monetário perde casas decimais                           | Inválido                                    |
+| AE. `false` recebe default `true` por lógica falsy                  | Inválido                                    |
+| AF. Contrato muda e o código ignora vigência                        | Inválido                                    |
+| AG. Cobertura parcial válida é implementada e o restante registrado | Válido                                      |
+| AH. Dependência pesada é adicionada para operação trivial           | Inválido sem forte justificativa            |
+| AI. Implementação cria modelo universal especulativo                | Inválido                                    |
+| AJ. Arquitetura real do repositório é reutilizada                   | Válido                                      |
 
 ## Validações antes do retorno
 
@@ -400,7 +400,7 @@ Separe SHARED_CORE, ERP_REUSABLE, TOOL_REUSABLE e COMBINATION_SPECIFIC conforme 
 Não criar mega modelo universal ou abstrações especulativas.
 Não executar sincronização ou HML.
 Não executar POST, PUT, PATCH ou DELETE em ERP ou ferramenta.
-Não criar banco, deploy, runtime 24/7 ou Passo 07.
+Não criar banco, deploy ou runtime 24/7, nem executar o Passo 07.
 Não hardcodar cliente, IDs físicos ou credenciais.
 Não versionar ou imprimir secrets.
 Não alterar contrato homologado, Harness ou manifestos de ferramenta.
@@ -462,5 +462,5 @@ HARNESS:
 AUDITORIA: APROVADA | REPROVADA | BLOQUEADA
 
 PROXIMA ACAO PERMITIDA:
-aguardar etapa posterior oficialmente publicada; não executar HML, commit ou push automaticamente.
+executar somente o Passo 07 - Executar e Validar Tecnicamente em HML, conforme `parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`, por decisão do operador e com ambientes HML comprovados; não autoexecutar, fazer commit ou push.
 ```

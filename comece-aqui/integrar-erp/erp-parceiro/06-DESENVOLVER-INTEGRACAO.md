@@ -19,7 +19,7 @@ Resultado máximo:
 PRONTO_PARA_EXECUCAO_HML: SIM
 ```
 
-Uma etapa posterior, ainda não publicada, poderá executar e validar a implementação em HML. Não existe Passo 07 oficial.
+O Passo 07 oficialmente publicado executa e valida tecnicamente em HML a implementação aprovada. Ele não é iniciado automaticamente pelo Passo 06 e não homologa funcionalmente a integração.
 
 ## Pré-requisitos
 
@@ -100,7 +100,7 @@ O executor localiza automaticamente:
 - não cria banco, deploy ou runtime 24/7;
 - não cria mega modelo universal;
 - não hardcoda cliente, ID físico ou secret;
-- não cria Passo 07;
+- não executa Passo 07;
 - não declara integração homologada;
 - não faz commit ou push automaticamente.
 
@@ -245,19 +245,19 @@ Confirmar, conforme aplicável:
 
 ## Cenários de interpretação
 
-| Situação | Resultado |
-|---|---|
-| Código implementa exatamente enum do Passo 05 | Válido |
-| Código troca campo upstream por conveniência | `DIVERGENCIA_DE_PROJETO` |
-| Mapper possui bug contra regra clara | Corrigir no Passo 06 |
-| Client do ERP é reutilizado em outra ferramenta | Válido |
-| Client da ferramenta é reutilizado em outro ERP | Válido |
-| Paginação lê apenas primeira página | Falha |
-| `401` cria loop | Falha |
-| `401` tem renovação/retry controlados | Válido |
-| Secret aparece em fixture ou log | Falha bloqueante |
-| Testes usam mocks e fixtures sintéticas | Válido |
-| Passo 06 sincroniza dados reais | Falha de escopo |
+| Situação                                          | Resultado                 |
+| ------------------------------------------------- | ------------------------- |
+| Código implementa exatamente enum do Passo 05     | Válido                    |
+| Código troca campo upstream por conveniência      | `DIVERGENCIA_DE_PROJETO`  |
+| Mapper possui bug contra regra clara              | Corrigir no Passo 06      |
+| Client do ERP é reutilizado em outra ferramenta   | Válido                    |
+| Client da ferramenta é reutilizado em outro ERP   | Válido                    |
+| Paginação lê apenas primeira página               | Falha                     |
+| `401` cria loop                                   | Falha                     |
+| `401` tem renovação/retry controlados             | Válido                    |
+| Secret aparece em fixture ou log                  | Falha bloqueante          |
+| Testes usam mocks e fixtures sintéticas           | Válido                    |
+| Passo 06 sincroniza dados reais                   | Falha de escopo           |
 | Código e testes passam sem divergência bloqueante | Candidato a prontidão HML |
 
 ## Resultado esperado
@@ -278,15 +278,15 @@ O retorno deve conter:
 
 ## Como interpretar falhas
 
-| Situação | Encaminhamento |
-|---|---|
-| Passo 05 ou upstream inválido | Voltar ao menor passo responsável |
-| Arquitetura física insuficiente | `BLOQUEADA`; registrar decisão necessária |
-| Regra do Passo 05 impossível | `DIVERGENCIA_DE_PROJETO`; não improvisar |
-| Bug de implementação | Corrigir no Passo 06 e testar novamente |
-| Build/typecheck/lint/test falha | `PENDENTE`; corrigir código local |
-| Secret encontrado | Bloquear publicação, remover exposição e tratar incidente sem reproduzir valor |
-| Cobertura opcional não suportada | Manter escopo parcial justificado e registrar impacto |
+| Situação                         | Encaminhamento                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------ |
+| Passo 05 ou upstream inválido    | Voltar ao menor passo responsável                                              |
+| Arquitetura física insuficiente  | `BLOQUEADA`; registrar decisão necessária                                      |
+| Regra do Passo 05 impossível     | `DIVERGENCIA_DE_PROJETO`; não improvisar                                       |
+| Bug de implementação             | Corrigir no Passo 06 e testar novamente                                        |
+| Build/typecheck/lint/test falha  | `PENDENTE`; corrigir código local                                              |
+| Secret encontrado                | Bloquear publicação, remover exposição e tratar incidente sem reproduzir valor |
+| Cobertura opcional não suportada | Manter escopo parcial justificado e registrar impacto                          |
 
 ## Status, auditoria e continuação
 
@@ -298,6 +298,8 @@ Se a auditoria encontrar problema, usar `AUDITORIA: REPROVADA` e `STATUS DA ETAP
 
 ## Próximo documento
 
-O Passo 06 é a última etapa oficial disponível. Não existe documento operacional do Passo 07.
+O próximo documento oficial é:
 
-Após concluir, aguarde a publicação formal de uma etapa posterior para executar e validar a implementação em HML.
+`comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
+
+O Passo 07 só pode ser iniciado por decisão do operador, com ambientes HML comprovados e autorização explícita. Ele não homologa funcionalmente, publica ou executa produção.

@@ -44,6 +44,10 @@ Passo 06 — Desenvolver Integração:
 
 `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
 
+Passo 07 — Executar e Validar Tecnicamente em HML:
+
+`comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -58,20 +62,18 @@ Se alguma condição estiver ausente, a jornada de ERP parceiro deverá ser bloq
 
 Se o operador também fornecer documentação da ferramenta já homologada, trate-a como documento de contexto da execução corrente, não como nova verdade contratual.
 
-## Visão posterior ao Passo 06
+## Limite posterior ao Passo 07
 
-Os Passos 01 a 06 acima estão disponíveis. A visão conceitual posterior, ainda não publicada como etapa executável, poderá incluir atividades para:
+Os Passos 01 a 07 acima estão disponíveis. O Passo 07 executa e valida tecnicamente em HML, inclusive ida e volta quando suportado, correlação, idempotência e prevenção de loop. Ele não homologa funcionalmente, não publica nem registra o ERP como integrado.
 
-- executar e validar a implementação em HML;
-- testar ida e volta em HML quando suportado;
-- validar correlação;
-- validar idempotência;
-- validar prevenção de loops;
-- homologar a integração;
-- gerar documentação final;
-- registrar o ERP como integrado.
+As capacidades posteriores, ainda não publicadas, poderão incluir:
 
-Esses itens são somente a visão posterior ao Passo 06. Eles não representam passos disponíveis e não autorizam criar ou executar um Passo 07.
+- homologação funcional da integração;
+- documentação final e publicação;
+- registro do ERP em `erps-integrados/`;
+- runtime, monitoramento e operação contínua;
+- configuração e onboarding de cliente;
+- produção.
 
 Em toda a jornada, a camada central de resolução de contexto deve ser consultada antes de qualquer etapa de análise profunda, para evitar duplicação de contrato ou escolha incorreta de jornada.
 
@@ -89,6 +91,8 @@ Em toda a jornada, a camada central de resolução de contexto deve ser consulta
 
 **PASSO 06 LIBERADO PARA EXECUCAO.**
 
-Os passos posteriores da jornada de ERP parceiro ainda nao estao liberados.
+**PASSO 07 LIBERADO PARA EXECUCAO.**
 
-Apos concluir o Passo 06, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.
+Os passos posteriores ao Passo 07 da jornada de ERP parceiro ainda nao estao liberados.
+
+Apos concluir e auditar o Passo 07, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.

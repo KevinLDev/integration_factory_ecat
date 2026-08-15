@@ -48,4 +48,4 @@ integrar ERP parceiro
 configurar o ERP de um cliente
 ```
 
-A jornada ERP parceiro possui os Passos 01 a 06 disponíveis, conforme `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 06 é a última etapa oficial e termina em `PRONTO_PARA_EXECUCAO_HML`; não existe Passo 07 oficial. A jornada ERP cliente continua sem passos operacionais liberados.
+A jornada ERP parceiro possui os Passos 01 a 07 disponíveis, conforme `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML` e o Passo 07 executa e valida tecnicamente em HML, sem homologar funcionalmente nem publicar a integração. A jornada ERP cliente continua sem passos operacionais liberados.

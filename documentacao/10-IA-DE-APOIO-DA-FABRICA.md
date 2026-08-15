@@ -50,12 +50,12 @@ Fluxo:
 01. Apresentar ferramenta
     - Entender nome, objetivo, versão
     - Validar documentação
-    
+
 02. Cadastrar ferramenta
     - Documentar contrato em YAML
     - Módulos, endpoints, campos, regras
     - Autenticação, ambientes
-    
+
 03. Validar ferramenta
     - Comparar contra fonte oficial
     - Testes de API em ambiente autorizado
@@ -92,11 +92,16 @@ Fluxo oficial atualmente disponível:
 06. Desenvolver Integração
     - Transformar o projeto vigente em código executável e testado
     - Terminar, no máximo, em PRONTO_PARA_EXECUCAO_HML
+
+07. Executar e Validar Tecnicamente em HML
+    - Executar flows aprovados em ambiente HML autorizado
+    - Validar correlação, idempotência, loop, reconciliação e reprocessamento
+    - Terminar, no máximo, em PRONTO_PARA_HOMOLOGACAO_FUNCIONAL após auditoria independente
 ```
 
-**Saída atual do fluxo disponível**: implementação local executável e testada, pronta para futura execução em HML. O Passo 06 não executa HML e não declara a integração homologada.
+**Saída atual do fluxo disponível**: validação técnica HML auditada, pronta para futura homologação funcional. O Passo 06 não executa HML; o Passo 07 não declara a integração homologada.
 
-Execução e validação em HML, homologação funcional, publicação, runtime e monitoramento continuam como visão futura. Ainda não existe Passo 07 oficial ou executável.
+Homologação funcional, publicação, runtime e monitoramento continuam como visão futura. O Passo 07 não executa produção, não publica nem configura cliente real.
 
 **IMPORTANTE**: Nunca pule para desenvolvimento sem Base Comercial estar criada e validada NO ERP real. Base é pré-requisito de desenvolvimento.
 
@@ -178,13 +183,13 @@ Antes de qualquer análise, a Fábrica responde estas perguntas **nesta ordem**:
 
 **Regras de decisão**:
 
-| Situação | Jornada |
-|----------|---------|
-| Ferramenta não homologada | Nova Ferramenta (bloqueie outras) |
-| Ferramenta homologada + ERP novo | ERP Parceiro |
-| Ferramenta homologada + ERP existente, combinação não homologada | ERP Parceiro |
-| Ferramenta homologada + combinação homologada + cliente | ERP Cliente |
-| Documentação redundante de algo homologado | Recebida, não altera contrato |
+| Situação                                                         | Jornada                           |
+| ---------------------------------------------------------------- | --------------------------------- |
+| Ferramenta não homologada                                        | Nova Ferramenta (bloqueie outras) |
+| Ferramenta homologada + ERP novo                                 | ERP Parceiro                      |
+| Ferramenta homologada + ERP existente, combinação não homologada | ERP Parceiro                      |
+| Ferramenta homologada + combinação homologada + cliente          | ERP Cliente                       |
+| Documentação redundante de algo homologado                       | Recebida, não altera contrato     |
 
 **Documentação redundante** nunca é deletada fisicamente. Serve para referência futura. Apenas não reinterpreta contrato vigente.
 
@@ -195,15 +200,18 @@ Harness é o guarda-chuva de validação mecânica, estado e evidência.
 ### Componentes
 
 **Estado**:
+
 - `ESTADO-DA-EXECUCAO.md`: status geral, decisões, fatos
 - `DADOS-DA-EXECUCAO.md`: entradas do operador, contexto
 
 **Hashes**:
+
 - `TEXT_CANONICAL_V1`: UTF-8 normalizado (sem BOM, CRLF→LF), SHA256
 - `BYTES_V1`: bytes exatos, SHA256
 - Cada artefato importante tem hash declarado e esperado
 
 **Manifestos**:
+
 - Arquivo YAML que declara:
   - Identidade (jornada, etapa, execução)
   - Status (CONCLUIDA, PENDENTE, BLOQUEADA)
@@ -215,16 +223,19 @@ Harness é o guarda-chuva de validação mecânica, estado e evidência.
   - Gate de reutilização (atendido ou não)
 
 **Checkpoints**:
+
 - Progresso transitório
 - Linha de base para retomada segura
 - Não substitui manifesto final
 
 **Invalidação**:
+
 - Quando mudança upstream quebra downstream
 - Marcado automaticamente ou por decisão
 - Downstream não é reutilizável como gate enquanto não for restaurado
 
 **Auditoria**:
+
 - Aprovação explícita com evidência
 - Não é "Codex passou, logo está bom"
 - Requer rastreabilidade
@@ -273,29 +284,31 @@ Compreender causa é obrigatório antes de recalcular.
 ### Atualmente liberadas
 
 **Nova Ferramenta**:
+
 - Passo 01: Apresentar e Analisar Ferramenta
 - Passo 02: Cadastrar Ferramenta
 - Passo 03: Validar Ferramenta
 
 **ERP Parceiro**:
+
 - Passo 01: Apresentar ERP
 - Passo 02: Analisar ERP
 - Passo 03: Projetar Homologação
 - Passo 04: Materializar Base de Homologação
 - Passo 05: Projetar Integração e Mapeamento Semântico
 - Passo 06: Desenvolver Integração
+- Passo 07: Executar e Validar Tecnicamente em HML
 
-O Passo 06 é a última etapa oficial disponível. Ele termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML e sem homologar funcionalmente a integração.
+O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementação em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. Nenhum dos dois homologa funcionalmente a integração.
 
 ### Visão futura, ainda não executável
 
-- execução e validação da implementação em HML;
 - homologação funcional;
 - publicação da integração;
 - runtime e monitoramento;
 - jornada operacional de ERP Cliente.
 
-Não existe Passo 07 oficial. A IA de Apoio não deve numerar, criar ou sugerir um comando executável para essa visão futura.
+A IA de Apoio não deve numerar, criar ou sugerir comando executável para essas capacidades futuras sem publicação formal.
 
 Fluxo conceitual de jornada não equivale a etapa oficialmente liberada. A IA de Apoio não pode transformar automaticamente o próximo item do fluxo em execução. A próxima ação permitida deve ser consultar/identificar a próxima etapa oficialmente liberada pelos documentos e evidências atuais; se faltar material para verificar isso, classificar como `INFORMACAO_INSUFICIENTE`.
 

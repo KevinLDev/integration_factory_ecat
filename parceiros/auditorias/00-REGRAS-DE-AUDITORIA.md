@@ -203,12 +203,12 @@ Para etapas sem gate especializado:
 
 Para o Passo 03, aplicar obrigatoriamente:
 
-| Resultado técnico | Auditoria | Status final | Prontidão |
-|---|---|---|---|
-| `APTO_PARA_INTEGRACOES` | `APROVADA` | `CONCLUIDA` | `HOMOLOGADA_PARA_INTEGRACOES` |
-| `NAO_APTO_PARA_INTEGRACOES` | `REPROVADA` | `PENDENTE` | `NAO_HOMOLOGADA` |
-| qualquer | `REPROVADA` | `PENDENTE` | `NAO_HOMOLOGADA` |
-| qualquer | `BLOQUEADA` | `BLOQUEADA` | `AGUARDANDO_AUDITORIA` ou `NAO_HOMOLOGADA`; nunca homologada |
+| Resultado técnico           | Auditoria   | Status final | Prontidão                                                    |
+| --------------------------- | ----------- | ------------ | ------------------------------------------------------------ |
+| `APTO_PARA_INTEGRACOES`     | `APROVADA`  | `CONCLUIDA`  | `HOMOLOGADA_PARA_INTEGRACOES`                                |
+| `NAO_APTO_PARA_INTEGRACOES` | `REPROVADA` | `PENDENTE`   | `NAO_HOMOLOGADA`                                             |
+| qualquer                    | `REPROVADA` | `PENDENTE`   | `NAO_HOMOLOGADA`                                             |
+| qualquer                    | `BLOQUEADA` | `BLOQUEADA`  | `AGUARDANDO_AUDITORIA` ou `NAO_HOMOLOGADA`; nunca homologada |
 
 `AGUARDANDO_AUDITORIA` é estado transitório de prontidão e nunca um status final da etapa.
 
@@ -257,7 +257,7 @@ Antes da análise semântica, executar os validadores aplicáveis de `scripts/ha
 
 Os scripts são somente leitura dos artefatos de negócio por padrão, não contêm análise semântica e não substituem a auditoria. Validadores temporários recorrentes devem ser promovidos a scripts reutilizáveis quando generalizáveis.
 
-Na V1, os Passos 01 a 06 da jornada ERP parceiro estão oficialmente disponíveis. Implementar somente validadores necessários, objetivos e generalizáveis para as etapas em uso; a publicação de um comando não torna obrigatório antecipar um validador específico nem permite substituir a auditoria semântica.
+Na V1, os Passos 01 a 07 da jornada ERP parceiro estão oficialmente disponíveis. Implementar somente validadores necessários, objetivos e generalizáveis para as etapas em uso; a publicação de um comando não torna obrigatório antecipar um validador específico nem permite substituir a auditoria semântica.
 
 ## Timebox e pausa segura
 
@@ -274,7 +274,7 @@ A pausa não é `AUDITORIA: BLOQUEADA`, não é reprovação e não publica stat
 
 ## Cobertura de auditoria para ERP parceiro
 
-A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável dos Passos 01 a 06:
+A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável dos Passos 01 a 07:
 
 - mapeamentos;
 - campos obrigatórios;
@@ -289,4 +289,4 @@ A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável do
 - evidências;
 - homologação.
 
-Implementar validadores determinísticos específicos somente quando forem necessários e generalizáveis, preservando a análise semântica independente. Execução e validação em HML, homologação funcional, publicação, runtime e monitoramento permanecem visão futura não numerada; esta regra não cria nem autoriza um Passo 07.
+Implementar validadores determinísticos específicos somente quando forem necessários e generalizáveis, preservando a análise semântica independente. O Passo 07 executa e valida tecnicamente em HML; sua primeira execução HML real por combinação exige auditoria `PROFUNDA`, separada da execução produtora. Homologação funcional, publicação, runtime e monitoramento permanecem capacidades futuras.

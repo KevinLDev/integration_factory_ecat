@@ -1,0 +1,198 @@
+schema: fabrica.plano-execucao-hml.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Plano de execucao controlada do Passo 07 para uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_07
+  data_referencia: null
+  observacoes:
+    - Nao representa uma execucao real
+    - Nao contem credenciais, tokens, payloads sensiveis ou valores concretos de cliente
+    - Reutiliza MANIFESTO-DA-ETAPA.yaml e CHECKPOINT-DA-EXECUCAO.yaml para controle de vigencia e retomada
+    - Nao autoriza producao, homologacao funcional, publicacao ou runtime operacional
+
+regras_de_preenchimento:
+  - Preencher somente com fatos comprovados e flows definidos pelo Passo 05
+  - Registrar somente gates upstream exigidos pela combinacao concreta
+  - Identificar a implementacao por versao, hash e commit quando disponivel
+  - Bloquear antes de escrita se ambiente, autorizacao, vigencia ou identidade nao puderem ser comprovados
+  - Nao registrar segredo, payload sensivel desnecessario ou ID fisico como configuracao reutilizavel
+  - Nao alterar mapeamento, transformacao, Base Mestra ou contrato neste plano
+
+valores_permitidos:
+  ambiente:
+    - HML
+    - HOMOLOGACAO
+    - SANDBOX
+    - TESTE
+    - DEV_AUTORIZADO
+  direcao:
+    - ERP_PARA_FERRAMENTA
+    - FERRAMENTA_PARA_ERP
+    - BIDIRECIONAL_CONTROLADO
+  modalidade:
+    - CARGA_INICIAL
+    - INCREMENTAL
+    - REPROCESSAMENTO_CONTROLADO
+  operacao:
+    - READ
+    - CREATE
+    - UPDATE
+    - UPSERT_COMPROVADO
+    - DEACTIVATE
+  politica_timeout_estado_incerto:
+    - RECONSULTAR_ANTES_DE_RETRY
+    - INTERROMPER_E_REGISTRAR
+  politica_4xx:
+    - SEM_RETRY_CEGO
+  politica_valor_desconhecido:
+    - BLOQUEAR_REGISTRO
+    - USAR_FALLBACK_AUTORIZADO
+    - PENDENTE_DE_MAPEAMENTO
+  estado_precondicao:
+    - ATENDIDA
+    - NAO_ATENDIDA
+    - PENDENTE_DE_EVIDENCIA
+    - NAO_APLICAVEL
+
+identificacao:
+  execution_id: null
+  jornada: ERP_PARCEIRO
+  etapa: ERP_PARCEIRO_PASSO_07
+  erp_slug: null
+  ferramenta_slug: null
+  combinacao_id: null
+  data_planejamento: null
+  responsavel: null
+
+baseline:
+  manifestos_e_gates_upstream:
+    - etapa: null
+      manifesto: null
+      vigencia: null
+      gate_atendido: null
+      obrigatorio_para_esta_execucao: null
+  implementacao:
+    caminho: null
+    versao: null
+    sha256: null
+    hash_mode: null
+    commit: null
+    pronto_para_execucao_hml: null
+  projeto_passo_05:
+    mapeamento_semantico: null
+    regras_de_transformacao: null
+    plano_da_integracao: null
+    vigencia: null
+  base_mestra:
+    caminho: null
+    sha256: null
+    hash_mode: null
+    vigencia: null
+    cenarios_hml_selecionados: []
+    apta: null
+
+ambientes:
+  erp:
+    classificacao: null
+    fingerprint_nao_sensivel: null
+    evidencia_classificacao: null
+    producao_descartada: null
+  ferramenta:
+    classificacao: null
+    fingerprint_nao_sensivel: null
+    evidencia_classificacao: null
+    producao_descartada: null
+
+autorizacao:
+  operador_autorizou: null
+  referencia_autorizacao: null
+  combinacao_autorizada: null
+  versao_implementacao_autorizada: null
+  ambientes_autorizados: []
+  classes_escrita_permitidas: []
+  operacoes_permitidas: []
+  credenciais:
+    erp_fornecidas: null
+    ferramenta_fornecidas: null
+    mecanismo_transitorio: null
+    segredos_persistidos: false
+
+flows:
+  - flow_id: null
+    nome: null
+    direcao: null
+    modalidade: []
+    origem: null
+    destino: null
+    entidade: null
+    cenario_base_mestra: null
+    evento_id: null
+    ownership: null
+    conflito: null
+    dependencias_flow_ids: []
+    identidade:
+      id_logico: null
+      erp_id: null
+      tool_id: null
+      chave_negocio: null
+    correlacao:
+      estrategia: null
+      lookup_antes_da_escrita: null
+      originador_da_alteracao: null
+    operacoes_planejadas:
+      - operacao: null
+        classe_escrita_autorizada: null
+        reconsulta_destino_obrigatoria: null
+        confirmacao_valida_destino: null
+    idempotencia:
+      caso_repetido_planejado: null
+      resultado_esperado: null
+    prevencao_loop:
+      aplicavel: null
+      estrategia_passo_05: null
+      caso_reflexao_planejado: null
+    paginacao:
+      aplicavel: null
+      estrategia_comprovada: null
+      casos_planejados: []
+    retry_rate_limit:
+      retry_transitorio_limitado: null
+      respeita_retry_after: null
+      retry_5xx_seguro: null
+      retry_4xx: SEM_RETRY_CEGO
+      refresh_401_maximo: 1
+      retry_apos_401_maximo: 1
+      estado_incerto_timeout: RECONSULTAR_ANTES_DE_RETRY
+    reprocessamento:
+      aplicavel: null
+      estrategia: null
+      consulta_antes_de_nova_escrita: null
+    comparacao_semantica:
+      mapeamento_ids: []
+      transformacao_ids: []
+      regras_de_comparacao: []
+      campos_sensiveis_excluidos: []
+    casos:
+      - caso_id: null
+        id_logico: null
+        precondicoes: []
+        resultado_esperado: null
+        sequencia_planejada: []
+
+checkpoint_e_retomada:
+  checkpoint_referencia: parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/CHECKPOINT-DA-EXECUCAO.yaml
+  pontos_seguros: []
+  arquivos_protegidos: []
+  revalidar_baseline_antes_da_retomada: true
+  revalidar_fingerprint_ambiente_antes_da_retomada: true
+  revalidar_autorizacao_antes_da_retomada: true
+  continuar_automaticamente_com_divergencia_externa: false
+
+limites:
+  escrita_producao_permitida: false
+  homologacao_funcional_executada: false
+  publicacao_executada: false
+  runtime_24x7_criado: false
+  deploy_producao_criado: false
+  configuracao_cliente_real: false

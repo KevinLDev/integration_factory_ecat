@@ -1,0 +1,152 @@
+schema: fabrica.evidencias-execucao-hml.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Evidencias estruturadas e sanitizadas de uma execucao do Passo 07
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_07
+  data_referencia: null
+  observacoes:
+    - Nao contem segredo, token, header de autenticacao, payload pessoal desnecessario ou configuracao de cliente
+    - O resultado HTTP isolado nao substitui reconsulta e comparacao semantica
+    - Nao declara INTEGRACAO_HOMOLOGADA
+
+regras_de_preenchimento:
+  - Registrar uma evidencia por caso executado, inclusive caso repetido, loop ou reprocessamento
+  - Sanitizar erros e respostas antes de persistir
+  - Referenciar plano HML, versao da implementacao e manifesto da etapa
+  - Registrar NAO_OBSERVAVEL quando a confirmacao nao puder ser provada, sem inferir sucesso
+  - Registrar DIVERGENTE quando origem e destino nao forem semanticamente equivalentes conforme o Passo 05
+
+valores_permitidos:
+  status_caso:
+    - CONFIRMADO
+    - DIVERGENTE
+    - NAO_OBSERVAVEL
+    - PENDENTE_DE_EVIDENCIA
+    - NAO_APLICAVEL
+    - FALHOU_NA_EXECUCAO
+  resultado_reconsulta:
+    - CONFIRMADA
+    - DIVERGENTE
+    - NAO_OBSERVAVEL
+    - FALHOU
+    - NAO_APLICAVEL
+  resultado_comparacao_semantica:
+    - EQUIVALENTE
+    - DIVERGENTE
+    - PARCIAL_JUSTIFICADA
+    - NAO_OBSERVAVEL
+    - NAO_APLICAVEL
+  classificacao_falha:
+    - ERRO_DE_EXECUCAO_HML
+    - BUG_DE_IMPLEMENTACAO
+    - DIVERGENCIA_DE_PROJETO
+    - BASE_DE_HOMOLOGACAO_INSUFICIENTE
+    - EVIDENCIA_DE_ERP_INSUFICIENTE
+    - CONTRATO_DA_FERRAMENTA_DIVERGENTE
+
+identificacao:
+  execution_id: null
+  jornada: ERP_PARCEIRO
+  etapa: ERP_PARCEIRO_PASSO_07
+  erp_slug: null
+  ferramenta_slug: null
+  plano_execucao_hml: null
+  manifesto_etapa: null
+  codigo:
+    caminho: null
+    versao: null
+    sha256: null
+    hash_mode: null
+    commit: null
+  inicio: null
+  fim: null
+
+ambientes:
+  erp_fingerprint_nao_sensivel: null
+  ferramenta_fingerprint_nao_sensivel: null
+  producao_executada: false
+  autorizacao_referencia: null
+
+casos:
+  - caso_id: null
+    execution_id: null
+    flow_id: null
+    direcao: null
+    entidade: null
+    id_logico: null
+    erp_id: null
+    tool_id: null
+    operacao: null
+    correlation_id: null
+    origem_da_alteracao: null
+    tentativa: null
+    timestamp: null
+    referencia_codigo:
+      versao: null
+      sha256: null
+      commit: null
+    resultado_esperado: null
+    resultado_observado_sanitizado: null
+    lookup_previo:
+      executado: null
+      resultado_sanitizado: null
+    escrita:
+      executada: null
+      classe_autorizada: null
+      status_sanitizado: null
+    reconsulta:
+      executada: null
+      resultado: null
+      referencia_destino_sanitizada: null
+    comparacao_semantica:
+      resultado: null
+      mapeamento_ids: []
+      transformacao_ids: []
+      campos_confirmados: []
+      divergencias_sanitizadas: []
+    idempotencia:
+      caso_repetido: null
+      resultado: null
+      duplicacao_observada: null
+    prevencao_loop:
+      aplicavel: null
+      origem_reconhecida: null
+      loop_observado: null
+      resultado: null
+    paginacao:
+      aplicavel: null
+      paginas_ou_cursores_processados: null
+      conjunto_completo_confirmado: null
+    retry_rate_limit:
+      retries_executados: null
+      retry_after_respeitado: null
+      refresh_401_executado: null
+      estado_incerto: null
+      reconsulta_antes_de_retry: null
+    checkpoint:
+      referencia: null
+      ponto_seguro: null
+      retomada: null
+    reprocessamento:
+      executado: null
+      consulta_previa: null
+      resultado: null
+    status: null
+    erro_sanitizado: null
+    classificacao_falha: null
+    menor_passo_responsavel: null
+
+resumo:
+  total_casos: null
+  confirmados: null
+  divergentes: null
+  nao_observaveis: null
+  pendentes_de_evidencia: null
+  nao_aplicaveis: null
+  falhos_na_execucao: null
+  falhas_bloqueantes: null
+  divergencias_de_projeto: null
+  escrita_producao: false
+  homologacao_funcional_executada: false
+  publicacao_executada: false
