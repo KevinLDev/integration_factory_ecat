@@ -28,6 +28,8 @@ parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
 parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md
 parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 parceiros/comandos/ERP-PARCEIRO-08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md
+parceiros/comandos/ERP-PARCEIRO-09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md
+parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 ```
 
 Seus documentos operacionais são:
@@ -44,6 +46,8 @@ comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
 comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md
 comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md
+comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md
+comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -118,7 +122,11 @@ Comandos de ERP cliente deverão ter seus documentos humanos em:
 
 `comece-aqui/integrar-erp/erp-cliente/`
 
-A jornada ERP cliente ainda nao esta liberada.
+Comando operacional vigente de ERP cliente:
+
+- `parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md`
+
+A jornada ERP cliente possui o Passo 01 liberado. Os passos seguintes ainda nao estao liberados.
 
 ## Modelos existentes no repositório
 

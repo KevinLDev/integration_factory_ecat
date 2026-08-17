@@ -76,6 +76,7 @@ Passos operacionais disponíveis:
 - `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 - `comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
+- `comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md`
 
 Entrada humana:
 
@@ -109,7 +110,7 @@ Entrada humana:
 
 `comece-aqui/integrar-erp/erp-cliente/00-COMECE-AQUI.md`
 
-Essa jornada deve reutilizar uma integração homologada sempre que possível e ainda não está liberada para execução.
+Essa jornada deve reutilizar uma integração homologada sempre que possível. O Passo 01 está liberado para resolução de contexto e elegibilidade de reutilização; passos posteriores permanecem não liberados.
 
 ## O operador não deve fazer
 

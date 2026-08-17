@@ -27,6 +27,8 @@ Abra:
 
 Use quando um cliente utiliza um ERP e precisa ser conectado a uma ferramenta E-Catálogos.
 
+Disponibilidade atual da jornada cliente: Passo 01 liberado (resolucao de contexto e elegibilidade de reutilizacao).
+
 Abra:
 
 `comece-aqui/integrar-erp/erp-cliente/00-COMECE-AQUI.md`

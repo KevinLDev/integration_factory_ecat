@@ -247,7 +247,7 @@ A jornada ERP Cliente nao deve reexecutar P1-P9.
 
 Comportamento esperado do resolvedor:
 
-- combinacao `PUBLICADA` -> encaminhar para ERP Cliente;
+- combinacao `PUBLICADA` -> encaminhar para ERP Cliente Passo 01 (resolucao de contexto e elegibilidade de reutilizacao);
 - combinacao `HOMOLOGADA` no Passo 08 e nao publicada -> encaminhar para Passo 09;
 - combinacao ainda nao homologada -> manter ERP Parceiro no menor passo necessario.
 

@@ -58,7 +58,7 @@ Não pule etapa concluindo implicitamente trabalho que pertence a um comando pos
 
 Enquanto um comando ainda não existir ou não estiver validado, registre isso como lacuna do Harness; não improvise um fluxo permanente silenciosamente.
 
-A jornada de nova ferramenta possui os Passos 01 a 03 disponiveis. A jornada de ERP parceiro possui os Passos 01 a 09 disponiveis, com a relacao vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; o Passo 08 valida funcionalmente a combinacao em modelo manual assistido por IA e nao se autoaprova; o Passo 09 consolida e publica a integracao homologada para reutilizacao e tambem nao se autoaprova. Runtime e producao continuam fora desse escopo. A jornada de ERP cliente ainda não está liberada para operação.
+A jornada de nova ferramenta possui os Passos 01 a 03 disponiveis. A jornada de ERP parceiro possui os Passos 01 a 09 disponiveis, com a relacao vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; o Passo 08 valida funcionalmente a combinacao em modelo manual assistido por IA e nao se autoaprova; o Passo 09 consolida e publica a integracao homologada para reutilizacao e tambem nao se autoaprova. Runtime e producao continuam fora desse escopo. A jornada de ERP cliente possui o Passo 01 liberado para resolucao de contexto e elegibilidade de reutilizacao; passos posteriores ainda nao estao liberados.
 
 ## 3. Interface com o operador
 
@@ -304,6 +304,10 @@ Para comandos de ERP, o documento operacional correspondente deve ficar em:
 - `comece-aqui/integrar-erp/erp-cliente/`, quando configurar um cliente sobre uma integração já suportada.
 
 A paridade operacional vigente dos Passos 01 a 09 de ERP parceiro e publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+
+Para ERP cliente, a paridade operacional vigente inclui:
+
+- `parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md` -> `comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md`.
 
 Uma etapa não deve ser considerada pronta para uso operacional enquanto o documento correspondente não existir, não estiver homologado e não estiver na jornada correta.
 

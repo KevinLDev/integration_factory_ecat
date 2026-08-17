@@ -6,6 +6,10 @@ Use esta jornada quando existe um cliente real que utiliza um ERP e precisa ser 
 
 Antes de seguir esta jornada, consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para confirmar que a combinação ERP x ferramenta já está publicada no Passo 09 e que o cenário é realmente de reutilização para cliente.
 
+## Objetivo desta jornada
+
+Aplicar uma integracao ERP x ferramenta ja publicada para um cliente real, sem reconstruir o core da combinacao homologada.
+
 ## Regra principal
 
 Antes de iniciar uma integração de cliente, a fábrica deve verificar se existe integração publicada para a combinação:
@@ -32,29 +36,30 @@ Volte primeiro para:
 
 `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`
 
-## Visão da jornada futura
+## Passos operacionais disponíveis
 
-Quando for preparada e homologada, esta jornada poderá incluir etapas para:
+Passo 01 — Resolver contexto do cliente e elegibilidade de reutilização:
 
-- identificar o cliente;
-- selecionar o ERP;
-- selecionar a ferramenta E-Catálogos;
-- verificar compatibilidade;
-- registrar o ambiente;
-- fornecer credenciais;
-- identificar particularidades;
-- aplicar configurações;
-- testar conexão;
-- testar módulos;
-- testar fluxos de ida e volta;
-- homologar o cliente;
-- ativar a integração;
-- documentar a configuração final.
+`comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md`
 
-Esses itens são somente a visão da jornada. Eles não representam passos disponíveis e não autorizam execução.
+## Fronteira do Passo 01
 
-Quando esta jornada vier a ser liberada, ela deverá usar o adaptador publicado e trabalhar apenas com as credenciais, o ambiente e as particularidades do cliente.
+O Passo 01 resolve somente:
+
+- quem e o cliente;
+- qual ERP utiliza;
+- qual ferramenta deseja;
+- quais materiais foram recebidos;
+- se existe release publicada e elegivel para reutilizacao.
+
+O Passo 01 nao executa analise comercial profunda, nao projeta instalacao, nao materializa configuracao, nao executa HML e nao executa producao.
+
+## Visao dos proximos passos
+
+Os passos posteriores da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao.
 
 ## Disponibilidade
 
-**JORNADA AINDA NÃO LIBERADA PARA EXECUÇÃO.**
+**PASSO 01 LIBERADO PARA EXECUCAO.**
+
+Os passos posteriores da jornada ERP cliente ainda nao estao liberados.

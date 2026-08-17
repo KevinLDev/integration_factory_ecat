@@ -123,14 +123,16 @@ Runtime e monitoramento continuam como visao futura. O Passo 07 nao executa prod
 
 **Pré-requisito**: Combinação ERP x ferramenta já deve estar homologada em ERP Parceiro.
 
-Atividades conceituais futuras, ainda sem etapas oficiais liberadas:
+Etapas oficiais vigentes nesta jornada:
 
-- validar que a combinação ERP x ferramenta está homologada;
-- reutilizar adaptador e configuração já testados, sem reconstrução;
-- conectar credenciais do cliente em ambiente autorizado;
-- executar sincronização inicial;
-- validar correlações e dados;
-- ativar a integração conforme uma jornada futura oficialmente publicada.
+- Passo 01: resolver contexto do cliente e elegibilidade de reutilizacao da release publicada.
+
+Atividades futuras, ainda sem etapas oficiais liberadas:
+
+- analise comercial e tecnica profunda do cliente;
+- materializacao de configuracao, de-para e extensoes controladas;
+- validacao em HML da instalacao especifica;
+- gate de producao, ativacao e operacao inicial.
 
 **IMPORTANTE**: Não criar Base Comercial de desenvolvimento para cliente se já existe integração homologada. Base de homologação foi para a Fábrica, não para cada cliente.
 
@@ -318,7 +320,7 @@ O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 e
 ### Visão futura, ainda não executável
 
 - runtime e monitoramento;
-- jornada operacional de ERP Cliente.
+- passos 02+ da jornada ERP Cliente.
 
 A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 

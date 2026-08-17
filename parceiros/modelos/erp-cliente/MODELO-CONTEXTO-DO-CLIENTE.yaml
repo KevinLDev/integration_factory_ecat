@@ -1,0 +1,61 @@
+schema: fabrica.erp-cliente-contexto.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Contexto resolvido do cliente para elegibilidade de reutilizacao da release
+  etapa_origem: ERP_CLIENTE_PASSO_01
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Nao representa instalacao materializada
+    - Nao substitui fonte tecnica canonica da release
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  cliente_identificado: null # SIM | NAO | IDENTIDADE_AMBIGUA
+  erp_nome: null
+  erp_slug: null
+  erp_identificado: null # SIM | NAO | IDENTIDADE_AMBIGUA
+  ferramenta_nome: null
+  ferramenta_slug: null
+  ferramenta_identificada: null # SIM | NAO | IDENTIDADE_AMBIGUA
+  ferramenta_homologada: null # SIM | NAO
+  combinacao_slug: null
+
+enquadramento:
+  contexto_cliente_resolvido: null # RESOLVIDO | NAO_RESOLVIDO
+  rota_recomendada: null # ERP_CLIENTE_02 | ERP_PARCEIRO_<NN> | NOVA_FERRAMENTA_<NN> | BLOQUEADA
+  motivo_rota: null
+
+release:
+  combinacao_existe: null # SIM | NAO
+  integracao_homologada: null # SIM | NAO | INDETERMINADA
+  integracao_publicada: null # SIM | NAO | INDETERMINADA
+  disponivel_para_cliente: null # SIM | NAO | INDETERMINADA
+  release_reutilizavel: null # SIM | NAO
+  release_elegivel: null # SIM | NAO | INDETERMINADA
+  versao_release: null
+  lifecycle: null # ATIVA | DEPRECATED | RETIRADA | INDETERMINADA
+  contrato_configuracao_ref: null
+  manifesto_publicacao_ref: null
+
+vigencia:
+  verificacao_mecanica_executada: false
+  resultado_vigencia: null # VALIDA | INVALIDA | NAO_VERIFICAVEL
+  motivo: null
+
+ambiente:
+  ambiente_pretendido: null # HML | HOMOLOGACAO | TESTE | PRODUCAO | NAO_INFORMADO
+  risco_producao: null # SIM | NAO | INDETERMINADO
+
+seguranca:
+  segredo_persistido: false
+  credencial_hml_status: null # PRESENTE | AUSENTE | NAO_APLICAVEL
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes_para_passo_02: []
+
+referencias:
+  fontes_consultadas: []
+  artefatos_relacionados: []

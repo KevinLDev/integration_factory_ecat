@@ -1,0 +1,43 @@
+schema: fabrica.erp-cliente-inventario-materiais.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Inventario de materiais recebidos no Passo 01 do ERP Cliente
+  etapa_origem: ERP_CLIENTE_PASSO_01
+  versao: "1.0"
+  observacoes:
+    - Inventario nao implica analise profunda
+    - Conteudo detalhado deve ser tratado no Passo 02
+
+identidade:
+  cliente_slug: null
+  erp_slug: null
+  ferramenta_slug: null
+
+materiais:
+  swagger_openapi:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+  documentacao:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+  regras_negocio:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+  exemplos_payload:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+  customizacoes:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+  credencial_hml:
+    status: null # PRESENTE | AUSENTE | NAO_APLICAVEL
+    referencias: []
+  outros:
+    status: null # RECEBIDO | NAO_RECEBIDO | NAO_APLICAVEL
+    referencias: []
+
+seguranca:
+  contem_segredo_real: false
+  observacoes_redacao: []
+
+pendencias_para_passo_02: []

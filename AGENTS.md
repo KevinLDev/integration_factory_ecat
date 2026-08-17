@@ -59,7 +59,7 @@ As jornadas reutilizam contratos, adaptadores e conhecimento compartilhado, mas 
 - a jornada de ERP parceiro produz uma integração reutilizável e homologada;
 - a jornada de ERP cliente aplica uma integração homologada e trata somente as particularidades do cliente.
 
-Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta e os Passos 01 a 09 da jornada de ERP parceiro estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. A jornada de ERP cliente possui apenas porta de entrada conceitual e **ainda não está liberada para execução**. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta, os Passos 01 a 09 da jornada de ERP parceiro e o Passo 01 da jornada de ERP cliente estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. A jornada de ERP cliente possui o Passo 01 liberado para resolucao de contexto e elegibilidade de reutilizacao; passos posteriores ainda nao estao liberados. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## 4. Conceitos que nunca podem ser confundidos
 
@@ -223,6 +223,24 @@ parceiros/comandos/02-CADASTRAR-FERRAMENTA.md
 parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 -> comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 
+parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md
+-> comece-aqui/integrar-erp/erp-parceiro/01-APRESENTAR-ERP.md
+
+parceiros/comandos/ERP-PARCEIRO-02-ANALISAR-ERP.md
+-> comece-aqui/integrar-erp/erp-parceiro/02-ANALISAR-ERP.md
+
+parceiros/comandos/ERP-PARCEIRO-03-PROJETAR-HOMOLOGACAO.md
+-> comece-aqui/integrar-erp/erp-parceiro/03-PROJETAR-HOMOLOGACAO.md
+
+parceiros/comandos/ERP-PARCEIRO-04-MATERIALIZAR-BASE-HOMOLOGACAO.md
+-> comece-aqui/integrar-erp/erp-parceiro/04-MATERIALIZAR-BASE-HOMOLOGACAO.md
+
+parceiros/comandos/ERP-PARCEIRO-05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
+-> comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md
+
+parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md
+-> comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md
+
 parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 -> comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 
@@ -231,6 +249,9 @@ parceiros/comandos/ERP-PARCEIRO-08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md
 
 parceiros/comandos/ERP-PARCEIRO-09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md
 -> comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md
+
+parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md
+-> comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 ```
 
 Documentos operacionais de ERP devem ficar em uma destas jornadas:

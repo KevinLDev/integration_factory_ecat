@@ -57,5 +57,6 @@ O estado registra a situação oficial, o manifesto prova vigência por hashes e
 
 - `ferramentas/`: artefatos canônicos das ferramentas/produtos E-Catálogos.
 - `erps/`: artefatos técnicos reais das integrações de ERP, como código, adaptadores, mapeamentos, testes e configuração reutilizável.
+- `clientes/`: memória canônica da jornada ERP Cliente por cliente e combinação, sem duplicar o core técnico de `erps/`.
 - `erps-integrados/`: catálogo operacional e humano das integrações de ERP homologadas; não duplica artefatos técnicos.
 - `referencias-historicas/`: legado e referências históricas.
