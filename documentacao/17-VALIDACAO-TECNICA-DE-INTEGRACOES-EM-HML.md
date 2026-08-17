@@ -216,4 +216,4 @@ O Passo 07 nao pode:
 - configurar cliente real;
 - executar producao.
 
-Capacidades posteriores ao Passo 08 tratam publicacao, runtime, monitoramento e ERP Cliente. Nenhuma delas e iniciada automaticamente pelo Passo 07.
+Capacidades posteriores ao Passo 07 tratam homologacao funcional (Passo 08), publicacao (Passo 09), runtime, monitoramento e ERP Cliente. Nenhuma delas e iniciada automaticamente pelo Passo 07.

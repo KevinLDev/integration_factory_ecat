@@ -1,0 +1,106 @@
+schema: fabrica.manifesto-integracao-publicada.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Manifesto de release publicada para uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_09
+  data_referencia: null
+  observacoes:
+    - Nao representa publicacao real por si so
+    - Nao contem segredos, dados de cliente ou IDs HML como configuracao reutilizavel
+    - A fonte tecnica canonica permanece em erps/<erp-slug>/integracoes/<ferramenta-slug>/
+
+regras_de_preenchimento:
+  - Publicar somente baseline homologada integra do Passo 08
+  - Usar hashes e modos de hash do Harness vigente
+  - Nao declarar INTEGRACAO_PUBLICADA como SIM na execucao produtora
+  - Nao usar PARCIAL_JUSTIFICADO em capacidades publicadas
+  - Nao persistir segredo real
+
+valores_permitidos:
+  status_capacidade:
+    - SUPORTADO
+    - SUPORTADO_COM_RESTRICAO
+    - NAO_SUPORTADO
+    - NAO_APLICAVEL
+  lifecycle:
+    - ATIVA
+    - DEPRECATED
+    - RETIRADA
+  status_publicacao:
+    - SIM
+    - NAO
+  auditoria:
+    - AGUARDANDO_INDEPENDENTE
+    - APROVADA
+    - REPROVADA
+    - BLOQUEADA
+
+integracao:
+  erp: null
+  erp_slug: null
+  ferramenta: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  jornada: ERP_PARCEIRO
+  etapa: ERP_PARCEIRO_PASSO_09
+  versao_release: null
+  lifecycle: ATIVA
+
+baseline_homologado:
+  commit_implementacao: null
+  passo_08_manifesto: null
+  passo_08_relatorio_homologacao_funcional: null
+  passo_08_auditoria_independente: null
+  hashes:
+    - caminho: null
+      sha256: null
+      hash_mode: null
+
+artefatos_referencia:
+  fonte_tecnica:
+    raiz: erps/<erp-slug>/integracoes/<ferramenta-slug>/
+    mapeamento_semantico: null
+    regras_transformacao: null
+    plano_integracao: null
+    contrato_ferramenta: null
+  execucao_controle:
+    raiz: parceiros/execucoes/erps/<erp-slug>/<ferramenta-slug>/
+    manifesto_passo_09: null
+    checkpoint: null
+
+capacidades_publicadas:
+  - capacidade_id: null
+    modulo: null
+    direcao: null
+    status: null
+    restricoes: []
+    pre_condicoes: []
+    dependencias: []
+    referencia_escopo_homologado: []
+
+contrato_configuracao:
+  caminho: null
+  sha256: null
+  hash_mode: null
+  config_reutilizavel: []
+  config_do_cliente: []
+
+seguranca:
+  segredos_embutidos: false
+  ids_hml_embutidos: false
+  dados_cliente_embutidos: false
+
+status:
+  integracao_homologada: SIM
+  publicacao_preparada: NAO
+  auditoria: AGUARDANDO_INDEPENDENTE
+  status_da_etapa: PENDENTE
+  integracao_publicada: NAO
+  disponivel_para_cliente: NAO
+  em_producao: NAO
+
+idempotencia:
+  chave_publicacao: null
+  ja_publicada: false
+  integridade_confirmada: false

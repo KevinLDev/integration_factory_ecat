@@ -103,11 +103,17 @@ Fluxo oficial atualmente disponível:
     - Executor funcional: HUMANO
     - IA deriva cenarios, orienta o operador, recebe resultado manual, compara esperado x observado, organiza evidencias, classifica falhas, aponta menor passo responsavel e controla reexecucao
     - Pode levar a INTEGRACAO_HOMOLOGADA: SIM somente apos auditoria independente aprovada
+
+09. Consolidar e Publicar Integracao Homologada
+    - Congelar baseline homologada do Passo 08
+    - Versionar release e consolidar capacidades comprovadas
+    - Declarar contrato de configuracao reutilizavel sem dados de cliente e sem segredos
+    - Pode levar a INTEGRACAO_PUBLICADA: SIM e DISPONIVEL_PARA_CLIENTE: SIM somente apos auditoria independente aprovada
 ```
 
-**Saída atual do fluxo disponível**: validacao tecnica HML auditada seguida de homologacao funcional no Passo 08. O Passo 06 nao executa HML; o Passo 07 nao declara a integracao homologada; o Passo 08 nao se autoaprova.
+**Saída atual do fluxo disponível**: validacao tecnica HML auditada, homologacao funcional e consolidacao/publicacao da integracao homologada. O Passo 06 nao executa HML; o Passo 07 nao declara a integracao homologada; o Passo 08 nao se autoaprova; o Passo 09 nao se autoaprova.
 
-Publicacao, runtime e monitoramento continuam como visao futura. O Passo 07 nao executa producao, nao publica nem configura cliente real. O Passo 08 tambem nao publica, nao executa producao e nao configura cliente real.
+Runtime e monitoramento continuam como visao futura. O Passo 07 nao executa producao, nao publica nem configura cliente real. O Passo 08 nao publica, nao executa producao e nao configura cliente real. O Passo 09 publica release para reuso, mas nao executa producao e nao configura cliente real.
 
 **IMPORTANTE**: Nunca pule para desenvolvimento sem Base Comercial estar criada e validada NO ERP real. Base é pré-requisito de desenvolvimento.
 
@@ -305,16 +311,16 @@ Compreender causa é obrigatório antes de recalcular.
 - Passo 06: Desenvolver Integração
 - Passo 07: Executar e Validar Tecnicamente em HML
 - Passo 08: Homologar Funcionalmente a Integracao
+- Passo 09: Consolidar e Publicar Integracao Homologada
 
-O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementacao em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. O Passo 08 executa homologacao funcional manual assistida por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada.
+O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementacao em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. O Passo 08 executa homologacao funcional manual assistida por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada. O Passo 09 consolida/publica a integracao homologada e so pode liberar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada.
 
 ### Visão futura, ainda não executável
 
-- publicação da integração;
 - runtime e monitoramento;
 - jornada operacional de ERP Cliente.
 
-A IA de Apoio não deve numerar, criar ou sugerir comando executável para essas capacidades futuras sem publicação formal.
+A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 
 Fluxo conceitual de jornada não equivale a etapa oficialmente liberada. A IA de Apoio não pode transformar automaticamente o próximo item do fluxo em execução. A próxima ação permitida deve ser consultar/identificar a próxima etapa oficialmente liberada pelos documentos e evidências atuais; se faltar material para verificar isso, classificar como `INFORMACAO_INSUFICIENTE`.
 

@@ -97,7 +97,7 @@ Se o operador colar credencial diretamente na sessão da IA executora, o uso tra
 
 ## Sequência vigente da jornada ERP parceiro
 
-A jornada de ERP parceiro esta disponivel nos Passos 01 a 08 e prepara a base comercial de homologacao antes do desenvolvimento e da homologacao funcional da integracao.
+A jornada de ERP parceiro esta disponivel nos Passos 01 a 09 e prepara a base comercial de homologacao antes do desenvolvimento, da homologacao funcional e da publicacao da integracao.
 
 Essa camada central não executa os passos. Ela apenas resolve o contexto e preserva a sequência oficial:
 
@@ -108,9 +108,10 @@ Essa camada central não executa os passos. Ela apenas resolve o contexto e pres
 5. projetar a integração e o mapeamento semântico;
 6. desenvolver e testar localmente a implementação até `PRONTO_PARA_EXECUCAO_HML`;
 7. executar e validar tecnicamente a implementacao em HML;
-8. homologar funcionalmente a integracao em modelo manual assistido por IA.
+8. homologar funcionalmente a integracao em modelo manual assistido por IA;
+9. consolidar e publicar a integracao homologada para reutilizacao por cliente.
 
-O Passo 06 nao executa HML nem homologa funcionalmente a integracao. O Passo 07 executa HML controlada e pode liberar somente `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` depois de auditoria independente. O Passo 08 executa a homologacao funcional manual assistida por IA e pode liberar `INTEGRACAO_HOMOLOGADA: SIM` somente depois de auditoria independente aprovada. Publicacao, runtime e producao permanecem fora da sequencia vigente.
+O Passo 06 nao executa HML nem homologa funcionalmente a integracao. O Passo 07 executa HML controlada e pode liberar somente `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` depois de auditoria independente. O Passo 08 executa a homologacao funcional manual assistida por IA e pode liberar `INTEGRACAO_HOMOLOGADA: SIM` somente depois de auditoria independente aprovada. O Passo 09 consolida/publica a integracao homologada e pode liberar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` somente depois de auditoria independente aprovada. Runtime e producao permanecem fora da sequencia vigente.
 
 ## Fluxo de decisão resumido
 

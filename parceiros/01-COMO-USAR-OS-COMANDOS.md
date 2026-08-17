@@ -98,6 +98,7 @@ Comandos operacionais disponiveis para ERP parceiro:
 - `parceiros/comandos/ERP-PARCEIRO-06-DESENVOLVER-INTEGRACAO.md`
 - `parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 - `parceiros/comandos/ERP-PARCEIRO-08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
+- `parceiros/comandos/ERP-PARCEIRO-09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md`
 
 Documentos humanos correspondentes:
 
@@ -109,8 +110,9 @@ Documentos humanos correspondentes:
 - `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 - `comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
+- `comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md`
 
-Execute os Passos 01 a 08 em ordem e respeite os gates e handoffs de cada etapa. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente em HML e so pode liberar prontidao para homologacao funcional depois de auditoria independente; o Passo 08 homologa funcionalmente em modelo manual assistido por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada. Publicacao e producao permanecem fora desse escopo.
+Execute os Passos 01 a 09 em ordem e respeite os gates e handoffs de cada etapa. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente em HML e so pode liberar prontidao para homologacao funcional depois de auditoria independente; o Passo 08 homologa funcionalmente em modelo manual assistido por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada; o Passo 09 consolida/publica a integracao homologada e so pode liberar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada. Producao permanece fora desse escopo.
 
 Comandos de ERP cliente deverão ter seus documentos humanos em:
 

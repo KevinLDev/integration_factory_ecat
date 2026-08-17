@@ -1,0 +1,72 @@
+schema: fabrica.contrato-configuracao-release.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Contrato de configuracao de uma release publicada para consumo da jornada ERP Cliente
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_09
+  data_referencia: null
+  observacoes:
+    - Define requisitos, nao valores reais
+    - Segredo deve ser indicado como SECRET_REQUIRED
+    - Diferencia configuracao reutilizavel de configuracao do cliente
+
+regras_de_preenchimento:
+  - Nao inserir segredo real
+  - Nao inserir IDs HML/teste como valor padrao
+  - Declarar obrigatoriedade e validacao de cada parametro
+  - Referenciar restricoes por capacidade quando aplicavel
+
+valores_permitidos:
+  escopo:
+    - CONFIGURACAO_REUTILIZAVEL
+    - CONFIGURACAO_DO_CLIENTE
+  tipo:
+    - STRING
+    - INTEGER
+    - NUMBER
+    - BOOLEAN
+    - ENUM
+    - ARRAY
+    - OBJECT
+    - SECRET
+  obrigatorio:
+    - SIM
+    - NAO
+  sensivel:
+    - SIM
+    - NAO
+
+identificacao:
+  erp_slug: null
+  ferramenta_slug: null
+  versao_release: null
+
+parametros:
+  - param_id: null
+    nome: null
+    escopo: null
+    tipo: null
+    obrigatorio: null
+    sensivel: null
+    valor_padrao: null
+    regra_quando_secret:
+      marcador: SECRET_REQUIRED
+    validacao:
+      formato: null
+      minimo: null
+      maximo: null
+      regex: null
+      valores_permitidos: []
+    exemplo_sem_valor_real: null
+    dependencias: []
+    observacoes: []
+
+seguranca:
+  contem_segredo_real: false
+  contem_dado_cliente_real: false
+  contem_id_hml: false
+
+compatibilidade:
+  backwards_compatible: null
+  breaking_change: null
+  acao_recomendada: null

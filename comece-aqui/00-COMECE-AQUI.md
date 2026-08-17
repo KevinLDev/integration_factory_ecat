@@ -33,7 +33,7 @@ Abra:
 
 ### Ver ERPs já integrados
 
-Antes de iniciar uma integração de cliente, consulte quais combinações de ERP e ferramenta E-Catálogos já foram homologadas.
+Antes de iniciar uma integração de cliente, consulte quais combinações de ERP e ferramenta E-Catálogos já foram publicadas para reutilização.
 
 Abra:
 

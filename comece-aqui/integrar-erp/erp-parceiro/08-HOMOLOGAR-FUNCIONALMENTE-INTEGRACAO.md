@@ -108,7 +108,7 @@ Nao implemente observer realtime.
 Nao execute producao.
 Nao use cliente real.
 Nao publique integracao.
-Nao crie Passo 09.
+Nao execute Passo 09.
 
 Para cada cenario, forneca:
 - pre-condicoes;
@@ -211,4 +211,6 @@ INTEGRACAO_HOMOLOGADA: SIM
 
 ## Proximo documento
 
-Nao existe passo operacional posterior publicado nesta tarefa. Com `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria, a combinacao fica apenas elegivel para futura capacidade de publicacao.
+Com `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria, prossiga para:
+
+`comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.md`

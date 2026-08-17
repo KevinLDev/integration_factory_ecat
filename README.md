@@ -28,7 +28,7 @@ comece-aqui/integrar-nova-ferramenta/02-CADASTRAR-FERRAMENTA.md
 comece-aqui/integrar-nova-ferramenta/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 ```
 
-A jornada de ERP parceiro possui oficialmente os Passos 01 a 08 disponiveis. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente em HML, podendo chegar a `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente; o Passo 08 executa homologacao funcional manual assistida por IA e e o primeiro passo que pode levar a `INTEGRACAO_HOMOLOGADA: SIM` somente apos auditoria independente aprovada. Publicacao, runtime e producao permanecem futuros. A jornada de ERP cliente possui porta de entrada, mas ainda nao esta liberada para execucao.
+A jornada de ERP parceiro possui oficialmente os Passos 01 a 09 disponiveis. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente em HML, podendo chegar a `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente; o Passo 08 executa homologacao funcional manual assistida por IA e e o primeiro passo que pode levar a `INTEGRACAO_HOMOLOGADA: SIM` somente apos auditoria independente aprovada; o Passo 09 consolida e publica a integracao homologada, podendo levar a `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` somente apos auditoria independente aprovada. Runtime e producao permanecem futuros. A jornada de ERP cliente possui porta de entrada, mas ainda nao esta liberada para execucao.
 
 ## Outros pontos de entrada
 

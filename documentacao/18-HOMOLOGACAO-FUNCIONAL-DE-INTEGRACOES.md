@@ -278,10 +278,10 @@ Isso nao significa publicacao, onboarding de cliente, runtime definitivo ou prod
 O Passo 08 apenas deixa o handoff conceitual:
 
 ```text
-INTEGRACAO_HOMOLOGADA: SIM -> elegivel para futura capacidade de publicacao
+INTEGRACAO_HOMOLOGADA: SIM -> elegivel para o Passo 09 de publicacao
 ```
 
-Este documento nao define Passo 09.
+Este documento nao define as regras do Passo 09. Para publicacao, consulte `documentacao/19-PUBLICACAO-DE-INTEGRACOES-HOMOLOGADAS.md`.
 
 ## 17. Referencias historicas
 

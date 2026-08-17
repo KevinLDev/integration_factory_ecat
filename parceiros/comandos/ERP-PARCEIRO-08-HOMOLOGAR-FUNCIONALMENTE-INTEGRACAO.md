@@ -221,7 +221,7 @@ INTEGRACAO_HOMOLOGADA: SIM
 
 ## Fronteiras proibidas
 
-- nao criar Passo 09;
+- nao executar Passo 09;
 - nao publicar integracao;
 - nao registrar ERP em `erps-integrados/`;
 - nao configurar cliente real;

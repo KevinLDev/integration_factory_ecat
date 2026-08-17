@@ -4,11 +4,11 @@
 
 Use esta jornada quando existe um cliente real que utiliza um ERP e precisa ser integrado a uma ferramenta E-Catálogos.
 
-Antes de seguir esta jornada, consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para confirmar que a combinação ERP x ferramenta já está homologada e que o cenário é realmente de reutilização para cliente.
+Antes de seguir esta jornada, consulte `documentacao/09-RESOLUCAO-DE-CONTEXTO-DE-INTEGRACAO.md` para confirmar que a combinação ERP x ferramenta já está publicada no Passo 09 e que o cenário é realmente de reutilização para cliente.
 
 ## Regra principal
 
-Antes de iniciar uma integração de cliente, a fábrica deve verificar se existe integração homologada para a combinação:
+Antes de iniciar uma integração de cliente, a fábrica deve verificar se existe integração publicada para a combinação:
 
 ```text
 ERP
@@ -20,9 +20,9 @@ Consulte `comece-aqui/integrar-erp/ERPS-INTEGRADOS.md`.
 
 ### Se a integração existir
 
-Reutilize a integração homologada e trate somente as particularidades necessárias do cliente.
+Reutilize a integração publicada e trate somente as particularidades necessárias do cliente.
 
-Não reconstrua o adaptador, não reanalise profundamente o ERP e não exija uma base comercial completa de desenvolvimento quando a combinação já estiver homologada.
+Não reconstrua o adaptador, não reanalise profundamente o ERP e não exija uma base comercial completa de desenvolvimento quando a combinação já estiver publicada.
 
 ### Se a integração não existir
 
@@ -53,7 +53,7 @@ Quando for preparada e homologada, esta jornada poderá incluir etapas para:
 
 Esses itens são somente a visão da jornada. Eles não representam passos disponíveis e não autorizam execução.
 
-Quando esta jornada vier a ser liberada, ela deverá usar o adaptador homologado e trabalhar apenas com as credenciais, o ambiente e as particularidades do cliente.
+Quando esta jornada vier a ser liberada, ela deverá usar o adaptador publicado e trabalhar apenas com as credenciais, o ambiente e as particularidades do cliente.
 
 ## Disponibilidade
 

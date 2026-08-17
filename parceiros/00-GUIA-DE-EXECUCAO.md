@@ -97,7 +97,9 @@ Entrada humana:
 
 **PASSO 08 LIBERADO PARA EXECUCAO.**
 
-O Passo 07 executa e valida tecnicamente em HML. O Passo 08 homologa funcionalmente em modelo manual assistido por IA e nao se autoaprova. Publicacao e producao permanecem fora do escopo. Nao improvise etapas posteriores.
+**PASSO 09 LIBERADO PARA EXECUCAO.**
+
+O Passo 07 executa e valida tecnicamente em HML. O Passo 08 homologa funcionalmente em modelo manual assistido por IA e nao se autoaprova. O Passo 09 consolida e publica a integracao homologada para reutilizacao e tambem nao se autoaprova. Producao permanece fora do escopo. Nao improvise etapas posteriores ao Passo 09.
 
 ## Jornada 3 — ERP cliente
 

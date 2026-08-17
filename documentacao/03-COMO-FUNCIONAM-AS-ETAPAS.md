@@ -25,9 +25,9 @@ Somente `APTO_PARA_INTEGRACOES` com auditoria aprovada permite `HOMOLOGADA_PARA_
 
 Possui etapas próprias para identificar e analisar um ERP, projetar e materializar a Base de Homologação, mapear a integração e desenvolver uma implementação reutilizável.
 
-Os Passos 01 a 08 estao disponiveis em ordem. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente a implementacao em HML; o Passo 08 homologa funcionalmente a combinacao em modelo manual assistido por IA, sem automacao de navegador.
+Os Passos 01 a 09 estao disponiveis em ordem. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 executa e valida tecnicamente a implementacao em HML; o Passo 08 homologa funcionalmente a combinacao em modelo manual assistido por IA, sem automacao de navegador; o Passo 09 consolida e publica a combinacao homologada para reutilizacao por cliente.
 
-A jornada deve bloquear o uso de qualquer ferramenta que nao possua Passo 03 concluido, auditoria 03 aprovada e prontidao `HOMOLOGADA_PARA_INTEGRACOES`. O Passo 07 so pode liberar prontidao para homologacao funcional depois de auditoria independente aprovada. O Passo 08 so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` depois de auditoria independente aprovada do proprio Passo 08.
+A jornada deve bloquear o uso de qualquer ferramenta que nao possua Passo 03 concluido, auditoria 03 aprovada e prontidao `HOMOLOGADA_PARA_INTEGRACOES`. O Passo 07 so pode liberar prontidao para homologacao funcional depois de auditoria independente aprovada. O Passo 08 so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` depois de auditoria independente aprovada do proprio Passo 08. O Passo 09 so pode liberar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` depois de auditoria independente aprovada do proprio Passo 09.
 
 ### 3. ERP cliente
 

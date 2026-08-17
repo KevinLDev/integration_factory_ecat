@@ -1,6 +1,6 @@
 # ERPs integrados
 
-Antes de iniciar uma integração de cliente, consulte aqui se o ERP já possui integração homologada para a ferramenta E-Catálogos desejada.
+Antes de iniciar uma integração de cliente, consulte aqui se o ERP já possui integração publicada para a ferramenta E-Catálogos desejada.
 
 O catálogo oficial está em:
 

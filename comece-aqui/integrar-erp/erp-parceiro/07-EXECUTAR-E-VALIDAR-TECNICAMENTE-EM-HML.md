@@ -221,7 +221,7 @@ STATUS DA ETAPA: CONCLUIDA
 PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM
 ```
 
-Homologacao funcional, publicacao, runtime e producao continuam fora desta etapa e aguardam capacidades futuras oficialmente publicadas.
+Homologacao funcional, publicacao, runtime e producao continuam fora desta etapa e dependem dos passos posteriores oficiais da jornada.
 
 ## Proximo documento
 
@@ -229,4 +229,4 @@ O proximo passo operacional publicado para a jornada ERP parceiro e:
 
 `comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
 
-O Passo 08 valida uso funcional da ferramenta em modelo manual assistido por IA. Publicacao, runtime e ERP cliente permanecem capacidades posteriores.
+O Passo 08 valida uso funcional da ferramenta em modelo manual assistido por IA. A publicacao da combinacao ocorre no Passo 09; runtime e ERP cliente permanecem capacidades posteriores.
