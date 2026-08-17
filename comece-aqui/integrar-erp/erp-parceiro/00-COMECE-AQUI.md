@@ -48,6 +48,10 @@ Passo 07 — Executar e Validar Tecnicamente em HML:
 
 `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
 
+Passo 08 — Homologar Funcionalmente a Integracao:
+
+`comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
+
 ## Pré-condição da ferramenta E-Catálogos
 
 Antes de qualquer futura etapa de ERP parceiro, a ferramenta E-Catálogos escolhida deverá possuir conjuntamente:
@@ -62,13 +66,12 @@ Se alguma condição estiver ausente, a jornada de ERP parceiro deverá ser bloq
 
 Se o operador também fornecer documentação da ferramenta já homologada, trate-a como documento de contexto da execução corrente, não como nova verdade contratual.
 
-## Limite posterior ao Passo 07
+## Limite posterior ao Passo 08
 
-Os Passos 01 a 07 acima estão disponíveis. O Passo 07 executa e valida tecnicamente em HML, inclusive ida e volta quando suportado, correlação, idempotência e prevenção de loop. Ele não homologa funcionalmente, não publica nem registra o ERP como integrado.
+Os Passos 01 a 08 acima estao disponiveis. O Passo 07 executa e valida tecnicamente em HML, inclusive ida e volta quando suportado, correlacao, idempotencia e prevencao de loop. O Passo 08 homologa funcionalmente em modelo manual assistido por IA e pode levar a `INTEGRACAO_HOMOLOGADA: SIM` somente apos auditoria independente aprovada.
 
 As capacidades posteriores, ainda não publicadas, poderão incluir:
 
-- homologação funcional da integração;
 - documentação final e publicação;
 - registro do ERP em `erps-integrados/`;
 - runtime, monitoramento e operação contínua;
@@ -93,6 +96,8 @@ Em toda a jornada, a camada central de resolução de contexto deve ser consulta
 
 **PASSO 07 LIBERADO PARA EXECUCAO.**
 
-Os passos posteriores ao Passo 07 da jornada de ERP parceiro ainda nao estao liberados.
+**PASSO 08 LIBERADO PARA EXECUCAO.**
 
-Apos concluir e auditar o Passo 07, nao existe proximo passo oficial executavel. Aguarde a publicacao e a liberacao formal de uma etapa posterior.
+Os passos posteriores ao Passo 08 da jornada de ERP parceiro ainda nao estao liberados.
+
+Apos concluir e auditar o Passo 08, nao existe proximo passo oficial executavel nesta tarefa. Aguarde a publicacao e a liberacao formal de uma etapa posterior.

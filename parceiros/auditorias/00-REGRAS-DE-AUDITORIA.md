@@ -257,7 +257,7 @@ Antes da análise semântica, executar os validadores aplicáveis de `scripts/ha
 
 Os scripts são somente leitura dos artefatos de negócio por padrão, não contêm análise semântica e não substituem a auditoria. Validadores temporários recorrentes devem ser promovidos a scripts reutilizáveis quando generalizáveis.
 
-Na V1, os Passos 01 a 07 da jornada ERP parceiro estão oficialmente disponíveis. Implementar somente validadores necessários, objetivos e generalizáveis para as etapas em uso; a publicação de um comando não torna obrigatório antecipar um validador específico nem permite substituir a auditoria semântica.
+Na V1, os Passos 01 a 08 da jornada ERP parceiro estao oficialmente disponiveis. Implementar somente validadores necessarios, objetivos e generalizaveis para as etapas em uso; a publicacao de um comando nao torna obrigatorio antecipar um validador especifico nem permite substituir a auditoria semantica.
 
 ## Timebox e pausa segura
 
@@ -274,7 +274,7 @@ A pausa não é `AUDITORIA: BLOQUEADA`, não é reprovação e não publica stat
 
 ## Cobertura de auditoria para ERP parceiro
 
-A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável dos Passos 01 a 07:
+A arquitetura da auditoria deve permitir validar, conforme a etapa aplicavel dos Passos 01 a 08:
 
 - mapeamentos;
 - campos obrigatórios;
@@ -289,4 +289,4 @@ A arquitetura da auditoria deve permitir validar, conforme a etapa aplicável do
 - evidências;
 - homologação.
 
-Implementar validadores determinísticos específicos somente quando forem necessários e generalizáveis, preservando a análise semântica independente. O Passo 07 executa e valida tecnicamente em HML; sua primeira execução HML real por combinação exige auditoria `PROFUNDA`, separada da execução produtora. Homologação funcional, publicação, runtime e monitoramento permanecem capacidades futuras.
+Implementar validadores deterministicos especificos somente quando forem necessarios e generalizaveis, preservando a analise semantica independente. O Passo 07 executa e valida tecnicamente em HML; sua primeira execucao HML real por combinacao exige auditoria `PROFUNDA`, separada da execucao produtora. O Passo 08 homologa funcionalmente e, para a primeira homologacao funcional real de uma combinacao, a auditoria independente tambem deve ser `PROFUNDA`. Publicacao, runtime e monitoramento permanecem capacidades futuras.

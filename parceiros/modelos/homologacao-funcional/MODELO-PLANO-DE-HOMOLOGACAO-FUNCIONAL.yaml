@@ -1,0 +1,122 @@
+schema: fabrica.plano-homologacao-funcional.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Plano funcional do Passo 08 para uma combinacao ERP x ferramenta
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_08
+  data_referencia: null
+  observacoes:
+    - Modelo V1 manual assistido por IA
+    - Sem automacao de navegador e sem observer realtime
+    - Nao contem segredos, credenciais ou dados pessoais desnecessarios
+    - Nao representa uma execucao real por si so
+
+regras_de_preenchimento:
+  - Preencher apenas com suporte comprovado da combinacao vigente
+  - Derivar cenarios do escopo real, sem checklist universal
+  - Registrar referencias de baseline e artefatos upstream
+  - Definir criterio de aprovacao por criticidade, nunca por percentual
+  - Nao incluir acao automatica de UI na V1
+
+valores_permitidos:
+  criticidade:
+    - CRITICO
+    - ALTO
+    - MEDIO
+    - BAIXO
+  status_cenario:
+    - APROVADO
+    - REPROVADO
+    - BLOQUEADO
+    - NAO_APLICAVEL
+    - PENDENTE
+    - PENDENTE_DE_EVIDENCIA
+  executor:
+    - HUMANO
+  classificacao_falha:
+    - BUG_DE_IMPLEMENTACAO
+    - DIVERGENCIA_DE_PROJETO
+    - BASE_DE_HOMOLOGACAO_INSUFICIENTE
+    - CAPACIDADE_ERP_INCORRETA_OU_INSUFICIENTE
+    - FALHA_TECNICA_HML
+    - BUG_OU_DIVERGENCIA_DA_FERRAMENTA
+    - FALHA_FUNCIONAL_DO_CENARIO
+
+identificacao:
+  execution_id: null
+  jornada: ERP_PARCEIRO
+  etapa: ERP_PARCEIRO_PASSO_08
+  erp_slug: null
+  ferramenta_slug: null
+  combinacao_id: null
+  data_planejamento: null
+  responsavel: null
+
+baseline:
+  passo_07:
+    manifesto: null
+    relatorio_validacao_tecnica_hml: null
+    pronto_para_homologacao_funcional: null
+    vigencia: null
+  passo_06:
+    manifesto_implementacao: null
+    relatorio_desenvolvimento: null
+  passo_05:
+    mapeamento_semantico: null
+    regras_transformacao: null
+    plano_integracao: null
+  ferramenta:
+    contrato: null
+    cenarios_funcionais: null
+    regras_negocio: null
+
+escopo_derivado:
+  areas_funcionais_suportadas: []
+  areas_funcionais_nao_aplicaveis:
+    - area: null
+      justificativa: null
+      artefato_upstream: null
+  perfis_atores: []
+
+politica_de_aprovacao:
+  bloqueia_por_critico_reprovado: true
+  bloqueia_por_critico_pendente_ou_bloqueado: true
+  permite_alto_reprovado: false
+  homologacao_por_percentual: false
+
+roteiro_operacional:
+  instrucoes_ao_operador:
+    - pre_condicoes
+    - faca
+    - observe
+    - confirme
+    - evidencia_solicitada
+  modelo_retorno_manual:
+    - CENARIO
+    - EXECUTADO
+    - RESULTADO_OBSERVADO
+    - IDS
+    - EVIDENCIAS
+    - OBSERVACOES
+
+cenarios_planejados:
+  - scenario_id: null
+    area_funcional: null
+    criticidade: null
+    perfil_ator: null
+    executor: HUMANO
+    pre_condicoes: []
+    dados_de_teste: []
+    acoes_do_operador: []
+    resultado_esperado: []
+    evidencia_solicitada: []
+    dependencias: []
+    artefatos_upstream: []
+
+limites:
+  automacao_ui_implementada: false
+  observer_realtime_implementado: false
+  uso_producao: false
+  uso_cliente_real: false
+  publicacao_executada: false
+  passo_09_criado: false

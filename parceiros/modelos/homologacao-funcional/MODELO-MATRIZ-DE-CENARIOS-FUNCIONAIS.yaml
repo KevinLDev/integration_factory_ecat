@@ -1,0 +1,71 @@
+schema: fabrica.matriz-cenarios-funcionais.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Matriz funcional derivada do escopo da combinacao para o Passo 08
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_08
+  data_referencia: null
+  observacoes:
+    - Sem checklist universal
+    - Cada cenario deve ser rastreavel a artefatos upstream
+    - Executor V1 e manual
+
+regras_de_preenchimento:
+  - Incluir somente cenarios suportados por escopo comprovado
+  - Registrar NAO_APLICAVEL com justificativa e referencia
+  - Nao usar PARCIALMENTE_APROVADO
+  - Para cenario CRITICO, exigir evidencia funcional robusta
+
+valores_permitidos:
+  status:
+    - APROVADO
+    - REPROVADO
+    - BLOQUEADO
+    - NAO_APLICAVEL
+    - PENDENTE
+    - PENDENTE_DE_EVIDENCIA
+  criticidade:
+    - CRITICO
+    - ALTO
+    - MEDIO
+    - BAIXO
+  executor:
+    - HUMANO
+
+identificacao:
+  execution_id: null
+  erp_slug: null
+  ferramenta_slug: null
+  combinacao_id: null
+  baseline_referencia: null
+
+cenarios:
+  - scenario_id: null
+    area_funcional: null
+    criticidade: null
+    perfil_ator: null
+    executor: HUMANO
+    pre_condicoes: []
+    dados_de_teste: []
+    acoes_do_operador: []
+    resultado_esperado: []
+    resultado_observado: []
+    evidencias: []
+    status: PENDENTE
+    dependencias: []
+    artefatos_upstream: []
+    classificacao_da_falha: null
+    menor_passo_responsavel: null
+    reexecucao_necessaria: null
+
+resumo:
+  total_cenarios: null
+  aprovados: null
+  reprovados: null
+  bloqueados: null
+  nao_aplicaveis: null
+  pendentes: null
+  pendentes_de_evidencia: null
+  criticos_reprovados: null
+  altos_reprovados: null
+  homologacao_funcional_recomendada: null

@@ -1,0 +1,73 @@
+schema: fabrica.evidencias-funcionais.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Evidencias funcionais estruturadas do Passo 08
+  versao: "1.0"
+  etapa_origem: ERP_PARCEIRO_PASSO_08
+  data_referencia: null
+  observacoes:
+    - Evidencia funcional nao substitui evidencia tecnica do Passo 07
+    - Nao registrar segredos, Authorization, senha, token ou dado pessoal desnecessario
+
+regras_de_preenchimento:
+  - Registrar uma evidencia por cenario executado
+  - Vincular esperado x observado com timestamp e baseline
+  - Referenciar evidencia tecnica do Passo 07 quando aplicavel
+  - Sanitizar dados antes de persistir
+
+valores_permitidos:
+  status:
+    - APROVADO
+    - REPROVADO
+    - BLOQUEADO
+    - NAO_APLICAVEL
+    - PENDENTE
+    - PENDENTE_DE_EVIDENCIA
+  classificacao:
+    - BUG_DE_IMPLEMENTACAO
+    - DIVERGENCIA_DE_PROJETO
+    - BASE_DE_HOMOLOGACAO_INSUFICIENTE
+    - CAPACIDADE_ERP_INCORRETA_OU_INSUFICIENTE
+    - FALHA_TECNICA_HML
+    - BUG_OU_DIVERGENCIA_DA_FERRAMENTA
+    - FALHA_FUNCIONAL_DO_CENARIO
+
+identificacao:
+  execution_id: null
+  jornada: ERP_PARCEIRO
+  etapa: ERP_PARCEIRO_PASSO_08
+  erp_slug: null
+  ferramenta_slug: null
+  baseline_versao: null
+  plano_homologacao_funcional: null
+  matriz_cenarios_funcionais: null
+  relatorio_homologacao_funcional: null
+
+evidencias:
+  - scenario_id: null
+    perfil_ator: null
+    timestamp: null
+    resultado_esperado: []
+    resultado_observado: []
+    dados_sanitizados: []
+    ids:
+      ferramenta: null
+      erp: null
+      correlacao: null
+    anexos:
+      screenshots: []
+      videos: []
+      outras_referencias: []
+    referencia_tecnica_passo_07: null
+    status: null
+    classificacao: null
+    classificacao_da_falha: null
+    menor_passo_responsavel: null
+    reexecucao_necessaria: null
+
+resumo:
+  total_evidencias: null
+  evidencias_suficientes: null
+  evidencias_insuficientes: null
+  criticos_sem_evidencia_suficiente: null
+  segredo_persistido: false

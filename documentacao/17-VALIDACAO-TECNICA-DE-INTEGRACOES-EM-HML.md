@@ -35,7 +35,7 @@ STATUS DA ETAPA: CONCLUIDA
 PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM
 ```
 
-O Passo 07 nunca declara `INTEGRACAO_HOMOLOGADA`. Homologacao funcional pelo aplicativo ou painel, publicacao, runtime operacional, onboarding de cliente e producao pertencem a capacidades posteriores.
+O Passo 07 nunca declara `INTEGRACAO_HOMOLOGADA`. A homologacao funcional pertence ao Passo 08 e e executada em modelo manual assistido por IA. Publicacao, runtime operacional, onboarding de cliente e producao pertencem a capacidades posteriores.
 
 ## 2. Escopo e autoridade
 
@@ -200,7 +200,7 @@ STATUS DA ETAPA: CONCLUIDA
 PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM
 ```
 
-`PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` nao equivale a `INTEGRACAO_HOMOLOGADA`; apenas libera uma capacidade posterior oficialmente publicada para validar o comportamento funcional.
+`PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` nao equivale a `INTEGRACAO_HOMOLOGADA`; apenas libera o Passo 08 para validar o comportamento funcional.
 
 ## 10. Limites explicitos
 
@@ -216,4 +216,4 @@ O Passo 07 nao pode:
 - configurar cliente real;
 - executar producao.
 
-Capacidades posteriores tratam homologacao funcional, publicacao, runtime, monitoramento e ERP Cliente. Nenhuma delas e iniciada automaticamente pelo Passo 07.
+Capacidades posteriores ao Passo 08 tratam publicacao, runtime, monitoramento e ERP Cliente. Nenhuma delas e iniciada automaticamente pelo Passo 07.

@@ -59,7 +59,7 @@ As jornadas reutilizam contratos, adaptadores e conhecimento compartilhado, mas 
 - a jornada de ERP parceiro produz uma integração reutilizável e homologada;
 - a jornada de ERP cliente aplica uma integração homologada e trata somente as particularidades do cliente.
 
-Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta e os Passos 01 a 07 da jornada de ERP parceiro estão disponíveis para operação. O Passo 07 executa e valida tecnicamente em HML, sem homologar funcionalmente, publicar ou operar em produção. A jornada de ERP cliente possui apenas porta de entrada conceitual e **ainda não está liberada para execução**. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta e os Passos 01 a 08 da jornada de ERP parceiro estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A jornada de ERP cliente possui apenas porta de entrada conceitual e **ainda não está liberada para execução**. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## 4. Conceitos que nunca podem ser confundidos
 
@@ -225,6 +225,9 @@ parceiros/comandos/03-VALIDAR-FERRAMENTA-CADASTRADA.md
 
 parceiros/comandos/ERP-PARCEIRO-07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
 -> comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md
+
+parceiros/comandos/ERP-PARCEIRO-08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md
+-> comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md
 ```
 
 Documentos operacionais de ERP devem ficar em uma destas jornadas:
@@ -234,7 +237,7 @@ comece-aqui/integrar-erp/erp-parceiro/
 comece-aqui/integrar-erp/erp-cliente/
 ```
 
-Na jornada de ERP parceiro, os Passos 01 a 07 disponíveis e suas rotas operacionais vigentes são publicados em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+Na jornada de ERP parceiro, os Passos 01 a 08 disponiveis e suas rotas operacionais vigentes sao publicados em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 Uma etapa não está pronta para operação sem seu documento humano correspondente, homologado e localizado na jornada correta.
 

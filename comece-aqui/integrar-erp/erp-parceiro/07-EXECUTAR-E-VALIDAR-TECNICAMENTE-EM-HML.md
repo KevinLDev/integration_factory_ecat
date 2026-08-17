@@ -225,4 +225,8 @@ Homologacao funcional, publicacao, runtime e producao continuam fora desta etapa
 
 ## Proximo documento
 
-Nao existe proximo passo operacional publicado para homologacao funcional, publicacao, runtime ou ERP Cliente. Apos a auditoria independente do Passo 07, aguarde a publicacao formal da capacidade posterior aplicavel.
+O proximo passo operacional publicado para a jornada ERP parceiro e:
+
+`comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
+
+O Passo 08 valida uso funcional da ferramenta em modelo manual assistido por IA. Publicacao, runtime e ERP cliente permanecem capacidades posteriores.

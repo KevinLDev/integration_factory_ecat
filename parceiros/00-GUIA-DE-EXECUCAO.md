@@ -75,6 +75,7 @@ Passos operacionais disponíveis:
 - `comece-aqui/integrar-erp/erp-parceiro/05-PROJETAR-INTEGRACAO-E-MAPEAMENTO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/06-DESENVOLVER-INTEGRACAO.md`
 - `comece-aqui/integrar-erp/erp-parceiro/07-EXECUTAR-E-VALIDAR-TECNICAMENTE-EM-HML.md`
+- `comece-aqui/integrar-erp/erp-parceiro/08-HOMOLOGAR-FUNCIONALMENTE-INTEGRACAO.md`
 
 Entrada humana:
 
@@ -94,7 +95,9 @@ Entrada humana:
 
 **PASSO 07 LIBERADO PARA EXECUCAO.**
 
-O Passo 07 executa e valida tecnicamente em HML, mas não homologa funcionalmente, não publica e não executa produção. Não improvise etapas posteriores.
+**PASSO 08 LIBERADO PARA EXECUCAO.**
+
+O Passo 07 executa e valida tecnicamente em HML. O Passo 08 homologa funcionalmente em modelo manual assistido por IA e nao se autoaprova. Publicacao e producao permanecem fora do escopo. Nao improvise etapas posteriores.
 
 ## Jornada 3 — ERP cliente
 

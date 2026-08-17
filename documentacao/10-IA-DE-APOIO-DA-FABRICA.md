@@ -97,11 +97,17 @@ Fluxo oficial atualmente disponível:
     - Executar flows aprovados em ambiente HML autorizado
     - Validar correlação, idempotência, loop, reconciliação e reprocessamento
     - Terminar, no máximo, em PRONTO_PARA_HOMOLOGACAO_FUNCIONAL após auditoria independente
+
+08. Homologar Funcionalmente a Integracao
+    - Modelo V1: homologacao funcional manual assistida por IA
+    - Executor funcional: HUMANO
+    - IA deriva cenarios, orienta o operador, recebe resultado manual, compara esperado x observado, organiza evidencias, classifica falhas, aponta menor passo responsavel e controla reexecucao
+    - Pode levar a INTEGRACAO_HOMOLOGADA: SIM somente apos auditoria independente aprovada
 ```
 
-**Saída atual do fluxo disponível**: validação técnica HML auditada, pronta para futura homologação funcional. O Passo 06 não executa HML; o Passo 07 não declara a integração homologada.
+**Saída atual do fluxo disponível**: validacao tecnica HML auditada seguida de homologacao funcional no Passo 08. O Passo 06 nao executa HML; o Passo 07 nao declara a integracao homologada; o Passo 08 nao se autoaprova.
 
-Homologação funcional, publicação, runtime e monitoramento continuam como visão futura. O Passo 07 não executa produção, não publica nem configura cliente real.
+Publicacao, runtime e monitoramento continuam como visao futura. O Passo 07 nao executa producao, nao publica nem configura cliente real. O Passo 08 tambem nao publica, nao executa producao e nao configura cliente real.
 
 **IMPORTANTE**: Nunca pule para desenvolvimento sem Base Comercial estar criada e validada NO ERP real. Base é pré-requisito de desenvolvimento.
 
@@ -298,12 +304,12 @@ Compreender causa é obrigatório antes de recalcular.
 - Passo 05: Projetar Integração e Mapeamento Semântico
 - Passo 06: Desenvolver Integração
 - Passo 07: Executar e Validar Tecnicamente em HML
+- Passo 08: Homologar Funcionalmente a Integracao
 
-O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementação em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. Nenhum dos dois homologa funcionalmente a integração.
+O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementacao em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. O Passo 08 executa homologacao funcional manual assistida por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada.
 
 ### Visão futura, ainda não executável
 
-- homologação funcional;
 - publicação da integração;
 - runtime e monitoramento;
 - jornada operacional de ERP Cliente.

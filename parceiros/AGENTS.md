@@ -56,7 +56,7 @@ Não pule etapa concluindo implicitamente trabalho que pertence a um comando pos
 
 Enquanto um comando ainda não existir ou não estiver validado, registre isso como lacuna do Harness; não improvise um fluxo permanente silenciosamente.
 
-A jornada de nova ferramenta possui os Passos 01 a 03 disponíveis. A jornada de ERP parceiro possui os Passos 01 a 07 disponíveis, com a relação vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; ele nao publica, nao cria runtime e nao executa producao. A jornada de ERP cliente ainda não está liberada para operação.
+A jornada de nova ferramenta possui os Passos 01 a 03 disponiveis. A jornada de ERP parceiro possui os Passos 01 a 08 disponiveis, com a relacao vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; o Passo 08 valida funcionalmente a combinacao em modelo manual assistido por IA e nao se autoaprova. Publicacao, runtime e producao continuam fora desse escopo. A jornada de ERP cliente ainda não está liberada para operação.
 
 ## 3. Interface com o operador
 
@@ -301,7 +301,7 @@ Para comandos de ERP, o documento operacional correspondente deve ficar em:
 - `comece-aqui/integrar-erp/erp-parceiro/`, quando homologar uma integração reutilizável de ERP;
 - `comece-aqui/integrar-erp/erp-cliente/`, quando configurar um cliente sobre uma integração já suportada.
 
-A paridade operacional vigente dos Passos 01 a 07 de ERP parceiro é publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+A paridade operacional vigente dos Passos 01 a 08 de ERP parceiro e publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 Uma etapa não deve ser considerada pronta para uso operacional enquanto o documento correspondente não existir, não estiver homologado e não estiver na jornada correta.
 
