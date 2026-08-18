@@ -33,7 +33,7 @@ A jornada deve bloquear o uso de qualquer ferramenta que nao possua Passo 03 con
 
 Terá etapas próprias para verificar uma combinação ERP + ferramenta já homologada, aplicar configurações e validar as particularidades de um cliente real.
 
-Essa jornada possui o Passo 01 operacional liberado para resolver contexto e elegibilidade de reutilizacao. Os passos seguintes ainda nao estao liberados. Se não existir integração homologada para a combinação necessária, o trabalho deverá voltar primeiro à jornada de ERP parceiro.
+Essa jornada possui os Passos 01 e 02 operacionais liberados para resolver contexto/elegibilidade e analisar a realidade comercial e tecnica do cliente. Os passos seguintes ainda nao estao liberados. Se não existir integração homologada para a combinação necessária, o trabalho deverá voltar primeiro à jornada de ERP parceiro.
 
 ## Regra de avanço
 

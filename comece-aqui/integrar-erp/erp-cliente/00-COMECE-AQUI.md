@@ -42,6 +42,10 @@ Passo 01 — Resolver contexto do cliente e elegibilidade de reutilização:
 
 `comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md`
 
+Passo 02 — Analisar realidade comercial e tecnica do cliente:
+
+`comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md`
+
 ## Fronteira do Passo 01
 
 O Passo 01 resolve somente:
@@ -54,6 +58,18 @@ O Passo 01 resolve somente:
 
 O Passo 01 nao executa analise comercial profunda, nao projeta instalacao, nao materializa configuracao, nao executa HML e nao executa producao.
 
+## Fronteira do Passo 02
+
+O Passo 02 resolve somente:
+
+- a realidade comercial e tecnica comprovada do cliente para a combinacao publicada;
+- a matriz comercial do cliente por capacidade;
+- o que o cliente possui versus o que usa hoje;
+- configuracoes, de-paras, extensoes, gaps, pendencias e bloqueios identificados;
+- a base decisoria para projetar a instalacao no Passo 03.
+
+O Passo 02 nao projeta a instalacao final, nao materializa configuracao, nao implementa de-para real, nao implementa extensao real, nao desenvolve codigo, nao executa HML e nao executa producao.
+
 ## Visao dos proximos passos
 
 Os passos posteriores da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao.
@@ -61,5 +77,7 @@ Os passos posteriores da jornada ERP cliente permanecem planejados e ainda nao e
 ## Disponibilidade
 
 **PASSO 01 LIBERADO PARA EXECUCAO.**
+
+**PASSO 02 LIBERADO PARA EXECUCAO.**
 
 Os passos posteriores da jornada ERP cliente ainda nao estao liberados.

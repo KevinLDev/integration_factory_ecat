@@ -110,7 +110,7 @@ Entrada humana:
 
 `comece-aqui/integrar-erp/erp-cliente/00-COMECE-AQUI.md`
 
-Essa jornada deve reutilizar uma integração homologada sempre que possível. O Passo 01 está liberado para resolução de contexto e elegibilidade de reutilização; passos posteriores permanecem não liberados.
+Essa jornada deve reutilizar uma integração homologada sempre que possível. Os Passos 01 e 02 estao liberados para resolucao de contexto/elegibilidade e analise da realidade comercial e tecnica do cliente; passos posteriores permanecem nao liberados.
 
 ## O operador não deve fazer
 

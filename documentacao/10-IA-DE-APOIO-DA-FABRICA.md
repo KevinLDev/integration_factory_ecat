@@ -126,10 +126,10 @@ Runtime e monitoramento continuam como visao futura. O Passo 07 nao executa prod
 Etapas oficiais vigentes nesta jornada:
 
 - Passo 01: resolver contexto do cliente e elegibilidade de reutilizacao da release publicada.
+- Passo 02: analisar a realidade comercial e tecnica do cliente com base na release publicada e nos materiais recebidos.
 
 Atividades futuras, ainda sem etapas oficiais liberadas:
 
-- analise comercial e tecnica profunda do cliente;
 - materializacao de configuracao, de-para e extensoes controladas;
 - validacao em HML da instalacao especifica;
 - gate de producao, ativacao e operacao inicial.
@@ -320,7 +320,7 @@ O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 e
 ### Visão futura, ainda não executável
 
 - runtime e monitoramento;
-- passos 02+ da jornada ERP Cliente.
+- passos 03+ da jornada ERP Cliente.
 
 A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 

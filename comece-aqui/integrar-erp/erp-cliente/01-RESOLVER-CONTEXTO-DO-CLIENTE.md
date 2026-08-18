@@ -193,8 +193,8 @@ AUDITORIA_INDEPENDENTE_OBRIGATORIA: NAO
 
 A auditoria independente pode ser exigida quando houver ambiguidade estrutural, evidencia contraditoria relevante ou risco de roteamento incorreto.
 
-Com `CONTEXTO_CLIENTE: RESOLVIDO` e `ELEGIVEL_PARA_JORNADA_CLIENTE: SIM`, a proxima etapa permitida e o Passo 02 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `CONTEXTO_CLIENTE: RESOLVIDO` e `ELEGIVEL_PARA_JORNADA_CLIENTE: SIM`, a proxima etapa permitida e o Passo 02 da jornada ERP cliente.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Somente o Passo 01 esta liberado nesta publicacao.
+`comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md`
