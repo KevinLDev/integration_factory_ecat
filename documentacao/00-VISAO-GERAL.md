@@ -26,7 +26,7 @@ Os Passos 01, 02 e 03 da jornada de nova ferramenta estão disponíveis. O Passo
 
 A jornada de ERP parceiro possui os Passos 01 a 09 disponiveis, em ordem: apresentar o ERP, analisar suas capacidades, projetar a homologacao, materializar a Base de Homologacao, projetar a integracao e o mapeamento semantico, desenvolver a integracao, executar e validar tecnicamente em HML, homologar funcionalmente a integracao e consolidar/publicar a integracao homologada. O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`; o Passo 07 pode chegar a `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente apos auditoria independente; o Passo 08 e o primeiro passo que pode levar a `INTEGRACAO_HOMOLOGADA: SIM` somente apos auditoria independente aprovada; o Passo 09 pode levar a `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` somente apos auditoria independente aprovada. Runtime e producao nao pertencem a esses passos.
 
-A jornada de ERP cliente possui os Passos 01 e 02 liberados para resolucao de contexto/elegibilidade e analise da realidade comercial e tecnica do cliente. Os passos posteriores permanecem futuros.
+A jornada de ERP cliente possui os Passos 01, 02 e 03 liberados para resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica e projeto da instalacao sem materializacao. Os Passos 04 a 06 permanecem futuros: materializacao em HML, validacao em HML/preparacao para producao e go-live/registro de memoria.
 
 ## Memória oficial
 

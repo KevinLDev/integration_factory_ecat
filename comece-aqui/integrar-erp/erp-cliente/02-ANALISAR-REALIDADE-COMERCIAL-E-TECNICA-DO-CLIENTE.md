@@ -279,8 +279,8 @@ A auditoria independente deve ser exigida quando a saida identificar qualquer co
 - `DIVERGENCIA_DE_EVIDENCIA` com impacto de rota;
 - classificacao critica que altere o proximo passo permitido.
 
-Com `ANALISE_CLIENTE: CONCLUIDA`, `MATRIZ_COMERCIAL_CONSOLIDADA: SIM` e `APTO_PARA_PROJETAR_INSTALACAO: SIM`, a proxima etapa permitida e o Passo 03 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `ANALISE_CLIENTE: CONCLUIDA`, `MATRIZ_COMERCIAL_CONSOLIDADA: SIM` e `APTO_PARA_PROJETAR_INSTALACAO: SIM`, a proxima etapa permitida e o Passo 03 da jornada ERP cliente: `comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md`.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01 e 02 estao liberados nesta publicacao. O Passo 03 permanece futuro.
+A jornada ERP cliente segue em evolucao. Os Passos 01, 02 e 03 estao liberados nesta publicacao. Os Passos 04 a 06 permanecem futuros.

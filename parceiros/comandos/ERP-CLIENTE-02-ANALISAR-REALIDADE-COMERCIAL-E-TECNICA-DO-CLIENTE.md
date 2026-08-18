@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-Executar somente o Passo 02 da jornada ERP Cliente e transformar a saida valida do Passo 01, a release publicada e os materiais do cliente em uma analise comercial e tecnica rastreavel, segura e reutilizavel para o futuro Passo 03.
+Executar somente o Passo 02 da jornada ERP Cliente e transformar a saida valida do Passo 01, a release publicada e os materiais do cliente em uma analise comercial e tecnica rastreavel, segura e reutilizavel para o Passo 03.
 
 Este passo responde:
 

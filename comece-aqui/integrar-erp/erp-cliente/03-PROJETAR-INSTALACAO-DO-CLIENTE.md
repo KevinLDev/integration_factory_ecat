@@ -23,7 +23,7 @@ Resultado esperado da etapa:
 ```text
 PROJETO_INSTALACAO: CONCLUIDO | PARCIAL | BLOQUEADO
 PLANO_DE_INSTALACAO_CONSOLIDADO: SIM | PARCIAL | NAO
-PRONTO_PARA_DESENVOLVIMENTO_CLIENTE: SIM | NAO
+PRONTO_PARA_MATERIALIZACAO_EM_HML: SIM | NAO
 PROXIMO_PASSO: ERP_CLIENTE_04 | ERP_PARCEIRO_<NN> | NOVA_FERRAMENTA_<NN> | BLOQUEADA
 ```
 
@@ -53,7 +53,7 @@ O operador do projeto informou o seguinte roteiro para a jornada ERP Cliente:
 06 Go-live + validar producao + memoria  [futuro]
 ```
 
-Este roteiro ainda nao esta registrado em nenhum documento oficial do repositorio. Ele orienta o desenho deste Passo 03 (garantindo que ele nao invada o escopo do futuro Passo 04), mas os Passos 04 a 06 continuam nao liberados e nao fazem parte desta publicacao.
+Este roteiro esta formalizado nesta publicacao para delimitar o Passo 03 e impedir que ele invada o escopo do futuro Passo 04. Os Passos 04 a 06 continuam nao liberados.
 
 ## Pre-requisitos
 
@@ -149,6 +149,41 @@ Nao faca push.
 
 ### PARE DE COPIAR AQUI
 
+## Exemplo preenchido
+
+```text
+Execute integralmente:
+parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md
+
+Objetivo:
+Projetar a instalacao do Cliente Exemplo para a combinacao ERP Exemplo x Ferramenta Exemplo, a partir das saidas validas dos Passos 01 e 02.
+
+Cliente informado:
+Cliente Exemplo Ltda. (ficticio)
+
+ERP informado:
+ERP Exemplo
+
+Ferramenta E-Catalogos desejada:
+Ferramenta Exemplo
+
+Materiais fornecidos:
+- contrato de configuracao publicado: SIM
+- matriz comercial do Passo 02: SIM
+- relatorio de analise do Passo 02: SIM
+- configuracoes, de-paras ou extensoes adicionais: NAO
+
+Regras obrigatorias:
+- projetar somente as capacidades classificadas como ATIVO ou PRONTO_PARA_ATIVACAO;
+- nao reclassificar capacidade;
+- nao usar credenciais reais;
+- nao executar HML ou producao;
+- nao materializar configuracao, de-para ou extensao.
+
+Nao faca commit.
+Nao faca push.
+```
+
 ## Artefatos esperados
 
 Memoria canonica do cliente (sem dados reais sensiveis):
@@ -199,8 +234,8 @@ AUDITORIA_INDEPENDENTE_OBRIGATORIA: NAO
 
 A auditoria independente deve ser exigida quando o plano envolver `EXTENSAO_CLIENTE` bloqueante, algum `GAP_DA_RELEASE`/`GAP_DA_FERRAMENTA` de item critico, ou classificacao critica que altere o proximo passo permitido.
 
-Com `PROJETO_INSTALACAO: CONCLUIDO`, `PLANO_DE_INSTALACAO_CONSOLIDADO: SIM` e `PRONTO_PARA_DESENVOLVIMENTO_CLIENTE: SIM`, a proxima etapa permitida e o Passo 04 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `PROJETO_INSTALACAO: CONCLUIDO`, `PLANO_DE_INSTALACAO_CONSOLIDADO: SIM` e `PRONTO_PARA_MATERIALIZACAO_EM_HML: SIM`, a proxima etapa permitida sera o Passo 04 da jornada ERP cliente quando esse passo for oficialmente liberado.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02 e 03 estao liberados nesta publicacao. O Passo 04 (materializar instalacao em HML) permanece futuro.
+A jornada ERP cliente segue em evolucao. Os Passos 01, 02 e 03 estao liberados nesta publicacao. Os Passos 04 a 06 permanecem futuros: materializacao em HML, validacao em HML/preparacao para producao e go-live/registro de memoria.

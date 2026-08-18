@@ -45,7 +45,7 @@ PENDENCIAS_BLOQUEANTES_DO_PASSO_02: SIM | NAO
 | Extensao projetada | `SIM \| NAO \| NAO_APLICAVEL` |
 | Plano de ativacao definido | `SIM \| NAO \| NAO_APLICAVEL` |
 | Criterios de aceite definidos | `SIM \| NAO` |
-| Pronto para desenvolvimento do cliente | `SIM \| NAO` |
+| Pronto para materializacao em HML | `SIM \| NAO` |
 
 # Regra de escopo
 

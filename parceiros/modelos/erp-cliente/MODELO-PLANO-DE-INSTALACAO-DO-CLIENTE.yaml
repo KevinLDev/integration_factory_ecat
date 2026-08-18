@@ -30,7 +30,7 @@ entradas:
 resumo:
   projeto_instalacao: null # CONCLUIDO | PARCIAL | BLOQUEADO
   plano_de_instalacao_consolidado: null # SIM | PARCIAL | NAO
-  pronto_para_desenvolvimento_cliente: null # SIM | NAO
+  pronto_para_materializacao_em_hml: null # SIM | NAO
 
 regra_de_escopo:
   origem_status_permitida:
@@ -104,7 +104,7 @@ status_final:
   extensao_projetada: null # SIM | NAO | NAO_APLICAVEL
   plano_de_ativacao_definido: null # SIM | NAO | NAO_APLICAVEL
   criterios_de_aceite_definidos: null # SIM | NAO
-  pronto_para_desenvolvimento_cliente: null # SIM | NAO
+  pronto_para_materializacao_em_hml: null # SIM | NAO
   proximo_passo: null # ERP_CLIENTE_04 | ERP_PARCEIRO_<NN> | NOVA_FERRAMENTA_<NN> | BLOQUEADA
 
 seguranca:

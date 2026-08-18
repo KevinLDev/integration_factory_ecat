@@ -46,6 +46,10 @@ Passo 02 — Analisar realidade comercial e tecnica do cliente:
 
 `comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md`
 
+Passo 03 — Projetar instalacao do cliente:
+
+`comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md`
+
 ## Fronteira do Passo 01
 
 O Passo 01 resolve somente:
@@ -70,9 +74,20 @@ O Passo 02 resolve somente:
 
 O Passo 02 nao projeta a instalacao final, nao materializa configuracao, nao implementa de-para real, nao implementa extensao real, nao desenvolve codigo, nao executa HML e nao executa producao.
 
+## Fronteira do Passo 03
+
+O Passo 03 resolve somente o projeto da instalacao do cliente a partir da saida valida do Passo 02:
+
+- configuracoes, de-paras e extensoes projetados, sem materializacao;
+- plano de ativacao, dependencias e criterios de aceite;
+- itens fora de escopo, pendencias, bloqueios, restricoes e riscos;
+- prontidao para a futura materializacao em HML.
+
+O Passo 03 nao reclassifica capacidades, nao altera os artefatos do Passo 02, nao materializa configuracao, nao desenvolve codigo, nao usa credenciais reais, nao executa HML e nao executa producao.
+
 ## Visao dos proximos passos
 
-Os passos posteriores da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao.
+Os Passos 04 a 06 da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao: materializacao em HML, validacao em HML/preparacao para producao e go-live/registro de memoria.
 
 ## Disponibilidade
 
@@ -80,4 +95,6 @@ Os passos posteriores da jornada ERP cliente permanecem planejados e ainda nao e
 
 **PASSO 02 LIBERADO PARA EXECUCAO.**
 
-Os passos posteriores da jornada ERP cliente ainda nao estao liberados.
+**PASSO 03 LIBERADO PARA EXECUCAO SOMENTE COMO PROJETO.**
+
+Os Passos 04 a 06 da jornada ERP cliente ainda nao estao liberados.

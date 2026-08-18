@@ -27,7 +27,7 @@ Abra:
 
 Use quando um cliente utiliza um ERP e precisa ser conectado a uma ferramenta E-Catálogos.
 
-Disponibilidade atual da jornada cliente: Passos 01 e 02 liberados (resolucao de contexto/elegibilidade e analise da realidade comercial e tecnica).
+Disponibilidade atual da jornada cliente: Passos 01, 02 e 03 liberados (resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica e projeto da instalacao sem materializacao).
 
 Abra:
 

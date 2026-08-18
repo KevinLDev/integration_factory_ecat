@@ -127,12 +127,13 @@ Etapas oficiais vigentes nesta jornada:
 
 - Passo 01: resolver contexto do cliente e elegibilidade de reutilizacao da release publicada.
 - Passo 02: analisar a realidade comercial e tecnica do cliente com base na release publicada e nos materiais recebidos.
+- Passo 03: projetar a instalacao do cliente sem materializar configuracao, executar HML ou producao.
 
 Atividades futuras, ainda sem etapas oficiais liberadas:
 
-- materializacao de configuracao, de-para e extensoes controladas;
-- validacao em HML da instalacao especifica;
-- gate de producao, ativacao e operacao inicial.
+- Passo 04: materializacao de configuracao, de-para e extensoes controladas em HML;
+- Passo 05: validacao em HML da instalacao especifica e preparacao para producao;
+- Passo 06: go-live, validacao de producao e registro de memoria.
 
 **IMPORTANTE**: Não criar Base Comercial de desenvolvimento para cliente se já existe integração homologada. Base de homologação foi para a Fábrica, não para cada cliente.
 
@@ -317,10 +318,18 @@ Compreender causa é obrigatório antes de recalcular.
 
 O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 executa e valida tecnicamente a implementacao em HML e pode liberar `PRONTO_PARA_HOMOLOGACAO_FUNCIONAL: SIM` somente depois de auditoria independente. O Passo 08 executa homologacao funcional manual assistida por IA e so pode liberar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada. O Passo 09 consolida/publica a integracao homologada e so pode liberar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada.
 
+**ERP Cliente**:
+
+- Passo 01: Resolver Contexto do Cliente
+- Passo 02: Analisar Realidade Comercial e Tecnica do Cliente
+- Passo 03: Projetar Instalacao do Cliente
+
+O Passo 03 somente projeta configuracao, de-para, extensao, ativacao e criterios de aceite; ele nao materializa configuracao, nao executa HML e nao executa producao.
+
 ### Visão futura, ainda não executável
 
 - runtime e monitoramento;
-- passos 03+ da jornada ERP Cliente.
+- passos 04+ da jornada ERP Cliente.
 
 A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 

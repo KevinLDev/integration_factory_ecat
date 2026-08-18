@@ -105,4 +105,4 @@ Em toda a jornada, a camada central de resolução de contexto deve ser consulta
 
 Os passos posteriores ao Passo 09 da jornada de ERP parceiro ainda nao estao liberados.
 
-Apos concluir e auditar o Passo 09, a combinacao publicada fica apta para reutilizacao na jornada ERP cliente; os Passos 01 e 02 dessa jornada estao liberados e os passos 03+ permanecem nao liberados.
+Apos concluir e auditar o Passo 09, a combinacao publicada fica apta para reutilizacao na jornada ERP cliente; os Passos 01, 02 e 03 dessa jornada estao liberados. Os Passos 04 a 06 permanecem nao liberados.

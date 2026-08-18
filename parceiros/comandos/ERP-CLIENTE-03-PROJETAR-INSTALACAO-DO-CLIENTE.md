@@ -10,7 +10,7 @@ Este passo responde:
 
 O resultado e projeto, nao implementacao nem execucao.
 
-## Roteiro da jornada (conforme definido pelo operador)
+## Roteiro da jornada
 
 ```text
 PASSO 01 -> resolve contexto, release e elegibilidade [liberado, commitado]
@@ -21,7 +21,7 @@ PASSO 05 -> valida HML e prepara producao [futuro]
 PASSO 06 -> go-live, valida producao e registra memoria [futuro]
 ```
 
-Este roteiro de 6 passos foi informado diretamente pelo operador responsavel pelo projeto e ainda nao esta registrado em nenhum documento oficial do repositorio (`AGENTS.md`, `documentacao/`). Ate que seja formalizado em algum documento oficial, tratar como decisao humana vigente, nao como fato ja documentado -- nao usar esta lista para justificar nada que nao esteja tambem sustentado pelos artefatos do Passo 01/02 ou por este comando.
+Os Passos 01, 02 e 03 estao formalmente liberados nesta publicacao. Os Passos 04 a 06 permanecem futuros e nao podem ser executados ate possuirem documentos operacionais, comandos e gates oficialmente liberados.
 
 ## Fronteira obrigatoria
 
@@ -175,7 +175,7 @@ DE_PARA_PROJETADO: SIM | NAO
 EXTENSAO_PROJETADA: SIM | NAO | NAO_APLICAVEL
 PLANO_DE_ATIVACAO_DEFINIDO: SIM | NAO | NAO_APLICAVEL
 CRITERIOS_DE_ACEITE_DEFINIDOS: SIM | NAO
-PRONTO_PARA_DESENVOLVIMENTO_CLIENTE: SIM | NAO
+PRONTO_PARA_MATERIALIZACAO_EM_HML: SIM | NAO
 PROXIMO_PASSO: ERP_CLIENTE_04 | ERP_PARCEIRO_<NN> | NOVA_FERRAMENTA_<NN> | BLOQUEADA
 HML_EXECUTADA: NAO
 PRODUCAO_EXECUTADA: NAO
