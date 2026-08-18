@@ -1,0 +1,897 @@
+{
+  "nodes": [
+    {
+      "id": "scripts_harness_get_harnesshash",
+      "label": "Get-HarnessHash.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Get-HarnessHash.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common",
+      "label": "Harness.Common.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessrepositoryroot",
+      "label": "Get-HarnessRepositoryRoot()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_resolve_harnesspath",
+      "label": "Resolve-HarnessPath()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_test_harnessrelativepath",
+      "label": "Test-HarnessRelativePath()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L62",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessproperty",
+      "label": "Get-HarnessProperty()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L68",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_test_harnesshashmodevalue",
+      "label": "Test-HarnessHashModeValue()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L87",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "label": "Get-HarnessEntryHashMode()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L93",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnesscanonicaltext",
+      "label": "Get-HarnessCanonicalText()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L115",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnesscanonicaltextbytes",
+      "label": "Get-HarnessCanonicalTextBytes()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L135",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessnestedproperty",
+      "label": "Get-HarnessNestedProperty()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L143",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_convertto_harnessarray",
+      "label": "ConvertTo-HarnessArray()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L158",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnesssha256",
+      "label": "Get-HarnessSha256()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L168",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_test_harnesssha256value",
+      "label": "Test-HarnessSha256Value()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L205",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_read_harnessutf8text",
+      "label": "Read-HarnessUtf8Text()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L211",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_test_harnessutf8file",
+      "label": "Test-HarnessUtf8File()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L219",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_read_harnessdatafile",
+      "label": "Read-HarnessDataFile()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L242",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessmarkdownlinkproblems",
+      "label": "Get-HarnessMarkdownLinkProblems()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L254",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessmarkdownproblems",
+      "label": "Get-HarnessMarkdownProblems()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L293",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "label": "Invoke-HarnessMechanicalValidation()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L333",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_get_harnessmanifestdeclaredartifacts",
+      "label": "Get-HarnessManifestDeclaredArtifacts()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L440",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "label": "Invoke-HarnessManifestEvaluation()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L455",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "label": "Invoke-HarnessCheckpointEvaluation()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L820",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_invoke_harness",
+      "label": "Invoke-Harness.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Invoke-Harness.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_invoke_harnesstests",
+      "label": "Invoke-HarnessTests.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_invoke_harnesstests_add_check",
+      "label": "Add-Check()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_invoke_harnesstests_write_utf8fixture",
+      "label": "Write-Utf8Fixture()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_invoke_harnesstests_write_binaryfixture",
+      "label": "Write-BinaryFixture()",
+      "file_type": "code",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L33",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_test_harnesscheckpoint",
+      "label": "Test-HarnessCheckpoint.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Test-HarnessCheckpoint.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_test_harnessfiles",
+      "label": "Test-HarnessFiles.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Test-HarnessFiles.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_harness_test_harnessmanifest",
+      "label": "Test-HarnessManifest.ps1",
+      "file_type": "code",
+      "source_file": "scripts/harness/Test-HarnessManifest.ps1",
+      "source_location": "L1",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessrepositoryroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_resolve_harnesspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_test_harnessrelativepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_test_harnesshashmodevalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnesscanonicaltext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnesscanonicaltextbytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessnestedproperty",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L143",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_convertto_harnessarray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnesssha256",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_test_harnesssha256value",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L211",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_test_harnessutf8file",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_read_harnessdatafile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L242",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessmarkdownlinkproblems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessmarkdownproblems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L293",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L333",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_get_harnessmanifestdeclaredartifacts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L440",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L455",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common",
+      "target": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L820",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "target": "scripts_harness_harness_common_test_harnesshashmodevalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnesscanonicaltextbytes",
+      "target": "scripts_harness_harness_common_get_harnesscanonicaltext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessnestedproperty",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnesssha256",
+      "target": "scripts_harness_harness_common_test_harnesshashmodevalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L183",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnesssha256",
+      "target": "scripts_harness_harness_common_get_harnesscanonicaltextbytes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_test_harnessutf8file",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_read_harnessdatafile",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L245",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessmarkdownlinkproblems",
+      "target": "scripts_harness_harness_common_resolve_harnesspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L274",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessmarkdownproblems",
+      "target": "scripts_harness_harness_common_get_harnessmarkdownlinkproblems",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L326",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L340",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_convertto_harnessarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L345",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_test_harnessrelativepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L347",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_resolve_harnesspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L351",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_test_harnessutf8file",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L366",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_get_harnessmarkdownproblems",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L382",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L397",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessmanifestdeclaredartifacts",
+      "target": "scripts_harness_harness_common_convertto_harnessarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L445",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_get_harnessmanifestdeclaredartifacts",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L445",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_resolve_harnesspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L471",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L497",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_read_harnessdatafile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L498",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L499",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_convertto_harnessarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L581",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_get_harnessnestedproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L615",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L648",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_test_harnessrelativepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L649",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_test_harnesssha256value",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L653",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_get_harnesssha256",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L667",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_get_harnessmanifestdeclaredartifacts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L733",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnessmanifestevaluation",
+      "target": "scripts_harness_harness_common_invoke_harnessmechanicalvalidation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L762",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_resolve_harnesspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L830",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_read_harnessutf8text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L831",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_read_harnessdatafile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L832",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_get_harnessproperty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L833",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_convertto_harnessarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L868",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_get_harnessentryhashmode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L875",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_test_harnessrelativepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L876",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_test_harnesssha256value",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L876",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_harness_common_invoke_harnesscheckpointevaluation",
+      "target": "scripts_harness_harness_common_get_harnesssha256",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Harness.Common.ps1",
+      "source_location": "L886",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_invoke_harnesstests",
+      "target": "scripts_harness_invoke_harnesstests_add_check",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_invoke_harnesstests",
+      "target": "scripts_harness_invoke_harnesstests_write_utf8fixture",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_harness_invoke_harnesstests",
+      "target": "scripts_harness_invoke_harnesstests_write_binaryfixture",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/harness/Invoke-HarnessTests.ps1",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "failed_sources": []
+}
