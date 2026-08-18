@@ -1,0 +1,183 @@
+schema: fabrica.erp-cliente-matriz-comercial.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Matriz comercial e tecnica do cliente para a combinacao ERP x ferramenta publicada
+  etapa_origem: ERP_CLIENTE_PASSO_02
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Nao representa instalacao materializada
+    - Reutiliza memoria do ERP e da release publicada
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  erp_nome: null
+  erp_slug: null
+  ferramenta_nome: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  versao_release: null
+
+entradas:
+  contexto_cliente_ref: null
+  inventario_materiais_ref: null
+  relatorio_contexto_ref: null
+  contrato_configuracao_ref: null # mesmo nome de campo do Passo 01 (MODELO-CONTEXTO-DO-CLIENTE.yaml), unificado para rastreabilidade
+  manifesto_publicacao_ref: null
+
+resumo:
+  analise_cliente: null # CONCLUIDA | PARCIAL | BLOQUEADA
+  matriz_comercial_consolidada: null # SIM | PARCIAL | NAO
+  apto_para_projetar_instalacao: null # SIM | NAO
+
+regras_de_classificacao:
+  # Estas regras sao NORMATIVAS. Humano e IA devem aplicá-las antes de atribuir qualquer status_capacidade.
+  # Precedencia de decisao:
+  #   1. Evidencia suficiente para todos os componentes obrigatorios?
+  #      NAO -> PENDENTE_DE_EVIDENCIA (obrigatorio)
+  #      SIM -> continuar
+  #   2. Algum componente obrigatorio comprovadamente sem suporte?
+  #      SIM -> NAO_SUPORTADO ou GAP correspondente (com evidencia negativa suficiente)
+  #      NAO -> continuar
+  #   3. ferramenta=SIM, erp=SIM, mas release=NAO (comprovado)?
+  #      -> GAP_DA_RELEASE
+  #   4. ferramenta comprovadamente nao suporta?
+  #      -> GAP_DA_FERRAMENTA
+  #   5. Toda cadeia suporta E cliente usa atualmente?
+  #      -> ATIVO
+  #   6. Toda cadeia suporta E cliente nao usa, mas pode ativar sem desenvolvimento generico?
+  #      -> PRONTO_PARA_ATIVACAO
+
+  ativo:
+    descricao: >
+      Capacidade em uso real pelo cliente. Exige que TODOS os componentes obrigatorios
+      estejam comprovados como SIM e que existam evidencias suficientes.
+    condicoes_obrigatorias:
+      - ferramenta_ecat_suporta: SIM
+      - erp_suporta: SIM
+      - release_publicada_suporta: SIM
+      - cliente_possui: SIM
+      - cliente_usa_atualmente: SIM
+      - realidade_cliente_compativel_com_semantica: SIM
+      - sem_gap_da_release_impeditivo: SIM
+      - sem_gap_da_ferramenta_impeditivo: SIM
+      - sem_pendencia_bloqueante_da_capacidade: SIM
+      - evidencias_suficientes: SIM
+    proibido_quando:
+      - ferramenta_ecat_suporta: INDETERMINADO
+      - erp_suporta: INDETERMINADO
+      - release_publicada_suporta: INDETERMINADO
+      - cliente_usa_atualmente: NAO
+    nota: >
+      INDETERMINADO em qualquer componente obrigatorio proibe ATIVO.
+      Nesse caso usar PENDENTE_DE_EVIDENCIA.
+
+  pronto_para_ativacao:
+    descricao: >
+      Toda a cadeia suporta a capacidade, o cliente nao a usa hoje mas pode ativar
+      sem desenvolvimento generico novo. Exige que TODOS os componentes de suporte
+      estejam comprovados como SIM.
+    condicoes_obrigatorias:
+      - ferramenta_ecat_suporta: SIM
+      - erp_suporta: SIM
+      - release_publicada_suporta: SIM
+      - cliente_usa_atualmente: NAO
+      - realidade_cliente_pode_receber_sem_dev_generico: SIM
+      - sem_gap_da_release_impeditivo: SIM
+      - sem_gap_da_ferramenta_impeditivo: SIM
+      - sem_dependencia_sem_evidencia_impeditiva: SIM
+      - evidencias_suficientes_da_cadeia: SIM
+    proibido_quando:
+      - ferramenta_ecat_suporta: INDETERMINADO
+      - erp_suporta: INDETERMINADO
+      - release_publicada_suporta: INDETERMINADO
+    nota: >
+      PRONTO_PARA_ATIVACAO NAO significa apenas "cliente nao usa hoje".
+      INDETERMINADO em qualquer suporte obrigatorio proibe este status.
+      Nesse caso usar PENDENTE_DE_EVIDENCIA.
+
+  nao_suportado:
+    descricao: >
+      Pelo menos um componente obrigatorio da cadeia nao suporta a capacidade.
+      Requer EVIDENCIA NEGATIVA SUFICIENTE.
+    exige_evidencia_negativa: SIM
+    exemplos_de_evidencia_valida:
+      - contrato da ferramenta prova ausencia da capacidade
+      - documentacao ou API do ERP prova ausencia comprovada
+      - release publicada declara explicitamente capacidade nao suportada
+      - restricao comprovada impede a capacidade no contexto especifico
+    proibido_quando:
+      - evidencia_insuficiente: SIM
+    exemplos_proibidos:
+      - "nao encontrei documentacao -> NAO_SUPORTADO (PROIBIDO)"
+      - "campo nao apareceu no exemplo -> NAO_SUPORTADO (PROIBIDO)"
+      - "nome equivalente nao foi localizado -> NAO_SUPORTADO (PROIBIDO)"
+      - "ausencia de prova de suporte -> NAO_SUPORTADO (PROIBIDO)"
+    nota: >
+      Sem evidencia negativa suficiente, usar PENDENTE_DE_EVIDENCIA.
+      Ausencia de documentacao NAO prova ausencia da capacidade.
+
+  pendente_de_evidencia:
+    descricao: >
+      Evidencia insuficiente para classificar com seguranca. Obrigatorio quando
+      qualquer componente relevante estiver INDETERMINADO.
+    usar_quando:
+      - ferramenta_ecat_suporta: INDETERMINADO
+      - erp_suporta: INDETERMINADO
+      - release_publicada_suporta: INDETERMINADO
+      - cliente_possui: INDETERMINADO
+      - semantica_relevante_nao_comprovada: SIM
+      - middleware_pode_alterar_comportamento_e_impacto_nao_determinado: SIM
+      - fontes_contraditorias_nao_reconciliadas: SIM
+      - evidencia_necessaria_ausente: SIM
+    nota: >
+      Desconhecido NAO vira falso automaticamente.
+      Ausencia de evidencia NAO autoriza NAO_SUPORTADO.
+
+capacidades:
+  - capacidade_id: null
+    modulo: null
+    capacidade: null
+    ferramenta_ecat_suporta: null # SIM | NAO | INDETERMINADO
+    erp_suporta: null # SIM | NAO | INDETERMINADO
+    release_publicada_suporta: null # SIM | NAO | INDETERMINADO
+    cliente_possui: null # SIM | NAO | INDETERMINADO
+    cliente_usa_atualmente: null # SIM | NAO | INDETERMINADO
+    configuravel_sem_mudar_core: null # SIM | NAO | INDETERMINADO
+    requer_de_para: null # SIM | NAO | INDETERMINADO
+    requer_extensao_cliente: null # SIM | NAO | INDETERMINADO
+    possui_customizacao_relevante: null # SIM | NAO | INDETERMINADO
+    middleware_ou_api_customizada: null # NENHUM | MIDDLEWARE | API_CUSTOMIZADA | AMBOS | INDETERMINADO
+    # ATENCAO: ver regras_de_classificacao antes de preencher status_capacidade.
+    # ATIVO e PRONTO_PARA_ATIVACAO proibidos com qualquer suporte obrigatorio INDETERMINADO.
+    # NAO_SUPORTADO exige evidencia negativa suficiente. Sem prova: PENDENTE_DE_EVIDENCIA.
+    status_capacidade: null # ATIVO | PRONTO_PARA_ATIVACAO | NAO_SUPORTADO | PENDENTE_DE_EVIDENCIA
+    decisao: null # ATIVAR | DEIXAR_PRONTO | CONFIGURACAO_CLIENTE | DE_PARA_CLIENTE | EXTENSAO_CLIENTE | GAP_DA_RELEASE | GAP_DA_FERRAMENTA | DIVERGENCIA_DE_EVIDENCIA | PENDENTE | NAO_APLICAVEL
+    gap_identificado: null # NENHUM | GAP_DA_RELEASE | GAP_DA_FERRAMENTA | DIVERGENCIA_DE_EVIDENCIA
+    rota_se_gap: null
+    pendencia:
+      status: null # NENHUMA | NAO_BLOQUEANTE | BLOQUEANTE
+      descricao: null
+      evidencia_faltante: []
+    restricoes: []
+    riscos: []
+    evidencias: []
+
+configuracoes_cliente_identificadas: []
+de_paras_cliente_identificados: []
+extensoes_cliente_identificadas: []
+gaps_da_release: []
+gaps_da_ferramenta: []
+divergencias_de_evidencia: []
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes: []
+
+bloqueios: []
+
+handoff_passo_03:
+  restricoes: []
+  riscos: []
+  proximos_itens: []

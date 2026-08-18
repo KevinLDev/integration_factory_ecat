@@ -1,0 +1,113 @@
+schema: fabrica.erp-cliente-plano-instalacao.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Plano de instalacao do cliente para a combinacao ERP x ferramenta publicada, projetado a partir do handoff do Passo 02
+  etapa_origem: ERP_CLIENTE_PASSO_03
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Nao representa instalacao materializada
+    - Nao executa HML nem producao
+    - Cada item deve referenciar a capacidade correspondente do Passo 02 pelo mesmo capacidade_id
+    - Nao reclassifica capacidade; reclassificacao pertence exclusivamente ao Passo 02
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  erp_nome: null
+  erp_slug: null
+  ferramenta_nome: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  versao_release: null
+
+entradas:
+  matriz_comercial_ref: null # MATRIZ-COMERCIAL-DO-CLIENTE.yaml do Passo 02
+  relatorio_analise_ref: null # RELATORIO-DE-ANALISE-DO-CLIENTE.md do Passo 02
+  contrato_configuracao_ref: null # mesmo nome de campo usado no Passo 01 e no Passo 02
+  manifesto_publicacao_ref: null
+
+resumo:
+  projeto_instalacao: null # CONCLUIDO | PARCIAL | BLOQUEADO
+  plano_de_instalacao_consolidado: null # SIM | PARCIAL | NAO
+  pronto_para_desenvolvimento_cliente: null # SIM | NAO
+
+regra_de_escopo:
+  origem_status_permitida:
+    - ATIVO
+    - PRONTO_PARA_ATIVACAO
+  origem_status_proibida_no_plano:
+    - NAO_SUPORTADO
+    - PENDENTE_DE_EVIDENCIA
+  nota: >
+    Capacidades com origem_status proibido vao para itens_fora_de_escopo, nunca para
+    itens_de_instalacao. O Passo 03 nao reclassifica; se a evidencia mudou, a rota correta
+    e retornar ao Passo 02, nao decidir aqui.
+
+regra_de_gap_aberto:
+  comportamento: SEGUIR_EM_FRENTE
+  descricao: >
+    Capacidades com GAP_DA_RELEASE ou GAP_DA_FERRAMENTA aberto no Passo 02 nao bloqueiam
+    o restante do Passo 03. Elas sao registradas em itens_fora_de_escopo com a rota de
+    origem preservada, e o projeto de instalacao segue com o que ja tem evidencia
+    suficiente (ATIVO e PRONTO_PARA_ATIVACAO). Uma nova rodada do Passo 02, apos a release
+    ou a ferramenta serem atualizadas, e quem pode promover esses itens para o plano.
+
+itens_de_instalacao:
+  - capacidade_id: null
+    origem_status: null # ATIVO | PRONTO_PARA_ATIVACAO (nenhum outro valor permitido aqui)
+    configuracao_projetada:
+      - param_id: null
+        escopo: null # CONFIGURACAO_REUTILIZAVEL | CONFIGURACAO_DO_CLIENTE
+        valor_projetado: null # nunca valor real; usar SECRET_REQUIRED quando sensivel
+        justificativa: null
+        evidencia: []
+    de_para_projetado:
+      - campo_origem_erp: null
+        campo_destino_ferramenta: null
+        transformacao: null
+        evidencia: []
+    extensao_projetada:
+      necessaria: null # SIM | NAO
+      descricao: null
+      motivo: null
+      impacto: null
+    plano_de_ativacao:
+      pre_condicoes: []
+      dependencias: []
+      ordem_sugerida: null
+    criterios_de_aceite: []
+    restricoes: []
+    riscos: []
+    pendencia:
+      status: null # NENHUMA | NAO_BLOQUEANTE | BLOQUEANTE
+      descricao: null
+
+itens_fora_de_escopo:
+  - capacidade_id: null
+    origem_status: null # NAO_SUPORTADO | PENDENTE_DE_EVIDENCIA
+    gap_identificado: null # NENHUM | GAP_DA_RELEASE | GAP_DA_FERRAMENTA | DIVERGENCIA_DE_EVIDENCIA
+    motivo: null
+    rota: null # ERP_PARCEIRO_<NN> | jornada da ferramenta | retorno ao Passo 02
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes: []
+
+bloqueios: []
+
+status_final:
+  projeto_instalacao: null # CONCLUIDO | PARCIAL | BLOQUEADO
+  plano_de_instalacao_consolidado: null # SIM | PARCIAL | NAO
+  configuracao_projetada: null # SIM | NAO
+  de_para_projetado: null # SIM | NAO
+  extensao_projetada: null # SIM | NAO | NAO_APLICAVEL
+  plano_de_ativacao_definido: null # SIM | NAO | NAO_APLICAVEL
+  criterios_de_aceite_definidos: null # SIM | NAO
+  pronto_para_desenvolvimento_cliente: null # SIM | NAO
+  proximo_passo: null # ERP_CLIENTE_04 | ERP_PARCEIRO_<NN> | NOVA_FERRAMENTA_<NN> | BLOQUEADA
+
+seguranca:
+  segredo_persistido: false
+  hml_executada: false
+  producao_executada: false
