@@ -59,7 +59,7 @@ As jornadas reutilizam contratos, adaptadores e conhecimento compartilhado, mas 
 - a jornada de ERP parceiro produz uma integração reutilizável e homologada;
 - a jornada de ERP cliente aplica uma integração homologada e trata somente as particularidades do cliente.
 
-Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta, os Passos 01 a 09 da jornada de ERP parceiro e o Passo 01 da jornada de ERP cliente estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. A jornada de ERP cliente possui o Passo 01 liberado para resolucao de contexto e elegibilidade de reutilizacao; passos posteriores ainda nao estao liberados. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta, os Passos 01 a 09 da jornada de ERP parceiro e os Passos 01 e 02 da jornada de ERP cliente estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. A jornada de ERP cliente possui os Passos 01 e 02 liberados; passos posteriores ainda nao estao liberados. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## 4. Conceitos que nunca podem ser confundidos
 
@@ -252,6 +252,9 @@ parceiros/comandos/ERP-PARCEIRO-09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.m
 
 parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 -> comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md
+
+parceiros/comandos/ERP-CLIENTE-02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md
+-> comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md
 ```
 
 Documentos operacionais de ERP devem ficar em uma destas jornadas:
