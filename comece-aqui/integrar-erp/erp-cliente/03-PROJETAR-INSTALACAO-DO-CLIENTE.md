@@ -38,22 +38,20 @@ Esta etapa nao pode:
 - executar HML;
 - executar producao.
 
-Esses itens pertencem aos passos posteriores (o roteiro informado pelo operador aponta o Passo 04 como "materializar instalacao em HML" -- ver nota abaixo).
+Esses itens pertencem aos passos posteriores (o Passo 04 -- "materializar instalacao em HML" -- ja esta liberado; ver nota abaixo).
 
 ## Nota sobre o roteiro completo da jornada
-
-O operador do projeto informou o seguinte roteiro para a jornada ERP Cliente:
 
 ```text
 01 Resolver contexto do cliente          [liberado, commitado]
 02 Analisar realidade comercial/tecnica  [liberado]
 03 Projetar instalacao                   [este documento]
-04 Materializar instalacao em HML        [futuro]
+04 Materializar instalacao em HML        [liberado]
 05 Validar HML + preparar producao       [futuro]
 06 Go-live + validar producao + memoria  [futuro]
 ```
 
-Este roteiro esta formalizado nesta publicacao para delimitar o Passo 03 e impedir que ele invada o escopo do futuro Passo 04. Os Passos 04 a 06 continuam nao liberados.
+Este roteiro esta formalizado nesta publicacao para delimitar o Passo 03 e impedir que ele invada o escopo do Passo 04. Os Passos 05 e 06 continuam nao liberados.
 
 ## Pre-requisitos
 
@@ -85,7 +83,7 @@ Nao envie secrets no prompt.
 6. Definir criterios de aceite por capacidade.
 7. Registrar itens fora de escopo (nao suportado, pendente de evidencia, gap de release ou de ferramenta) sem bloquear o restante do plano por causa deles.
 8. Consolidar pendencias, bloqueios, restricoes e riscos.
-9. Preparar o handoff para o futuro Passo 04 sem materializar nada.
+9. Preparar o handoff para o Passo 04 sem materializar nada.
 
 ## Regra de escopo
 
@@ -97,7 +95,7 @@ Capacidade com `GAP_DA_RELEASE` ou `GAP_DA_FERRAMENTA` aberto **nao bloqueia o P
 
 ## Rotas de saida
 
-- plano consolidado, sem pendencia bloqueante -> ERP Cliente Passo 04 (quando liberado);
+- plano consolidado, sem pendencia bloqueante -> ERP Cliente Passo 04;
 - pendencia bloqueante identificada durante o projeto -> permanece BLOQUEADO, registra pendencia;
 - capacidade nova revelada que o Passo 02 nao cobriu -> retorna ao Passo 02;
 - gap de release ainda aberto para item critico -> ERP Parceiro no menor passo responsavel;
@@ -113,7 +111,7 @@ parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md
 
 Objetivo:
 Projetar somente a instalacao do cliente para as capacidades ja classificadas como
-ATIVO ou PRONTO_PARA_ATIVACAO pelo Passo 02, preparando a base para o futuro Passo 04.
+ATIVO ou PRONTO_PARA_ATIVACAO pelo Passo 02, preparando a base para o Passo 04.
 
 Solicitacao do operador:
 [descreva a intencao em linguagem natural]
@@ -234,8 +232,8 @@ AUDITORIA_INDEPENDENTE_OBRIGATORIA: NAO
 
 A auditoria independente deve ser exigida quando o plano envolver `EXTENSAO_CLIENTE` bloqueante, algum `GAP_DA_RELEASE`/`GAP_DA_FERRAMENTA` de item critico, ou classificacao critica que altere o proximo passo permitido.
 
-Com `PROJETO_INSTALACAO: CONCLUIDO`, `PLANO_DE_INSTALACAO_CONSOLIDADO: SIM` e `PRONTO_PARA_MATERIALIZACAO_EM_HML: SIM`, a proxima etapa permitida sera o Passo 04 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `PROJETO_INSTALACAO: CONCLUIDO`, `PLANO_DE_INSTALACAO_CONSOLIDADO: SIM` e `PRONTO_PARA_MATERIALIZACAO_EM_HML: SIM`, a proxima etapa permitida e o Passo 04 da jornada ERP cliente: `comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md`.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02 e 03 estao liberados nesta publicacao. Os Passos 04 a 06 permanecem futuros: materializacao em HML, validacao em HML/preparacao para producao e go-live/registro de memoria.
+A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03 e 04 estao liberados nesta publicacao. Os Passos 05 e 06 permanecem futuros: validacao em HML/preparacao para producao e go-live/registro de memoria.

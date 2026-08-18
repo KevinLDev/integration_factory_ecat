@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-Executar somente o Passo 03 da jornada ERP Cliente e transformar o handoff valido do Passo 02 em um plano tecnico de instalacao do cliente, rastreavel, seguro e pronto para a materializacao em HML do futuro Passo 04.
+Executar somente o Passo 03 da jornada ERP Cliente e transformar o handoff valido do Passo 02 em um plano tecnico de instalacao do cliente, rastreavel, seguro e pronto para a materializacao em HML do Passo 04.
 
 Este passo responde:
 
@@ -16,12 +16,12 @@ O resultado e projeto, nao implementacao nem execucao.
 PASSO 01 -> resolve contexto, release e elegibilidade [liberado, commitado]
 PASSO 02 -> analisa realidade comercial e tecnica do cliente [liberado]
 PASSO 03 -> projeta a instalacao do cliente [este documento]
-PASSO 04 -> materializa a instalacao em HML [futuro]
+PASSO 04 -> materializa a instalacao em HML [liberado]
 PASSO 05 -> valida HML e prepara producao [futuro]
 PASSO 06 -> go-live, valida producao e registra memoria [futuro]
 ```
 
-Os Passos 01, 02 e 03 estao formalmente liberados nesta publicacao. Os Passos 04 a 06 permanecem futuros e nao podem ser executados ate possuirem documentos operacionais, comandos e gates oficialmente liberados.
+Os Passos 01, 02, 03 e 04 estao formalmente liberados nesta publicacao. Os Passos 05 e 06 permanecem futuros e nao podem ser executados ate possuirem documentos operacionais, comandos e gates oficialmente liberados.
 
 ## Fronteira obrigatoria
 

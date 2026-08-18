@@ -128,10 +128,10 @@ Etapas oficiais vigentes nesta jornada:
 - Passo 01: resolver contexto do cliente e elegibilidade de reutilizacao da release publicada.
 - Passo 02: analisar a realidade comercial e tecnica do cliente com base na release publicada e nos materiais recebidos.
 - Passo 03: projetar a instalacao do cliente sem materializar configuracao, executar HML ou producao.
+- Passo 04: materializar em HML a configuracao, de-para e extensoes projetados no Passo 03. A primeira materializacao real de cada combinacao exige auditoria independente PROFUNDA; a execucao produtora nunca se autoaprova e nunca escreve em producao.
 
 Atividades futuras, ainda sem etapas oficiais liberadas:
 
-- Passo 04: materializacao de configuracao, de-para e extensoes controladas em HML;
 - Passo 05: validacao em HML da instalacao especifica e preparacao para producao;
 - Passo 06: go-live, validacao de producao e registro de memoria.
 
@@ -323,13 +323,14 @@ O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 e
 - Passo 01: Resolver Contexto do Cliente
 - Passo 02: Analisar Realidade Comercial e Tecnica do Cliente
 - Passo 03: Projetar Instalacao do Cliente
+- Passo 04: Materializar Instalacao do Cliente em HML
 
-O Passo 03 somente projeta configuracao, de-para, extensao, ativacao e criterios de aceite; ele nao materializa configuracao, nao executa HML e nao executa producao.
+O Passo 03 somente projeta configuracao, de-para, extensao, ativacao e criterios de aceite; ele nao materializa configuracao, nao executa HML e nao executa producao. O Passo 04 materializa em HML exatamente o que o Passo 03 projetou, nunca escreve em producao e nunca se autoaprova: a primeira materializacao real de cada combinacao exige auditoria independente PROFUNDA, separada da execucao produtora.
 
 ### Visão futura, ainda não executável
 
 - runtime e monitoramento;
-- passos 04+ da jornada ERP Cliente.
+- passos 05+ da jornada ERP Cliente.
 
 A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 

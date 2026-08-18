@@ -32,6 +32,7 @@ parceiros/comandos/ERP-PARCEIRO-09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLOGADA.m
 parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 parceiros/comandos/ERP-CLIENTE-02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md
 parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md
+parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md
 ```
 
 Seus documentos operacionais são:
@@ -52,6 +53,7 @@ comece-aqui/integrar-erp/erp-parceiro/09-CONSOLIDAR-E-PUBLICAR-INTEGRACAO-HOMOLO
 comece-aqui/integrar-erp/erp-cliente/01-RESOLVER-CONTEXTO-DO-CLIENTE.md
 comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md
 comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md
+comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -131,8 +133,9 @@ Comando operacional vigente de ERP cliente:
 - `parceiros/comandos/ERP-CLIENTE-01-RESOLVER-CONTEXTO-DO-CLIENTE.md`
 - `parceiros/comandos/ERP-CLIENTE-02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md`
 - `parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md`
+- `parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md`
 
-A jornada ERP cliente possui os Passos 01, 02 e 03 liberados. O Passo 03 somente projeta a instalacao; os Passos 04 a 06 ainda nao estao liberados.
+A jornada ERP cliente possui os Passos 01, 02, 03 e 04 liberados. O Passo 03 somente projeta a instalacao; o Passo 04 materializa em HML o que foi projetado e nunca se autoaprova (auditoria independente PROFUNDA obrigatoria na primeira materializacao real de cada combinacao). Os Passos 05 e 06 ainda nao estao liberados.
 
 ## Modelos existentes no repositório
 

@@ -50,6 +50,10 @@ Passo 03 — Projetar instalacao do cliente:
 
 `comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md`
 
+Passo 04 — Materializar instalacao do cliente em HML:
+
+`comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md`
+
 ## Fronteira do Passo 01
 
 O Passo 01 resolve somente:
@@ -85,9 +89,19 @@ O Passo 03 resolve somente o projeto da instalacao do cliente a partir da saida 
 
 O Passo 03 nao reclassifica capacidades, nao altera os artefatos do Passo 02, nao materializa configuracao, nao desenvolve codigo, nao usa credenciais reais, nao executa HML e nao executa producao.
 
+## Fronteira do Passo 04
+
+O Passo 04 resolve somente a materializacao real, em HML, do que o Passo 03 projetou:
+
+- configuracao, de-para e extensao efetivamente criados e confirmados no ambiente de HML autorizado do cliente;
+- confirmacao de cada escrita por reconsulta ao destino;
+- idempotencia (reexecucao nao duplica).
+
+O Passo 04 nao reprojeta nem reclassifica nada do Passo 02/03, nao altera o contrato homologado da ferramenta, nao valida funcionalmente o resultado, nao usa nem escreve em producao, e nunca se autoaprova: a primeira materializacao real de cada combinacao exige auditoria independente `PROFUNDA`, separada da execucao produtora.
+
 ## Visao dos proximos passos
 
-Os Passos 04 a 06 da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao: materializacao em HML, validacao em HML/preparacao para producao e go-live/registro de memoria.
+Os Passos 05 e 06 da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao: validacao em HML/preparacao para producao e go-live/registro de memoria.
 
 ## Disponibilidade
 
@@ -97,4 +111,6 @@ Os Passos 04 a 06 da jornada ERP cliente permanecem planejados e ainda nao estao
 
 **PASSO 03 LIBERADO PARA EXECUCAO SOMENTE COMO PROJETO.**
 
-Os Passos 04 a 06 da jornada ERP cliente ainda nao estao liberados.
+**PASSO 04 LIBERADO PARA EXECUCAO REAL EM HML, COM AUDITORIA INDEPENDENTE PROFUNDA OBRIGATORIA NA PRIMEIRA MATERIALIZACAO DE CADA COMBINACAO.**
+
+Os Passos 05 e 06 da jornada ERP cliente ainda nao estao liberados.

@@ -1,0 +1,92 @@
+schema: fabrica.erp-cliente-instalacao-materializada.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Registro da materializacao real, em HML, do plano de instalacao aprovado no Passo 03
+  etapa_origem: ERP_CLIENTE_PASSO_04
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Representa apenas HML; producao nunca e destino desta etapa
+    - Cada item deve referenciar o item correspondente do Passo 03 pelo mesmo capacidade_id
+    - Nao reprojeta nem reclassifica nada do Passo 02/03
+    - A execucao produtora nunca se autoaprova; AUDITORIA e STATUS_DA_ETAPA finais dependem de auditoria independente PROFUNDA
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  erp_nome: null
+  erp_slug: null
+  ferramenta_nome: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  versao_release: null
+
+entradas:
+  plano_de_instalacao_ref: null # PLANO-DE-INSTALACAO-DO-CLIENTE.yaml do Passo 03
+  relatorio_projeto_ref: null # RELATORIO-DE-PROJETO-DE-INSTALACAO.md do Passo 03
+  contrato_configuracao_ref: null
+  manifesto_publicacao_ref: null
+  snapshot_vigencia_do_plano: null # hash/versao usado para provar que o plano nao mudou desde o Passo 03
+
+ambiente:
+  classificacao: null # HML | HOMOLOGACAO | SANDBOX | TESTE | DEV_AUTORIZADO
+  fingerprint_nao_sensivel: null # identificador de sistema/conta/tenant sem segredo
+  autorizacao_explicita: null # SIM | NAO
+  autorizado_por: null
+
+resumo:
+  vigencia_do_plano: null # VIGENTE | PLANO_POTENCIALMENTE_OBSOLETO | EVIDENCIA_INSUFICIENTE
+  materializacao: null # COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE | BLOQUEADA
+  reconsulta: null # APROVADA | PARCIAL | INSUFICIENTE
+  idempotencia_aprovada: null # SIM | NAO | NAO_APLICAVEL
+  pronto_para_validacao_hml: null # SIM | NAO (somente auditoria independente pode marcar SIM)
+
+itens_materializados:
+  - capacidade_id: null # deve corresponder ao capacidade_id do Passo 03
+    id_logico: null
+    id_fisico_hml: null
+    acao: null # ESCRITA_CONFIRMADA | REUTILIZADO_EXISTENTE | DIVERGENTE_APOS_RECONSULTA | FALHOU_NA_ESCRITA | FALHOU_NA_RECONSULTA | NAO_APLICAVEL
+    configuracao_materializada:
+      - param_id: null
+        escopo: null # CONFIGURACAO_REUTILIZAVEL | CONFIGURACAO_DO_CLIENTE
+        confirmado_por_reconsulta: null # SIM | NAO
+    de_para_materializado:
+      - campo_origem_erp: null
+        campo_destino_ferramenta: null
+        confirmado_por_reconsulta: null # SIM | NAO
+    extensao_materializada:
+      aplicada: null # SIM | NAO | NAO_APLICAVEL
+      confirmado_por_reconsulta: null # SIM | NAO
+    dependencias_respeitadas: null # SIM | NAO
+    pendencia:
+      status: null # NENHUMA | NAO_BLOQUEANTE | BLOQUEANTE
+      descricao: null
+
+itens_nao_materializados:
+  - capacidade_id: null
+    motivo: null # FORA_DE_ESCOPO_NO_PASSO_03 | BLOQUEIO_NA_MATERIALIZACAO | GAP_DA_RELEASE | GAP_DA_FERRAMENTA
+    rota: null
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes: []
+
+bloqueios: []
+
+status_final_execucao_produtora:
+  materializacao: null # COMPLETA | PARCIAL_JUSTIFICADA | INSUFICIENTE | BLOQUEADA
+  falhas_bloqueantes: 0
+  auditoria: AGUARDANDO_INDEPENDENTE
+  status_da_etapa: PENDENTE
+  pronto_para_validacao_hml: false
+  proximo_passo: AUDITORIA_INDEPENDENTE_PASSO_04
+
+auditoria_independente:
+  tipo_exigido: PROFUNDA
+  motivo: Primeira execucao real de escrita desta combinacao de cliente
+  resultado: null # APROVADA | REPROVADA | BLOQUEADA | null enquanto pendente
+  relatorio_ref: null
+
+seguranca:
+  segredo_persistido: false
+  escrita_producao: false

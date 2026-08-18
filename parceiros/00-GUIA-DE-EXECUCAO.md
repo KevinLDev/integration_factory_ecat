@@ -110,7 +110,7 @@ Entrada humana:
 
 `comece-aqui/integrar-erp/erp-cliente/00-COMECE-AQUI.md`
 
-Essa jornada deve reutilizar uma integração homologada sempre que possível. Os Passos 01, 02 e 03 estao liberados para resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica e projeto da instalacao sem materializacao; os Passos 04 a 06 permanecem nao liberados.
+Essa jornada deve reutilizar uma integração homologada sempre que possível. Os Passos 01, 02, 03 e 04 estao liberados para resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica, projeto da instalacao sem materializacao e materializacao em HML do que foi projetado (com auditoria independente PROFUNDA obrigatoria na primeira materializacao real de cada combinacao); os Passos 05 e 06 permanecem nao liberados.
 
 ## O operador não deve fazer
 
