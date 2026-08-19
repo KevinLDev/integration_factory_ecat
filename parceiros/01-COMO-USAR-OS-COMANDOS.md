@@ -34,6 +34,7 @@ parceiros/comandos/ERP-CLIENTE-02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIE
 parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md
 parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md
 parceiros/comandos/ERP-CLIENTE-05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md
+parceiros/comandos/ERP-CLIENTE-06-GO-LIVE-E-VALIDAR-PRODUCAO.md
 ```
 
 Seus documentos operacionais são:
@@ -56,6 +57,7 @@ comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-D
 comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md
 comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md
 comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md
+comece-aqui/integrar-erp/erp-cliente/06-GO-LIVE-E-VALIDAR-PRODUCAO.md
 ```
 
 O Passo 03 valida o contrato em modo somente leitura e só registra a ferramenta como homologada para integrações após resultado técnico apto e auditoria aprovada.
@@ -137,8 +139,9 @@ Comando operacional vigente de ERP cliente:
 - `parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md`
 - `parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md`
 - `parceiros/comandos/ERP-CLIENTE-05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md`
+- `parceiros/comandos/ERP-CLIENTE-06-GO-LIVE-E-VALIDAR-PRODUCAO.md`
 
-A jornada ERP cliente possui os Passos 01, 02, 03, 04 e 05 liberados. O Passo 03 somente projeta a instalacao; o Passo 04 materializa em HML o que foi projetado; o Passo 05 valida essa materializacao e prepara a decisao de producao. Nenhum dos dois se autoaprova (auditoria independente PROFUNDA obrigatoria na primeira execucao real de cada combinacao). O Passo 06 ainda nao esta liberado.
+A jornada ERP cliente possui o roteiro completo de 6 passos liberado. O Passo 03 somente projeta a instalacao; o Passo 04 materializa em HML o que foi projetado; o Passo 05 valida essa materializacao; o Passo 06 executa o go-live em producao e registra a memoria de fechamento -- a primeira etapa de toda a fabrica que escreve em producao. Nenhum dos tres (04, 05, 06) se autoaprova (auditoria independente PROFUNDA obrigatoria na primeira execucao real de cada combinacao).
 
 ## Modelos existentes no repositório
 

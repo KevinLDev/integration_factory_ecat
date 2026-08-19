@@ -130,10 +130,9 @@ Etapas oficiais vigentes nesta jornada:
 - Passo 03: projetar a instalacao do cliente sem materializar configuracao, executar HML ou producao.
 - Passo 04: materializar em HML a configuracao, de-para e extensoes projetados no Passo 03. A primeira materializacao real de cada combinacao exige auditoria independente PROFUNDA; a execucao produtora nunca se autoaprova e nunca escreve em producao.
 - Passo 05: validar tecnica e funcionalmente, em HML, a instalacao materializada no Passo 04, cobrindo os criterios de aceite do Passo 03, e preparar (sem executar) a decisao de producao. A primeira validacao real de cada combinacao tambem exige auditoria independente PROFUNDA; a execucao produtora nunca se autoaprova.
+- Passo 06: executar o go-live em producao (tudo de uma vez, nao faseado) do que os Passos 04/05 ja validaram, confirmar pos-go-live reexecutando os cenarios do Passo 05 contra producao e registrar a memoria final de fechamento. Esta e a primeira etapa de toda a fabrica que escreve em producao; exige a autorizacao explicita do operador (nesta V1, sem aprovacao externa do cliente), um plano de contingencia definido antes de qualquer escrita, e auditoria independente PROFUNDA com o maior rigor entre todas as etapas. A execucao produtora nunca se autoaprova.
 
-Atividades futuras, ainda sem etapas oficiais liberadas:
-
-- Passo 06: go-live, validacao de producao e registro de memoria.
+Com o Passo 06, o roteiro completo de 6 passos desta jornada esta liberado. Nao ha Passo 07 da jornada ERP Cliente.
 
 **IMPORTANTE**: Não criar Base Comercial de desenvolvimento para cliente se já existe integração homologada. Base de homologação foi para a Fábrica, não para cada cliente.
 
@@ -325,13 +324,14 @@ O Passo 06 termina em `PRONTO_PARA_EXECUCAO_HML`, sem executar HML. O Passo 07 e
 - Passo 03: Projetar Instalacao do Cliente
 - Passo 04: Materializar Instalacao do Cliente em HML
 - Passo 05: Validar HML e Preparar Producao
+- Passo 06: Go-live, Validar Producao e Registrar Memoria
 
-O Passo 03 somente projeta configuracao, de-para, extensao, ativacao e criterios de aceite; ele nao materializa configuracao, nao executa HML e nao executa producao. O Passo 04 materializa em HML exatamente o que o Passo 03 projetou, nunca escreve em producao e nunca se autoaprova. O Passo 05 valida tecnica e funcionalmente essa materializacao contra os criterios de aceite do Passo 03, sem re-homologar a integracao generica ERP x ferramenta e sem executar producao. A primeira execucao real de cada combinacao (Passos 04 e 05) exige auditoria independente PROFUNDA, separada da execucao produtora; nenhuma das duas se autoaprova.
+O Passo 03 somente projeta configuracao, de-para, extensao, ativacao e criterios de aceite; ele nao materializa configuracao, nao executa HML e nao executa producao. O Passo 04 materializa em HML exatamente o que o Passo 03 projetou, nunca escreve em producao e nunca se autoaprova. O Passo 05 valida tecnica e funcionalmente essa materializacao contra os criterios de aceite do Passo 03, sem re-homologar a integracao generica ERP x ferramenta e sem executar producao. O Passo 06 executa o go-live em producao (tudo de uma vez) do que os Passos 04/05 ja validaram, confirma pos-go-live e registra a memoria de fechamento -- e a primeira etapa de toda a fabrica que escreve em producao. A primeira execucao real de cada combinacao (Passos 04, 05 e 06) exige auditoria independente PROFUNDA, separada da execucao produtora; nenhuma das tres se autoaprova.
 
 ### Visão futura, ainda não executável
 
-- runtime e monitoramento;
-- passos 06+ da jornada ERP Cliente.
+- runtime e monitoramento continuos (fora do escopo pontual do Passo 06);
+- nao ha Passo 07+ da jornada ERP Cliente -- o roteiro de 6 passos esta completo.
 
 A IA de Apoio não deve numerar, criar ou sugerir comando executável para capacidades futuras ainda sem publicação formal.
 

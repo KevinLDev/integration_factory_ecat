@@ -48,10 +48,10 @@ Esses itens pertencem aos passos posteriores (o Passo 04 -- "materializar instal
 03 Projetar instalacao                   [este documento]
 04 Materializar instalacao em HML        [liberado]
 05 Validar HML + preparar producao       [liberado]
-06 Go-live + validar producao + memoria  [futuro]
+06 Go-live + validar producao + memoria  [liberado]
 ```
 
-Este roteiro esta formalizado nesta publicacao para delimitar o Passo 03 e impedir que ele invada o escopo do Passo 04. O Passo 06 continua nao liberado.
+Este roteiro esta formalizado nesta publicacao para delimitar o Passo 03 e impedir que ele invada o escopo do Passo 04. Com o Passo 06, o roteiro completo esta liberado.
 
 ## Pre-requisitos
 
@@ -236,4 +236,4 @@ Com `PROJETO_INSTALACAO: CONCLUIDO`, `PLANO_DE_INSTALACAO_CONSOLIDADO: SIM` e `P
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03, 04 e 05 estao liberados nesta publicacao. O Passo 06 permanece futuro: go-live e registro de memoria.
+A jornada ERP cliente possui o roteiro completo de 6 passos liberado nesta publicacao.

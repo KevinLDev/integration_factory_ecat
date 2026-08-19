@@ -51,10 +51,10 @@ Esta etapa nao pode:
 03 Projetar instalacao                   [liberado, somente projeto]
 04 Materializar instalacao em HML        [liberado, com auditoria PROFUNDA obrigatoria]
 05 Validar HML + preparar producao       [este documento]
-06 Go-live + validar producao + memoria  [futuro]
+06 Go-live + validar producao + memoria  [liberado, com auditoria PROFUNDA obrigatoria]
 ```
 
-O Passo 06 continua nao liberado.
+Com o Passo 06, o roteiro completo esta liberado.
 
 ## Pre-requisitos
 
@@ -109,7 +109,7 @@ Mesma politica dos Passos 04: credenciais reais de HML podem ser usadas de forma
 | `BUG_NA_INTEGRACAO_GENERICA` | Nao pertence ao Passo 04/05 do cliente -- encaminha ao ERP Parceiro (menor passo responsavel, tipicamente o Passo 06); a combinacao ja homologada pode precisar de nova rodada de auditoria la. |
 | `BUG_OU_DIVERGENCIA_DA_FERRAMENTA` ou `CONTRATO_DA_FERRAMENTA_DIVERGENTE` | Encaminha a jornada responsavel pela ferramenta ou ao ERP Parceiro, conforme a origem. |
 
-Aprovado, sem pendencia bloqueante -> auditoria independente `PROFUNDA` do Passo 05; apos aprovacao, ERP Cliente Passo 06 (quando liberado).
+Aprovado, sem pendencia bloqueante -> auditoria independente `PROFUNDA` do Passo 05; apos aprovacao, ERP Cliente Passo 06.
 
 ## O que mandar para o chat
 
@@ -213,8 +213,8 @@ STATUS_DA_ETAPA: CONCLUIDA
 PRONTO_PARA_PRODUCAO: SIM
 ```
 
-Com `PRONTO_PARA_PRODUCAO: SIM`, a proxima etapa permitida sera o Passo 06 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `PRONTO_PARA_PRODUCAO: SIM`, a proxima etapa permitida e o Passo 06 da jornada ERP cliente: `comece-aqui/integrar-erp/erp-cliente/06-GO-LIVE-E-VALIDAR-PRODUCAO.md`.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03, 04 e 05 estao liberados nesta publicacao. O Passo 06 permanece futuro: go-live, validacao de producao e registro de memoria.
+A jornada ERP cliente possui o roteiro completo de 6 passos liberado nesta publicacao.

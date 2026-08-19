@@ -58,6 +58,10 @@ Passo 05 — Validar HML e preparar producao:
 
 `comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md`
 
+Passo 06 — Go-live, validar producao e registrar memoria:
+
+`comece-aqui/integrar-erp/erp-cliente/06-GO-LIVE-E-VALIDAR-PRODUCAO.md`
+
 ## Fronteira do Passo 01
 
 O Passo 01 resolve somente:
@@ -114,9 +118,20 @@ O Passo 05 resolve somente a validacao, em HML, do que o Passo 04 materializou:
 
 O Passo 05 nao re-homologa a integracao generica ERP x ferramenta (isso pertence a jornada ERP Parceiro), nao materializa nem corrige configuracao, nao reprojeta nem reclassifica nada dos Passos 02/03, nao usa nem escreve em producao, e nunca se autoaprova: a primeira validacao real de cada combinacao exige auditoria independente `PROFUNDA`, separada da execucao produtora.
 
+## Fronteira do Passo 06
+
+O Passo 06 resolve somente o go-live em producao do que os Passos 04/05 ja validaram, e o fechamento da jornada deste cliente:
+
+- autorizacao explicita de producao e plano de contingencia definidos antes de qualquer escrita;
+- materializacao completa (nao faseada) em producao, com reconsulta e idempotencia, exatamente como ja validado;
+- confirmacao pos-go-live curta, reexecutando os cenarios ja aprovados no Passo 05 e conferindo manualmente na ferramenta;
+- registro da memoria final de fechamento da integracao deste cliente.
+
+O Passo 06 nao re-homologa nem revalida o que os Passos 04/05 ja aprovaram, nao reprojeta nem reclassifica nada dos Passos 02/03, nao faz rollback automatico de dado real, nao cria runtime ou monitoramento continuo, e nunca se autoaprova: por ser a primeira execucao de producao de toda a fabrica, exige auditoria independente `PROFUNDA` com o maior rigor entre todas as etapas.
+
 ## Visao dos proximos passos
 
-O Passo 06 da jornada ERP cliente permanece planejado e ainda nao esta liberado para execucao: go-live, validacao de producao e registro de memoria.
+Com o Passo 06, o roteiro de 6 passos da jornada ERP cliente fica completo. Nao ha Passo 07 desta jornada; runtime e monitoramento continuos permanecem visao futura, sem etapa oficial.
 
 ## Disponibilidade
 
@@ -130,4 +145,6 @@ O Passo 06 da jornada ERP cliente permanece planejado e ainda nao esta liberado 
 
 **PASSO 05 LIBERADO PARA VALIDACAO REAL EM HML, COM AUDITORIA INDEPENDENTE PROFUNDA OBRIGATORIA NA PRIMEIRA VALIDACAO DE CADA COMBINACAO.**
 
-O Passo 06 da jornada ERP cliente ainda nao esta liberado.
+**PASSO 06 LIBERADO PARA GO-LIVE REAL EM PRODUCAO, COM AUDITORIA INDEPENDENTE PROFUNDA OBRIGATORIA NA PRIMEIRA EXECUCAO DE PRODUCAO DE CADA COMBINACAO.**
+
+Com isso, o roteiro completo de 6 passos da jornada ERP cliente esta liberado.

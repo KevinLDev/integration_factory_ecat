@@ -27,7 +27,7 @@ Abra:
 
 Use quando um cliente utiliza um ERP e precisa ser conectado a uma ferramenta E-Catálogos.
 
-Disponibilidade atual da jornada cliente: Passos 01, 02, 03, 04 e 05 liberados (resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica, projeto da instalacao sem materializacao, materializacao em HML do que foi projetado e validacao tecnica/funcional preparando a decisao de producao).
+Disponibilidade atual da jornada cliente: Passos 01 a 06 liberados, roteiro completo (resolucao de contexto/elegibilidade, analise da realidade comercial e tecnica, projeto da instalacao sem materializacao, materializacao em HML, validacao tecnica/funcional e go-live em producao com registro de memoria).
 
 Abra:
 

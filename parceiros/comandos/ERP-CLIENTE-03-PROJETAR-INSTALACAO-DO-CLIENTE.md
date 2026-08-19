@@ -18,10 +18,10 @@ PASSO 02 -> analisa realidade comercial e tecnica do cliente [liberado]
 PASSO 03 -> projeta a instalacao do cliente [este documento]
 PASSO 04 -> materializa a instalacao em HML [liberado]
 PASSO 05 -> valida HML e prepara producao [liberado]
-PASSO 06 -> go-live, valida producao e registra memoria [futuro]
+PASSO 06 -> go-live, valida producao e registra memoria [liberado]
 ```
 
-Os Passos 01, 02, 03, 04 e 05 estao formalmente liberados nesta publicacao. O Passo 06 permanece futuro e nao pode ser executado ate possuir documento operacional, comando e gate oficialmente liberados.
+Com o Passo 06, o roteiro completo de 6 passos desta jornada esta formalmente liberado.
 
 ## Fronteira obrigatoria
 

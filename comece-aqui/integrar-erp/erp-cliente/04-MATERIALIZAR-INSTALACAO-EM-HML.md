@@ -47,10 +47,10 @@ Esta etapa nao pode:
 03 Projetar instalacao                   [liberado, somente projeto]
 04 Materializar instalacao em HML        [este documento]
 05 Validar HML + preparar producao       [liberado]
-06 Go-live + validar producao + memoria  [futuro]
+06 Go-live + validar producao + memoria  [liberado]
 ```
 
-O Passo 06 continua nao liberado.
+Com o Passo 06, o roteiro completo esta liberado.
 
 ## Pre-requisitos
 
@@ -246,4 +246,4 @@ Com `PRONTO_PARA_VALIDACAO_HML: SIM`, a proxima etapa permitida e o Passo 05 da 
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03, 04 e 05 estao liberados nesta publicacao. O Passo 06 permanece futuro: go-live e registro de memoria.
+A jornada ERP cliente possui o roteiro completo de 6 passos liberado nesta publicacao.

@@ -33,7 +33,7 @@ A jornada deve bloquear o uso de qualquer ferramenta que nao possua Passo 03 con
 
 Terá etapas próprias para verificar uma combinação ERP + ferramenta já homologada, aplicar configurações e validar as particularidades de um cliente real.
 
-Essa jornada possui os Passos 01, 02, 03, 04 e 05 operacionais liberados para resolver contexto/elegibilidade, analisar a realidade comercial e tecnica do cliente, projetar a instalacao sem materializacao, materializar em HML o que foi projetado e validar tecnica/funcionalmente essa materializacao preparando a decisao de producao. A primeira execucao real de cada combinacao (Passos 04 e 05) exige auditoria independente PROFUNDA; nenhuma das duas execucoes produtoras se autoaprova. O Passo 06 ainda nao esta liberado. Se não existir integração homologada para a combinação necessária, o trabalho deverá voltar primeiro à jornada de ERP parceiro.
+Essa jornada possui o roteiro completo de 6 passos operacionais liberado: resolver contexto/elegibilidade, analisar a realidade comercial e tecnica do cliente, projetar a instalacao sem materializacao, materializar em HML, validar tecnica/funcionalmente essa materializacao e executar o go-live em producao com registro de memoria. O Passo 06 e a primeira etapa de toda a fabrica que escreve em producao. A primeira execucao real de cada combinacao (Passos 04, 05 e 06) exige auditoria independente PROFUNDA; nenhuma das tres execucoes produtoras se autoaprova. Se não existir integração homologada para a combinação necessária, o trabalho deverá voltar primeiro à jornada de ERP parceiro.
 
 ## Regra de avanço
 

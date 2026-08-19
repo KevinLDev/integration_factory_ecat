@@ -1,0 +1,92 @@
+schema: fabrica.erp-cliente-go-live.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Registro do go-live real em producao e da confirmacao pos-go-live desta combinacao de cliente
+  etapa_origem: ERP_CLIENTE_PASSO_06
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Representa producao real -- esta e a primeira etapa de toda a fabrica que escreve em producao
+    - Nao re-homologa nem revalida o que os Passos 04/05 ja aprovaram
+    - Falha parcial nunca gera rollback automatico de dado real
+    - A execucao produtora nunca se autoaprova; AUDITORIA e STATUS_DA_ETAPA finais dependem de auditoria independente PROFUNDA
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  erp_nome: null
+  erp_slug: null
+  ferramenta_nome: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  versao_release: null
+
+entradas:
+  instalacao_materializada_ref: null # INSTALACAO-MATERIALIZADA-DO-CLIENTE.yaml do Passo 04
+  validacao_hml_ref: null # VALIDACAO-HML-DO-CLIENTE.yaml do Passo 05 (deve estar AUDITORIA: APROVADA)
+
+fase_1_autorizacao:
+  passo_05_concluido: null # SIM | NAO
+  auditoria_passo_05: null # APROVADA | NAO_APROVADA
+  pronto_para_producao: null # SIM | NAO
+  cenarios_criticos_ou_altos_pendentes: null # SIM | NAO
+  plano_de_contingencia_definido: null # SIM | NAO
+  plano_de_contingencia_descricao: null
+  autorizacao_producao: null # SIM | NAO
+  autorizado_por: null
+  ambiente_producao_confirmado: null # SIM | NAO
+  fingerprint_ambiente_nao_sensivel: null
+
+fase_2_go_live:
+  itens_materializados:
+    - capacidade_id: null # referencia ao item do Passo 04/05
+      id_logico: null
+      id_fisico_producao: null
+      acao: null # ESCRITA_CONFIRMADA | REUTILIZADO_EXISTENTE | DIVERGENTE_APOS_RECONSULTA | FALHOU_NA_ESCRITA | FALHOU_NA_RECONSULTA
+      confirmado_por_reconsulta: null # SIM | NAO
+      pendencia:
+        status: null # NENHUMA | NAO_BLOQUEANTE | BLOQUEANTE
+        descricao: null
+  go_live: null # EXECUTADO | PARCIAL_JUSTIFICADO | BLOQUEADO
+  reconsulta: null # APROVADA | PARCIAL | INSUFICIENTE
+  idempotencia_aprovada: null # SIM | NAO | NAO_APLICAVEL
+  falha_parcial_ocorreu: null # SIM | NAO
+  plano_de_contingencia_acionado: null # SIM | NAO | NAO_APLICAVEL
+
+fase_3_confirmacao_pos_go_live:
+  cenarios_reexecutados:
+    - scenario_id: null # deve corresponder a um cenario ja aprovado no Passo 05
+      executor: HUMANO
+      resultado_observado: null
+      evidencias: []
+      status: null # APROVADO | REPROVADO | BLOQUEADO | NAO_APLICAVEL | PENDENTE | PENDENTE_DE_EVIDENCIA
+      classificacao_da_falha: null # FALHA_TECNICA_DE_GO_LIVE | DIVERGENCIA_ENTRE_HML_E_PRODUCAO | BUG_NA_INTEGRACAO_GENERICA | CAPACIDADE_ERP_INCORRETA_OU_INSUFICIENTE | BUG_OU_DIVERGENCIA_DA_FERRAMENTA | NENHUMA
+      menor_passo_responsavel: null
+  validacao_pos_go_live: null # APROVADA | REPROVADA | PENDENTE
+  memoria_registrada: null # SIM | NAO
+  memoria_ref: null # MEMORIA-DA-INTEGRACAO-DO-CLIENTE.md
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes: []
+
+bloqueios: []
+
+status_final_execucao_produtora:
+  go_live: null # EXECUTADO | PARCIAL_JUSTIFICADO | BLOQUEADO
+  validacao_pos_go_live: null # APROVADA | REPROVADA | PENDENTE
+  falhas_bloqueantes: 0
+  auditoria: AGUARDANDO_INDEPENDENTE
+  status_da_etapa: PENDENTE
+  cliente_integrado: false
+  proximo_passo: AUDITORIA_INDEPENDENTE_PASSO_06
+
+auditoria_independente:
+  tipo_exigido: PROFUNDA
+  motivo: Primeira execucao de producao de toda a fabrica
+  resultado: null # APROVADA | REPROVADA | BLOQUEADA | null enquanto pendente
+  relatorio_ref: null
+
+seguranca:
+  segredo_persistido: false
+  rollback_automatico_executado: false
