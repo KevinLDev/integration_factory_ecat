@@ -54,6 +54,10 @@ Passo 04 — Materializar instalacao do cliente em HML:
 
 `comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md`
 
+Passo 05 — Validar HML e preparar producao:
+
+`comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md`
+
 ## Fronteira do Passo 01
 
 O Passo 01 resolve somente:
@@ -99,9 +103,20 @@ O Passo 04 resolve somente a materializacao real, em HML, do que o Passo 03 proj
 
 O Passo 04 nao reprojeta nem reclassifica nada do Passo 02/03, nao altera o contrato homologado da ferramenta, nao valida funcionalmente o resultado, nao usa nem escreve em producao, e nunca se autoaprova: a primeira materializacao real de cada combinacao exige auditoria independente `PROFUNDA`, separada da execucao produtora.
 
+## Fronteira do Passo 05
+
+O Passo 05 resolve somente a validacao, em HML, do que o Passo 04 materializou:
+
+- validacao tecnica dos fluxos materializados, com reconsulta e comparacao planejado x observado;
+- homologacao funcional manual assistida por IA (humano opera a ferramenta em HML, sem automacao de navegador);
+- cobertura de cada criterio de aceite definido no Passo 03;
+- classificacao de falhas e encaminhamento ao menor passo responsavel.
+
+O Passo 05 nao re-homologa a integracao generica ERP x ferramenta (isso pertence a jornada ERP Parceiro), nao materializa nem corrige configuracao, nao reprojeta nem reclassifica nada dos Passos 02/03, nao usa nem escreve em producao, e nunca se autoaprova: a primeira validacao real de cada combinacao exige auditoria independente `PROFUNDA`, separada da execucao produtora.
+
 ## Visao dos proximos passos
 
-Os Passos 05 e 06 da jornada ERP cliente permanecem planejados e ainda nao estao liberados para execucao: validacao em HML/preparacao para producao e go-live/registro de memoria.
+O Passo 06 da jornada ERP cliente permanece planejado e ainda nao esta liberado para execucao: go-live, validacao de producao e registro de memoria.
 
 ## Disponibilidade
 
@@ -113,4 +128,6 @@ Os Passos 05 e 06 da jornada ERP cliente permanecem planejados e ainda nao estao
 
 **PASSO 04 LIBERADO PARA EXECUCAO REAL EM HML, COM AUDITORIA INDEPENDENTE PROFUNDA OBRIGATORIA NA PRIMEIRA MATERIALIZACAO DE CADA COMBINACAO.**
 
-Os Passos 05 e 06 da jornada ERP cliente ainda nao estao liberados.
+**PASSO 05 LIBERADO PARA VALIDACAO REAL EM HML, COM AUDITORIA INDEPENDENTE PROFUNDA OBRIGATORIA NA PRIMEIRA VALIDACAO DE CADA COMBINACAO.**
+
+O Passo 06 da jornada ERP cliente ainda nao esta liberado.

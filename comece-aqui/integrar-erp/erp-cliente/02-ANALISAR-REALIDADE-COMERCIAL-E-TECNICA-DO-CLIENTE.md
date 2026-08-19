@@ -283,4 +283,4 @@ Com `ANALISE_CLIENTE: CONCLUIDA`, `MATRIZ_COMERCIAL_CONSOLIDADA: SIM` e `APTO_PA
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03 e 04 estao liberados nesta publicacao. Os Passos 05 e 06 permanecem futuros.
+A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03, 04 e 05 estao liberados nesta publicacao. O Passo 06 permanece futuro.

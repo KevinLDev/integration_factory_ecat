@@ -59,7 +59,7 @@ As jornadas reutilizam contratos, adaptadores e conhecimento compartilhado, mas 
 - a jornada de ERP parceiro produz uma integração reutilizável e homologada;
 - a jornada de ERP cliente aplica uma integração homologada e trata somente as particularidades do cliente.
 
-Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta, os Passos 01 a 09 da jornada de ERP parceiro e os Passos 01, 02, 03 e 04 da jornada de ERP cliente estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. Na jornada de ERP cliente, o Passo 01 resolve contexto/elegibilidade, o Passo 02 analisa a realidade comercial e tecnica, o Passo 03 projeta a instalacao sem materializar configuracao e o Passo 04 materializa em HML o que o Passo 03 projetou, sem executar producao; a primeira materializacao real de cada combinacao exige auditoria independente PROFUNDA e a execucao produtora do Passo 04 nunca se autoaprova. Os Passos 05 e 06 permanecem futuros: validacao em HML/preparacao para producao e go-live/registro de memoria. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
+Neste momento, os Passos 01, 02 e 03 da jornada de nova ferramenta, os Passos 01 a 09 da jornada de ERP parceiro e os Passos 01, 02, 03, 04 e 05 da jornada de ERP cliente estao disponiveis para operacao. O Passo 07 executa e valida tecnicamente em HML; o Passo 08 homologa funcionalmente em modelo manual assistido por IA, sem automacao de navegador e sem observer realtime; o Passo 09 consolida e publica a integracao homologada para reutilizacao, sem executar producao. A homologacao da combinacao so pode registrar `INTEGRACAO_HOMOLOGADA: SIM` apos auditoria independente aprovada do Passo 08. A publicacao da combinacao so pode registrar `INTEGRACAO_PUBLICADA: SIM` e `DISPONIVEL_PARA_CLIENTE: SIM` apos auditoria independente aprovada do Passo 09. Na jornada de ERP cliente, o Passo 01 resolve contexto/elegibilidade, o Passo 02 analisa a realidade comercial e tecnica, o Passo 03 projeta a instalacao sem materializar configuracao, o Passo 04 materializa em HML o que o Passo 03 projetou e o Passo 05 valida tecnica e funcionalmente essa materializacao e prepara a decisao de producao, sem executar producao; a primeira execucao real de cada combinacao (Passos 04 e 05) exige auditoria independente PROFUNDA e nenhuma das duas se autoaprova. O Passo 06 permanece futuro: go-live e registro de memoria. A relação vigente de etapas de ERP parceiro fica em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`.
 
 ## 4. Conceitos que nunca podem ser confundidos
 
@@ -261,6 +261,9 @@ parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md
 
 parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md
 -> comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md
+
+parceiros/comandos/ERP-CLIENTE-05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md
+-> comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md
 ```
 
 Documentos operacionais de ERP devem ficar em uma destas jornadas:

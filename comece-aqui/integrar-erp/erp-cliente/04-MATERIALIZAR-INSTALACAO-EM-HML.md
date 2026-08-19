@@ -36,7 +36,7 @@ Esta etapa nao pode:
 - alterar o contrato homologado da ferramenta nem o core da integracao publicada;
 - escrever em ambiente de producao sob qualquer circunstancia;
 - persistir credencial ou segredo real em qualquer artefato, log, relatorio ou resposta ao operador;
-- validar funcionalmente o resultado (isso pertence ao futuro Passo 05);
+- validar funcionalmente o resultado (isso pertence ao Passo 05);
 - autoaprovar-se: a conclusao formal da etapa depende de auditoria independente `PROFUNDA`, por ser a primeira execucao real desta combinacao de cliente.
 
 ## Nota sobre o roteiro completo da jornada
@@ -46,11 +46,11 @@ Esta etapa nao pode:
 02 Analisar realidade comercial/tecnica  [liberado]
 03 Projetar instalacao                   [liberado, somente projeto]
 04 Materializar instalacao em HML        [este documento]
-05 Validar HML + preparar producao       [futuro]
+05 Validar HML + preparar producao       [liberado]
 06 Go-live + validar producao + memoria  [futuro]
 ```
 
-Os Passos 05 e 06 continuam nao liberados.
+O Passo 06 continua nao liberado.
 
 ## Pre-requisitos
 
@@ -102,7 +102,7 @@ Executar o Passo 04 duas vezes nao pode duplicar configuracao do cliente. Buscar
 
 ## Rotas de saida
 
-- materializacao completa ou parcial justificada, sem pendencia bloqueante -> auditoria independente `PROFUNDA` do Passo 04; apos aprovacao, ERP Cliente Passo 05 (quando liberado);
+- materializacao completa ou parcial justificada, sem pendencia bloqueante -> auditoria independente `PROFUNDA` do Passo 04; apos aprovacao, ERP Cliente Passo 05;
 - pendencia bloqueante identificada durante a materializacao -> permanece `BLOQUEADO`, registra pendencia;
 - plano do Passo 03 desatualizado ou divergente -> retorna ao Passo 03 para revalidacao minima;
 - gap de release ou de ferramenta ainda aberto para item critico -> jornada responsavel.
@@ -242,8 +242,8 @@ STATUS_DA_ETAPA: CONCLUIDA
 PRONTO_PARA_VALIDACAO_HML: SIM
 ```
 
-Com `PRONTO_PARA_VALIDACAO_HML: SIM`, a proxima etapa permitida sera o Passo 05 da jornada ERP cliente quando esse passo for oficialmente liberado.
+Com `PRONTO_PARA_VALIDACAO_HML: SIM`, a proxima etapa permitida e o Passo 05 da jornada ERP cliente: `comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md`.
 
 ## Proximo documento
 
-A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03 e 04 estao liberados nesta publicacao. Os Passos 05 e 06 permanecem futuros: validacao em HML/preparacao para producao e go-live/registro de memoria.
+A jornada ERP cliente segue em evolucao. Os Passos 01, 02, 03, 04 e 05 estao liberados nesta publicacao. O Passo 06 permanece futuro: go-live e registro de memoria.

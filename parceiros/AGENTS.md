@@ -58,7 +58,7 @@ Não pule etapa concluindo implicitamente trabalho que pertence a um comando pos
 
 Enquanto um comando ainda não existir ou não estiver validado, registre isso como lacuna do Harness; não improvise um fluxo permanente silenciosamente.
 
-A jornada de nova ferramenta possui os Passos 01 a 03 disponiveis. A jornada de ERP parceiro possui os Passos 01 a 09 disponiveis, com a relacao vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; o Passo 08 valida funcionalmente a combinacao em modelo manual assistido por IA e nao se autoaprova; o Passo 09 consolida e publica a integracao homologada para reutilizacao e tambem nao se autoaprova. Runtime e producao continuam fora desse escopo. A jornada de ERP cliente possui os Passos 01, 02, 03 e 04 liberados; o Passo 03 somente projeta a instalacao, o Passo 04 materializa em HML o que foi projetado e nunca se autoaprova (auditoria independente PROFUNDA obrigatoria na primeira materializacao real de cada combinacao), e os Passos 05 e 06 ainda nao estao liberados.
+A jornada de nova ferramenta possui os Passos 01 a 03 disponiveis. A jornada de ERP parceiro possui os Passos 01 a 09 disponiveis, com a relacao vigente publicada em `comece-aqui/integrar-erp/erp-parceiro/00-COMECE-AQUI.md`. O Passo 07 valida tecnicamente HML e termina, no maximo, em prontidao para homologacao funcional; o Passo 08 valida funcionalmente a combinacao em modelo manual assistido por IA e nao se autoaprova; o Passo 09 consolida e publica a integracao homologada para reutilizacao e tambem nao se autoaprova. Runtime e producao continuam fora desse escopo. A jornada de ERP cliente possui os Passos 01, 02, 03, 04 e 05 liberados; o Passo 03 somente projeta a instalacao, o Passo 04 materializa em HML o que foi projetado e o Passo 05 valida essa materializacao e prepara a decisao de producao -- nenhum dos dois se autoaprova (auditoria independente PROFUNDA obrigatoria na primeira execucao real de cada combinacao). O Passo 06 ainda nao esta liberado.
 
 ## 3. Interface com o operador
 
@@ -311,6 +311,7 @@ Para ERP cliente, a paridade operacional vigente inclui:
 - `parceiros/comandos/ERP-CLIENTE-02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md` -> `comece-aqui/integrar-erp/erp-cliente/02-ANALISAR-REALIDADE-COMERCIAL-E-TECNICA-DO-CLIENTE.md`.
 - `parceiros/comandos/ERP-CLIENTE-03-PROJETAR-INSTALACAO-DO-CLIENTE.md` -> `comece-aqui/integrar-erp/erp-cliente/03-PROJETAR-INSTALACAO-DO-CLIENTE.md`.
 - `parceiros/comandos/ERP-CLIENTE-04-MATERIALIZAR-INSTALACAO-EM-HML.md` -> `comece-aqui/integrar-erp/erp-cliente/04-MATERIALIZAR-INSTALACAO-EM-HML.md`.
+- `parceiros/comandos/ERP-CLIENTE-05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md` -> `comece-aqui/integrar-erp/erp-cliente/05-VALIDAR-HML-E-PREPARAR-PRODUCAO.md`.
 
 Uma etapa não deve ser considerada pronta para uso operacional enquanto o documento correspondente não existir, não estiver homologado e não estiver na jornada correta.
 

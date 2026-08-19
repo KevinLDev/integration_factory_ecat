@@ -17,11 +17,11 @@ PASSO 01 -> resolve contexto, release e elegibilidade [liberado, commitado]
 PASSO 02 -> analisa realidade comercial e tecnica do cliente [liberado]
 PASSO 03 -> projeta a instalacao do cliente [liberado, somente projeto]
 PASSO 04 -> materializa a instalacao em HML [este documento]
-PASSO 05 -> valida HML e prepara producao [futuro]
+PASSO 05 -> valida HML e prepara producao [liberado]
 PASSO 06 -> go-live, valida producao e registra memoria [futuro]
 ```
 
-Os Passos 01, 02, 03 e 04 estao formalmente liberados nesta publicacao. Os Passos 05 e 06 permanecem futuros e nao podem ser executados ate possuirem documentos operacionais, comandos e gates oficialmente liberados.
+Os Passos 01, 02, 03, 04 e 05 estao formalmente liberados nesta publicacao. O Passo 06 permanece futuro e nao pode ser executado ate possuir documento operacional, comando e gate oficialmente liberados.
 
 ## Fronteira obrigatoria
 
@@ -41,7 +41,7 @@ O Passo 04 nao pode:
 - alterar o contrato homologado da ferramenta nem o core da integracao publicada;
 - escrever em ambiente de producao sob qualquer circunstancia;
 - reproduzir, persistir ou logar segredo real em qualquer artefato, manifesto, checkpoint, relatorio ou resposta ao operador;
-- validar funcionalmente o resultado (pertence ao futuro Passo 05);
+- validar funcionalmente o resultado (pertence ao Passo 05);
 - declarar `AUDITORIA: APROVADA`, `STATUS_DA_ETAPA: CONCLUIDA` ou `PRONTO_PARA_VALIDACAO_HML: SIM` a partir da execucao produtora -- esses valores exigem auditoria independente `PROFUNDA` aprovada.
 
 ## Instrucoes e doutrina obrigatorias

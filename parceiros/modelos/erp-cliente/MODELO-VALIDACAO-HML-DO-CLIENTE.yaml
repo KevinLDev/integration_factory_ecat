@@ -1,0 +1,93 @@
+schema: fabrica.erp-cliente-validacao-hml.v1
+metadata:
+  modelo: TEMPLATE
+  descricao: Validacao tecnica e homologacao funcional, em HML, da instalacao materializada no Passo 04
+  etapa_origem: ERP_CLIENTE_PASSO_05
+  versao: "1.0"
+  observacoes:
+    - Nao contem segredo
+    - Nao re-homologa a integracao generica ERP x ferramenta (isso pertence ao ERP Parceiro)
+    - Nao materializa nem corrige configuracao; achados retornam ao Passo 04 ou ao Passo 03
+    - PARCIALMENTE_APROVADO e proibido como status de cenario
+    - A execucao produtora nunca se autoaprova; AUDITORIA e STATUS_DA_ETAPA finais dependem de auditoria independente PROFUNDA
+
+identidade:
+  cliente_nome: null
+  cliente_slug: null
+  erp_nome: null
+  erp_slug: null
+  ferramenta_nome: null
+  ferramenta_slug: null
+  combinacao_slug: null
+  versao_release: null
+
+entradas:
+  instalacao_materializada_ref: null # INSTALACAO-MATERIALIZADA-DO-CLIENTE.yaml do Passo 04
+  relatorio_materializacao_ref: null # RELATORIO-DE-MATERIALIZACAO-DO-CLIENTE.md do Passo 04
+  plano_de_instalacao_ref: null # PLANO-DE-INSTALACAO-DO-CLIENTE.yaml do Passo 03 (criterios de aceite)
+  matriz_funcional_homologada_ref: null # matriz funcional homologada do Passo 08 do ERP Parceiro
+
+gate_de_entrada:
+  passo_04_concluido: null # SIM | NAO
+  auditoria_passo_04: null # APROVADA | NAO_APROVADA
+  pronto_para_validacao_hml: null # SIM | NAO
+  plano_e_materializacao_vigentes: null # SIM | NAO | EVIDENCIA_INSUFICIENTE
+  operador_humano_disponivel: null # SIM | NAO
+
+resumo:
+  validacao_tecnica_hml_cliente: null # APROVADA | PARCIAL_JUSTIFICADA | REPROVADA | BLOQUEADA
+  criterios_de_aceite_atendidos: null # SIM | PARCIAL | NAO
+  homologacao_funcional_cliente: null # APROVADA | REPROVADA | BLOQUEADA
+  pronto_para_producao: null # SIM | NAO (somente auditoria independente pode marcar SIM)
+
+cenarios:
+  - scenario_id: null
+    capacidade_id: null # referencia ao item do Passo 03
+    area_funcional: null
+    criticidade: null # CRITICO | ALTO | MEDIO | BAIXO
+    perfil_ator: null
+    executor: HUMANO
+    pre_condicoes: []
+    dados_de_teste: null
+    acoes_do_operador: []
+    resultado_esperado: null
+    resultado_observado: null
+    evidencias: []
+    status: null # APROVADO | REPROVADO | BLOQUEADO | NAO_APLICAVEL | PENDENTE | PENDENTE_DE_EVIDENCIA
+    dependencias: []
+    artefatos_upstream: []
+    classificacao_da_falha: null # FALHA_FUNCIONAL_DO_CENARIO | FALHA_TECNICA_DE_MATERIALIZACAO | DIVERGENCIA_DE_PROJETO | CAPACIDADE_ERP_INCORRETA_OU_INSUFICIENTE | BUG_NA_INTEGRACAO_GENERICA | BUG_OU_DIVERGENCIA_DA_FERRAMENTA | CONTRATO_DA_FERRAMENTA_DIVERGENTE | NENHUMA
+    menor_passo_responsavel: null
+
+politica_de_criticidade:
+  regra: >
+    Qualquer cenario CRITICO com status REPROVADO, PENDENTE, PENDENTE_DE_EVIDENCIA ou
+    BLOQUEADO impede PRONTO_PARA_PRODUCAO: SIM. Para cenarios ALTO, o limite e zero
+    reprovado. Nao homologar por percentual.
+  cenarios_criticos_reprovados_ou_pendentes: 0
+  cenarios_altos_reprovados: 0
+
+pendencias:
+  bloqueantes: []
+  nao_bloqueantes: []
+
+bloqueios: []
+
+status_final_execucao_produtora:
+  validacao_tecnica_hml_cliente: null # APROVADA | PARCIAL_JUSTIFICADA | REPROVADA | BLOQUEADA
+  homologacao_funcional_cliente: null # APROVADA | REPROVADA | BLOQUEADA
+  falhas_bloqueantes: 0
+  auditoria: AGUARDANDO_INDEPENDENTE
+  status_da_etapa: PENDENTE
+  pronto_para_producao: false
+  proximo_passo: AUDITORIA_INDEPENDENTE_PASSO_05
+
+auditoria_independente:
+  tipo_exigido: PROFUNDA
+  motivo: Primeira validacao real desta combinacao de cliente
+  resultado: null # APROVADA | REPROVADA | BLOQUEADA | null enquanto pendente
+  relatorio_ref: null
+
+seguranca:
+  segredo_persistido: false
+  escrita_producao: false
