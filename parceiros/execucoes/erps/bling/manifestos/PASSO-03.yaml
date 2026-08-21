@@ -1,0 +1,134 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": "ERP",
+    "alvo": "Bling",
+    "slug": "bling",
+    "jornada": "INTEGRAR_ERP_PARCEIRO",
+    "etapa": "03-PROJETAR-HOMOLOGACAO",
+    "execucao": "parceiros/execucoes/erps/bling"
+  },
+  "resultado": {
+    "status": "CONCLUIDA",
+    "tipo_auditoria": "NORMAL",
+    "auditoria_vigente": {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RUNTIME-20260821.md",
+      "sha256": "9A3B39F3AEA66993DF4BE4446CBB13DE651ECC8BB75CF7782979759E3BB62CA2",
+      "hash_mode": "TEXT_CANONICAL_V1",
+      "resultado": "APROVADA"
+    },
+    "resultado_tecnico": "PARCIAL_JUSTIFICADA",
+    "prontidao": null
+  },
+  "fontes": [
+    {
+      "caminho": "documentacao/13-PADRAO-GLOBAL-DE-MASSA-COMERCIAL.md",
+      "sha256": "908CB4B7FBF1FFFE3CC8C3EAB23054099580FFC9C2547C71626C724E30DA7309",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "entradas": [
+    {
+      "caminho": "parceiros/comandos/ERP-PARCEIRO-03-PROJETAR-HOMOLOGACAO.md",
+      "sha256": "36749CD00851E8F080018C09C1E8B137A52DA2ACB5ADCAA5B31416A0781715EC",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+      "sha256": "19BFCBB09335B6CE1B8378A076D64D2AFEED4F6DB5B11F18A2A2E81C4A5C8EB3",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+      "sha256": "72E53EAEB0AFA43F05C56BEA22F61B05B47B6FC3D8FBC54BB6A8FAECA75AA97A",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RUNTIME-20260821.md",
+      "sha256": "9A3B39F3AEA66993DF4BE4446CBB13DE651ECC8BB75CF7782979759E3BB62CA2",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-RUNTIME-20260821.md",
+      "sha256": "657AE77D213DED8F6F96AF20010DB4B0ED6B18DAA499D4C2A16914E45E55092D",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "dependencias": [
+    {
+      "etapa_upstream": "02-ANALISAR-ERP",
+      "manifesto_upstream": "parceiros/execucoes/erps/bling/manifestos/PASSO-02.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "erps/bling/integracoes/forca-de-vendas/MATRIZ-ERP-FERRAMENTA.md",
+          "sha256": "3D3AD4090FEFE114D741964393AF6441A08A4D3E56AF9C93B825341D96C1F403",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        },
+        {
+          "caminho": "erps/bling/integracoes/forca-de-vendas/PENDENCIAS.md",
+          "sha256": "EC55295FA5D20CB841CA7E580E45B248FEBCCDC4A43CFBA48F2C99A177F69B85",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        }
+      ]
+    },
+    {
+      "etapa_upstream": "03-VALIDAR-FERRAMENTA-CADASTRADA",
+      "manifesto_upstream": "parceiros/execucoes/ferramentas/forca-de-vendas/manifestos/PASSO-03.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+          "sha256": "62505ADC813E7334A6464DD88CA2FB13AFC9288FCC2ECF7A3CECEB000B94DE77",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RECONCILIACAO-DOCUMENTAL-20260813.md",
+          "sha256": "CA398F96D3F2E37AD1E94A9BD79F0F0B78192ACDBD8CF25BEF019114C741D68F",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        }
+      ]
+    }
+  ],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": "resultado.status",
+        "valor_esperado": "CONCLUIDA"
+      },
+      {
+        "campo": "resultado.auditoria_vigente.resultado",
+        "valor_esperado": "APROVADA"
+      },
+      {
+        "campo": "resultado.tipo_auditoria",
+        "valor_esperado": "NORMAL"
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [
+      "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+      "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RUNTIME-20260821.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-RUNTIME-20260821.md"
+    ],
+    "utf8": [
+      "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+      "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RUNTIME-20260821.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-RUNTIME-20260821.md"
+    ],
+    "markdown": [
+      "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RUNTIME-20260821.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-RUNTIME-20260821.md"
+    ],
+    "contagens": [],
+    "ids": []
+  },
+  "vigencia": {
+    "estado": "VALIDO",
+    "motivo": null
+  }
+}

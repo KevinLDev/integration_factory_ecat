@@ -1,0 +1,140 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": "ERP",
+    "alvo": "Bling",
+    "slug": "bling",
+    "jornada": "INTEGRAR_ERP_PARCEIRO",
+    "etapa": "04-MATERIALIZAR-BASE-HOMOLOGACAO",
+    "execucao": "parceiros/execucoes/erps/bling"
+  },
+  "resultado": {
+    "status": "PENDENTE",
+    "tipo_auditoria": "NORMAL",
+    "auditoria_vigente": {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-04.md",
+      "sha256": "DB1DE614BF2A450F37B8DF0F98D3BF86740DE230D1F8A4816489FA1B960E8737",
+      "hash_mode": "TEXT_CANONICAL_V1",
+      "resultado": "APROVADA"
+    },
+    "resultado_tecnico": "PARCIAL_JUSTIFICADA",
+    "prontidao": null
+  },
+  "fontes": [],
+  "entradas": [
+    {
+      "caminho": "parceiros/comandos/ERP-PARCEIRO-04-MATERIALIZAR-BASE-HOMOLOGACAO.md",
+      "sha256": "67E7B1A99BD2DC96E3A6B80A4D69528509BCC7E152354186FB6484C6074A6B48",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+      "sha256": "19BFCBB09335B6CE1B8378A076D64D2AFEED4F6DB5B11F18A2A2E81C4A5C8EB3",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+      "sha256": "72E53EAEB0AFA43F05C56BEA22F61B05B47B6FC3D8FBC54BB6A8FAECA75AA97A",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": "erps/bling/homologacao/BASE-MESTRA-MATERIALIZADA.yaml",
+      "sha256": "D51675466089BEA56A6B3C6777E76C221698880A30A1E972B4BCC26A1A8D9803",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "erps/bling/integracoes/forca-de-vendas/RELATORIO-DE-MATERIALIZACAO.md",
+      "sha256": "84ED81F134800190F6914CC07B426A439B083378A273A9AD1D4047F3186D675E",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-04.md",
+      "sha256": "DB1DE614BF2A450F37B8DF0F98D3BF86740DE230D1F8A4816489FA1B960E8737",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-GOVERNANCA-20260821.md",
+      "sha256": "A99647C1B36FCB2E1C107BCB8A28C99E061A9B0872FFA4C229A8FF11B1C51726",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-log-campos-customizados-20260821.json",
+      "sha256": "6F2BD0579D6ED0A8DE07DBDF83DE392488E7671F5022AEB8669C6F2F0BD3E1CC",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-log-categorias-20260821.json",
+      "sha256": "6FE2404CF9376CC8B9F1F4EF664F148CDC92101AD329DC4A168299C213984661",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-evidencia-teste-vendedor-20260821.json",
+      "sha256": "4EB707C4D826255B1C7FA0FD00622F0151705536F2605253733DFCD25E0ED180",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "dependencias": [
+    {
+      "etapa_upstream": "03-PROJETAR-HOMOLOGACAO",
+      "manifesto_upstream": "parceiros/execucoes/erps/bling/manifestos/PASSO-03.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+          "sha256": "19BFCBB09335B6CE1B8378A076D64D2AFEED4F6DB5B11F18A2A2E81C4A5C8EB3",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        },
+        {
+          "caminho": "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+          "sha256": "72E53EAEB0AFA43F05C56BEA22F61B05B47B6FC3D8FBC54BB6A8FAECA75AA97A",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        }
+      ]
+    }
+  ],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": "resultado.status",
+        "valor_esperado": "CONCLUIDA"
+      },
+      {
+        "campo": "resultado.auditoria_vigente.resultado",
+        "valor_esperado": "APROVADA"
+      },
+      {
+        "campo": "resultado.tipo_auditoria",
+        "valor_esperado": "NORMAL"
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [
+      "erps/bling/homologacao/BASE-MESTRA-MATERIALIZADA.yaml",
+      "erps/bling/integracoes/forca-de-vendas/RELATORIO-DE-MATERIALIZACAO.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-04.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-GOVERNANCA-20260821.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-log-campos-customizados-20260821.json",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-log-categorias-20260821.json",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/passo04-evidencia-teste-vendedor-20260821.json"
+    ],
+    "utf8": [
+      "erps/bling/homologacao/BASE-MESTRA-MATERIALIZADA.yaml",
+      "erps/bling/integracoes/forca-de-vendas/RELATORIO-DE-MATERIALIZACAO.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-04.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-GOVERNANCA-20260821.md"
+    ],
+    "markdown": [
+      "erps/bling/integracoes/forca-de-vendas/RELATORIO-DE-MATERIALIZACAO.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/auditorias/AUDITORIA-ETAPA-04.md",
+      "parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-GOVERNANCA-20260821.md"
+    ],
+    "contagens": [],
+    "ids": []
+  },
+  "vigencia": {
+    "estado": "VALIDO",
+    "motivo": null
+  }
+}

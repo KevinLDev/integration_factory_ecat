@@ -1,0 +1,6 @@
+{
+  "teste": "Verificar se Contato com tiposContato=[Vendedor] aparece em GET /vendedores",
+  "contato_criado": {"id": 18342118651, "nome": "HML Vendedor 001", "tipo": "F", "tiposContato": [{"id": 14584671509, "descricao": "Vendedor"}]},
+  "resultado_get_vendedores": {"status": 200, "data": []},
+  "conclusao": "Contato tipo Vendedor NAO aparece automaticamente em /vendedores. PEND-BLING-FDV-008 confirmada empiricamente: criacao de Vendedor real exige acao manual no painel do Bling, nao apenas POST /contatos."
+}

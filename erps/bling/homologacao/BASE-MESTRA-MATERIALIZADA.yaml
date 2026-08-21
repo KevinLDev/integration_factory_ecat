@@ -1,0 +1,159 @@
+{
+  "schema": "fabrica.base-mestra-materializada.v1",
+  "metadata": {
+    "modelo": "REAL",
+    "descricao": "Estado materializado conhecido da Base Mestra de homologacao do Bling",
+    "versao": "1.0",
+    "inicio_da_execucao": "2026-08-21T00:00:00-03:00",
+    "fim_da_execucao": null,
+    "observacoes": [
+      "Nao contem segredos",
+      "Nao substitui o plano da combinacao (erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md)",
+      "Execucao PARCIAL: camada de complemento (campos customizados) e categorias/subcategorias 100% materializadas e reconsultadas; produtos/variacoes/clientes/vendedores-reais/pedidos ainda NAO materializados nesta rodada",
+      "STATUS DA ETAPA permanece PENDENTE porque a materializacao e apenas PARCIAL_JUSTIFICADA (produtos/clientes/vendedores-reais/pedidos ainda faltam); AGENTS.md Secao 3 exige auditoria independente PROFUNDA sem autoaprovacao apenas para Passos 04-06 da jornada ERP CLIENTE e para os Passos 08-09 da jornada ERP PARCEIRO -- nao para o Passo 04 do ERP PARCEIRO, que admite autoauditoria NORMAL divulgada, no mesmo padrao ja usado nos Passos 01-03 desta execucao"
+    ]
+  },
+  "erp": {
+    "nome": "Bling",
+    "slug": "bling"
+  },
+  "ambiente": {
+    "tipo": "DEV_AUTORIZADO",
+    "descricao": "Conta Bling do ERP parceiro (empresa eCatalogos, app_id 386879, aprovado no painel de desenvolvedor do Bling). Bate na API de producao do Bling (https://api.bling.com.br) porque o Bling nao publica uma base URL de sandbox separada nesta especificacao; tratada como DEV autorizado por decisao explicita do operador em 2026-08-21.",
+    "autorizado": true,
+    "origem_validacao": "Confirmacao explicita do operador no chat (AskUserQuestion, opcao 'Tratar a conta eCatalogos como DEV autorizado')"
+  },
+  "origem_do_plano": {
+    "combinacao_id": "bling-x-forca-de-vendas",
+    "caminho_plano": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md",
+    "caminho_base_planejada": "erps/bling/integracoes/forca-de-vendas/BASE-COMERCIAL-PLANEJADA.yaml",
+    "plano_sha256": "19BFCBB09335B6CE1B8378A076D64D2AFEED4F6DB5B11F18A2A2E81C4A5C8EB3",
+    "plano_hash_mode": "TEXT_CANONICAL_V1",
+    "plano_versao": "revalidado 2026-08-21 (snapshot corrigido antes da primeira escrita)"
+  },
+  "vigencia_do_plano": {
+    "status": "VIGENTE",
+    "verificada_em": "2026-08-21",
+    "snapshot_das_fontes_presente": true,
+    "fontes_comparadas": ["ANALISE_ERP", "CAPACIDADES_ERP", "MATRIZ"],
+    "divergencias_relevantes": ["Tabela de snapshot do plano estava com hashes desatualizados (pre-correcoes de 2026-08-21); corrigida como revalidacao minima antes da primeira escrita, sem reprojetar o plano"],
+    "evidencia": ["parceiros/execucoes/erps/bling/manifestos/PASSO-03.yaml"],
+    "encaminhamento": "Snapshot corrigido in-line; PLANO_VALIDO: SIM"
+  },
+  "resumo_execucao": {
+    "status_etapa": "PENDENTE",
+    "plano_valido": "SIM",
+    "vigencia_do_plano": "VIGENTE",
+    "materializacao": "PARCIAL_JUSTIFICADA",
+    "reconsulta": "APROVADA",
+    "correlacoes": "VALIDAS",
+    "cobertura_criada_no_erp": "PARCIAL_JUSTIFICADA",
+    "falhas_bloqueantes": 0
+  },
+  "entidades": {
+    "campos_customizados_produtos": [
+      {"id_logico": "HML-CC-MARCA", "erp_id": 11015553, "nome": "HML Marca", "tipo": "Lista", "opcoes_count": 10, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-COR", "erp_id": 11015554, "nome": "HML Cor", "tipo": "Lista", "opcoes_count": 8, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-GENERO", "erp_id": 11015555, "nome": "HML Genero", "tipo": "Lista", "opcoes_count": 5, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-CAMPANHA", "erp_id": 11015556, "nome": "HML Campanha", "tipo": "Lista", "opcoes_count": 4, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-LINHA", "erp_id": 11015557, "nome": "HML Linha", "tipo": "Lista", "opcoes_count": 8, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-TIPO", "erp_id": 11015558, "nome": "HML Tipo Comercial", "tipo": "Lista", "opcoes_count": 5, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-DISPONIBILIDADE", "erp_id": 11015559, "nome": "HML Disponibilidade", "tipo": "Lista", "opcoes_count": 2, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-PRAZO-DIAS", "erp_id": 11015560, "nome": "HML Prazo Entrega Dias", "tipo": "Inteiro", "opcoes_count": 0, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-ORIGEM", "erp_id": 11015561, "nome": "HML Origem Comercial", "tipo": "Lista", "opcoes_count": 2, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-TABELA-A", "erp_id": 11015562, "nome": "HML Preco Tabela A", "tipo": "Decimal", "opcoes_count": 0, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-TABELA-B", "erp_id": 11015563, "nome": "HML Preco Tabela B", "tipo": "Decimal", "opcoes_count": 0, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-TABELA-C", "erp_id": 11015564, "nome": "HML Preco Tabela C", "tipo": "Decimal", "opcoes_count": 0, "status": "ESCRITA_CONFIRMADA"}
+    ],
+    "campos_customizados_contatos": [
+      {"id_logico": "HML-CC-PAPEL-VENDEDOR", "erp_id": 11015565, "nome": "HML Papel Comercial Vendedor", "tipo": "Lista", "opcoes_count": 2, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CC-REGIAO-CLIENTE", "erp_id": 11015566, "nome": "HML Regiao Cliente", "tipo": "Lista", "opcoes_count": 3, "status": "ESCRITA_CONFIRMADA"}
+    ],
+    "marcas": [
+      {"id_logico": "HML-MARCA-001..010", "observacao": "Materializadas como as 10 opcoes do campo customizado HML-CC-MARCA (erp_id 11015553), nao como entidade separada (Bling nao tem entidade Marca nativa). Ver opcoes em campos_customizados_produtos.", "status": "ESCRITA_CONFIRMADA"}
+    ],
+    "categorias": [
+      {"id_logico": "HML-CAT-001", "nome": "HML Camisetas", "erp_id": 14311473, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-002", "nome": "HML Calcas", "erp_id": 14311477, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-003", "nome": "HML Vestidos", "erp_id": 14311481, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-004", "nome": "HML Calcados", "erp_id": 14311485, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-005", "nome": "HML Acessorios", "erp_id": 14311489, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-006", "nome": "HML Camisas", "erp_id": 14311493, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-007", "nome": "HML Shorts e Bermudas", "erp_id": 14311496, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-008", "nome": "HML Jaquetas e Casacos", "erp_id": 14311499, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-009", "nome": "HML Roupas Intimas", "erp_id": 14311502, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-CAT-010", "nome": "HML Moda Praia", "erp_id": 14311505, "status": "ESCRITA_CONFIRMADA"}
+    ],
+    "subcategorias": [
+      {"id_logico": "HML-SUBCAT-001", "nome": "HML Manga Curta", "erp_id": 14311474, "categoria_pai_erp_id": 14311473, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-002", "nome": "HML Manga Longa", "erp_id": 14311475, "categoria_pai_erp_id": 14311473, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-003", "nome": "HML Regata", "erp_id": 14311476, "categoria_pai_erp_id": 14311473, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-004", "nome": "HML Jeans", "erp_id": 14311478, "categoria_pai_erp_id": 14311477, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-005", "nome": "HML Sarja", "erp_id": 14311479, "categoria_pai_erp_id": 14311477, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-006", "nome": "HML Legging", "erp_id": 14311480, "categoria_pai_erp_id": 14311477, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-007", "nome": "HML Casual", "erp_id": 14311482, "categoria_pai_erp_id": 14311481, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-008", "nome": "HML Festa", "erp_id": 14311483, "categoria_pai_erp_id": 14311481, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-009", "nome": "HML Longo", "erp_id": 14311484, "categoria_pai_erp_id": 14311481, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-010", "nome": "HML Tenis", "erp_id": 14311486, "categoria_pai_erp_id": 14311485, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-011", "nome": "HML Sandalia", "erp_id": 14311487, "categoria_pai_erp_id": 14311485, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-012", "nome": "HML Bota", "erp_id": 14311488, "categoria_pai_erp_id": 14311485, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-013", "nome": "HML Bolsas", "erp_id": 14311490, "categoria_pai_erp_id": 14311489, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-014", "nome": "HML Cintos", "erp_id": 14311491, "categoria_pai_erp_id": 14311489, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-015", "nome": "HML Bones", "erp_id": 14311492, "categoria_pai_erp_id": 14311489, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-016", "nome": "HML Social", "erp_id": 14311494, "categoria_pai_erp_id": 14311493, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-017", "nome": "HML Casual Camisa", "erp_id": 14311495, "categoria_pai_erp_id": 14311493, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-018", "nome": "HML Jeans Short", "erp_id": 14311497, "categoria_pai_erp_id": 14311496, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-019", "nome": "HML Moletom Short", "erp_id": 14311498, "categoria_pai_erp_id": 14311496, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-020", "nome": "HML Jeans Jaqueta", "erp_id": 14311500, "categoria_pai_erp_id": 14311499, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-021", "nome": "HML Corta-Vento", "erp_id": 14311501, "categoria_pai_erp_id": 14311499, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-022", "nome": "HML Feminina Intima", "erp_id": 14311503, "categoria_pai_erp_id": 14311502, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-023", "nome": "HML Masculina Intima", "erp_id": 14311504, "categoria_pai_erp_id": 14311502, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-024", "nome": "HML Biquini", "erp_id": 14311506, "categoria_pai_erp_id": 14311505, "status": "ESCRITA_CONFIRMADA"},
+      {"id_logico": "HML-SUBCAT-025", "nome": "HML Sunga", "erp_id": 14311507, "categoria_pai_erp_id": 14311505, "status": "ESCRITA_CONFIRMADA"}
+    ],
+    "campanhas": ["Materializadas como opcoes do campo customizado HML-CC-CAMPANHA (erp_id 11015556)"],
+    "produtos": [],
+    "variacoes": [],
+    "skus": [],
+    "imagens": [],
+    "clientes": [],
+    "vendedores": [
+      {"id_logico": "HML-TESTE-VENDEDOR-001", "erp_id_contato": 18342118651, "nome": "HML Vendedor 001", "status": "TESTE_NEGATIVO", "observacao": "Contato criado com tiposContato=[Vendedor] para testar hipotese; NAO apareceu em GET /vendedores. Confirma que Vendedores reais exigem acao manual no painel do Bling (PEND-BLING-FDV-008), nao apenas POST /contatos. Ver evidencia."}
+    ],
+    "representantes": [],
+    "prepostos": [],
+    "transportadoras": [],
+    "filiais": [],
+    "tabelas": ["Materializadas como os 3 campos customizados HML-CC-TABELA-A/B/C (precos por produto), nao como entidade separada"],
+    "precos": [],
+    "estoques": [],
+    "condicoes": [],
+    "pedidos": []
+  },
+  "correlacoes": [
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-MARCA", "erp_id": 11015553, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-COR", "erp_id": 11015554, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-GENERO", "erp_id": 11015555, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-CAMPANHA", "erp_id": 11015556, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-LINHA", "erp_id": 11015557, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-TIPO", "erp_id": 11015558, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-DISPONIBILIDADE", "erp_id": 11015559, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-PRAZO-DIAS", "erp_id": 11015560, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-ORIGEM", "erp_id": 11015561, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-TABELA-A", "erp_id": 11015562, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-TABELA-B", "erp_id": 11015563, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-TABELA-C", "erp_id": 11015564, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-PAPEL-VENDEDOR", "erp_id": 11015565, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "campo_customizado", "id_logico": "HML-CC-REGIAO-CLIENTE", "erp_id": 11015566, "origem": "POST /campos-customizados", "status": "VALIDA"},
+    {"entidade": "categoria", "id_logico": "HML-CAT-001..010", "erp_id": "14311473,14311477,14311481,14311485,14311489,14311493,14311496,14311499,14311502,14311505", "origem": "POST /categorias/produtos", "status": "VALIDA"},
+    {"entidade": "subcategoria", "id_logico": "HML-SUBCAT-001..025", "erp_id": "14311474..14311507 (ver lista completa em entidades.subcategorias)", "origem": "POST /categorias/produtos com categoriaPai", "status": "VALIDA"}
+  ],
+  "falhas": [],
+  "pendencias": [
+    {"id": "P04-001", "descricao": "Vendedores reais (Representantes/Prepostos) nao podem ser criados via API - testado empiricamente, confirmado", "impacto": "Bloqueia REL-006 (vinculo cliente-vendedor) ate cadastro manual no painel do Bling pelo operador", "status": "ABERTO"},
+    {"id": "P04-002", "descricao": "Produtos (200), variacoes/SKUs, clientes (20), precos, estoques e pedidos (100) ainda nao materializados nesta rodada", "impacto": "MATERIALIZACAO classificada PARCIAL_JUSTIFICADA; continuacao prevista em proxima execucao do Passo 04", "status": "ABERTO"}
+  ],
+  "desvios_do_plano": [
+    {"entidade": "vendedores/representantes/prepostos", "planejado": "10 vendedores (5 representantes + 5 prepostos) via cadastro manual no painel", "materializado": "0 reais + 1 contato de teste que confirmou que a via API nao funciona", "motivo": "Cadastro manual no painel do Bling exige interface grafica, fora do alcance desta execucao (sem ferramenta de automacao de navegador disponivel para o agente)"}
+  ]
+}

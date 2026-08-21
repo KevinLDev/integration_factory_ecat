@@ -1,0 +1,116 @@
+{
+  "categorias": {
+    "HML Camisetas": 14311473,
+    "HML Calcas": 14311477,
+    "HML Vestidos": 14311481,
+    "HML Calcados": 14311485,
+    "HML Acessorios": 14311489,
+    "HML Camisas": 14311493,
+    "HML Shorts e Bermudas": 14311496,
+    "HML Jaquetas e Casacos": 14311499,
+    "HML Roupas Intimas": 14311502,
+    "HML Moda Praia": 14311505
+  },
+  "subcategorias": {
+    "HML Manga Curta": {
+      "id": 14311474,
+      "categoriaPai": 14311473
+    },
+    "HML Manga Longa": {
+      "id": 14311475,
+      "categoriaPai": 14311473
+    },
+    "HML Regata": {
+      "id": 14311476,
+      "categoriaPai": 14311473
+    },
+    "HML Jeans": {
+      "id": 14311478,
+      "categoriaPai": 14311477
+    },
+    "HML Sarja": {
+      "id": 14311479,
+      "categoriaPai": 14311477
+    },
+    "HML Legging": {
+      "id": 14311480,
+      "categoriaPai": 14311477
+    },
+    "HML Casual": {
+      "id": 14311482,
+      "categoriaPai": 14311481
+    },
+    "HML Festa": {
+      "id": 14311483,
+      "categoriaPai": 14311481
+    },
+    "HML Longo": {
+      "id": 14311484,
+      "categoriaPai": 14311481
+    },
+    "HML Tenis": {
+      "id": 14311486,
+      "categoriaPai": 14311485
+    },
+    "HML Sandalia": {
+      "id": 14311487,
+      "categoriaPai": 14311485
+    },
+    "HML Bota": {
+      "id": 14311488,
+      "categoriaPai": 14311485
+    },
+    "HML Bolsas": {
+      "id": 14311490,
+      "categoriaPai": 14311489
+    },
+    "HML Cintos": {
+      "id": 14311491,
+      "categoriaPai": 14311489
+    },
+    "HML Bones": {
+      "id": 14311492,
+      "categoriaPai": 14311489
+    },
+    "HML Social": {
+      "id": 14311494,
+      "categoriaPai": 14311493
+    },
+    "HML Casual Camisa": {
+      "id": 14311495,
+      "categoriaPai": 14311493
+    },
+    "HML Jeans Short": {
+      "id": 14311497,
+      "categoriaPai": 14311496
+    },
+    "HML Moletom Short": {
+      "id": 14311498,
+      "categoriaPai": 14311496
+    },
+    "HML Jeans Jaqueta": {
+      "id": 14311500,
+      "categoriaPai": 14311499
+    },
+    "HML Corta-Vento": {
+      "id": 14311501,
+      "categoriaPai": 14311499
+    },
+    "HML Feminina Intima": {
+      "id": 14311503,
+      "categoriaPai": 14311502
+    },
+    "HML Masculina Intima": {
+      "id": 14311504,
+      "categoriaPai": 14311502
+    },
+    "HML Biquini": {
+      "id": 14311506,
+      "categoriaPai": 14311505
+    },
+    "HML Sunga": {
+      "id": 14311507,
+      "categoriaPai": 14311505
+    }
+  }
+}

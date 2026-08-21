@@ -1,0 +1,452 @@
+{
+  "schema": "fabrica.base-homologacao.v1",
+  "metadata": {
+    "modelo": "PLANEJADO",
+    "descricao": "Base comercial planejada para homologacao da combinacao Bling x Forca de Vendas",
+    "versao": "1.0",
+    "data_referencia": "2026-08-21",
+    "observacoes": [
+      "Nao representa execucao real no Bling",
+      "Familias descrevem o padrao; amostras representativas sao dadas por familia, nao os 200 produtos individuais",
+      "Materializacao real pertence ao Passo 04"
+    ]
+  },
+  "ferramenta": {
+    "nome": "Forca de Vendas",
+    "slug": "forca-de-vendas",
+    "contrato_referencia": "ferramentas/forca-de-vendas/CONTRATO-DA-FERRAMENTA.yaml",
+    "cenarios_funcionais_referencia": "ferramentas/forca-de-vendas/CENARIOS-FUNCIONAIS.md",
+    "regras_de_negocio_referencia": "ferramentas/forca-de-vendas/REGRAS-DE-NEGOCIO.md"
+  },
+  "fontes_snapshot": [
+    {
+      "tipo_fonte": "ANALISE_ERP",
+      "caminho": "erps/bling/ANALISE-DO-ERP.md",
+      "versao": null,
+      "sha256": "7030847D302C9E59B2150D2B9C6A46E9803AE84C1BD9E7F5815685A27E30A9AA",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "tipo_fonte": "CAPACIDADES_ERP",
+      "caminho": "erps/bling/CAPACIDADES-DO-ERP.md",
+      "versao": null,
+      "sha256": "02703C93336945644D32D497C5349938DE46B3A5AB58886BEA71630FA68A3B48",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "tipo_fonte": "MATRIZ",
+      "caminho": "erps/bling/integracoes/forca-de-vendas/MATRIZ-ERP-FERRAMENTA.md",
+      "versao": null,
+      "sha256": "0E68563489F8C59B7520F90766598AED0052DFE7ED2FCB36182E7F9B2207702F",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "erp": {
+    "nome": "Bling",
+    "slug": "bling",
+    "capacidades_referencia": "erps/bling/CAPACIDADES-DO-ERP.md"
+  },
+  "combinacao": {
+    "id": "bling-x-forca-de-vendas",
+    "ferramenta_slug": "forca-de-vendas",
+    "erp_slug": "bling",
+    "contexto": "ERP_PARCEIRO"
+  },
+  "perfil": "HOMOLOGACAO",
+  "baseline": {
+    "produtos": 200,
+    "clientes": 20,
+    "marcas": 10,
+    "categorias": 10,
+    "subcategorias": 25,
+    "linhas": 8,
+    "tipos": 5,
+    "generos": 5,
+    "campanhas": 4,
+    "filiais": 3,
+    "tabelas_preco": 3,
+    "condicoes_pagamento": 5,
+    "vendedores": 10,
+    "representantes": 5,
+    "prepostos": 5,
+    "transportadoras": 5,
+    "pedidos": 100
+  },
+  "planejado": {
+    "produtos": 200,
+    "clientes": 20,
+    "marcas": 10,
+    "categorias": 10,
+    "subcategorias": 25,
+    "linhas": 8,
+    "tipos": 5,
+    "generos": 5,
+    "campanhas": 4,
+    "filiais": 0,
+    "tabelas_preco": 3,
+    "condicoes_pagamento": 5,
+    "vendedores": 10,
+    "representantes": 5,
+    "prepostos": 5,
+    "transportadoras": 5,
+    "pedidos": 100
+  },
+  "desvios_do_baseline": [
+    {
+      "entidade": "filiais",
+      "baseline": 3,
+      "planejado": 0,
+      "motivo": "PEND-BLING-FDV-006 resolvida 2026-08-21: verificado em runtime 1 deposito e 0 canais de venda na conta do ERP parceiro; NAO_APLICAVEL para esta homologacao"
+    },
+    {
+      "entidade": "regioes",
+      "baseline": null,
+      "planejado": 3,
+      "motivo": "Sem numero fixo no baseline global; alinhado 1:1 com as 3 tabelas de preco planejadas (RN-FDV-REG-002)"
+    }
+  ],
+  "constraints": {
+    "limites_erp": {
+      "sku_max_length": "NAO_DOCUMENTADO",
+      "referencia_max_length": "NAO_DOCUMENTADO",
+      "suporta_ean_por_sku": true,
+      "suporta_imagem_por_variacao": true,
+      "suporta_estoque_por_filial": "PENDENTE_DE_EVIDENCIA (ver GAP-003)"
+    },
+    "restricoes_operacionais": [
+      "Nenhuma chamada de escrita comercial foi ou sera executada nesta etapa (Passo 03 e somente planejamento)",
+      "Rate limit real do Bling nao documentado na especificacao (PEND-BLING-FDV-011)"
+    ]
+  },
+  "coverage_requirements": {
+    "cenarios_obrigatorios": [
+      "CEN-001", "CEN-002", "CEN-003", "CEN-005", "CEN-006", "CEN-007", "CEN-008", "CEN-009", "CEN-011", "CEN-012"
+    ],
+    "regras_de_negocio_consideradas": [
+      "RN-FDV-MAR-001", "RN-FDV-MAR-002", "RN-FDV-MAR-003", "RN-FDV-MAR-004",
+      "RN-FDV-PRE-001", "RN-FDV-PRE-002", "RN-FDV-PRE-003", "RN-FDV-PRE-004",
+      "RN-FDV-REG-001", "RN-FDV-REG-002", "RN-FDV-REG-003", "RN-FDV-REG-004",
+      "RN-FDV-GRA-001", "RN-FDV-GRA-002", "RN-FDV-GRA-003",
+      "RN-FDV-DISP-001", "RN-FDV-DISP-002",
+      "RN-FDV-PRA-001", "RN-FDV-PRA-002", "RN-FDV-PRA-003", "RN-FDV-PRA-004", "RN-FDV-PRA-005", "RN-FDV-PRA-006", "RN-FDV-PRA-007",
+      "RN-FDV-ORI-001", "RN-FDV-ORI-002", "RN-FDV-ORI-003",
+      "RN-FDV-RP-001", "RN-FDV-RP-002",
+      "RN-FDV-PED-001", "RN-FDV-PED-002", "RN-FDV-PED-003", "RN-FDV-PED-004", "RN-FDV-PED-005", "RN-FDV-PED-006", "RN-FDV-PED-007",
+      "RN-FDV-EXP-001", "RN-FDV-EXP-002",
+      "RN-FDV-ORC-001", "RN-FDV-ORC-002", "RN-FDV-ORC-003", "RN-FDV-ORC-004", "RN-FDV-ORC-005", "RN-FDV-ORC-006",
+      "RN-FDV-ABC-001", "RN-FDV-ABC-002", "RN-FDV-ABC-003", "RN-FDV-ABC-004"
+    ],
+    "relacoes_comerciais_obrigatorias": ["REL-001", "REL-002", "REL-003", "REL-004", "REL-005", "REL-006", "REL-007", "REL-008"],
+    "repeticao_minima_por_cenario": [
+      {"cenario": "CEN-001", "minimo_registros": 2, "motivo": "precisa de pelo menos 2 tabelas com precos distintos para o mesmo produto"},
+      {"cenario": "CEN-003", "minimo_registros": 10, "motivo": "grade aberta deve aparecer em multiplos produtos, nao em registro unico"},
+      {"cenario": "CEN-006", "minimo_registros": 2, "motivo": "precisa de pelo menos 2 marcas com prazos diferentes"}
+    ],
+    "cenarios_criticos_sem_singleton": ["CEN-001", "CEN-003", "CEN-006", "CEN-007", "CEN-008"]
+  },
+  "familias": [
+    {
+      "familia_id": "FAM-GRADE-ABERTA-VESTUARIO",
+      "nome": "Grade aberta de vestuario",
+      "objetivo": "Cobrir grade P/M/G/GG com combinacao de marcas, categorias e cores via campo customizado",
+      "cenario_tags": ["CEN-003", "CEN-011", "CEN-012"],
+      "regra_tags": ["RN-FDV-GRA-001"],
+      "cobertura_esperada": ["quantidade_por_tamanho_variacao", "ean_por_sku", "imagem_multipla"],
+      "relacoes_comerciais_cobertas": ["REL-004"],
+      "dependencias": ["campo_customizado_marca", "campo_customizado_cor", "categoria", "subcategoria"],
+      "quantidade_planejada": 60
+    },
+    {
+      "familia_id": "FAM-GRADE-FECHADA-PACK",
+      "nome": "Grade fechada com pack/composicao",
+      "objetivo": "Cobrir pack fixo via ProdutosEstruturas (evidencia pendente)",
+      "cenario_tags": ["CEN-004"],
+      "regra_tags": ["RN-FDV-GRA-002"],
+      "cobertura_esperada": ["composicao_fixa"],
+      "relacoes_comerciais_cobertas": [],
+      "dependencias": ["produto_componente"],
+      "quantidade_planejada": 20,
+      "observacao": "GAP-001 resolvido em 2026-08-21 (ver DIAGNOSTICO-CORRECAO-20260821.md): formato E + lancamentoEstoque M confirmado estruturalmente; materializacao liberada"
+    },
+    {
+      "familia_id": "FAM-SEM-GRADE-REFERENCIA",
+      "nome": "Produtos simples sem variacao",
+      "objetivo": "Cobrir Modo Referencia e Codigo de Barras com produtos simples",
+      "cenario_tags": ["CEN-011"],
+      "regra_tags": [],
+      "cobertura_esperada": ["referencia_unica", "ean_por_produto"],
+      "relacoes_comerciais_cobertas": ["REL-002"],
+      "dependencias": ["categoria", "subcategoria"],
+      "quantidade_planejada": 40
+    },
+    {
+      "familia_id": "FAM-PRECO-MULTITABELA",
+      "nome": "Preco por tabela/regiao",
+      "objetivo": "Produto com preco distinto nas 3 tabelas planejadas, incluindo ausencia proposital em uma tabela",
+      "cenario_tags": ["CEN-001", "CEN-002"],
+      "regra_tags": ["RN-FDV-PRE-001", "RN-FDV-PRE-002", "RN-FDV-PRE-003", "RN-FDV-REG-002"],
+      "cobertura_esperada": ["preco_tabela_a", "preco_tabela_b", "preco_tabela_c", "ausencia_em_tabela"],
+      "relacoes_comerciais_cobertas": ["REL-003"],
+      "dependencias": ["campo_customizado_tabela_preco_a", "campo_customizado_tabela_preco_b", "campo_customizado_tabela_preco_c"],
+      "quantidade_planejada": 40
+    },
+    {
+      "familia_id": "FAM-PRONTA-ENTREGA",
+      "nome": "Pronta entrega com prazo curto",
+      "objetivo": "Disponibilidade imediata compativel com prazo curto",
+      "cenario_tags": ["CEN-005", "CEN-006"],
+      "regra_tags": ["RN-FDV-DISP-001", "RN-FDV-PRA-001", "RN-FDV-PRA-006"],
+      "cobertura_esperada": ["disponibilidade_imediata", "prazo_curto"],
+      "relacoes_comerciais_cobertas": ["REL-005"],
+      "dependencias": ["campo_customizado_disponibilidade", "campo_customizado_prazo"],
+      "quantidade_planejada": 20
+    },
+    {
+      "familia_id": "FAM-NAO-PRONTA-ENTREGA",
+      "nome": "Nao pronta entrega com disponibilidade futura",
+      "objetivo": "Disponibilidade futura restringindo prazos anteriores",
+      "cenario_tags": ["CEN-005", "CEN-006"],
+      "regra_tags": ["RN-FDV-DISP-002", "RN-FDV-PRA-005"],
+      "cobertura_esperada": ["disponibilidade_futura", "prazo_restrito"],
+      "relacoes_comerciais_cobertas": ["REL-005"],
+      "dependencias": ["campo_customizado_disponibilidade", "campo_customizado_prazo"],
+      "quantidade_planejada": 20
+    }
+  ],
+  "produtos_amostra": [
+    {
+      "id_logico": "HML-PROD-001",
+      "codigo_fisico": "HMLPROD001",
+      "nome": "HML Camiseta Basica 001",
+      "familia_id": "FAM-GRADE-ABERTA-VESTUARIO",
+      "referencia": "REF-001",
+      "marca_id": "HML-MARCA-001",
+      "categoria_id": "HML-CAT-001",
+      "origem": "NACIONAL",
+      "pronta_entrega": true,
+      "disponibilidade": "IMEDIATA",
+      "grade_tipo": "ABERTA_P_M_G_GG",
+      "tabela_preco_ids": ["HML-TAB-A", "HML-TAB-B"],
+      "prazo_entrega_ids": ["HML-PRAZO-001"],
+      "atributos": {"cor_campo_customizado": "Azul", "genero_campo_customizado": "Masculino"},
+      "cenario_tags": ["CEN-003", "CEN-006", "CEN-011", "CEN-012"],
+      "regra_tags": ["RN-FDV-GRA-001", "RN-FDV-PRA-006"],
+      "dependencias": ["HML-MARCA-001", "HML-CAT-001"]
+    },
+    {
+      "id_logico": "HML-PROD-061",
+      "codigo_fisico": "HMLPROD061",
+      "nome": "HML Camisa Importada Pack 061",
+      "familia_id": "FAM-GRADE-FECHADA-PACK",
+      "referencia": "REF-061",
+      "marca_id": "HML-MARCA-002",
+      "categoria_id": "HML-CAT-002",
+      "origem": "IMPORTADO",
+      "pronta_entrega": false,
+      "disponibilidade": "FUTURA",
+      "grade_tipo": "FECHADA_PACK",
+      "tabela_preco_ids": ["HML-TAB-A"],
+      "prazo_entrega_ids": ["HML-PRAZO-002"],
+      "atributos": {},
+      "cenario_tags": ["CEN-004", "CEN-007"],
+      "regra_tags": ["RN-FDV-GRA-002", "RN-FDV-ORI-002"],
+      "dependencias": ["HML-MARCA-002", "HML-CAT-002"]
+    },
+    {
+      "id_logico": "HML-PROD-081",
+      "codigo_fisico": "HMLPROD081",
+      "nome": "HML Produto Simples Referencia 081",
+      "familia_id": "FAM-SEM-GRADE-REFERENCIA",
+      "referencia": "REF-081",
+      "marca_id": "HML-MARCA-003",
+      "categoria_id": "HML-CAT-003",
+      "origem": "NACIONAL",
+      "pronta_entrega": true,
+      "disponibilidade": "IMEDIATA",
+      "grade_tipo": "SEM_GRADE",
+      "tabela_preco_ids": ["HML-TAB-A", "HML-TAB-B", "HML-TAB-C"],
+      "prazo_entrega_ids": ["HML-PRAZO-001"],
+      "atributos": {},
+      "cenario_tags": ["CEN-011"],
+      "regra_tags": [],
+      "dependencias": ["HML-MARCA-003", "HML-CAT-003"]
+    },
+    {
+      "id_logico": "HML-PROD-121",
+      "codigo_fisico": "HMLPROD121",
+      "nome": "HML Produto Multitabela 121",
+      "familia_id": "FAM-PRECO-MULTITABELA",
+      "referencia": "REF-121",
+      "marca_id": "HML-MARCA-004",
+      "categoria_id": "HML-CAT-004",
+      "origem": "NACIONAL",
+      "pronta_entrega": true,
+      "disponibilidade": "IMEDIATA",
+      "grade_tipo": "SEM_GRADE",
+      "tabela_preco_ids": ["HML-TAB-A", "HML-TAB-B"],
+      "prazo_entrega_ids": ["HML-PRAZO-001"],
+      "atributos": {"preco_tabela_c_campo_customizado": null},
+      "cenario_tags": ["CEN-001", "CEN-002"],
+      "regra_tags": ["RN-FDV-PRE-001", "RN-FDV-PRE-003"],
+      "dependencias": ["HML-MARCA-004", "HML-CAT-004"]
+    }
+  ],
+  "variacoes_amostra": [
+    {
+      "id_logico": "HML-SKU-001-P",
+      "produto_id_logico": "HML-PROD-001",
+      "sku_logico": "HML-SKU-001-P",
+      "sku_fisico": "HMLSKU001P",
+      "cor": "Azul (campo customizado)",
+      "tamanho": "P",
+      "grade": "ABERTA_P_M_G_GG",
+      "ean": "CODIGO_SINTETICO_HML",
+      "codigo_barras": "7890000000018",
+      "cenario_tags": ["CEN-003", "CEN-011"],
+      "regra_tags": ["RN-FDV-GRA-001"],
+      "dependencias": ["HML-PROD-001"]
+    },
+    {
+      "id_logico": "HML-SKU-001-M",
+      "produto_id_logico": "HML-PROD-001",
+      "sku_logico": "HML-SKU-001-M",
+      "sku_fisico": "HMLSKU001M",
+      "cor": "Azul (campo customizado)",
+      "tamanho": "M",
+      "grade": "ABERTA_P_M_G_GG",
+      "ean": "CODIGO_SINTETICO_HML",
+      "codigo_barras": "7890000000025",
+      "cenario_tags": ["CEN-003", "CEN-011"],
+      "regra_tags": ["RN-FDV-GRA-001"],
+      "dependencias": ["HML-PROD-001"]
+    }
+  ],
+  "marcas": [
+    {"id_logico": "HML-MARCA-001", "nome": "HML Marca Alpha", "prazo_entrega_ids": ["HML-PRAZO-001"], "tabela_preco_ids": [], "regiao_ids": [], "cenario_tags": ["CEN-006"], "regra_tags": ["RN-FDV-MAR-001", "RN-FDV-PRA-003"]},
+    {"id_logico": "HML-MARCA-002", "nome": "HML Marca Beta", "prazo_entrega_ids": ["HML-PRAZO-002"], "tabela_preco_ids": [], "regiao_ids": [], "cenario_tags": ["CEN-006"], "regra_tags": ["RN-FDV-MAR-001", "RN-FDV-PRA-003"]},
+    {"id_logico": "HML-MARCA-003", "nome": "HML Marca Gama", "prazo_entrega_ids": [], "tabela_preco_ids": [], "regiao_ids": [], "cenario_tags": [], "regra_tags": ["RN-FDV-MAR-001"]},
+    {"id_logico": "HML-MARCA-004", "nome": "HML Marca Delta", "prazo_entrega_ids": [], "tabela_preco_ids": [], "regiao_ids": [], "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-MAR-001"]},
+    {"id_logico": "HML-MARCA-005..010", "nome": "HML Marca Epsilon..Kappa (6 marcas adicionais para completar baseline de 10)", "prazo_entrega_ids": [], "tabela_preco_ids": [], "regiao_ids": [], "cenario_tags": [], "regra_tags": ["RN-FDV-MAR-001"]}
+  ],
+  "regioes": [
+    {"id_logico": "HML-REG-001", "nome": "HML Regiao Sudeste", "estados": ["SP", "RJ", "MG", "ES"], "cidades": [], "tabela_preco_ids": ["HML-TAB-A"], "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-REG-002"]},
+    {"id_logico": "HML-REG-002", "nome": "HML Regiao Nordeste", "estados": ["CE", "PE", "BA"], "cidades": [], "tabela_preco_ids": ["HML-TAB-B"], "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-REG-002"]},
+    {"id_logico": "HML-REG-003", "nome": "HML Regiao Sul", "estados": ["RS", "SC", "PR"], "cidades": [], "tabela_preco_ids": ["HML-TAB-C"], "cenario_tags": [], "regra_tags": ["RN-FDV-REG-002"]}
+  ],
+  "tabelas_preco": [
+    {"id_logico": "HML-TAB-A", "nome": "HML Tabela A (Sudeste)", "regiao_ids": ["HML-REG-001"], "produtos_incluidos": ["HML-PROD-001", "HML-PROD-121"], "produtos_ausentes": [], "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-PRE-001"], "implementacao": "campo_customizado_produtos"},
+    {"id_logico": "HML-TAB-B", "nome": "HML Tabela B (Nordeste)", "regiao_ids": ["HML-REG-002"], "produtos_incluidos": ["HML-PROD-001"], "produtos_ausentes": ["HML-PROD-121"], "cenario_tags": ["CEN-001", "CEN-002"], "regra_tags": ["RN-FDV-PRE-001", "RN-FDV-PRE-003"], "implementacao": "campo_customizado_produtos"},
+    {"id_logico": "HML-TAB-C", "nome": "HML Tabela C (Sul)", "regiao_ids": ["HML-REG-003"], "produtos_incluidos": [], "produtos_ausentes": ["HML-PROD-121"], "cenario_tags": ["CEN-002"], "regra_tags": ["RN-FDV-PRE-003"], "implementacao": "campo_customizado_produtos"}
+  ],
+  "prazos_entrega": [
+    {"id_logico": "HML-PRAZO-001", "nome": "HML Prazo Curto (5 dias)", "data_inicial": null, "data_final": null, "marca_ids": ["HML-MARCA-001"], "cenario_tags": ["CEN-006"], "regra_tags": ["RN-FDV-PRA-003", "RN-FDV-PRA-006"]},
+    {"id_logico": "HML-PRAZO-002", "nome": "HML Prazo Longo (15 dias)", "data_inicial": null, "data_final": null, "marca_ids": ["HML-MARCA-002"], "cenario_tags": ["CEN-006"], "regra_tags": ["RN-FDV-PRA-003", "RN-FDV-PRA-005"]}
+  ],
+  "imagens": {
+    "distribuicao_baseline_quando_aplicavel": {
+      "produtos_com_1_imagem": 45,
+      "produtos_com_2_imagens": 45,
+      "produtos_com_3_imagens": 45,
+      "produtos_com_4_imagens": 45,
+      "produtos_sem_imagem": 10,
+      "produtos_com_placeholder": 10,
+      "reuso_permitido": true
+    },
+    "biblioteca": [
+      {"image_id_logico": "IMG-STD-001", "origem": "biblioteca_interna_homologacao", "arquivo": null, "checksum": null, "formato": "png", "cenario_tags": ["CEN-012"]},
+      {"image_id_logico": "IMG-STD-002", "origem": "biblioteca_interna_homologacao", "arquivo": null, "checksum": null, "formato": "png", "cenario_tags": ["CEN-012"]},
+      {"image_id_logico": "IMG-STD-003", "origem": "biblioteca_interna_homologacao", "arquivo": null, "checksum": null, "formato": "png", "cenario_tags": ["CEN-012"]},
+      {"image_id_logico": "IMG-PLACEHOLDER-001", "origem": "biblioteca_interna_homologacao", "arquivo": null, "checksum": null, "formato": "png", "cenario_tags": ["CEN-012"]}
+    ],
+    "associacoes": [
+      {"alvo_tipo": "produto", "alvo_id_logico": "HML-PROD-001", "image_id_logico": "IMG-STD-001", "ordem": 1, "tipo": "url"}
+    ]
+  },
+  "clientes_amostra": [
+    {"id_logico": "HML-CLI-001", "codigo_fisico": null, "tipo_pessoa": "J", "cpf_cnpj": "CODIGO_SINTETICO_HML", "regiao": "HML-REG-001", "ativo": true, "vendedor_id": "HML-VEND-001", "representante_id": "HML-VEND-001", "preposto_id": null, "tabela_preco_id": "HML-TAB-A", "condicao_id": "HML-COND-001", "cenario_tags": ["CEN-001", "CEN-008"], "regra_tags": ["RN-FDV-CLI-004", "RN-FDV-REG-004"]},
+    {"id_logico": "HML-CLI-002", "codigo_fisico": null, "tipo_pessoa": "J", "cpf_cnpj": "CODIGO_SINTETICO_HML", "regiao": "HML-REG-002", "ativo": true, "vendedor_id": "HML-VEND-006", "representante_id": "HML-VEND-001", "preposto_id": "HML-VEND-006", "tabela_preco_id": "HML-TAB-B", "condicao_id": "HML-COND-002", "cenario_tags": ["CEN-001", "CEN-008"], "regra_tags": ["RN-FDV-CLI-004", "RN-FDV-REG-004", "RN-FDV-RP-002"]}
+  ],
+  "representantes": [
+    {"id_logico": "HML-VEND-001", "cliente_ids": ["HML-CLI-001", "HML-CLI-002"], "preposto_ids": ["HML-VEND-006"], "cenario_tags": ["CEN-008"], "regra_tags": ["RN-FDV-RP-001"]}
+  ],
+  "prepostos": [
+    {"id_logico": "HML-VEND-006", "representante_id": "HML-VEND-001", "cliente_ids": ["HML-CLI-002"], "cenario_tags": ["CEN-008"], "regra_tags": ["RN-FDV-RP-002", "RN-FDV-PED-005"]}
+  ],
+  "filiais": [],
+  "precos_amostra": [
+    {"preco_id_logico": "HML-PRECO-001-A", "produto_ou_sku_id_logico": "HML-PROD-001", "tabela_preco_id": "HML-TAB-A", "valor": "CODIGO_SINTETICO_HML_VALOR", "moeda": "BRL", "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-PRE-001"]},
+    {"preco_id_logico": "HML-PRECO-001-B", "produto_ou_sku_id_logico": "HML-PROD-001", "tabela_preco_id": "HML-TAB-B", "valor": "CODIGO_SINTETICO_HML_VALOR_DIFERENTE", "moeda": "BRL", "cenario_tags": ["CEN-001"], "regra_tags": ["RN-FDV-PRE-001"]}
+  ],
+  "estoques_amostra": [
+    {"estoque_id_logico": "HML-EST-001-P", "produto_ou_sku_id_logico": "HML-SKU-001-P", "filial_id_logico": null, "quantidade": 50, "unidade": "UN", "cenario_tags": ["CEN-003"], "regra_tags": []}
+  ],
+  "condicoes": {
+    "pagamento": [
+      {"id_logico": "HML-COND-001", "descricao": "A vista (via campo condicao de FormasPagamentos)", "tipo_pagamento_bling": "PIX", "cenario_tags": []},
+      {"id_logico": "HML-COND-002", "descricao": "3x sem juros (via campo condicao de FormasPagamentos)", "tipo_pagamento_bling": "Cartao de Credito", "cenario_tags": []}
+    ],
+    "comerciais": []
+  },
+  "pedidos_amostra": [
+    {
+      "pedido_id_logico": "HML-PED-001",
+      "cliente_id_logico": "HML-CLI-001",
+      "filial_id_logico": null,
+      "itens": ["HML-SKU-001-P"],
+      "condicao_pagamento_id": "HML-COND-001",
+      "origem": "REPRESENTANTE",
+      "origem_vendedor_tipo": "REPRESENTANTE",
+      "estado_comercial": "PENDENTE",
+      "exportacao_esperada": false,
+      "cenario_tags": ["CEN-008", "CEN-009"],
+      "regra_tags": ["RN-FDV-PED-001", "RN-FDV-PED-004"]
+    },
+    {
+      "pedido_id_logico": "HML-PED-002",
+      "cliente_id_logico": "HML-CLI-002",
+      "filial_id_logico": null,
+      "itens": ["HML-SKU-001-M"],
+      "condicao_pagamento_id": "HML-COND-002",
+      "origem": "PREPOSTO",
+      "origem_vendedor_tipo": "PREPOSTO",
+      "estado_comercial": "EXPORTADO",
+      "exportacao_esperada": true,
+      "cenario_tags": ["CEN-008", "CEN-009"],
+      "regra_tags": ["RN-FDV-PED-002", "RN-FDV-PED-005", "RN-FDV-EXP-001"]
+    }
+  ],
+  "orcamentos": [
+    {
+      "orcamento_id_logico": "HML-ORC-001",
+      "cliente_id_logico": "HML-CLI-001",
+      "itens": ["HML-SKU-001-P"],
+      "estado_comercial": "ORCAMENTO",
+      "convertido_em_pedido_id_logico": null,
+      "cenario_tags": ["CEN-010"],
+      "regra_tags": ["RN-FDV-ORC-001"]
+    }
+  ],
+  "dependencias": [
+    {"entidade": "produto", "depende_de": ["categoria", "subcategoria", "campo_customizado_marca"], "evidencia": "erps/bling/CAPACIDADES-DO-ERP.md"},
+    {"entidade": "variacao", "depende_de": ["produto"], "evidencia": "erps/bling/CAPACIDADES-DO-ERP.md (ProdutosVariacoes)"},
+    {"entidade": "preco_por_tabela", "depende_de": ["produto", "campo_customizado_tabela_preco"], "evidencia": "erps/bling/integracoes/forca-de-vendas/MATRIZ-ERP-FERRAMENTA.md linha 15/19/23"},
+    {"entidade": "pedido", "depende_de": ["cliente", "produto_ou_variacao", "forma_pagamento", "vendedor"], "evidencia": "erps/bling/CAPACIDADES-DO-ERP.md (PedidosVenda)"}
+  ],
+  "gaps": [
+    {"gap_id": "GAP-001", "cenario": "CEN-004", "descricao": "Grade fechada com pack via ProdutosEstruturas - confirmado estruturalmente em 2026-08-21 (formato E + lancamentoEstoque M); resta so validacao runtime no Passo 07", "impacto": "RESOLVIDO_ESTRUTURALMENTE", "status": "RESOLVIDO", "evidencia": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md; parceiros/execucoes/erps/bling/forca-de-vendas/DIAGNOSTICO-CORRECAO-20260821.md"},
+    {"gap_id": "GAP-002", "cenario": "CEN-010", "descricao": "Sem endpoint de conversao automatica de orcamento em pedido", "impacto": "GAP", "status": "ABERTO", "evidencia": "erps/bling/integracoes/forca-de-vendas/PLANO-DE-HOMOLOGACAO.md"},
+    {"gap_id": "GAP-003", "cenario": "filiais", "descricao": "Endpoint de unidades de negocio nao existe; verificado em runtime 2026-08-21 que a conta do ERP parceiro tem 1 deposito e 0 canais de venda - sem cenario multi-filial real", "impacto": "NAO_APLICAVEL_PARA_ESTA_HOMOLOGACAO", "status": "RESOLVIDO", "evidencia": "parceiros/execucoes/erps/bling/forca-de-vendas/evidencias/evidencia-filiais-depositos-canais-20260821.json"}
+  ],
+  "status_de_cobertura": {
+    "total_cenarios_planejados": 12,
+    "total_cenarios_criados_no_erp": 0,
+    "total_cenarios_sincronizados": 0,
+    "total_cenarios_validados_na_ferramenta": 0,
+    "estados": {
+      "COBERTURA_PLANEJADA": ["CEN-001", "CEN-002", "CEN-003", "CEN-004", "CEN-005", "CEN-006", "CEN-007", "CEN-008", "CEN-009", "CEN-010", "CEN-011", "CEN-012"],
+      "COBERTURA_CRIADA_NO_ERP": [],
+      "COBERTURA_SINCRONIZADA": [],
+      "COBERTURA_VALIDADA_NA_FERRAMENTA": []
+    }
+  }
+}

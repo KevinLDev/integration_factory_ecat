@@ -1,0 +1,63 @@
+{
+  "steps": [
+    {
+      "step": "refresh_token",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "expires_in": 21600,
+        "access_token_masked": "eyJ0eX...pm_Q",
+        "refresh_token_rotacionou": true
+      }
+    },
+    {
+      "step": "empresas_me",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "data": {
+            "id": "91c22e5fc2869ae84f464a1e307bf91e",
+            "nome": "eCatalogos",
+            "cnpj": "993.510.450-80",
+            "email": "kevinlima.ecatalogos@gmail.com",
+            "dataContrato": "2026-10-20"
+          }
+        }
+      }
+    },
+    {
+      "step": "depositos",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "data": [
+            {
+              "id": 14889154827,
+              "descricao": "Geral",
+              "situacao": 1,
+              "padrao": true,
+              "desconsiderarSaldo": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "step": "canais_venda_lista",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "data": []
+        }
+      }
+    },
+    {
+      "step": "canais_venda_detalhe",
+      "ok": true,
+      "detail": []
+    }
+  ]
+}

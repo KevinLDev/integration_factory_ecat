@@ -1,0 +1,215 @@
+[
+  {
+    "nome": "HML Cor",
+    "status": "CRIADO",
+    "id": 11015554,
+    "idsOpcoes": [
+      366401492,
+      366401493,
+      366401494,
+      366401495,
+      366401496,
+      366401497,
+      366401498,
+      366401499
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "HML Azul",
+      "HML Vermelho",
+      "HML Verde",
+      "HML Preto",
+      "HML Branco",
+      "HML Amarelo",
+      "HML Cinza",
+      "HML Rosa"
+    ]
+  },
+  {
+    "nome": "HML Genero",
+    "status": "CRIADO",
+    "id": 11015555,
+    "idsOpcoes": [
+      366401500,
+      366401501,
+      366401502,
+      366401503,
+      366401504
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "Masculino",
+      "Feminino",
+      "Infantil",
+      "Unissex",
+      "Nao Aplicavel"
+    ]
+  },
+  {
+    "nome": "HML Campanha",
+    "status": "CRIADO",
+    "id": 11015556,
+    "idsOpcoes": [
+      366401505,
+      366401506,
+      366401507,
+      366401508
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "HML-CAMP-001 Verao",
+      "HML-CAMP-002 Inverno",
+      "HML-CAMP-003 Dia das Maes",
+      "HML-CAMP-004 Dia dos Pais"
+    ]
+  },
+  {
+    "nome": "HML Linha",
+    "status": "CRIADO",
+    "id": 11015557,
+    "idsOpcoes": [
+      366401509,
+      366401510,
+      366401511,
+      366401512,
+      366401513,
+      366401514,
+      366401515,
+      366401516
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "HML Linha 1",
+      "HML Linha 2",
+      "HML Linha 3",
+      "HML Linha 4",
+      "HML Linha 5",
+      "HML Linha 6",
+      "HML Linha 7",
+      "HML Linha 8"
+    ]
+  },
+  {
+    "nome": "HML Tipo Comercial",
+    "status": "CRIADO",
+    "id": 11015558,
+    "idsOpcoes": [
+      366401517,
+      366401518,
+      366401519,
+      366401520,
+      366401521
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "HML Tipo Camisa",
+      "HML Tipo Calca",
+      "HML Tipo Vestido",
+      "HML Tipo Calcado",
+      "HML Tipo Acessorio"
+    ]
+  },
+  {
+    "nome": "HML Disponibilidade",
+    "status": "CRIADO",
+    "id": 11015559,
+    "idsOpcoes": [
+      366401522,
+      366401523
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "Pronta Entrega",
+      "Nao Pronta Entrega"
+    ]
+  },
+  {
+    "nome": "HML Prazo Entrega Dias",
+    "status": "CRIADO",
+    "id": 11015560,
+    "idsOpcoes": [],
+    "modulo": 98309,
+    "tipo": 1,
+    "opcoes_nomes": null
+  },
+  {
+    "nome": "HML Origem Comercial",
+    "status": "CRIADO",
+    "id": 11015561,
+    "idsOpcoes": [
+      366401524,
+      366401525
+    ],
+    "modulo": 98309,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "Nacional",
+      "Importado"
+    ]
+  },
+  {
+    "nome": "HML Preco Tabela A",
+    "status": "CRIADO",
+    "id": 11015562,
+    "idsOpcoes": [],
+    "modulo": 98309,
+    "tipo": 2,
+    "opcoes_nomes": null
+  },
+  {
+    "nome": "HML Preco Tabela B",
+    "status": "CRIADO",
+    "id": 11015563,
+    "idsOpcoes": [],
+    "modulo": 98309,
+    "tipo": 2,
+    "opcoes_nomes": null
+  },
+  {
+    "nome": "HML Preco Tabela C",
+    "status": "CRIADO",
+    "id": 11015564,
+    "idsOpcoes": [],
+    "modulo": 98309,
+    "tipo": 2,
+    "opcoes_nomes": null
+  },
+  {
+    "nome": "HML Papel Comercial Vendedor",
+    "status": "CRIADO",
+    "id": 11015565,
+    "idsOpcoes": [
+      366401526,
+      366401527
+    ],
+    "modulo": 98308,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "Representante",
+      "Preposto"
+    ]
+  },
+  {
+    "nome": "HML Regiao Cliente",
+    "status": "CRIADO",
+    "id": 11015566,
+    "idsOpcoes": [
+      366401528,
+      366401529,
+      366401530
+    ],
+    "modulo": 98308,
+    "tipo": 3,
+    "opcoes_nomes": [
+      "HML Regiao Sudeste",
+      "HML Regiao Nordeste",
+      "HML Regiao Sul"
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+{
+  "schema": "harness.manifesto-etapa.v1",
+  "identidade": {
+    "tipo_alvo": "ERP",
+    "alvo": "Bling",
+    "slug": "bling",
+    "jornada": "INTEGRAR_ERP_PARCEIRO",
+    "etapa": "01-APRESENTAR-ERP",
+    "execucao": "parceiros/execucoes/erps/bling"
+  },
+  "resultado": {
+    "status": "CONCLUIDA",
+    "tipo_auditoria": "NORMAL",
+    "auditoria_vigente": {
+      "caminho": "parceiros/execucoes/erps/bling/auditorias/AUDITORIA-ETAPA-01.md",
+      "sha256": "A9C658917EF43EBE43BD795680EE957202B747DA2A44FBFC0E7AAC9A2B438D31",
+      "hash_mode": "TEXT_CANONICAL_V1",
+      "resultado": "APROVADA"
+    },
+    "resultado_tecnico": null,
+    "prontidao": null
+  },
+  "fontes": [],
+  "entradas": [
+    {
+      "caminho": "parceiros/comandos/ERP-PARCEIRO-01-APRESENTAR-ERP.md",
+      "sha256": "70AA095BDD29F4FB26527DC96BBC367C248FFDAAA3CFECC7245B95D236CFBD15",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "saidas": [
+    {
+      "caminho": "parceiros/execucoes/erps/bling/DADOS-DA-EXECUCAO.md",
+      "sha256": "65828594EBD42421F1283B72BD5916C3DB8BBDEAD734D619C0C2FDAE9CE8DA7D",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    },
+    {
+      "caminho": "parceiros/execucoes/erps/bling/auditorias/AUDITORIA-ETAPA-01.md",
+      "sha256": "A9C658917EF43EBE43BD795680EE957202B747DA2A44FBFC0E7AAC9A2B438D31",
+      "hash_mode": "TEXT_CANONICAL_V1"
+    }
+  ],
+  "dependencias": [
+    {
+      "etapa_upstream": "03-VALIDAR-FERRAMENTA-CADASTRADA",
+      "manifesto_upstream": "parceiros/execucoes/ferramentas/forca-de-vendas/manifestos/PASSO-03.yaml",
+      "hashes_esperados": [
+        {
+          "caminho": "ferramentas/forca-de-vendas/HOMOLOGACAO-PARA-INTEGRACOES.md",
+          "sha256": "62505ADC813E7334A6464DD88CA2FB13AFC9288FCC2ECF7A3CECEB000B94DE77",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        },
+        {
+          "caminho": "parceiros/execucoes/ferramentas/forca-de-vendas/auditorias/AUDITORIA-ETAPA-03-REVALIDACAO-RECONCILIACAO-DOCUMENTAL-20260813.md",
+          "sha256": "CA398F96D3F2E37AD1E94A9BD79F0F0B78192ACDBD8CF25BEF019114C741D68F",
+          "hash_mode": "TEXT_CANONICAL_V1"
+        }
+      ]
+    }
+  ],
+  "gate_reutilizacao": {
+    "requisitos": [
+      {
+        "campo": "resultado.status",
+        "valor_esperado": "CONCLUIDA"
+      },
+      {
+        "campo": "resultado.auditoria_vigente.resultado",
+        "valor_esperado": "APROVADA"
+      },
+      {
+        "campo": "resultado.tipo_auditoria",
+        "valor_esperado": "NORMAL"
+      }
+    ]
+  },
+  "validacoes_mecanicas": {
+    "arquivos_obrigatorios": [
+      "parceiros/execucoes/erps/bling/DADOS-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/ESTADO-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/auditorias/AUDITORIA-ETAPA-01.md"
+    ],
+    "utf8": [
+      "parceiros/execucoes/erps/bling/DADOS-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/ESTADO-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/auditorias/AUDITORIA-ETAPA-01.md"
+    ],
+    "markdown": [
+      "parceiros/execucoes/erps/bling/DADOS-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/ESTADO-DA-EXECUCAO.md",
+      "parceiros/execucoes/erps/bling/auditorias/AUDITORIA-ETAPA-01.md"
+    ],
+    "contagens": [],
+    "ids": []
+  },
+  "vigencia": {
+    "estado": "VALIDO",
+    "motivo": null
+  }
+}
